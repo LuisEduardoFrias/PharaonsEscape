@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cggajk3tpxwc2"]
+
+[ext_resource type="PackedScene" uid="uid://bdmjillkn4yex" path="res://Scenes/Player/player.tscn" id="1_btr7u"]
+[ext_resource type="Script" uid="uid://cu3pfacfw2swf" path="res://Scenes/Levels/Bases/world.gd" id="1_x0d8c"]
+[ext_resource type="PackedScene" uid="uid://cp4a4jbvmwbpu" path="res://Scenes/Levels/Bases/section_base.tscn" id="2_bytla"]
+[ext_resource type="PackedScene" uid="uid://dmk7m8brrpvt5" path="res://addons/joy_stick/touch_controls.tscn" id="3_ckv4v"]
+
+[node name="world" type="Node2D" unique_id=820486288]
+script = ExtResource("1_x0d8c")
+
+[node name="AudioManager" type="Node" parent="." unique_id=1054646654]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1500641136]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer2" unique_id=883179816]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+stretch = true
+stretch_shrink = 2
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer2/SubViewportContainer" unique_id=185919814]
+handle_input_locally = false
+size = Vector2i(640, 360)
+render_target_update_mode = 4
+
+[node name="LevelContainer" type="Node2D" parent="CanvasLayer2/SubViewportContainer/SubViewport" unique_id=1191621834]
+
+[node name="section_base" parent="CanvasLayer2/SubViewportContainer/SubViewport/LevelContainer" unique_id=2045360606 instance=ExtResource("2_bytla")]
+
+[node name="Player" parent="CanvasLayer2/SubViewportContainer/SubViewport" unique_id=667587367 instance=ExtResource("1_btr7u")]
+position = Vector2(1044.5, 71.5)
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer2/SubViewportContainer/SubViewport/Player" unique_id=26238556]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=63627151]
+
+[node name="HUD" type="Control" parent="CanvasLayer" unique_id=1325297689]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "HUD"
+
+[node name="toush_controls" parent="CanvasLayer/HUD" unique_id=1883490261 instance=ExtResource("3_ckv4v")]
+layout_mode = 1
+script = null
+
+[node name="Pause" type="Control" parent="CanvasLayer" unique_id=89536340]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "Pause"
+
+[node name="Inventory" type="Control" parent="CanvasLayer" unique_id=619499521]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "Inventory"
