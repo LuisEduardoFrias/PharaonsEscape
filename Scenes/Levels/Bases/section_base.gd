@@ -3,6 +3,11 @@ class_name SectionBase
 
 @export var melody: AudioStream
 
+@onready var lower_level := $lower_level
+@onready var background := $background
+@onready var middleground := $midground
+@onready var foreground:= $foreground
+
 
 ## Nodo contenedor para clasificar los enemigos específicos de esta sección.
 @onready var enemies_container: Node2D = $Enemies

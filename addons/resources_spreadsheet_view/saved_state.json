@@ -1,5 +1,27 @@
 {
   "column_properties": {
+    "res://Resources/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0
+      },
+      "resource_name": {
+        "visibility": 0
+      }
+    },
+    "res://Resources/Data_save/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0
+      },
+      "resource_name": {
+        "visibility": 0
+      }
+    },
     "res://Translates/": {
       "metadata/_custom_type_script": {
         "visibility": 0.0
@@ -24,7 +46,8 @@
     }
   },
   "recent_paths": [
-    "res://save_pharaons_escape/"
+    "res://save_pharaons_escape/",
+    "res://Resources/"
   ],
   "table_functions": {
     "filter": [

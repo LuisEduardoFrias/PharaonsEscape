@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c1brvrud8bs5b"]
+
+[ext_resource type="Script" uid="uid://n7a4qndmxsmh" path="res://scenes/custom_nodes/camera_limit.gd" id="1_aq5jb"]
+
+[node name="camera_limit" type="Area2D" unique_id=1039128866]
+collision_layer = 0
+collision_mask = 4
+monitoring = false
+monitorable = false
+script = ExtResource("1_aq5jb")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://56xe772w4j2b"]
+
+[ext_resource type="Script" uid="uid://dj7qdj6tixt2x" path="res://scenes/custom_nodes/opacity_facade.gd" id="1_q7ie5"]
+
+[node name="opacity_facade" type="Area2D" unique_id=1224199249]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("1_q7ie5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

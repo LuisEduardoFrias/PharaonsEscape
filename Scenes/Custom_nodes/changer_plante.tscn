@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://deqts5yrivybg"]
+
+[ext_resource type="Script" uid="uid://bx801n3trbw6p" path="res://Scenes/Custom_nodes/changer_plante.gd" id="1_dn2t1"]
+
+[node name="changer_plante" type="Area2D" unique_id=684356976]
+script = ExtResource("1_dn2t1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

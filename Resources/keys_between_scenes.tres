@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ChangeSceneData" format=3 uid="uid://d0brrjv0sj6bk"]
+
+[ext_resource type="Script" uid="uid://c8qdqhr4hpb62" path="res://Resources/change_scene_data.gd" id="1_t8m2o"]
+
+[resource]
+script = ExtResource("1_t8m2o")
+lista_claves = {
+&"l3s1_l3s2": "nivel 3 secciones 1 y 2",
+&"l3s1_l3s2_d2": "nivel 3 secciones 1 y 2 puerta 2"
+}
