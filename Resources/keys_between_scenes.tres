@@ -6,5 +6,18 @@
 script = ExtResource("1_t8m2o")
 lista_claves = {
 &"l3s1_l3s2": "nivel 3 secciones 1 y 2",
-&"l3s1_l3s2_d2": "nivel 3 secciones 1 y 2 puerta 2"
+&"l3s1_l3s2_d2": "nivel 3 secciones 1 y 2 puerta 2",
+&"l3s2_l3s3": "nivel 3 secciones 2 y 3",
+&"l3s2_l3s4": "nivel 3 secciones 2 y 4",
+&"l3s2_l3s5": "nivel 3 secciones 2 y 5",
+&"l3s2_l3s6": "nivel 3 secciones 2  y 6",
+&"l3s2_l3s7": "nivel 3 secciones 2 y 7",
+&"l3s2_l3s7_d2": "nivel 3 secciones 2 y 7 puertas 2",
+&"l3s2_l3s7_d3": "nivel 3 secciones 2 y 7 puertas 3",
+&"l3s2_l3s7_d4": "nivel 3 secciones 2 y 7 puertas 4",
+&"l3s2_l3s8": "nivel 3 secciones 2 y 8",
+&"l3s4_l3s6": "nivel 3 secciones 4 y 6",
+&"l3s4_l3s6_d2": "nivel 3 secciones 4 y 6 puerta 2",
+"l3s5_l3s6": "nivel 3 secciones 5 y 6",
+&"none": "ninguna puerta"
 }

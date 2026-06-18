@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://c60jt0q2nd5b1"]
 
 [ext_resource type="Script" uid="uid://cboq5ct1cf7w5" path="res://Scenes/Custom_nodes/door.gd" id="1_script"]
+[ext_resource type="Resource" uid="uid://d0brrjv0sj6bk" path="res://Resources/keys_between_scenes.tres" id="2_ogkl5"]
 
 [node name="door" type="Area2D" unique_id=1407476871]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 2
 monitorable = false
 script = ExtResource("1_script")
+base_datos_claves = ExtResource("2_ogkl5")
 name_id = "scene-triguer"

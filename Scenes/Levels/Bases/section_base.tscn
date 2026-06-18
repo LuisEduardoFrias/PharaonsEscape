@@ -1,21 +1,58 @@
 [gd_scene format=4 uid="uid://cp4a4jbvmwbpu"]
 
 [ext_resource type="Script" uid="uid://chkddiu06x66i" path="res://Scenes/Levels/Bases/section_base.gd" id="1_bapqf"]
+[ext_resource type="Script" uid="uid://cfk07stq100y7" path="res://Scenes/Custom_nodes/change_scene_screen.gd" id="2_b48bf"]
 [ext_resource type="Texture2D" uid="uid://duuvlr3pxexo7" path="res://Textures/Others/mapa_game.png" id="2_luwlq"]
+[ext_resource type="Shader" uid="uid://bsjyupln4s0nx" path="res://Shaders/fade_in_out.gdshader" id="2_q2xws"]
 [ext_resource type="TileSet" uid="uid://cjacau0u51usp" path="res://Resources/tileset_word.tres" id="2_xa4ot"]
+[ext_resource type="PackedScene" uid="uid://bdmjillkn4yex" path="res://Scenes/Player/player.tscn" id="4_nkl22"]
+[ext_resource type="Script" uid="uid://ctmw3qq476emi" path="res://Scenes/custom_camera.gd" id="5_b48bf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l2xlv"]
+shader = ExtResource("2_q2xws")
+shader_parameter/player_uv = Vector2(0, 0)
+shader_parameter/fade_progress = 1.0
+shader_parameter/noise_scale = 0.70000003255148
+shader_parameter/noise_strength = 300.0
+shader_parameter/smoothness = 8.0
 
 [node name="section_base" type="Node2D" unique_id=2045360606]
 y_sort_enabled = true
 script = ExtResource("1_bapqf")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=158355276]
+
+[node name="change_scene_screen" type="ColorRect" parent="CanvasLayer" unique_id=381274439 node_paths=PackedStringArray("player")]
+material = SubResource("ShaderMaterial_l2xlv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+accessibility_name = "change_scene_screen"
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_b48bf")
+player = NodePath("../../Player")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1108214542]
 position = Vector2(960, -660)
-scale = Vector2(60, 60)
+scale = Vector2(50, 50)
 texture = ExtResource("2_luwlq")
 metadata/_edit_lock_ = true
 
+[node name="Player" parent="." unique_id=667587367 instance=ExtResource("4_nkl22")]
+z_index = 1
+scale = Vector2(1.2, 1.2)
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1293730300]
+limit_smoothed = true
+script = ExtResource("5_b48bf")
+metadata/_edit_lock_ = true
+
 [node name="lower_level" type="TileMapLayer" parent="." unique_id=589084019]
-texture_filter = 1
 tile_set = ExtResource("2_xa4ot")
 metadata/_edit_lock_ = true
 
@@ -25,13 +62,14 @@ tile_set = ExtResource("2_xa4ot")
 metadata/_edit_lock_ = true
 
 [node name="midground" type="TileMapLayer" parent="." unique_id=2084291383]
+z_index = 1
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AABKADUAAQAIAAAAAABHAC4AAAAAAAYAAABKAC4AAAAAAAYAAABHADAAAAAAAAYAAABKADAAAAAAAAYAAAA=")
 tile_set = ExtResource("2_xa4ot")
 metadata/_edit_lock_ = true
 
 [node name="foreground" type="TileMapLayer" parent="." unique_id=710057140]
-z_index = 1
+z_index = 2
 tile_map_data = PackedByteArray("AABGACEAAQAIAAAAAGBGACAAAQAAAAAAAABKADQAAQAIAAAAADBJADwAAQANAA4AAABJADkAAQANAA4AAABJADYAAQANAA4AAABKADYAAQAOAA4AAABKADkAAQAOAA4AAABLADYAAQAPAA4AAABLADkAAQAPAA4AAABKADwAAQAOAA4AAABLADwAAQAPAA4AAABVADYAAQANAA4AAFBVADcAAQAOAA4AAFBVADgAAQAPAA4AAFBYADcAAQAOAA4AAFBYADYAAQANAA4AAFBYADgAAQAPAA4AAFBNADwAAQANAA4AAABOADwAAQAOAA4AAABPADwAAQAPAA4AAABYADoAAQANAA4AAFBgADoAAQANAA4AAFBYADsAAQAOAA4AAFBYADwAAQAOAA4AAFBYAD0AAQAOAA4AAFBYAD4AAQAOAA4AAFBYAD8AAQAOAA4AAFBgADsAAQAOAA4AAFBgADwAAQAOAA4AAFBgAD0AAQAOAA4AAFBgAD4AAQAOAA4AAFBgAD8AAQAOAA4AAFBYAEAAAQAPAA4AAFBgAEAAAQAPAA4AAFBoAEAAAQAIAAAAADA=")
 tile_set = ExtResource("2_xa4ot")
 metadata/_edit_lock_ = true

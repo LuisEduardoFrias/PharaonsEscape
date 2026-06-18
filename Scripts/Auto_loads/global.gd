@@ -13,6 +13,7 @@ var player: PlayerData #para persistir la data del Player aparte.
 
 var current_slot: Slot
 var data: Data
+var is_initial: bool = true
 
 
 func _ready() -> void:

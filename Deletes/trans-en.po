@@ -1,0 +1,92 @@
+# English translation for pharaons_escape for the following files:
+# res://menu.tscn
+# res://opciones.tscn
+# res://extras.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pharaons_escape\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+"Language: en\n"
+
+#: menu.tscn
+msgid "Main Menu"
+msgstr "Main Menu"
+
+#: menu.tscn
+msgid "Start"
+msgstr "Start"
+
+#: menu.tscn
+#: opciones.tscn
+msgid "Options"
+msgstr "Options"
+
+#: menu.tscn
+#: extras.tscn
+msgid "Extras"
+msgstr "Extras"
+
+#: menu.tscn
+msgid "Exit"
+msgstr "Exit"
+
+#: opciones.tscn
+msgid "Spanish"
+msgstr "Spanish"
+
+#: opciones.tscn
+msgid "English"
+msgstr "English"
+
+#: opciones.tscn
+msgid "activate virtual controls"
+msgstr "Activate virtual controls"
+
+#: opciones.tscn
+#: extras.tscn
+msgid "Back"
+msgstr "Back"
+
+#: extras.tscn
+msgid "Other games"
+msgstr "Other games"
+
+#: extras.tscn
+msgid "Game one - Castlevania"
+msgstr "Game one - Castlevania"
+
+#: extras.tscn
+msgid "Game two - Zelda"
+msgstr "Game two - Zelda"
+
+#: extras.tscn
+msgid "game three - Metroid"
+msgstr "Game three - Metroid"
+
+#: extras.tscn
+msgid "game four - Hollow Knight"
+msgstr "Game four - Hollow Knight"
+
+#: extras.tscn
+msgid "Text to change"
+msgstr "Text to change"
+
+msgid "legendary"
+msgstr "Legendary"
+
+msgid "new"
+msgstr "New"
+
+#: extras.tscn
+msgid "Switch to \"Legendary Text\""
+msgstr "Switch to \"Legendary Text\""
+
+#: extras.tscn
+msgid "Switch to \"Another new one\""
+msgstr "Switch to \"Another new one\""

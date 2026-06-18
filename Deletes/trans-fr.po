@@ -1,0 +1,92 @@
+# French translation for pharaons_escape for the following files:
+# res://menu.tscn
+# res://opciones.tscn
+# res://extras.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: pharaons_escape\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+"Language: fr\n"
+
+#: menu.tscn
+msgid "Main Menu"
+msgstr "Menu principal"
+
+#: menu.tscn
+msgid "Start"
+msgstr "Commencer"
+
+#: menu.tscn
+#: opciones.tscn
+msgid "Options"
+msgstr "Options"
+
+#: menu.tscn
+#: extras.tscn
+msgid "Extras"
+msgstr "Extras"
+
+#: menu.tscn
+msgid "Exit"
+msgstr "Quitter"
+
+#: opciones.tscn
+msgid "Spanish"
+msgstr "Espagnol"
+
+#: opciones.tscn
+msgid "English"
+msgstr "Anglais"
+
+#: opciones.tscn
+msgid "activate virtual controls"
+msgstr "Activer les contrôles virtuels"
+
+#: opciones.tscn
+#: extras.tscn
+msgid "Back"
+msgstr "Retour"
+
+#: extras.tscn
+msgid "Other games"
+msgstr "Autres jeux"
+
+#: extras.tscn
+msgid "Game one - Castlevania"
+msgstr "Jeu un - Castlevania"
+
+#: extras.tscn
+msgid "Game two - Zelda"
+msgstr "Jeu deux - Zelda"
+
+#: extras.tscn
+msgid "game three - Metroid"
+msgstr "Jeu trois - Metroid"
+
+#: extras.tscn
+msgid "game four - Hollow Knight"
+msgstr "Jeu quatre - Hollow Knight"
+
+#: extras.tscn
+msgid "Text to change"
+msgstr "Texte à modifier"
+
+msgid "legendary"
+msgstr "Légendaire"
+
+msgid "new"
+msgstr "Nouveau"
+
+#: extras.tscn
+msgid "Switch to \"Legendary Text\""
+msgstr "Passer au \"Texte Légendaire\""
+
+#: extras.tscn
+msgid "Switch to \"Another new one\""
+msgstr "Passer à \"Un autre nouveau\""

@@ -1,57 +1,82 @@
-extends CharacterBody2D
-class_name Player
-# Constantes de movimiento normal
-const MAX_SPEED = 250.0
-const ACCELERATION = 1500.0
-const FRICTION = 1800.0
+class_name Player extends Entity
 
-# Constantes para el Dash
-const DASH_SPEED = 700.0
-const DASH_DURATION = 0.15 # Cuánto dura el dash en segundos
-const DASH_COOLDOWN = 0.6  # Tiempo de espera para volver a usarlo
+enum States { WALK, IDLE }
 
-# Variables de estado del Dash
-var dash_timer = 0.0
-var cooldown_timer = 0.0
-var is_dashing = false
-var dash_direction = Vector2.ZERO
+@onready var shadow: Sprite2D = $shadow
 
-func _physics_process(delta: float) -> void:
-	# Manejar timers del Dash
-	if is_dashing:
-		dash_timer -= delta
-		if dash_timer <= 0:
-			is_dashing = false
+signal is_static_state(value: bool)
 
-	if cooldown_timer > 0:
-		cooldown_timer -= delta
+var current_state: States = States.IDLE
 
-	# Obtener la dirección de movimiento (Ejes X e Y)
+const TARGET_DIR_RAY: Vector2 = Vector2(13.0, 8.0)
+
+
+func _ready() -> void:
+	super()
+
+
+func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 
-	# LÓGICA DE MOVIMIENTO
-	if is_dashing:
-		# Si está en Dash, mantiene la velocidad máxima de dash en esa dirección
-		velocity = dash_direction * DASH_SPEED
+	if direction.length() < 0.5:
+		direction = Vector2.ZERO
+
+	current_direction = direction
+	ray.target_position = (direction * TARGET_DIR_RAY)
+
+	if direction != Vector2.ZERO:
+		old_direction = direction.normalized()
+		velocity = old_direction * speed
 	else:
-		# Movimiento normal Top-Down con aceleración y fricción
-		if direction != Vector2.ZERO:
-			velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
-		else:
-			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+		velocity = Vector2.ZERO
 
-		# ACTIVAR EL DASH (Usando la misma tecla "ui_accept" / Espacio)
-		if Input.is_action_just_pressed("ui_accept") and cooldown_timer <= 0:
-			# Si el jugador se está moviendo, dashea hacia allá. Si no, hacia donde mire o por defecto.
-			if direction != Vector2.ZERO:
-				dash_direction = direction.normalized()
-			else:
-				# Por defecto si está quieto (ej: derecha, o puedes usar la dirección de tu sprite)
-				dash_direction = Vector2.RIGHT
+	if old_direction.x > 0: sprite_node.flip_h = true
+	else: sprite_node.flip_h = false
 
-			is_dashing = true
-			dash_timer = DASH_DURATION
-			cooldown_timer = DASH_COOLDOWN
-
-	# Aplicar el movimiento final
 	move_and_slide()
+
+
+#Detiene todo
+func input_physics_off(val):
+	set_physics_process(!val)
+	set_process_input(!val)
+	is_static_state.emit(val)
+
+	if val:
+		velocity = Vector2.ZERO
+		move_and_slide()
+
+
+# Método para cinematica de movimientos en Top-Down
+func _move_to(dir: Vector2, move_time: float) -> void:
+	input_physics_off(true)
+	current_direction = dir
+	old_direction = dir
+
+	if not is_node_ready():
+		await ready
+
+
+	# Bucle de emulación de movimiento por tiempo fijo a velocidad constante
+	var time: float = 0.0
+
+	while time < move_time:
+		var delta: float = get_physics_process_delta_time()
+
+		if dir.x > 0: sprite_node.flip_h = true
+		else: sprite_node.flip_h = false
+
+		velocity = current_direction * speed
+		move_and_slide()
+
+		if playback.get_current_node() != "walk":
+			playback.travel("walk")
+			state_machine.on_child_transition("walk")
+
+		time += delta
+		await get_tree().physics_frame
+
+	velocity = Vector2.ZERO
+	move_and_slide()
+
+	current_direction = Vector2.ZERO

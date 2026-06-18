@@ -26,15 +26,20 @@ const vectors = {
 }
 
 var name_id: String = "scene-triguer"
-var enabled: bool = true
+var enabled: bool = false
+
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		body_entered.connect(_on_body_entered)
 		body_exited.connect(_on_body_exited)
-		if SceneLoader.spawn_point_id == name_id:
-			spawn_player()
 
+		if not owner.is_node_ready(): await owner.ready
+		if SceneLoader.spawn_point_id == name_id: spawn_player()
+		else: enabled = true
+
+
+#region propiedad customizada
 
 func _get(property: StringName) -> Variant:
 	if property == &"name_id":
@@ -72,29 +77,47 @@ func _obtener_claves_del_recurso() -> String:
 	var claves = base_datos_claves.lista_claves.keys()
 	return ",".join(claves)
 
+#endregion
+
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player and next_scene != "" and enabled:
-		(owner as SectionBase)._on_opacity_css(1.0, 0.3)
+		enabled = false
 
-		body._move_to(body.old_direction, 0.3, vectors[direction], func () -> void:
-			SceneLoader.level_change(name_id, body.old_direction)
-			#SceneTransition.transition_to(next_scene)
-			SceneLoader.load_scene_async(next_scene)
-		)
+		SceneLoader.level_change(name_id, vectors[direction])
+
+		owner.change_scene_screen.transition_out()
+
+		await get_tree().physics_frame
+		await get_tree().physics_frame
+
+		await body._move_to(vectors[direction], 0.5)
+
+		SceneLoader.change_scene(next_scene)
 
 
 func spawn_player() -> void:
-	enabled = false
-	owner._on_opacity_css(1.0, 0.0)
+	var player: Player = owner.player
+	player.global_position = global_position
 
-	if not owner.is_node_ready():
-		await owner.ready
+	var camera := get_viewport().get_camera_2d() as CustomCamera
+	if camera:
+		camera.reset_camera_to_target()
 
-	owner.player.global_position = global_position
-	owner._on_opacity_css(0.0, 2.0)
-	owner.player._move_to(SceneLoader.player_direction, 0.8, vectors[direction])
+	var saved_direction: Vector2 = SceneLoader.player_direction
 	SceneLoader.level_change()
+
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+
+	owner.change_scene_screen.transition_in()
+
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+
+	await player._move_to(saved_direction, 0.5)
+	player.input_physics_off(false)
+
 	owner.is_spawner_ready = true
 
 
