@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://ds3rgjtnxahxe"]
+
+[ext_resource type="Shader" uid="uid://p3f8qjrunadd" path="res://Shaders/shadow.gdshader" id="1_wi6ui"]
+[ext_resource type="Script" uid="uid://b1nn3rdwexkpr" path="res://Scenes/Custom_nodes/shadow_door.gd" id="2_i4krv"]
+
+[sub_resource type="Gradient" id="Gradient_wi6ui"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i4krv"]
+gradient = SubResource("Gradient_wi6ui")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.82456815, 0.13981867)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wi6ui"]
+frequency = 0.02
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_i4krv"]
+noise = SubResource("FastNoiseLite_wi6ui")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i4krv"]
+shader = ExtResource("1_wi6ui")
+shader_parameter/base_color = Color(0, 0, 0, 0.6)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_i4krv")
+shader_parameter/speed = Vector2(0, 0.05)
+shader_parameter/mask_texture = SubResource("GradientTexture2D_i4krv")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i4krv"]
+
+[sub_resource type="Gradient" id="Gradient_gllq0"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pxlhg"]
+gradient = SubResource("Gradient_gllq0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wi6ui"]
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(32, 32, 32)
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 1.0
+tangential_accel_max = 2.0
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_pxlhg")
+
+[node name="shadow_door" type="ColorRect" unique_id=365671981]
+z_index = 1
+z_as_relative = false
+material = SubResource("ShaderMaterial_i4krv")
+offset_right = 64.0
+offset_bottom = 64.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_i4krv")
+cantidad_particulas = 15
+ancho_puerta = Vector2(64, 64)
+velocidad_particulas = 10.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1686699707]
+position = Vector2(32, 32)
+amount = 15
+texture = SubResource("PlaceholderTexture2D_i4krv")
+process_material = SubResource("ParticleProcessMaterial_wi6ui")

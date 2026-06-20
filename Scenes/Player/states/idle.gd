@@ -33,3 +33,10 @@ func started_animation(state: StringName) -> void:
 func physics_update(_delta: float) -> void:
 	if actor.current_direction != Vector2.ZERO and not actor.ray.is_colliding():
 		transitioned.emit("walk", {})
+
+
+func input(_event: InputEvent) -> void:
+	if _event.is_action_pressed(&"ui_action_1") and actor.interactive_obj:
+		transitioned.emit("interactive", {})
+	elif not actor.is_jumping and _event.is_action_pressed(&"ui_action_1") and not actor.interactive_obj:
+		transitioned.emit("jump", {})

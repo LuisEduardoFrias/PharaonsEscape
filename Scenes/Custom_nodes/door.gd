@@ -116,7 +116,7 @@ func spawn_player() -> void:
 	await get_tree().physics_frame
 
 	await player._move_to(saved_direction, 0.5)
-	player.input_physics_off(false)
+	player._input_physics_off(false)
 
 	owner.is_spawner_ready = true
 

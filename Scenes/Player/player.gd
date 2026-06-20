@@ -1,12 +1,18 @@
 class_name Player extends Entity
 
-enum States { WALK, IDLE }
+enum States { IDLE, WALK, JUMP }
 
 @onready var shadow: Sprite2D = $shadow
+@onready var shadow2: LightOccluder2D = $LightOccluder2D
+@onready var eye_horus: EyeHorus = $eye_of_horus
 
 signal is_static_state(value: bool)
 
 var current_state: States = States.IDLE
+var interactive_obj: Variant = null
+var is_jumping: bool = false # Para validar si está en faltando
+var is_eye_horus_enable: bool = false # Verifica si está activada la habilidad del ojo de horus
+var is_control_off: bool = false
 
 const TARGET_DIR_RAY: Vector2 = Vector2(13.0, 8.0)
 
@@ -36,10 +42,16 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(&"ui_action_2") :
+		eye_horus._enable_eje_horus()
+
+
 #Detiene todo
-func input_physics_off(val):
+func _input_physics_off(val):
 	set_physics_process(!val)
 	set_process_input(!val)
+	is_control_off = val
 	is_static_state.emit(val)
 
 	if val:
@@ -49,7 +61,7 @@ func input_physics_off(val):
 
 # Método para cinematica de movimientos en Top-Down
 func _move_to(dir: Vector2, move_time: float) -> void:
-	input_physics_off(true)
+	_input_physics_off(true)
 	current_direction = dir
 	old_direction = dir
 

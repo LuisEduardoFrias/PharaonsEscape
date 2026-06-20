@@ -113,6 +113,7 @@ texture_normal = SubResource("AtlasTexture_q6vtx")
 texture_pressed = SubResource("AtlasTexture_vkl2g")
 normal_rect = Rect2i(160, 0, 40, 40)
 pressed_rect = Rect2i(280, 0, 40, 40)
+action = &"ui_action_1"
 metadata/_edit_lock_ = true
 
 [node name="ToushButton2" parent="hbox_container/right" unique_id=1459485761 instance=ExtResource("3_tg4w6")]
@@ -132,7 +133,7 @@ texture_normal = SubResource("AtlasTexture_21kh3")
 texture_pressed = SubResource("AtlasTexture_f0kct")
 normal_rect = Rect2i(160, 40, 40, 40)
 pressed_rect = Rect2i(200, 40, 40, 40)
-action = &"ui_accept"
+action = &"ui_action_2"
 metadata/_edit_lock_ = true
 
 [node name="ToushButton3" parent="hbox_container/right" unique_id=1197541381 instance=ExtResource("3_tg4w6")]
@@ -152,6 +153,7 @@ texture_normal = SubResource("AtlasTexture_riuus")
 texture_pressed = SubResource("AtlasTexture_ib3o8")
 normal_rect = Rect2i(160, 80, 40, 40)
 pressed_rect = Rect2i(200, 80, 40, 40)
+action = &"ui_action_3"
 metadata/_edit_lock_ = true
 
 [node name="ToushButton4" parent="hbox_container/right" unique_id=1764462579 instance=ExtResource("3_tg4w6")]
@@ -171,6 +173,7 @@ texture_normal = SubResource("AtlasTexture_6dvc3")
 texture_pressed = SubResource("AtlasTexture_4t5h4")
 normal_rect = Rect2i(160, 120, 40, 40)
 pressed_rect = Rect2i(200, 120, 40, 40)
+action = &"ui_action_4"
 metadata/_edit_lock_ = true
 
 [node name="ToushButton5" parent="hbox_container/right" unique_id=916981111 instance=ExtResource("3_tg4w6")]
@@ -190,4 +193,5 @@ texture_normal = SubResource("AtlasTexture_s12b1")
 texture_pressed = SubResource("AtlasTexture_j3wos")
 normal_rect = Rect2i(160, 320, 40, 40)
 pressed_rect = Rect2i(200, 320, 40, 40)
+action = &"ui_pause"
 metadata/_edit_lock_ = true

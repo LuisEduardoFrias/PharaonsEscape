@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://do6x4i73rc1nw"]
+
+[ext_resource type="Script" uid="uid://bxscbiptqlwgy" path="res://Scenes/Custom_nodes/torch.gd" id="1_440cd"]
+[ext_resource type="Texture2D" uid="uid://ddj3gno6r750g" path="res://Textures/Sprites/coleccion_tiles.png" id="2_j1c6n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2o84"]
+atlas = ExtResource("2_j1c6n")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="Gradient" id="Gradient_06tpx"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4jvab"]
+gradient = SubResource("Gradient_06tpx")
+width = 128
+height = 128
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9026454, 0.12433403)
+
+[node name="torch" type="Node2D" unique_id=422418840]
+script = ExtResource("1_440cd")
+metadata/_edit_vertical_guides_ = [-264.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=283361143]
+texture = SubResource("AtlasTexture_f2o84")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1011710092]
+z_index = 1
+y_sort_enabled = true
+color = Color(1, 1, 0, 1)
+energy = 16.0
+blend_mode = 1
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter_smooth = 22.0
+texture = SubResource("GradientTexture2D_4jvab")
+texture_scale = 3.01
+height = 218.0
