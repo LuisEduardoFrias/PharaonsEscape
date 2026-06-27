@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://tsbnu2bhpdx5"]
+
+[ext_resource type="Texture2D" uid="uid://ddj3gno6r750g" path="res://Textures/Sprites/coleccion_tiles.png" id="1_a866o"]
+[ext_resource type="Script" uid="uid://cdvl2sth4tsj7" path="res://Scenes/Custom_nodes/Verificar /stairs.gd" id="1_h63bj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvm5c"]
+atlas = ExtResource("1_a866o")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnipg"]
+atlas = ExtResource("1_a866o")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4qmp"]
+atlas = ExtResource("1_a866o")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i87om"]
+atlas = ExtResource("1_a866o")
+region = Rect2(896, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb6g0"]
+atlas = ExtResource("1_a866o")
+region = Rect2(960, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s76xs"]
+atlas = ExtResource("1_a866o")
+region = Rect2(704, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1ovw"]
+atlas = ExtResource("1_a866o")
+region = Rect2(768, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygk4t"]
+atlas = ExtResource("1_a866o")
+region = Rect2(832, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su1fd"]
+atlas = ExtResource("1_a866o")
+region = Rect2(896, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sswh"]
+atlas = ExtResource("1_a866o")
+region = Rect2(960, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h63bj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvm5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnipg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4qmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i87om")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb6g0")
+}],
+"loop": false,
+"name": &"open_close_type_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s76xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1ovw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygk4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su1fd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sswh")
+}],
+"loop": false,
+"name": &"open_close_type_2",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s76xs"]
+size = Vector2(51, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1ovw"]
+size = Vector2(12, 58)
+
+[node name="stairs" type="Node2D" unique_id=329641575]
+script = ExtResource("1_h63bj")
+
+[node name="animated_sprite" type="AnimatedSprite2D" parent="." unique_id=1531825502]
+position = Vector2(32, 32)
+sprite_frames = SubResource("SpriteFrames_h63bj")
+animation = &"open_close_type_1"
+frame = 4
+frame_progress = 1.0
+metadata/_edit_lock_ = true
+
+[node name="animatable_body" type="AnimatableBody2D" parent="." unique_id=427721786]
+metadata/_edit_lock_ = true
+
+[node name="collision" type="CollisionShape2D" parent="animatable_body" unique_id=1036391339]
+position = Vector2(25.5, 28.5)
+shape = SubResource("RectangleShape2D_s76xs")
+debug_color = Color(0.9607843, 0, 0, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="animatable_body2" type="AnimatableBody2D" parent="." unique_id=1162146125]
+metadata/_edit_lock_ = true
+
+[node name="collision" type="CollisionShape2D" parent="animatable_body2" unique_id=625631279]
+position = Vector2(58, 29)
+shape = SubResource("RectangleShape2D_j1ovw")
+debug_color = Color(0.9607843, 0, 0, 0.41960785)
+metadata/_edit_lock_ = true

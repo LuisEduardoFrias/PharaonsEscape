@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bxscbiptqlwgy" path="res://Scenes/Custom_nodes/torch.gd" id="1_pbxve"]
 [ext_resource type="Texture2D" uid="uid://ddj3gno6r750g" path="res://Textures/Sprites/coleccion_tiles.png" id="2_4jvab"]
+[ext_resource type="Texture2D" uid="uid://c7lcluh6gi3da" path="res://Textures/Sprites/map_decorations.png" id="3_f2o84"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f2o84"]
 atlas = ExtResource("2_4jvab")
@@ -21,27 +22,84 @@ fill_to = Vector2(0.9026454, 0.12433403)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jvab"]
 size = Vector2(64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fedx"]
+atlas = ExtResource("3_f2o84")
+region = Rect2(64, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ujl5"]
+atlas = ExtResource("3_f2o84")
+region = Rect2(96, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o02v8"]
+atlas = ExtResource("3_f2o84")
+region = Rect2(128, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1b1gq"]
+atlas = ExtResource("3_f2o84")
+region = Rect2(160, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srxi2"]
+atlas = ExtResource("3_f2o84")
+region = Rect2(192, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsrmo"]
+atlas = ExtResource("3_f2o84")
+region = Rect2(224, 0, 32, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fddji"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fedx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ujl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o02v8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1b1gq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srxi2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsrmo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="torch" type="Node2D" unique_id=422418840]
 script = ExtResource("1_pbxve")
 metadata/_edit_vertical_guides_ = [-264.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=283361143]
-visible = false
 texture = SubResource("AtlasTexture_f2o84")
+metadata/_edit_lock_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1011710092]
 z_index = 2
 y_sort_enabled = true
-position = Vector2(1, 1)
-color = Color(1, 1, 0, 1)
-energy = 16.0
+position = Vector2(0, -4)
+color = Color(1, 1, 0.38039216, 0.42745098)
 shadow_enabled = true
 shadow_filter_smooth = 22.0
 texture = SubResource("GradientTexture2D_4jvab")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=215158740]
-visible = false
 collision_mask = 0
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=194079788]
 shape = SubResource("RectangleShape2D_4jvab")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2070590449]
+sprite_frames = SubResource("SpriteFrames_fddji")
+autoplay = "default"
+frame_progress = 0.6146606
+metadata/_edit_lock_ = true

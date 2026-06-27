@@ -1,7 +1,6 @@
 extends Area2D
 
 var camera: CustomCamera
-var active_tween: Tween
 var is_ready: bool = false
 
 @export_group("Filtros de Limites")
@@ -28,92 +27,56 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 	monitoring = true
 
-	if camera:
-		camera.enable_deadzone = usar_zona_muerta
-
 	await initial_camera()
 	is_ready = true
 
 
-## Inicializa los límites de la cámara de forma inmediata al cargar la escena si el jugador ya está dentro.
+## Inicializa de forma inmediata si el jugador ya está dentro al cargar la escena
 func initial_camera() -> void:
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 
+	if not camera: return
+
 	for body in get_overlapping_bodies():
 		if body is Player:
-			var collision: CollisionShape2D = get_child(0)
-			var size = collision.shape.size
-
-			var target_left = int(collision.global_position.x - (size.x / 2.0))
-			var target_top = int(collision.global_position.y - (size.y / 2.0))
-			var target_right = int(target_left + size.x)
-			var target_bottom = int(target_top + size.y)
-
-			if activate_left_limit: camera.limit_left = target_left
-			if activate_top_limit: camera.limit_top = target_top
-			if activate_right_limit: camera.limit_right = target_right
-			if activate_bottom_limit: camera.limit_bottom = target_bottom
-
-			camera.force_update_scroll()
+			camera.enable_deadzone = usar_zona_muerta
+			var limits = _calcular_limites()
+			camera.set_immediate_limits(limits, self)
 			break
 
 
-## Guarda el estado actual y suaviza la transición hacia los nuevos límites al entrar al área.
-func _on_body_entered(body: Node) -> void:
-	if body is Player and is_ready:
+## Calcula los límites basados en el primer CollisionShape2D (Diseño predefinido)
+func _calcular_limites() -> Dictionary:
+	var limits = {
+		"left": -10000000,
+		"top": -10000000,
+		"right": 10000000,
+		"bottom": 10000000
+	}
 
-		var collision: CollisionShape2D = get_child(0)
+	var collision = get_child(0) as CollisionShape2D
+	if collision and collision.shape:
 		var size = collision.shape.size
+		print(collision.global_position)
 
-		var target_left = int(collision.global_position.x - (size.x / 2.0))
-		var target_top = int(collision.global_position.y - (size.y / 2.0))
-		var target_right = int(target_left + size.x)
-		var target_bottom = int(target_top + size.y)
+		var limits_left = int(collision.global_position.x - (size.x / 2.0))
+		var limits_top = int(collision.global_position.y - (size.y / 2.0))
 
-		if active_tween:
-			active_tween.kill()
-		active_tween = create_tween().set_parallel(true)
+		if activate_left_limit: limits["left"] = limits_left
+		if activate_top_limit: limits["top"] = limits_top
+		if activate_right_limit: limits["right"] = int(limits_left + size.x)
+		if activate_bottom_limit: limits["bottom"] = int(limits_top + size.y)
 
-		var trans_type: Tween.TransitionType = _get_trans_type(tipo_curva_entrada)
-
-		if activate_left_limit:
-			active_tween.tween_property(camera, "limit_left", target_left, tiempo_entrada).set_trans(trans_type).set_ease(Tween.EASE_IN_OUT)
-		if activate_top_limit:
-			active_tween.tween_property(camera, "limit_top", target_top, tiempo_entrada).set_trans(trans_type).set_ease(Tween.EASE_IN_OUT)
-		if activate_right_limit:
-			active_tween.tween_property(camera, "limit_right", target_right, tiempo_entrada).set_trans(trans_type).set_ease(Tween.EASE_IN_OUT)
-		if activate_bottom_limit:
-			active_tween.tween_property(camera, "limit_bottom", target_bottom, tiempo_entrada).set_trans(trans_type).set_ease(Tween.EASE_IN_OUT)
+	return limits
 
 
-## Restaura con amortiguación los límites anteriores al salir del área.
-func _on_body_exited(body: Node) -> void:
-	if body is Player:
-		if active_tween:
-			active_tween.kill()
-		active_tween = create_tween().set_parallel(true)
-
-		var restore_left = -10000000
-		var restore_top =  -10000000
-		var restore_right = 10000000
-		var restore_bottom = 10000000
-
-		var trans_type: Tween.TransitionType = _get_trans_type(tipo_curva_salida)
-
-		active_tween.tween_property(camera, "limit_left", restore_left, tiempo_salida).set_trans(trans_type).set_ease(Tween.EASE_IN_OUT)
-		active_tween.tween_property(camera, "limit_top", restore_top, tiempo_salida).set_trans(trans_type).set_ease(Tween.EASE_IN_OUT)
-		active_tween.tween_property(camera, "limit_right", restore_right, tiempo_salida).set_trans(trans_type).set_ease(Tween.EASE_IN_OUT)
-		active_tween.tween_property(camera, "limit_bottom", restore_bottom, tiempo_salida).set_trans(trans_type).set_ease(Tween.EASE_IN_OUT)
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player and is_ready and camera:
+		camera.enable_deadzone = usar_zona_muerta
+		camera.transition_to_limits(_calcular_limites(), tiempo_entrada, tipo_curva_entrada, self)
 
 
-## Convierte el índice del menú desplegable en el enum nativo de transiciones de Godot.
-func _get_trans_type(index: int) -> Tween.TransitionType:
-	match index:
-		0: return Tween.TRANS_SINE
-		1: return Tween.TRANS_QUINT
-		2: return Tween.TRANS_CUBIC
-		3: return Tween.TRANS_QUAD
-		4: return Tween.TRANS_CIRC
-		5: return Tween.TRANS_EXPO
-		_: return Tween.TRANS_SINE
+func _on_body_exited(body: Node2D) -> void:
+	if body is Player and camera:
+		camera.remove_limits_from_zone(self, tiempo_salida, tipo_curva_salida)

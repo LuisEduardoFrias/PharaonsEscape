@@ -15,8 +15,9 @@
 [ext_resource type="Script" uid="uid://71e6v3jpo3xb" path="res://Scenes/pushing.gd" id="12_jincj"]
 [ext_resource type="Script" uid="uid://dujhyimuymdpa" path="res://Scenes/roll.gd" id="13_rqdc0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_of46p"]
-size = Vector2(18, 10)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7g0yx"]
+radius = 5.0
+height = 16.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bmb2s"]
 animations = [{
@@ -45,6 +46,19 @@ gradient = SubResource("Gradient_oikmp")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.86, 0.86)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7g0yx"]
+animation = &"fall"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_dey5f"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_r5xpd"]
+nodes/output/position = Vector2(506.66666, 93.333336)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_7g0yx")
+nodes/Animation/position = Vector2(93.333336, 26.666666)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_dey5f")
+nodes/TimeScale/position = Vector2(293.33334, 93.333336)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ur3l4"]
 animation = &"hurt_back"
@@ -236,7 +250,6 @@ blend_mode = 1
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_uawwb"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ag54m"]
-graph_offset = Vector2(0, 11.381893)
 nodes/output/position = Vector2(866.6667, 53.333332)
 nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_p8lfk")
 nodes/BlendSpace2D/position = Vector2(280, 66.666664)
@@ -298,6 +311,8 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_huyyu"]
+states/fall/node = SubResource("AnimationNodeBlendTree_r5xpd")
+states/fall/position = Vector2(741.7884, 100.675934)
 states/hurt/node = SubResource("AnimationNodeBlendTree_kd672")
 states/hurt/position = Vector2(491.9642, 99.11177)
 states/idle/node = SubResource("AnimationNodeBlendTree_p8lfk")
@@ -316,13 +331,16 @@ transitions = ["hurt", "idle", SubResource("AnimationNodeStateMachineTransition_
 graph_offset = Vector2(-46.947952, 29.040117)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5eiq"]
+size = Vector2(18, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8g0gh"]
+size = Vector2(10, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eo61r"]
-size = Vector2(29, 49)
+size = Vector2(16, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0a2xn"]
+size = Vector2(16, 7)
 
 [sub_resource type="Gradient" id="Gradient_06tpx"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
@@ -337,10 +355,10 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.9026454, 0.12433403)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_06tpx"]
-polygon = PackedVector2Array(8, -20, 8, 0, -2, 0, -2, -20)
+polygon = PackedVector2Array(5, -16, 8, 4, -8, 4, -5, -16)
 
 [node name="Player" type="CharacterBody2D" unique_id=667587367 node_paths=PackedStringArray("sprite_node", "ray", "animation_tree", "audio_player") groups=["Player"]]
-collision_layer = 2
+collision_layer = 18
 motion_mode = 1
 script = ExtResource("1_uvnfx")
 speed = 150.0
@@ -350,27 +368,32 @@ animation_tree = NodePath("sprite/AnimationTree")
 audio_player = NodePath("audio_stream_player")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=338224056]
-position = Vector2(0, 21)
-shape = SubResource("RectangleShape2D_of46p")
+position = Vector2(0, 1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_7g0yx")
 metadata/_edit_lock_ = true
 
 [node name="eye_of_horus" parent="." unique_id=120811126 instance=ExtResource("2_7g0yx")]
 
 [node name="ray_cast" type="RayCast2D" parent="." unique_id=205126762]
-position = Vector2(0, 21)
+position = Vector2(0, -1)
 target_position = Vector2(0, 8)
 metadata/_edit_lock_ = true
 
 [node name="effects" type="AnimatedSprite2D" parent="." unique_id=321679206]
+position = Vector2(0, -22)
 sprite_frames = SubResource("SpriteFrames_bmb2s")
 metadata/_edit_lock_ = true
 
 [node name="shadow" type="Sprite2D" parent="." unique_id=258790362]
-position = Vector2(-1.1920929e-07, 26)
+position = Vector2(0, 4)
 scale = Vector2(0.253, 0.095)
 texture = SubResource("GradientTexture2D_06tpx")
+metadata/_edit_lock_ = true
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=1957246372]
+texture_filter = 1
+position = Vector2(0, -22)
 texture = ExtResource("2_06tpx")
 hframes = 32
 vframes = 32
@@ -382,9 +405,10 @@ libraries/ = ExtResource("3_06tpx")
 [node name="AnimationTree" type="AnimationTree" parent="sprite" unique_id=1156284579]
 tree_root = SubResource("AnimationNodeStateMachine_huyyu")
 anim_player = NodePath("../AnimationPlayer")
+parameters/fall/TimeScale/scale = 1.0
 parameters/hurt/TimeScale/scale = 1.0
 parameters/hurt/BlendSpace2D/blend_position = Vector2(0, 0)
-parameters/idle/BlendSpace/blend_position = Vector2(0.11256778, 1.0679147)
+parameters/idle/BlendSpace/blend_position = Vector2(0, 1)
 parameters/idle/TimeScale/scale = 1.0
 parameters/interact/BlendSpace2D/blend_position = Vector2(0, 0)
 parameters/interact/TimeScale/scale = 1.0
@@ -399,32 +423,27 @@ parameters/walk/TimeScale/scale = 1.0
 
 [node name="active_dialog" type="Area2D" parent="." unique_id=1527061459]
 visible = false
-position = Vector2(-1, 30)
+position = Vector2(-1, 8)
 collision_layer = 0
 collision_mask = 4
 monitorable = false
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="active_dialog" unique_id=2085433739]
+position = Vector2(1, -8.5)
 shape = SubResource("RectangleShape2D_m5eiq")
 debug_color = Color(0, 1, 0.4862745, 0.3882353)
 metadata/_edit_lock_ = true
 
-[node name="container_hit" type="Node2D" parent="." unique_id=1889023150]
-visible = false
-metadata/_edit_lock_ = true
-
-[node name="hit" type="Area2D" parent="container_hit" unique_id=639832607]
-visible = false
-collision_layer = 0
-collision_mask = 461
+[node name="hit" type="Area2D" parent="." unique_id=639832607]
+collision_layer = 128
+collision_mask = 0
 monitoring = false
 monitorable = false
-metadata/_edit_lock_ = true
 
-[node name="collision" type="CollisionShape2D" parent="container_hit/hit" unique_id=759670530]
+[node name="collision" type="CollisionShape2D" parent="hit" unique_id=759670530]
 shape = SubResource("RectangleShape2D_8g0gh")
-debug_color = Color(0.9607843, 0, 0, 0.60784316)
+debug_color = Color(0.99215686, 1, 0, 1)
 
 [node name="hurt" type="Area2D" parent="." unique_id=1387364052]
 visible = false
@@ -434,20 +453,18 @@ monitoring = false
 metadata/_edit_lock_ = true
 
 [node name="collision" type="CollisionShape2D" parent="hurt" unique_id=123131020]
-position = Vector2(-0.5, 7.5)
+position = Vector2(0, -16.5)
 shape = SubResource("RectangleShape2D_eo61r")
-debug_color = Color(1, 1, 0, 0.8352941)
+debug_color = Color(1, 0, 0, 0.8352941)
 metadata/_edit_lock_ = true
 
-[node name="button_detected" type="Area2D" parent="." unique_id=1139548907]
-visible = false
-position = Vector2(-1, 25)
+[node name="floor_detected" type="Area2D" parent="." unique_id=1139548907]
+position = Vector2(0, 1)
 collision_layer = 0
-collision_mask = 256
-monitorable = false
+collision_mask = 64
 metadata/_edit_lock_ = true
 
-[node name="collision" type="CollisionShape2D" parent="button_detected" unique_id=2128249298]
+[node name="collision" type="CollisionShape2D" parent="floor_detected" unique_id=2128249298]
 shape = SubResource("RectangleShape2D_0a2xn")
 debug_color = Color(0.9612482, 1.92523e-07, 0.5114325, 0.42)
 
@@ -458,9 +475,9 @@ shadow_color = Color(0, 0, 0, 0.6627451)
 shadow_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_7g0yx")
 texture_scale = 1.5
+metadata/_edit_lock_ = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=302750314]
-position = Vector2(-3, 26)
 occluder = SubResource("OccluderPolygon2D_06tpx")
 metadata/_edit_lock_ = true
 

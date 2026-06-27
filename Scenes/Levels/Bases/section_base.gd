@@ -25,9 +25,3 @@ func _ready() -> void:
 	world = Util._find_owner()
 	$Sprite2D.visible = false
 	RenderingServer.set_default_clear_color(Color("350005FF"))
-
-	if SceneLoader.player_direction == Vector2.ZERO:
-		change_scene_screen.transition_out(0.0)
-
-		await Util.timerout(1.0)
-		change_scene_screen.transition_in(4.0)

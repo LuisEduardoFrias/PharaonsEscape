@@ -1,0 +1,369 @@
+[gd_scene format=3 uid="uid://bgfshr0ug15kk"]
+
+[ext_resource type="Script" uid="uid://but5e3ucl1vd1" path="res://Scenes/Custom_nodes/show_btn.gd" id="1_4xihb"]
+[ext_resource type="Texture2D" uid="uid://ck34mjlwbptur" path="res://Textures/Ui/buttons_game.png" id="2_j4cal"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otydf"]
+atlas = ExtResource("2_j4cal")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="Animation" id="Animation_rxmxu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(160, 0, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_otydf"]
+resource_name = "action_a"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 320, 40, 40), Rect2(200, 320, 40, 40), Rect2(240, 320, 40, 40), Rect2(280, 320, 40, 40), Rect2(160, 320, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_uucc2"]
+resource_name = "action_d"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 320, 40, 40), Rect2(200, 320, 40, 40), Rect2(240, 320, 40, 40), Rect2(280, 320, 40, 40), Rect2(160, 320, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_wrow5"]
+resource_name = "action_down"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 280, 40, 40), Rect2(200, 280, 40, 40), Rect2(240, 280, 40, 40), Rect2(280, 280, 40, 40), Rect2(160, 280, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_57how"]
+resource_name = "action_enter"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 320, 40, 40), Rect2(200, 320, 40, 40), Rect2(240, 320, 40, 40), Rect2(280, 320, 40, 40), Rect2(160, 320, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_vi4pa"]
+resource_name = "action_four"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 120, 40, 40), Rect2(200, 120, 40, 40), Rect2(240, 120, 40, 40), Rect2(280, 120, 40, 40), Rect2(160, 120, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_uhbl2"]
+resource_name = "action_h"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 320, 40, 40), Rect2(200, 320, 40, 40), Rect2(240, 320, 40, 40), Rect2(280, 320, 40, 40), Rect2(160, 320, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_cjp5x"]
+resource_name = "action_j"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 320, 40, 40), Rect2(200, 320, 40, 40), Rect2(240, 320, 40, 40), Rect2(280, 320, 40, 40), Rect2(160, 320, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_or42o"]
+resource_name = "action_k"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 320, 40, 40), Rect2(200, 320, 40, 40), Rect2(240, 320, 40, 40), Rect2(280, 320, 40, 40), Rect2(160, 320, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_7jpi6"]
+resource_name = "action_left"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 200, 40, 40), Rect2(200, 200, 40, 40), Rect2(240, 200, 40, 40), Rect2(280, 200, 40, 40), Rect2(160, 200, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_6seu5"]
+resource_name = "action_one"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 0, 40, 40), Rect2(200, 0, 40, 40), Rect2(240, 0, 40, 40), Rect2(280, 0, 40, 40), Rect2(160, 0, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_nbeir"]
+resource_name = "action_reset"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 320, 40, 40), Rect2(200, 320, 40, 40), Rect2(240, 320, 40, 40), Rect2(280, 320, 40, 40), Rect2(160, 320, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_71crf"]
+resource_name = "action_right"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 160, 40, 40), Rect2(200, 160, 40, 40), Rect2(240, 160, 40, 40), Rect2(280, 160, 40, 40), Rect2(160, 160, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_ls1mn"]
+resource_name = "action_s"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 320, 40, 40), Rect2(200, 320, 40, 40), Rect2(240, 320, 40, 40), Rect2(280, 320, 40, 40), Rect2(160, 320, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_dk2lm"]
+resource_name = "action_space"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 320, 40, 40), Rect2(200, 320, 40, 40), Rect2(240, 320, 40, 40), Rect2(280, 320, 40, 40), Rect2(160, 320, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_fjkyy"]
+resource_name = "action_three"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 80, 40, 40), Rect2(200, 80, 40, 40), Rect2(240, 80, 40, 40), Rect2(280, 80, 40, 40), Rect2(160, 80, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_pjw7u"]
+resource_name = "action_top"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 240, 40, 40), Rect2(200, 240, 40, 40), Rect2(240, 240, 40, 40), Rect2(280, 240, 40, 40), Rect2(160, 240, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_nwk3w"]
+resource_name = "action_two"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 40, 40, 40), Rect2(200, 40, 40, 40), Rect2(240, 40, 40, 40), Rect2(280, 40, 40, 40), Rect2(160, 40, 40, 40)]
+}
+
+[sub_resource type="Animation" id="Animation_7e6sq"]
+resource_name = "action_w"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(160, 320, 40, 40), Rect2(200, 320, 40, 40), Rect2(240, 320, 40, 40), Rect2(280, 320, 40, 40), Rect2(160, 320, 40, 40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uhbl2"]
+_data = {
+&"RESET": SubResource("Animation_rxmxu"),
+&"action_a": SubResource("Animation_otydf"),
+&"action_d": SubResource("Animation_uucc2"),
+&"action_down": SubResource("Animation_wrow5"),
+&"action_enter": SubResource("Animation_57how"),
+&"action_four": SubResource("Animation_vi4pa"),
+&"action_h": SubResource("Animation_uhbl2"),
+&"action_j": SubResource("Animation_cjp5x"),
+&"action_k": SubResource("Animation_or42o"),
+&"action_left": SubResource("Animation_7jpi6"),
+&"action_one": SubResource("Animation_6seu5"),
+&"action_reset": SubResource("Animation_nbeir"),
+&"action_right": SubResource("Animation_71crf"),
+&"action_s": SubResource("Animation_ls1mn"),
+&"action_space": SubResource("Animation_dk2lm"),
+&"action_three": SubResource("Animation_fjkyy"),
+&"action_top": SubResource("Animation_pjw7u"),
+&"action_two": SubResource("Animation_nwk3w"),
+&"action_w": SubResource("Animation_7e6sq")
+}
+
+[node name="show_btn" type="Area2D" unique_id=1757995346]
+z_index = 4
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_4xihb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1151706855]
+light_mask = 0
+texture = SubResource("AtlasTexture_otydf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1420307218]
+libraries/ = SubResource("AnimationLibrary_uhbl2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

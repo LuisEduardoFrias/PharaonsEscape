@@ -9,7 +9,7 @@
 
 extends Area2D
 
-var last_safe_position: Vector2 = Vector2.ZERO
+var last_safe_position: Vector2 = Vector2.INF
 
 func _ready() -> void:
 	body_shape_entered.connect(_on_body_shape_entered)
@@ -26,13 +26,14 @@ func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, 
 
 		if zone_type == "point":
 			last_safe_position = collision_node.global_position
+			(body as Player).spawner_point = collision_node.global_position
 
 		elif zone_type == "hurt":
 			if body.has_method("hurt"):
-				body.hurt(15,Vector2.ZERO,EntityBase.TypesImpact.RESPAWNER)
+				pass#body.hurt(15,Vector2.ZERO,EntityBase.TypesImpact.RESPAWNER)
 
-			if last_safe_position != Vector2.ZERO:
+			if last_safe_position != Vector2.INF:
 				_respawn_player(body)
 
 func _respawn_player(player: Node2D) -> void:
-	(player as Player).spawnd_pointer = last_safe_position
+	(player as Player).global_position = last_safe_position

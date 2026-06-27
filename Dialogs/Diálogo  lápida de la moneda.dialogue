@@ -1,0 +1,6 @@
+~ start
+Sistema: Aquel que busque alterar el destino del camino, que reclame el tributo.
+do data._open_door.call()
+Sistema: La puerta se ha abierto. La moneda de oro está a la vista.
+do _enable()
+=> END

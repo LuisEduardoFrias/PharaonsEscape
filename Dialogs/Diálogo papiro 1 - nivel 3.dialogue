@@ -1,0 +1,34 @@
+~ start
+[Día 3 - Papiro]
+Esas malditas sombras... me han alcanzado. Siento cómo la corrupción se propaga por mi cuerpo. El néctar que hallé está maldito, cubierto por la misma penumbra que me consume. La salvación está en el Altar de Purificación, pero mis piernas ya no responden. El ritual exige un tributo que ya no podré pagar.
+- Seguir leyendo -> dia_2
+- Guardar papiro
+	do data._save_papyrus.call()
+    do _enable()
+   => END
+- Dejar el pergamino
+    do _enable()
+   => END
+
+~ dia_2
+[Día 2 - Papiro deteriorado]
+Por alguna extraña razón, puedo sentir el paso del tiempo... Esta pirámide es... [ilegible]... y todo aquí es extra... [el texto se desvanece]... Esta pirámide está... [manchas de sangre]... todo es tan hostil... [el texto se desvanece].
+- Seguir leyendo -> dia_1
+- Guardar papiro
+	do data._save_papyrus.call()
+    do _enable()
+   => END
+- Dejar el pergamino
+    do _enable()
+    => END
+
+~ dia_1
+[Día 1 - Papiro deteriorado]
+No se puede bajar la guardia en cualquier rincón. Intenté acampar en uno de los pasillos y esas cosas casi me atrapan mientras dormía... No cometeré ese error otra vez; solo descansaré donde sea seguro.
+- Guardar papiro
+	do data._save_papyrus.call()
+    do _enable()
+   => END
+- Dejar el pergamino
+    do _enable()
+    => END

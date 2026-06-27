@@ -111,7 +111,7 @@ func trigger_screen_transition(action: Callable, duration: float = 1.0) -> void:
 	tween.tween_callback(canvas.queue_free)
 
 
-func show_title(title: CurrentLevelData.Titles) -> void:
+func show_title(_title: CurrentLevelData.Titles) -> void:
 	pass
 	'''if not ui:
 		ui = get_tree().get_first_node_in_group("ui")

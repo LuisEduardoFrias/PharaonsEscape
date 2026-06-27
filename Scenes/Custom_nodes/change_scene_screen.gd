@@ -1,5 +1,5 @@
 extends ColorRect
-
+# hay el fade in y out de la pantalla oscura
 @export var player: Player
 
 

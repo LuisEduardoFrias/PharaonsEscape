@@ -48,10 +48,11 @@ var unblock_sprite: Vector2i = unblock_sprite_1
 
 
 func _ready() -> void:
-	if is_block:
+	pass
+	'''if is_block:
 		var value: Variant = Global.check_door(owner_name, name)
 		if value != null:
-			is_block = value
+			is_block = value'''
 
 
 func update() -> void:

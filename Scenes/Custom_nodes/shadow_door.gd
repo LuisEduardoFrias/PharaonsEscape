@@ -66,12 +66,12 @@ func _actualizar_particulas() -> void:
 	mat.gravity = Vector3(0.0, 0.0, 0.0)
 
 	# 4. VELOCIDAD (ID 0 directo de la API nativa)
-	mat.set_param_min(0, velocidad_particulas - 5.0)
-	mat.set_param_max(0, velocidad_particulas + 5.0)
+	mat.set_param_min(ParticleProcessMaterial.PARAM_INITIAL_LINEAR_VELOCITY, velocidad_particulas - 5.0)
+	mat.set_param_max(ParticleProcessMaterial.PARAM_INITIAL_LINEAR_VELOCITY, velocidad_particulas + 5.0)
 
 	# 5. ESCALA (ID 5 directo para el tamaño del píxel)
-	mat.set_param_min(5, 1.0)
-	mat.set_param_max(5, 2.0)
+	mat.set_param_min(ParticleProcessMaterial.PARAM_TANGENTIAL_ACCEL, 1.0)
+	mat.set_param_max(ParticleProcessMaterial.PARAM_TANGENTIAL_ACCEL, 2.0)
 
 	# 6. Gradiente de color dinámico (Fade in / Fade out)
 	var gradient = Gradient.new()

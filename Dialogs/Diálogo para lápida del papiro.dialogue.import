@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://5broi3cfyep4"
+path="res://.godot/imported/Diálogo para lápida del papiro.dialogue-44dec452e6c937e3a528a190d1546922.tres"
+
+[deps]
+
+source_file="res://Dialogs/Diálogo para lápida del papiro.dialogue"
+dest_files=["res://.godot/imported/Diálogo para lápida del papiro.dialogue-44dec452e6c937e3a528a190d1546922.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://8eelayykuvur"
+path="res://.godot/imported/Diálogo para algunas lápidas.dialogue-643f79b9bf9bd7f1967ec08a1f92fe72.tres"
+
+[deps]
+
+source_file="res://Dialogs/Diálogo para algunas lápidas.dialogue"
+dest_files=["res://.godot/imported/Diálogo para algunas lápidas.dialogue-643f79b9bf9bd7f1967ec08a1f92fe72.tres"]
+
+[params]
+
+defaults=true

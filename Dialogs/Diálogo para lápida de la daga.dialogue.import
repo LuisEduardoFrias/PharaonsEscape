@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cmnd8cifavxeq"
+path="res://.godot/imported/Diálogo para lápida de la daga.dialogue-969312ddd8eda1d97d3899134dddccc9.tres"
+
+[deps]
+
+source_file="res://Dialogs/Diálogo para lápida de la daga.dialogue"
+dest_files=["res://.godot/imported/Diálogo para lápida de la daga.dialogue-969312ddd8eda1d97d3899134dddccc9.tres"]
+
+[params]
+
+defaults=true

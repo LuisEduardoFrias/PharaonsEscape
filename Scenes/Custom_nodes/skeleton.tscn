@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://chm4rrscurjva"]
+
+[ext_resource type="Script" uid="uid://bg2ajsrhp6hau" path="res://Scenes/Custom_nodes/skeleton.gd" id="1_s853r"]
+[ext_resource type="Texture2D" uid="uid://c7lcluh6gi3da" path="res://Textures/Sprites/map_decorations.png" id="2_s6sl8"]
+[ext_resource type="PackedScene" uid="uid://bwhpr1f354a3l" path="res://Scenes/Custom_nodes/dialog_trigger.tscn" id="3_s6sl8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytow2"]
+atlas = ExtResource("2_s6sl8")
+region = Rect2(288, 128, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frwt3"]
+atlas = ExtResource("2_s6sl8")
+region = Rect2(352, 128, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1apj"]
+atlas = ExtResource("2_s6sl8")
+region = Rect2(416, 128, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_76xs0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytow2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frwt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1apj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50cox"]
+size = Vector2(29, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytow2"]
+size = Vector2(29, 16)
+
+[node name="skeleton" type="Node2D" unique_id=1956545777]
+script = ExtResource("1_s853r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1527157383]
+position = Vector2(2, 12)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_76xs0")
+autoplay = "default"
+frame_progress = 0.8343137
+metadata/_edit_lock_ = true
+
+[node name="dialogue_trigger" parent="." unique_id=888492315 instance=ExtResource("3_s6sl8")]
+metadata/_edit_lock_ = true
+
+[node name="collision" type="CollisionShape2D" parent="dialogue_trigger" unique_id=1473108546]
+position = Vector2(2.5, 17.5)
+shape = SubResource("RectangleShape2D_50cox")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=260137699]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=700806071]
+position = Vector2(2.5, 12)
+shape = SubResource("RectangleShape2D_ytow2")
+metadata/_edit_lock_ = true

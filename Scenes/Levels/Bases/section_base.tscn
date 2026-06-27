@@ -45,7 +45,7 @@ color = Color(0.54509807, 0.54509807, 0.54509807, 1)
 metadata/_edit_lock_ = true
 
 [node name="fog" parent="." unique_id=1285428728 instance=ExtResource("5_l2xlv")]
-position = Vector2(615, 334.5)
+z_index = 5
 scale = Vector2(1330, 769)
 metadata/_edit_lock_ = true
 
@@ -106,6 +106,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="platform" type="Node2D" parent="." unique_id=1532119724]
+y_sort_enabled = true
 metadata/_edit_lock_ = true
 
 [node name="doors" type="Node2D" parent="." unique_id=1553830324]

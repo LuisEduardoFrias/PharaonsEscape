@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dqxw3fcb4fvvo"
+path="res://.godot/imported/Diálogo  lápida de la moneda.dialogue-137711500b31ca4b378fdd3dd3c54b9b.tres"
+
+[deps]
+
+source_file="res://Dialogs/Diálogo  lápida de la moneda.dialogue"
+dest_files=["res://.godot/imported/Diálogo  lápida de la moneda.dialogue-137711500b31ca4b378fdd3dd3c54b9b.tres"]
+
+[params]
+
+defaults=true

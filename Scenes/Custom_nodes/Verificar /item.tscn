@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bfw2sv1ejohgl"]
+
+[ext_resource type="Script" uid="uid://bxboso30kek6n" path="res://Scripts/custom_node/item.gd" id="1_76i6e"]
+
+[node name="item" type="Node2D" unique_id=578294545]
+script = ExtResource("1_76i6e")
+
+[node name="animated_sprite" type="AnimatedSprite2D" parent="." unique_id=1176792340]
+autoplay = "default"
+metadata/_edit_lock_ = true
+
+[node name="area" type="Area2D" parent="." unique_id=1503624794]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+metadata/_edit_lock_ = true
+
+[node name="collision" type="CollisionShape2D" parent="area" unique_id=1892367381]
+metadata/_edit_lock_ = true
+
+[node name="audio_stream_player" type="AudioStreamPlayer2D" parent="." unique_id=302770459]
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]

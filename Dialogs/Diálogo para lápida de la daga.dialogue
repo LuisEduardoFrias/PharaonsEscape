@@ -1,0 +1,6 @@
+~ start
+Sistema: Aquel que busque sobrevivir a los peligros del templo, que tome el acero.
+do data._open_door.call()
+Sistema: La puerta se ha abierto. La daga será tu defensa y tu juicio ante los guardianes que despierten.
+do _enable()
+=> END

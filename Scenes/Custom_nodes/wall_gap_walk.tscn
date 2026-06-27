@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cisu2nenrwqvl"]
 
-[ext_resource type="Script" uid="uid://chwslxer43lqy" path="res://Scripts/custom_node/wall_gap_walk.gd" id="1_aw2jt"]
-[ext_resource type="TileSet" uid="uid://bsaifk6n0hbwk" path="res://Resources/tiles_word_4.0.tres" id="2_uds84"]
+[ext_resource type="Script" uid="uid://fqu7rwadyypj" path="res://Scenes/Custom_nodes/wall_gap_walk.gd" id="1_aw2jt"]
+[ext_resource type="TileSet" uid="uid://cjacau0u51usp" path="res://Resources/tileset_word.tres" id="2_uds84"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ajr2"]
 size = Vector2(32, 138)
@@ -13,7 +13,7 @@ size = Vector2(45, 112)
 script = ExtResource("1_aw2jt")
 
 [node name="tile_map_layer" type="TileMapLayer" parent="." unique_id=1877993572]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 255, 255, 1, 0, 4, 0, 0, 0, 0, 32)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 11, 0, 0, 0, 0, 0, 255, 255, 2, 0, 2, 0, 11, 0, 0, 32)
 tile_set = ExtResource("2_uds84")
 metadata/_edit_lock_ = true
 

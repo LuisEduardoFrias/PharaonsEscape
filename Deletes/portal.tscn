@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cxovn504ekux7"]
+
+[ext_resource type="Script" uid="uid://bsord40nenuro" path="res://Deletes/portal.gd" id="1_o3a8c"]
+
+[node name="portal" type="Area2D" unique_id=2039943075]
+visible = false
+script = ExtResource("1_o3a8c")

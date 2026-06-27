@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://cn4oisvyrp6jv"]
+
+[ext_resource type="Texture2D" uid="uid://ddj3gno6r750g" path="res://Textures/Sprites/coleccion_tiles.png" id="1_hvfjh"]
+[ext_resource type="Script" uid="uid://eqsmek03iuxp" path="res://Scenes/Custom_nodes/mechanical_door.gd" id="1_t6oat"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrmg1"]
+atlas = ExtResource("1_hvfjh")
+region = Rect2(640, 960, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osbbm"]
+atlas = ExtResource("1_hvfjh")
+region = Rect2(576, 960, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml3r3"]
+atlas = ExtResource("1_hvfjh")
+region = Rect2(512, 960, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a5ru"]
+atlas = ExtResource("1_hvfjh")
+region = Rect2(448, 960, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6hiw"]
+atlas = ExtResource("1_hvfjh")
+region = Rect2(384, 960, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lek4n"]
+atlas = ExtResource("1_hvfjh")
+region = Rect2(384, 960, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6oat"]
+atlas = ExtResource("1_hvfjh")
+region = Rect2(640, 896, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iunal"]
+atlas = ExtResource("1_hvfjh")
+region = Rect2(384, 896, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fnyy"]
+atlas = ExtResource("1_hvfjh")
+region = Rect2(448, 896, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moc2e"]
+atlas = ExtResource("1_hvfjh")
+region = Rect2(512, 896, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w25ud"]
+atlas = ExtResource("1_hvfjh")
+region = Rect2(576, 896, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gvtc"]
+atlas = ExtResource("1_hvfjh")
+region = Rect2(640, 896, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pac64"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrmg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osbbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ml3r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2a5ru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6hiw")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lek4n")
+}],
+"loop": false,
+"name": &"default_close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6oat")
+}],
+"loop": false,
+"name": &"default_open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iunal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fnyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_moc2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w25ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gvtc")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvfjh"]
+size = Vector2(64, 64)
+
+[node name="mechanical_door" type="Node2D" unique_id=1294071322]
+script = ExtResource("1_t6oat")
+metadata/_edit_lock_ = true
+metadata/open = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2098037329]
+sprite_frames = SubResource("SpriteFrames_pac64")
+animation = &"open"
+autoplay = "default_close"
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=955888373]
+light_mask = 0
+z_index = 4
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -93.0
+offset_top = -32.0
+offset_right = 97.0
+offset_bottom = 158.0
+grow_vertical = 0
+scale = Vector2(1, -1)
+color = Color(0.20784314, 0, 0.019607844, 1)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1246903695]
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=616477848]
+shape = SubResource("RectangleShape2D_hvfjh")
+metadata/_edit_lock_ = true

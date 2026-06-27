@@ -1,4 +1,5 @@
 extends Area2D
+# hace cabio de plataforma entre el sarcófago y el fin del juego
 
 @export var is_down: bool = true
 

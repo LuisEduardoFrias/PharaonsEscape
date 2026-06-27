@@ -1,0 +1,6 @@
+~ start
+Sistema: Aquel que busque la verdad de este lugar, que tome las Crónicas.
+do data._open_door.call()
+Sistema: La puerta se ha abierto. El papiro registrará tus hazañas y memorias cada vez que descanses.
+do _enable()
+=> END

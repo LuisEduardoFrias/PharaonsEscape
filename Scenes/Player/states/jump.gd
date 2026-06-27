@@ -10,6 +10,7 @@ func enter(_data: Dictionary = {}) -> void:
 		return
 	else :
 		actor.current_state = Player.States.JUMP
+		actor.floor_detected.monitoring = false
 		actor.is_jumping = true
 
 	super()
@@ -40,5 +41,6 @@ func _move_sprite() -> void:
 		transitioned.emit("idle", {})
 		actor._input_physics_off(false)
 		actor.current_state = Player.States.IDLE
+		actor.floor_detected.monitoring = true
 		actor.is_jumping = false
 	)

@@ -97,7 +97,7 @@ func _make_visible(next_visible: bool) -> void:
 
 
 func _get_plugin_name() -> String:
-	return "D" #"Dialogue"
+	return "Dialogue"
 
 
 func _get_plugin_icon() -> Texture2D:

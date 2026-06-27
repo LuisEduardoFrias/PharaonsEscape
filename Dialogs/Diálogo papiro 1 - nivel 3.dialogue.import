@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dp1jck6fq8fm4"
+path="res://.godot/imported/Diálogo papiro 1 - nivel 3.dialogue-c7e155afc590963905e841a9dcebab85.tres"
+
+[deps]
+
+source_file="res://Dialogs/Diálogo papiro 1 - nivel 3.dialogue"
+dest_files=["res://.godot/imported/Diálogo papiro 1 - nivel 3.dialogue-c7e155afc590963905e841a9dcebab85.tres"]
+
+[params]
+
+defaults=true
