@@ -6,6 +6,7 @@ enum States { IDLE, WALK, JUMP }
 @onready var floor_detected: Area2D = $floor_detected #area para detectar cosas en el suelo
 @onready var shadow2: LightOccluder2D = $LightOccluder2D
 @onready var eye_horus: EyeHorus = $eye_of_horus
+@onready var hit: Area2D = $hit
 
 signal is_static_state(value: bool)
 
@@ -39,8 +40,12 @@ func _physics_process(_delta: float) -> void:
 	else:
 		velocity = Vector2.ZERO
 
-	if old_direction.x > 0: sprite_node.flip_h = true
-	else: sprite_node.flip_h = false
+	if old_direction.x > 0:
+		sprite_node.flip_h = true
+		hit.scale = Vector2(-1.0, 1.0)
+	else:
+		sprite_node.flip_h = false
+		hit.scale = Vector2(1.0, 1.0)
 
 	move_and_slide()
 

@@ -333,9 +333,6 @@ graph_offset = Vector2(-46.947952, 29.040117)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5eiq"]
 size = Vector2(18, 11)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g0gh"]
-size = Vector2(10, 10)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eo61r"]
 size = Vector2(16, 41)
 
@@ -438,11 +435,10 @@ metadata/_edit_lock_ = true
 [node name="hit" type="Area2D" parent="." unique_id=639832607]
 collision_layer = 128
 collision_mask = 0
-monitoring = false
 monitorable = false
 
 [node name="collision" type="CollisionShape2D" parent="hit" unique_id=759670530]
-shape = SubResource("RectangleShape2D_8g0gh")
+position = Vector2(-24, -12)
 debug_color = Color(0.99215686, 1, 0, 1)
 
 [node name="hurt" type="Area2D" parent="." unique_id=1387364052]
