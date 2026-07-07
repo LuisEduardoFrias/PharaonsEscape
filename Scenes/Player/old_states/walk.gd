@@ -4,18 +4,21 @@ extends StateBase
 
 func enter(_data: Dictionary = {}) -> void:
 	super()
+	parameter = "parameters/walk/BlendSpace/blend_position"
+	actor.current_state = Player.States.WALK
 
 	if actor.get_real_velocity() != Vector2.ZERO:
-		pass
-		#parent._on_child_transition(AnimationStateMachine.States.WALK)
+		actor.playback.travel("walk")
+
+	change_animation()
 
 
 func physics_update(_delta: float) -> void:
 	if actor.current_direction == Vector2.ZERO or actor.ray.is_colliding():
-		change_state.emit(AnimationStateMachine.States.IDLE, {})
+		transitioned.emit("idle", {})
 		return
 
-	parent.animation_direction(actor.current_direction)
+	change_animation()
 
 
 func input(_event: InputEvent) -> void:
@@ -24,10 +27,10 @@ func input(_event: InputEvent) -> void:
 
 	if _event.is_action_pressed(&"ui_action_1"):
 		if actor.interactive_object:
-			change_state.emit(AnimationStateMachine.States.INTERACT, {})
+			transitioned.emit("interact", {})
 		elif not actor.is_jumping:
-			change_state.emit(AnimationStateMachine.States.JUMP, {})
+			transitioned.emit("jump", {})
 		return
 	if _event.is_action_pressed(&"ui_action_2"):
-		change_state.emit(AnimationStateMachine.States.SWORD_ATTACK, {})
+		transitioned.emit("sword_attack", {})
 		return

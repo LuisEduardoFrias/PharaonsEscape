@@ -8,6 +8,13 @@ enum States { IDLE, WALK, JUMP }
 @onready var eye_horus: EyeHorus = $eye_of_horus
 @onready var hit: Area2D = $hit
 
+@export_group("Visuals & Audio")
+@export var wark_sfx: AudioStream
+@export var jump_sfx: AudioStream
+@export var sword_attack_sfx: AudioStream
+@export var hammer_attack_sfx: AudioStream
+
+
 signal is_static_state(value: bool)
 
 var current_state: States = States.IDLE
@@ -26,34 +33,34 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	if ! is_control_off:
+		var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 
-	if direction.length() < 0.5:
-		direction = Vector2.ZERO
+		if direction.length() < 0.5:
+			direction = Vector2.ZERO
 
-	current_direction = direction
-	ray.target_position = (direction * TARGET_DIR_RAY)
+		current_direction = direction
+		ray.target_position = (direction * TARGET_DIR_RAY)
 
-	if direction != Vector2.ZERO:
-		old_direction = direction.normalized()
-		velocity = old_direction * speed
-	else:
-		velocity = Vector2.ZERO
+		if direction != Vector2.ZERO:
+			old_direction = direction.normalized()
+			velocity = old_direction * speed
+		else:
+			velocity = Vector2.ZERO
 
-	if old_direction.x > 0:
-		sprite_node.flip_h = true
-		hit.scale = Vector2(-1.0, 1.0)
-	else:
-		sprite_node.flip_h = false
-		hit.scale = Vector2(1.0, 1.0)
+		if old_direction.x > 0:
+			sprite_node.flip_h = true
+			hit.scale = Vector2(-1.0, 1.0)
+		else:
+			sprite_node.flip_h = false
+			hit.scale = Vector2(1.0, 1.0)
 
-	move_and_slide()
+		move_and_slide()
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"ui_action_2") :
-		pass
-		#eye_horus._enable_eje_horus()
+		eye_horus._enable_eje_horus()
 
 
 #Detiene todas las entradas al player
@@ -89,9 +96,8 @@ func _move_to(dir: Vector2, move_time: float) -> void:
 		velocity = current_direction * speed
 		move_and_slide()
 
-		if playback.get_current_node() != "walk":
-			playback.travel("walk")
-			state_machine.on_child_transition("walk")
+		if state_machine.animation_name != "walk":
+			state_machine._on_child_transition(AnimationStateMachine.States.WALK)
 
 		time += delta
 		await get_tree().physics_frame
@@ -129,11 +135,11 @@ func _floor_detected_body_entered(body: Node2D) -> void:
 func _tile_hit(_body: TileMapLayer) -> void:
 	#hacer daño y spawner
 	_input_physics_off(true)
-	playback.travel("fall")
-	await animation_tree.animation_finished
+	state_machine._on_child_transition(AnimationStateMachine.States.FALL)
+	await state_machine.animation_finished
 	position = spawner_point
 	intermittency()
-	playback.travel("idle")
+	state_machine._on_child_transition(AnimationStateMachine.States.IDLE)
 	await Util.timerout(0.5)
 	owner.change_platform()
 	_input_physics_off(false)

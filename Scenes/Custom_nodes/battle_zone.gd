@@ -15,7 +15,7 @@ func _body_entered(body: Node2D) -> void:
 		set_deferred("monitoring", false)
 		close_doors()
 
-		for enemic in enemics:
+		for enemic:Entity in enemics:
 			enemic.is_dead.connect(enemic_dead)
 			enemic.appearance()
 
@@ -29,7 +29,7 @@ func enemic_dead() -> void:
 
 func open_doors() -> void:
 	for door: MechanicalDoor in Doors:
-		if door.get_meta("type"): door._open()
+		if door.get_meta("open"): door._open()
 
 
 func close_doors() -> void:

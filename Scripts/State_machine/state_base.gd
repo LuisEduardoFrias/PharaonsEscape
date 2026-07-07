@@ -3,40 +3,30 @@ class_name StateBase extends Node
 
 # Esta señal silve para poder cambiar estados desde los mismo estados
 @warning_ignore("unused_signal")
-signal transitioned(state: String, data: Dictionary)
+signal change_state(state: AnimationStateMachine.States, data: Dictionary)
 
-var parameter : String
-
-var actor: Entity:
-	set(val):
-		actor = val
-		actor.is_static_state.connect(
-			func (value:bool) -> void:
-				set_physics_process(!value)
-				set_process(!value)
-				set_process_input(!value)
-		)
+var parent: AnimationStateMachine
+var actor: Entity
 
 
 func enter(_data: Dictionary = {}) -> void:
-	set_physics_process(false)
-	set_process(false)
-	set_process_input(false)
+	parent = get_parent()
+	parent.animation_direction(actor.old_direction)
+
 
 func exit() -> void:
-	set_physics_process(false)
-	set_process(false)
-	set_process_input(false)
+	pass
+
 
 func update(_delta: float) -> void:
 	pass
 
+	parent.animation_direction(actor.current_direction)
+
+
 func physics_update(_delta: float) -> void:
 	pass
 
+
 func input(_event: InputEvent) -> void:
 	pass
-
-func change_animation() -> void:
-	if actor.old_direction != Vector2.ZERO:
-		actor.animation_tree.set(parameter, actor.old_direction)

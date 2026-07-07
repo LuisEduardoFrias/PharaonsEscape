@@ -141,15 +141,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8awb"]
 size = Vector2(17, 55)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f3a7b"]
-radius = 6.0
-height = 52.0
-
-[node name="Maniqui" type="CharacterBody2D" unique_id=1368260100 node_paths=PackedStringArray("hurt_box") groups=["enemy"]]
+[node name="Maniqui" type="CharacterBody2D" unique_id=1368260100 groups=["enemy"]]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_mqj")
-hurt_box = NodePath("hurt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1073348464]
 scale = Vector2(2, 2)
@@ -163,13 +158,3 @@ metadata/_edit_lock_ = true
 position = Vector2(0.5, 3.5)
 shape = SubResource("RectangleShape2D_o8awb")
 metadata/_edit_lock_ = true
-
-[node name="hurt" type="Area2D" parent="." unique_id=1316976129]
-position = Vector2(0, 3)
-collision_layer = 0
-collision_mask = 128
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt" unique_id=1882569240]
-shape = SubResource("CapsuleShape2D_f3a7b")
-debug_color = Color(0.9949259, 0, 0.21404773, 0.42)

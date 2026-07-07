@@ -94,7 +94,10 @@ metadata/_edit_lock_ = true
 position = Vector2(382, 1375)
 metadata/_edit_lock_ = true
 
-[node name="camera_limit" parent="limist" parent_id_path=PackedInt32Array(1406101213) index="0" unique_id=1039128866 instance=ExtResource("3_tfc24")]
+[node name="limist" parent="." index="13" unique_id=1406101213]
+visible = false
+
+[node name="camera_limit" parent="limist" index="0" unique_id=1039128866 instance=ExtResource("3_tfc24")]
 position = Vector2(1213, 1211)
 activate_top_limit = false
 metadata/_edit_lock_ = true
@@ -110,7 +113,7 @@ shape = SubResource("RectangleShape2D_ttk4p")
 debug_color = Color(0.95941585, 0, 0.52174795, 0.42)
 metadata/_edit_lock_ = true
 
-[node name="camera_limit3" parent="limist" parent_id_path=PackedInt32Array(1406101213) index="1" unique_id=1739709077 instance=ExtResource("3_tfc24")]
+[node name="camera_limit3" parent="limist" index="1" unique_id=1739709077 instance=ExtResource("3_tfc24")]
 position = Vector2(637, 635)
 activate_top_limit = false
 metadata/_edit_lock_ = true
@@ -120,7 +123,7 @@ position = Vector2(260.25, 293)
 shape = SubResource("RectangleShape2D_yqbt2")
 metadata/_edit_lock_ = true
 
-[node name="camera_limit4" parent="limist" parent_id_path=PackedInt32Array(1406101213) index="2" unique_id=1706571114 instance=ExtResource("3_tfc24")]
+[node name="camera_limit4" parent="limist" index="2" unique_id=1706571114 instance=ExtResource("3_tfc24")]
 position = Vector2(637, 635)
 activate_top_limit = false
 activate_right_limit = false
@@ -132,7 +135,7 @@ position = Vector2(807.5, 354)
 shape = SubResource("RectangleShape2D_aywy5")
 metadata/_edit_lock_ = true
 
-[node name="camera_limit2" parent="limist" parent_id_path=PackedInt32Array(1406101213) index="3" unique_id=597542743 instance=ExtResource("3_tfc24")]
+[node name="camera_limit2" parent="limist" index="3" unique_id=597542743 instance=ExtResource("3_tfc24")]
 position = Vector2(-563, 1091)
 activate_right_limit = false
 metadata/_edit_lock_ = true
@@ -199,7 +202,17 @@ position = Vector2(1248, 1504)
 rotation = -1.5707964
 opening = true
 
-[node name="mechanical_door4" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="4" unique_id=200547258 instance=ExtResource("7_bnnu6")]
+[node name="AnimatedSprite2D" parent="doors/mechanical_door3" index="0" unique_id=2098037329]
+animation = &"default_open"
+frame_progress = 1.0
+
+[node name="ColorRect" parent="doors/mechanical_door3" index="1" unique_id=955888373]
+offset_bottom = 367.26123
+
+[node name="CollisionShape2D" parent="doors/mechanical_door3/StaticBody2D" parent_id_path=PackedInt32Array(2127541454, 1246903695) index="0" unique_id=616477848]
+disabled = true
+
+[node name="mechanical_door4" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="4" unique_id=877828563 instance=ExtResource("7_bnnu6")]
 position = Vector2(1824, 1504)
 rotation = 1.5707964
 opening = true
@@ -209,11 +222,10 @@ animation = &"default_open"
 frame_progress = 1.0
 
 [node name="ColorRect" parent="doors/mechanical_door4" index="1" unique_id=955888373]
-offset_left = -98.06445
-offset_top = -315.19568
-color = Color(0.20784314, 0, 0.019607844, 0)
+offset_left = -96.06726
+offset_bottom = 455.2777
 
-[node name="CollisionShape2D" parent="doors/mechanical_door4/StaticBody2D" parent_id_path=PackedInt32Array(200547258, 1246903695) index="0" unique_id=616477848]
+[node name="CollisionShape2D" parent="doors/mechanical_door4/StaticBody2D" parent_id_path=PackedInt32Array(877828563, 1246903695) index="0" unique_id=616477848]
 disabled = true
 
 [node name="mechanical_door5" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="5" unique_id=662745473 instance=ExtResource("7_bnnu6")]
@@ -239,4 +251,5 @@ opening = true
 position = Vector2(608, 1504)
 rotation = 1.5707964
 
+[editable path="doors/mechanical_door3"]
 [editable path="doors/mechanical_door4"]

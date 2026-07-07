@@ -6,7 +6,7 @@ var mini_shadow_scale: Vector2 = Vector2(0.185, 0.070)
 
 func enter(_data: Dictionary = {}) -> void:
 	if actor.is_jumping:
-		change_state.emit(AnimationStateMachine.States.IDLE, {})
+		transitioned.emit("idle", {})
 		return
 	else :
 		actor.current_state = Player.States.JUMP
@@ -14,6 +14,8 @@ func enter(_data: Dictionary = {}) -> void:
 		actor.is_jumping = true
 
 	super()
+	parameter = "parameters/walk/BlendSpace/blend_position"
+	actor.playback.travel("walk")
 	_move_sprite()
 	await actor._move_to(actor.old_direction ,0.8)
 
@@ -36,7 +38,7 @@ func _move_sprite() -> void:
 	tw.parallel().tween_property(actor.shadow, ^"scale", default_shadow_scale , 0.3)
 
 	tw.tween_callback(func () -> void:
-		change_state.emit(AnimationStateMachine.States.IDLE, {})
+		transitioned.emit("idle", {})
 		actor._input_physics_off(false)
 		actor.current_state = Player.States.IDLE
 		actor.floor_detected.monitoring = true

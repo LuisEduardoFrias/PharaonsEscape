@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b11hw3gadi0ds"]
+
+[ext_resource type="Script" uid="uid://b4jspgg3tnuwc" path="res://Scenes/Custom_nodes/animation_state_machine.gd" id="1_5qe1o"]
+
+[node name="animation_state_machine" type="AnimationTree" unique_id=1619879097]
+script = ExtResource("1_5qe1o")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
