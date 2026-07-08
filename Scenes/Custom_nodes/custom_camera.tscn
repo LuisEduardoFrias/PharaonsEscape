@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bvtdmt5etijly"]
+
+[ext_resource type="Script" uid="uid://ctmw3qq476emi" path="res://Deletes/custom_camera.gd" id="1_v8yom"]
+
+[node name="custom_camera" type="Camera2D" unique_id=1068353360]
+limit_smoothed = true
+script = ExtResource("1_v8yom")
+metadata/_edit_lock_ = true
+
+[node name="audio_listener" type="AudioListener2D" parent="." unique_id=2036480299]
+metadata/_edit_lock_ = true

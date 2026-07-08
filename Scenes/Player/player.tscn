@@ -503,9 +503,6 @@ metadata/_edit_lock_ = true
 occluder = SubResource("OccluderPolygon2D_06tpx")
 metadata/_edit_lock_ = true
 
-[node name="audio_listener" type="AudioListener2D" parent="." unique_id=160933992]
-metadata/_edit_lock_ = true
-
 [node name="audio_stream_player" type="AudioStreamPlayer2D" parent="." unique_id=1443477830]
 metadata/_edit_lock_ = true
 

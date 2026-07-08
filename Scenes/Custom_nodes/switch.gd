@@ -1,8 +1,20 @@
 extends Area2D
 
-signal switch
+signal switch(on: bool)
 
 @export var invisible: bool = false
+@export var active: bool = false:
+	set(val):
+		active =  val
+		if not is_node_ready(): await ready
+		if one_activation:
+			set_deferred("monitoring", false)
+			set_deferred("monitorable", false)
+
+		switch.emit(val)
+		$AnimatedSprite2D.play(&"active" if !val else &"desactive")
+@export var one_activation: bool = true
+
 
 func _ready() -> void:
 	if invisible:
@@ -15,8 +27,9 @@ func _ready() -> void:
 
 
 func _interact(_data: Dictionary) -> void:
-	switch.emit()
-	$AnimatedSprite2D.play(&"active")
+	if one_activation and active:
+		return
+	active = !active
 
 
 func _body_entered(body: Node2D) -> void:

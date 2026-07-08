@@ -5,6 +5,11 @@
 @onready var color: ColorRect = $ColorRect
 @onready var body_shape: CollisionShape2D = $StaticBody2D/CollisionShape2D
 
+@export var facade_y_size: float = 256:
+	set(val):
+		facade_y_size = val
+		if not is_node_ready(): await ready
+		color.size.y = val
 @export var double_door: bool = false:
 	set(val):
 		double_door = val

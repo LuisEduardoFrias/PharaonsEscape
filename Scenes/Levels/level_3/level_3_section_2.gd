@@ -2,14 +2,13 @@ extends SectionBase
 
 @onready var door1: MechanicalDoor = $doors/mechanical_door
 @onready var door2: MechanicalDoor = $doors/mechanical_door2
-@onready var door3: MechanicalDoor = $doors/mechanical_door3
-@onready var door4: MechanicalDoor = $doors/mechanical_door4
 
 
 func _ready() -> void:
 	super()
+	door2.opening = Global.active_door
 
 
-func _on_switch_switch() -> void:
+
+func _on_switch_switch(_on: bool) -> void:
 	door1._open()
-	door2._open()

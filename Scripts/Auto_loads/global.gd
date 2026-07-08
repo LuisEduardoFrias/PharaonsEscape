@@ -15,6 +15,9 @@ var current_slot: Slot
 var data: Data
 var is_initial: bool = true
 
+#puerta del nivel 2
+var current_scene: SectionBase = null
+var active_door: bool = false
 
 func _ready() -> void:
 	SaveManager._setup_env()

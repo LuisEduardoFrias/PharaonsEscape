@@ -25,3 +25,5 @@ func _ready() -> void:
 	world = Util._find_owner()
 	$Sprite2D.visible = false
 	RenderingServer.set_default_clear_color(Color("350005FF"))
+	if not is_node_ready(): await ready
+	Global.current_scene = self

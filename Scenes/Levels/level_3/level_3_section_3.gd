@@ -13,7 +13,7 @@ extends SectionBase
 @onready var btn2: FloorButton = $objs/floor_button2
 
 @onready var battle_zone: Area2D = $platform/battle_zone3
-@onready var camera1: Camera2D = $Camera
+@onready var camera1: Camera2D = $custom_camera
 @onready var camera2: Camera2D = $objs/Camera2D
 @onready var camera3: Camera2D = $objs/Camera2D2
 
@@ -40,14 +40,10 @@ func _process(delta: float) -> void:
 			btn2._desactive()
 		else:
 			set_process(false)
-			camera1.enabled = false
-			camera2.enabled = true
-			await Util.timerout(1.0)
-			door3._open()
-			door7._open()
-			await Util.timerout(3.0)
-			camera2.enabled = false
-			camera1.enabled = true
+			Util.temporarily_switch_camera(camera1, camera2, func() -> void:
+				door3._open()
+				door7._open()
+			)
 
 
 func _on_battle_zone_2_body_entered(body: Node2D) -> void:
@@ -56,11 +52,17 @@ func _on_battle_zone_2_body_entered(body: Node2D) -> void:
 
 
 func _on_floor_lever_is_activated(on: bool) -> void:
-	if on: door2._open()
+	if on:
+		Util.temporarily_switch_camera(camera1, camera3, func() -> void:
+			door2._open()
+		)
 
 
 func _on_floor_lever_2_is_activated(on: bool) -> void:
-	if on: door6._open()
+	if on:
+		Util.temporarily_switch_camera(camera1, camera2, func() -> void:
+			door6._open()
+		)
 
 
 func _on_floor_button_is_activated() -> void:
@@ -74,4 +76,5 @@ func _on_floor_button_2_is_activated() -> void:
 
 func _on_floor_button_3_is_activated() -> void:
 	door1._open()
+	Global.active_door = true
 	battle_zone.monitoring = true
