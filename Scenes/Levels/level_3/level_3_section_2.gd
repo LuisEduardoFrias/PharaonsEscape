@@ -6,9 +6,9 @@ extends SectionBase
 
 func _ready() -> void:
 	super()
-	door2.opening = Global.active_door
-
+	Global.check_door(LevelsData.Levels.LEVEL3, name, door1)
+	Global.check_door(LevelsData.Levels.LEVEL3, name, door2)
 
 
 func _on_switch_switch(_on: bool) -> void:
-	door1._open()
+	Global.save_open_door(LevelsData.Levels.LEVEL3, name, door1)

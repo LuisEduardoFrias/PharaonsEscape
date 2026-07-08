@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://duijmf4g1n1gv"]
+
+[ext_resource type="Script" uid="uid://byq5um8ha678d" path="res://Scenes/menu_selection_game.gd" id="1_86jjs"]
+
+[node name="menu_selection_game" type="Control" unique_id=1821255652]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_86jjs")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1207872203]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.34033492, 0.34035298, 1)
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=415997472]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -367.25
+offset_top = -177.75
+offset_right = 367.25
+offset_bottom = 177.75
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="container" type="HBoxContainer" parent="Panel" unique_id=280691609]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = -80.0
+offset_right = 199.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Button" type="Button" parent="." unique_id=1780250855]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.0
+offset_top = -142.0
+offset_right = 47.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Back
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

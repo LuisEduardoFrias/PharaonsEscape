@@ -2,9 +2,29 @@ class_name Level3 extends Resource
 
 @export var is_killer_boss: bool = false
 @export var doors: Dictionary = {
-	"ladder": false,
-	"ladder2": false,
-	"wall_gap_roll_2": false,
+	"level_3_section_1_mechanical_door" : false,
+	"level_3_section_1_mechanical_door2" : false,
+	"level_3_section_1_mechanical_door3" : false,
+	"level_3_section_1_mechanical_door4" : false,
+
+	"level_3_section_2_mechanical_door" : false,
+	"level_3_section_2_mechanical_door2" : false,
+
+	"level_3_section_3_mechanical_door" : false,
+	"level_3_section_3_mechanical_door2" : false,
+	"level_3_section_3_mechanical_door3" : false,
+	"level_3_section_3_mechanical_door4" : false,
+	"level_3_section_3_mechanical_door5" : false,
+	"level_3_section_3_mechanical_door6" : false,
+	"level_3_section_3_mechanical_door7" : false,
+	"level_3_section_3_mechanical_door8" : false,
+}
+@export var parchments: Dictionary = {
+	"level_3_section_2_skeleton" : {
+		"dialog_name": "",
+		"is_take": false,
+		"is_interject": false
+	},
 }
 @export var goldens_scarabs: Array[String] = []
 @export var objects: Array = []

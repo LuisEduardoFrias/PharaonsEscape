@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="Data" format=3]
+
+[ext_resource type="Script" path="res://Resources/Data_save/current_level_data.gd" id="1_5jgkc"]
+[ext_resource type="Script" path="res://Resources/Data_save/items_data.gd" id="2_xogpi"]
+[ext_resource type="Script" path="res://Resources/Data_save/level1_data.gd" id="3_3vvrr"]
+[ext_resource type="Script" path="res://Resources/Data_save/level2_data.gd" id="4_gfo5i"]
+[ext_resource type="Script" path="res://Resources/Data_save/level3_data.gd" id="5_5kksw"]
+[ext_resource type="Script" path="res://Resources/Data_save/level4_data.gd" id="6_4nyaq"]
+[ext_resource type="Script" path="res://Resources/Data_save/level5_data.gd" id="7_20ak8"]
+[ext_resource type="Script" path="res://Resources/Data_save/levels_data.gd" id="8_x1d45"]
+[ext_resource type="Script" path="res://Resources/Data_save/player_data.gd" id="9_20ebd"]
+[ext_resource type="Script" path="res://Resources/Data_save/data.gd" id="10_ffaag"]
+[ext_resource type="Script" path="res://Resources/Data_save/skills_data.gd" id="11_ilp7p"]
+
+[sub_resource type="Resource" id="Resource_3tdit"]
+script = ExtResource("1_5jgkc")
+level_name = "The Grand Gallery"
+
+[sub_resource type="Resource" id="Resource_abtga"]
+script = ExtResource("2_xogpi")
+
+[sub_resource type="Resource" id="Resource_unl8j"]
+script = ExtResource("3_3vvrr")
+
+[sub_resource type="Resource" id="Resource_q7suk"]
+script = ExtResource("4_gfo5i")
+
+[sub_resource type="Resource" id="Resource_lymtr"]
+script = ExtResource("5_5kksw")
+doors = {
+"level_3_section_1_mechanical_door": true,
+"level_3_section_1_mechanical_door2": true,
+"level_3_section_1_mechanical_door3": false,
+"level_3_section_1_mechanical_door4": false,
+"level_3_section_2_mechanical_door": false,
+"level_3_section_2_mechanical_door2": false,
+"level_3_section_3_mechanical_door": false,
+"level_3_section_3_mechanical_door2": false,
+"level_3_section_3_mechanical_door3": false,
+"level_3_section_3_mechanical_door4": false,
+"level_3_section_3_mechanical_door5": false,
+"level_3_section_3_mechanical_door6": false,
+"level_3_section_3_mechanical_door7": false,
+"level_3_section_3_mechanical_door8": false
+}
+
+[sub_resource type="Resource" id="Resource_qamee"]
+script = ExtResource("6_4nyaq")
+
+[sub_resource type="Resource" id="Resource_sjx8d"]
+script = ExtResource("7_20ak8")
+
+[sub_resource type="Resource" id="Resource_ptbla"]
+script = ExtResource("8_x1d45")
+level1 = SubResource("Resource_unl8j")
+level2 = SubResource("Resource_q7suk")
+level3 = SubResource("Resource_lymtr")
+level4 = SubResource("Resource_qamee")
+level5 = SubResource("Resource_sjx8d")
+
+[sub_resource type="Resource" id="Resource_i08hb"]
+script = ExtResource("9_20ebd")
+
+[sub_resource type="Resource" id="Resource_s2dlk"]
+script = ExtResource("11_ilp7p")
+
+[resource]
+script = ExtResource("10_ffaag")
+is_initial = false
+items = SubResource("Resource_abtga")
+current_level = SubResource("Resource_3tdit")
+player = SubResource("Resource_i08hb")
+skills = SubResource("Resource_s2dlk")
+levels = SubResource("Resource_ptbla")

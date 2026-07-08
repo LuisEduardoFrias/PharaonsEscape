@@ -80,14 +80,15 @@ func unblock() -> void:
 
 func _on_open_wall_gap_body_exited(body: Node2D) -> void:
 	if body is Player:
-		body.wall_gap = null
+		#body.wall_gap = null
 		z_index = 0
 		#close()
 
 
 func _on_open_wall_gap_body_entered(body: Node2D) -> void:
 	if body is Player:
-		body.wall_gap = self
+		pass
+		#body.wall_gap = self
 
 
 func _on_close_body_exited(body: Node2D) -> void:

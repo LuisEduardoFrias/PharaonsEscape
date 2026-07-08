@@ -1,13 +1,9 @@
-# SceneTr loading
+# Scene loading
 extends Node
 
 var spawn_point_id: String
 var player_direction: Vector2
 var world: World
-
-
-func _ready() -> void:
-	world = get_tree().get_first_node_in_group("World")
 
 
 func level_change(door_id: String = "", direction: Vector2 = Vector2.ZERO) -> void:

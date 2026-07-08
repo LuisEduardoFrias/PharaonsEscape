@@ -1,77 +1,108 @@
 extends Node
+## SaveManager: Autoload encargado de la persistencia de datos, perfiles y configuraciones.
 
-const BASE_FOLDER: String = "save_pharaons_escape/"
+const BASE_FOLDER: String = "save_debug_data/"
 
-## El recurso SlotManager que mantiene el estado actual de los tres perfiles.
+# ==============================================================================
+# region VARIABLES DE LA API PÚBLICA
+# ==============================================================================
+
+## Array expuesto con los 3 slots listos para ser leídos directamente por la UI.
+var available_slots: Array[Slot] = []
+
+## Recurso de configuraciones globales (Ajustes de audio, idioma, etc.).
+var game_settings: GameSettings
+
+# endregion
+# ==============================================================================
+# region VARIABLES INTERNAS
+# ==============================================================================
+
 var slots_profile: SlotManager
-
 var _base_path: String
 var _ext: String
 
+# endregion
+# ==============================================================================
+# region PROCESO PRINCIPAL (_READY)
+# ==============================================================================
 
 func _ready() -> void:
 	_setup_env()
-	# Precargamos los slots al iniciar el juego para tenerlos listos en memoria
+	_initialize_save_system()
+
+
+## Prepara el entorno y carga los archivos iniciales en memoria.
+func _initialize_save_system() -> void:
+	# 1. Cargar o crear el manejador de perfiles
 	slots_profile = _load_slot_manager()
 
+	# 2. Asegurar que los 3 slots existan internamente (si están vacíos, se inicializan)
+	_ensure_all_slots_exist()
 
-## Devuelve un array nativo con los 3 slots para leer sus metadatos desde la UI.
-func get_all_slots() -> Array[Slot]:
-	return [slots_profile.slot1, slots_profile.slot2, slots_profile.slot3]
+	# 3. Actualizar la propiedad pública que usará tu UI
+	_update_available_slots_property()
+
+	# 4. Cargar configuraciones del juego
+	game_settings = _load_game_settings()
+
+# endregion
+# ==============================================================================
+# region API PÚBLICA (Funciones consumibles desde el exterior)
+# ==============================================================================
+
+## Recibe un Slot, determina si es nuevo o existente, realiza los procesos de inicialización si es necesario y retorna su 'Data'.
+func select_and_load_slot(slot: Slot) -> Data:
+	if slot.is_slot_empty:
+		# Es un slot nuevo: Se inicializa su estructura física
+		return _create_new_slot_game(slot.slot_id)
+	else:
+		# Slot existente: Se carga su archivo Data directamente
+		return _load_slot_game(slot.slot_id)
 
 
-## Crea una partida limpia en un slot específico (1, 2 o 3) e inicializa su archivo Data.
-func create_new_slot_game(slot_index: int, difficulty: Data.DifficultyType, language: Data.Code_Trans) -> Data:
-	var slot_id: String = "slot_" + str(slot_index)
-	var data_path: String = _base_path + slot_id + "/game_data" + _ext
+## Guarda los datos actuales del juego (Data) y actualiza los metadatos visibles del Slot asociado.
+func save_current_game(slot_meta: Slot, current_data: Data) -> void:
+	# El slot ya no está vacío al guardar
+	slot_meta.is_slot_empty = false
 
-	var new_data: Data = Data.new()
-	new_data.difficulty = difficulty
-	new_data.languaje = language
-	new_data.is_initial = true
-
-	var new_slot: Slot = Slot.new()
-	new_slot.slot_id = slot_id
-	new_slot.index_ui = slot_index
-	new_slot.data_game_path = data_path
-
-	_save_game_file(new_slot, new_data)
-	_update_manager_slot(slot_index, new_slot)
+	_save_game_file(slot_meta, current_data)
+	_update_manager_slot(slot_meta.slot_id, slot_meta)
 	_save_slot_manager()
-
-	return new_data
-
-
-## Carga y devuelve los datos puros (Data) de un slot específico (1, 2 o 3).
-func load_slot_game(slot_index: int) -> Data:
-	var slot_obj: Slot = _get_slot_by_index(slot_index)
-	if not slot_obj or slot_obj.data_game_path.is_empty():
-		push_error("SaveManager: No data found for slot index: ", slot_index)
-		return null
-
-	var loaded_data: Data = _safe_load(slot_obj.data_game_path) as Data
-	if loaded_data:
-		_apply_game_settings(loaded_data)
-	return loaded_data
+	_update_available_slots_property()
 
 
-## Guarda el estado del juego actualizando tanto los datos como los metadatos del slot.
-func save_slot_game(slot_index: int, updated_slot_meta: Slot, current_data: Data) -> void:
-	_save_game_file(updated_slot_meta, current_data)
-	_update_manager_slot(slot_index, updated_slot_meta)
-	_save_slot_manager()
-
-
-## Elimina física y lógicamente el slot indicado (1, 2 o 3).
+## Resetea lógicamente un slot (vuelve a sus valores por defecto) y borra sus archivos físicos de guardado.
 func delete_slot_game(slot_index: int) -> void:
 	var slot_to_remove: Slot = _get_slot_by_index(slot_index)
-	_update_manager_slot(slot_index, null)
-	_save_slot_manager()
 
 	if slot_to_remove:
-		var slot_dir: String = _base_path + slot_to_remove.slot_id + "/"
+		# Se borra la carpeta física de datos
+		var slot_dir: String = _base_path + str(slot_to_remove.slot_id) + "/"
 		_recursive_delete(slot_dir)
 
+	# Se crea un slot limpio con los valores por defecto de tu clase Slot
+	var fresh_slot: Slot = Slot.new()
+	fresh_slot.slot_id = slot_index
+	fresh_slot.is_slot_empty = true
+
+	_update_manager_slot(slot_index, fresh_slot)
+	_save_slot_manager()
+	_update_available_slots_property()
+
+
+## Guarda de forma persistente el recurso de configuraciones actuales del juego.
+func save_game_settings() -> void:
+	var path: String = _base_path + "game_settings" + _ext
+	_safe_save(game_settings, path)
+
+# endregion
+
+
+# ==============================================================================
+# region FUNCIONES INTERNAS (Lógica privada del sistema)
+# ==============================================================================
+#region
 
 func _setup_env() -> void:
 	if OS.is_debug_build():
@@ -91,13 +122,60 @@ func _load_slot_manager() -> SlotManager:
 	return res if res is SlotManager else SlotManager.new()
 
 
+func _load_game_settings() -> Resource:
+	var path: String = _base_path + "game_settings" + _ext
+	var res: GameSettings = _safe_load(path)
+	if res:
+		return res
+	else:
+		return GameSettings.new()
+
+
+func _ensure_all_slots_exist() -> void:
+	if not slots_profile.slot1: slots_profile.slot1 = Slot.new(); slots_profile.slot1.slot_id = 1
+	if not slots_profile.slot2: slots_profile.slot2 = Slot.new(); slots_profile.slot2.slot_id = 2
+	if not slots_profile.slot3: slots_profile.slot3 = Slot.new(); slots_profile.slot3.slot_id = 3
+
+
+func _update_available_slots_property() -> void:
+	available_slots = [slots_profile.slot1, slots_profile.slot2, slots_profile.slot3]
+
+
+func _create_new_slot_game(slot_index: int) -> Data:
+	var slot_id: String = "slot_%d" % slot_index
+	var data_path: String = _base_path + slot_id + "/game_data" + _ext
+
+	var new_data: Data = Data.new()
+	new_data.is_initial = true
+
+	var slot_obj: Slot = _get_slot_by_index(slot_index)
+	slot_obj.is_slot_empty = false
+	slot_obj.data_game_path = data_path
+
+	_save_game_file(slot_obj, new_data)
+	_update_manager_slot(slot_index, slot_obj)
+	_save_slot_manager()
+	_update_available_slots_property()
+
+	return new_data
+
+
+func _load_slot_game(slot_index: int) -> Data:
+	var slot_obj: Slot = _get_slot_by_index(slot_index)
+	if not slot_obj or slot_obj.data_game_path.is_empty():
+		push_error("SaveManager: No data path found for slot index: ", slot_index)
+		return null
+
+	return _safe_load(slot_obj.data_game_path) as Data
+
+
 func _save_slot_manager() -> void:
 	var path: String = _base_path + "slot_manager" + _ext
 	_safe_save(slots_profile, path)
 
 
 func _save_game_file(slot: Slot, data: Data) -> void:
-	var slot_dir: String = _base_path + slot.slot_id + "/"
+	var slot_dir: String = "%sslot_%d/" % [_base_path, slot.slot_id]
 	if not DirAccess.dir_exists_absolute(slot_dir):
 		DirAccess.make_dir_recursive_absolute(slot_dir)
 	_safe_save(data, slot.data_game_path)
@@ -145,13 +223,13 @@ func _safe_load(path: String) -> Resource:
 func _recursive_delete(path: String) -> void:
 	if DirAccess.dir_exists_absolute(path):
 		var dir: DirAccess = DirAccess.open(path)
-		dir.list_dir_begin()
-		var file: String = dir.get_next()
-		while file != "":
-			dir.remove(file)
-			file = dir.get_next()
-		DirAccess.remove_absolute(path)
+		if dir:
+			dir.list_dir_begin()
+			var file: String = dir.get_next()
+			while file != "":
+				if file != "." and file != "..":
+					dir.remove(file)
+				file = dir.get_next()
+			DirAccess.remove_absolute(path)
 
-
-func _apply_game_settings(_data: Data) -> void:
-	pass
+#endregion

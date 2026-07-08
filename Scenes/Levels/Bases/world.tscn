@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cggajk3tpxwc2"]
 
 [ext_resource type="Script" uid="uid://cu3pfacfw2swf" path="res://Scenes/Levels/Bases/world.gd" id="1_x0d8c"]
-[ext_resource type="PackedScene" uid="uid://2h72ddq4jvgh" path="res://Scenes/Levels/level_3/level_3_section_2.tscn" id="2_ckv4v"]
 [ext_resource type="PackedScene" uid="uid://dmk7m8brrpvt5" path="res://addons/joy_stick/touch_controls.tscn" id="3_ckv4v"]
 
 [node name="world" type="Node2D" unique_id=820486288 groups=["World"]]
@@ -35,8 +34,6 @@ render_target_update_mode = 4
 [node name="LevelContainer" type="Node2D" parent="CanvasLayer2/SubViewportContainer/SubViewport" unique_id=1191621834]
 unique_name_in_owner = true
 metadata/_edit_lock_ = true
-
-[node name="level_3_section_2" parent="CanvasLayer2/SubViewportContainer/SubViewport/LevelContainer" unique_id=2045360606 instance=ExtResource("2_ckv4v")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=63627151]
 

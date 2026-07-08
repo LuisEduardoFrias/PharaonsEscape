@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="SlotManager" format=3]
+
+[ext_resource type="Script" path="res://Resources/Data_save/slot_manager.gd" id="1_h7d8g"]
+[ext_resource type="Script" path="res://Resources/Data_save/slot.gd" id="2_uhbn7"]
+
+[sub_resource type="Resource" id="Resource_10eoh"]
+script = ExtResource("2_uhbn7")
+slot_id = 1
+is_slot_empty = false
+data_game_path = "res://save_debug_data/slot_1/game_data.tres"
+level_name = "The Grand Gallery"
+
+[sub_resource type="Resource" id="Resource_vgbfs"]
+script = ExtResource("2_uhbn7")
+slot_id = 2
+is_slot_empty = false
+data_game_path = "res://save_debug_data/slot_2/game_data.tres"
+level_name = "The Grand Gallery"
+
+[sub_resource type="Resource" id="Resource_6yvvm"]
+script = ExtResource("2_uhbn7")
+slot_id = 3
+level_name = "The Grand Gallery"
+
+[resource]
+script = ExtResource("1_h7d8g")
+slot1 = SubResource("Resource_10eoh")
+slot2 = SubResource("Resource_vgbfs")
+slot3 = SubResource("Resource_6yvvm")

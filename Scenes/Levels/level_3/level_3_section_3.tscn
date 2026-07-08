@@ -345,7 +345,6 @@ metadata/_edit_lock_ = true
 position = Vector2(1728, 1858)
 rotation = 3.1415927
 scale = Vector2(-1, 1)
-facade_y_size = 256.0
 double_door = true
 direction = "DOWN"
 opening = true
@@ -354,7 +353,6 @@ metadata/_edit_lock_ = true
 [node name="mechanical_door2" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="2" unique_id=2073686494 instance=ExtResource("7_bnnu6")]
 position = Vector2(1984, 1472)
 rotation = 1.5707964
-facade_y_size = 256.0
 direction = "RIGHT"
 opening = true
 metadata/_edit_lock_ = true
@@ -363,7 +361,6 @@ metadata/_edit_lock_ = true
 position = Vector2(1344, 1472)
 rotation = 4.712389
 scale = Vector2(-1, 1)
-facade_y_size = 256.0
 direction = "LEFT"
 opening = true
 metadata/_edit_lock_ = true
@@ -372,7 +369,6 @@ metadata/_edit_lock_ = true
 position = Vector2(1216, 832)
 rotation = 4.712389
 scale = Vector2(-1, 1)
-facade_y_size = 256.0
 direction = "LEFT"
 opening = true
 metadata/open = true
@@ -380,7 +376,6 @@ metadata/_edit_lock_ = true
 
 [node name="mechanical_door5" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="5" unique_id=662745473 instance=ExtResource("7_bnnu6")]
 position = Vector2(896, 640)
-facade_y_size = 256.0
 metadata/open = true
 metadata/_edit_lock_ = true
 
@@ -388,7 +383,6 @@ metadata/_edit_lock_ = true
 position = Vector2(640, 832)
 rotation = 4.712389
 scale = Vector2(-1, 1)
-facade_y_size = 256.0
 direction = "LEFT"
 opening = true
 metadata/_edit_lock_ = true
@@ -397,14 +391,12 @@ metadata/_edit_lock_ = true
 position = Vector2(896, 1216)
 rotation = 3.1415927
 scale = Vector2(-1, 1)
-facade_y_size = 256.0
 direction = "DOWN"
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door8" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="8" unique_id=1985899006 instance=ExtResource("7_bnnu6")]
 position = Vector2(640, 1472.198)
 rotation = 1.5707964
-facade_y_size = 256.0
 direction = "RIGHT"
 opening = true
 metadata/open = true

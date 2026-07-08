@@ -95,14 +95,7 @@ size = Vector2(192, 64)
 [node name="level_3_section_2" unique_id=2045360606 instance=ExtResource("1_xxc5k")]
 script = ExtResource("2_8hf7j")
 
-[node name="change_scene_screen" parent="CanvasLayer" parent_id_path=PackedInt32Array(158355276) index="0" unique_id=381274439]
-visible = true
-
-[node name="CanvasModulate" parent="." index="1" unique_id=940825755]
-visible = false
-
 [node name="fog" parent="." index="2" unique_id=1285428728]
-visible = false
 position = Vector2(-4990, -1930.9999)
 scale = Vector2(8590, 4539)
 
@@ -110,7 +103,7 @@ scale = Vector2(8590, 4539)
 z_index = -1
 
 [node name="Player" parent="." index="4" unique_id=667587367]
-position = Vector2(-1012, 1014)
+position = Vector2(421, 538)
 scale = Vector2(1, 1)
 
 [node name="lower_level" parent="." index="6" unique_id=589084019]
@@ -333,7 +326,7 @@ debug_color = Color(0.9999996, 0.006446657, 0.054785542, 0.42)
 metadata/_edit_lock_ = true
 
 [node name="skeleton" parent="objs" parent_id_path=PackedInt32Array(1562350721) index="0" unique_id=1956545777 instance=ExtResource("3_7dunh")]
-position = Vector2(225, 1132)
+position = Vector2(230, 1144)
 dialog_resouce = ExtResource("4_bi1mi")
 metadata/_edit_lock_ = true
 

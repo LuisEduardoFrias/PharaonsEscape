@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $animated
-@onready var arrow: CharacterBody2D = $CharacterBody2D
 @export var speed: int = 300
 @export var direction: Vector2 = Vector2.DOWN
 @export var damage: float = 20.0

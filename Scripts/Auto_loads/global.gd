@@ -1,42 +1,88 @@
 # Global
 extends Node
 
-enum Battle_State { READY, STARTING, FINISHED }
-enum Honey_options { USE, ADD, PURIFY }
-
-signal added_skill(name: String)
-signal added_item(data:Data, item_type: ItemsData.ItemType)
-signal update_Honey(arr:Array)
-signal added_parchment()
-
-var player: PlayerData #para persistir la data del Player aparte.
+var player_data: PlayerData #para persistir la data del Player aparte.
 
 var current_slot: Slot
-var data: Data
-var is_initial: bool = true
+var data: Data = Data.new()
+var current_scene: Node2D
 
-#puerta del nivel 2
-var current_scene: SectionBase = null
-var active_door: bool = false
 
 func _ready() -> void:
-	SaveManager._setup_env()
+#region Solo para desarrollo
+	var slot: Slot = SaveManager.available_slots[1]
+	data = SaveManager.select_and_load_slot(slot)
+	current_slot = slot
+#endregion
+
+	player_data = data.player
+
+
+# Guada los datos generales
+func save() -> void:
+	SaveManager.save_current_game(current_slot, data)
+
+
+# Guada la partida
+func save_game() -> void:
+	data.player = player_data
+	SaveManager.save_current_game(current_slot, data)
+
+
+##Activa las puertas
+func save_open_door(owner_name: LevelsData.Levels, section_name: String, door: MechanicalDoor) -> void:
+	execute(owner_name, section_name, door, "doors", func (val: Variant,  prop_name: String) -> void:
+		door._open()
+		val[prop_name] = true
+		print(val[prop_name])
+		save()
+	)
+
+
+##Verifica el estado de la puerta
+func check_door(owner_name: LevelsData.Levels, section_name: String, door: MechanicalDoor) -> void:
+	execute(owner_name, section_name, door, "doors", func (val: Variant,  prop_name: String) -> void:
+		door.opening = val[prop_name]
+	)
+
+
+##Activa las puertas
+func save_parchment(owner_name: LevelsData.Levels, section_name: String, parchment: Node2D, is_take: bool) -> void:
+	execute(owner_name, section_name, parchment, "parchments", func (val: Variant, prop_name: String) -> void:
+		val[prop_name] = {
+			"dialog_name": parchment.dialog_resouce.resource_path,
+			"is_take": is_take,
+			"is_interject": !is_take
+		}
+		parchment.anim.stop()
+		parchment.dialogue_trigger.queue_free()
+		save()
+	)
+
+
+##Verifica el estado de la puerta
+func check_parchment(owner_name: LevelsData.Levels, section_name: String, parchment: Node2D) -> void:
+	execute(owner_name, section_name, parchment, "parchments", func (val: Variant, prop_name: String) -> void:
+		if(val[prop_name].is_take or val[prop_name].is_interject):
+			parchment.anim.stop()
+			parchment.dialogue_trigger.queue_free()
+	)
+
+
+func execute(owner_name: LevelsData.Levels, section_name: String, node: Node2D, fill: String, callback: Callable) -> void:
+	var _owner_name_: String = LevelsData.level_to_str(owner_name)
+	var _node_name: String = "%s_%s" %[section_name, node.name]
+
+	if data.levels[_owner_name_][fill].has(_node_name):
+		callback.call(data.levels[_owner_name_][fill], _node_name)
+	else:
+		push_warning("\n[Custom Warnning]:\nLa propiedad \"", _node_name ,"\" no se encuentra en el espacio de datos globales.")
+
+
+
+
+#region
 '''
-	var slots: SlotManager = SaveManager.load_slot_manager()
-	var game_data: Data = SaveManager.load_game(slots.slot1)
-	if game_data:
-		Global.data = game_data
-		Global.current_slot = slots.slot1
-		Global.player = data.player'''
-
-
-'''func validate_enemies(enemics: Array[BaseEnemic]) -> bool:
-	for e in enemics:
-		if is_instance_valid(e):
-			return false
-	return true'''
-
-
 func code_trans_to_str(code_trans: Data.Code_Trans) -> String:
 	return (Data.Code_Trans.keys()[code_trans] as String).to_lower()
 
@@ -60,31 +106,6 @@ func check_door(_owner_name:  LevelsData.Levels, _door_name: String) -> Variant:
 		return null
 
 
-##Activa las puertas
-func open_door(_owner_name:  LevelsData.Levels, _door_name: String) -> void:
-	var owner_name_: String =  LevelsData.level_to_str(_owner_name)
-
-	if data.levels[owner_name_].doors.has(_door_name):
-		data.levels[owner_name_].doors[_door_name] = true
-		save()
-	else:
-		push_warning("\nCustom Warnning:\nLa propiedad \"", _door_name ,"\" no se encuentra en el espacio de datos globales.")
-
-
-func get_level_name(titles: CurrentLevelData.Titles) -> String:
-	match titles:
-		CurrentLevelData.Titles.TheDescendingPassage:
-			return "The Descending Passage"
-		CurrentLevelData.Titles.TheGrandGallery:
-			return "The Grand Gallery"
-		CurrentLevelData.Titles.TheKingsChamber:
-			return "The King's Chamber"
-		CurrentLevelData.Titles.TheGoldenPyramidion:
-			return "The Golden Pyramidion"
-		CurrentLevelData.Titles.TheDarkZone:
-			return "The Dark Zone"
-		_:
-			return "Unknown Level"
 
 
 ## Realiza una transición de pantalla ejecutando una acción cuando está en negro.
@@ -115,10 +136,9 @@ func trigger_screen_transition(action: Callable, duration: float = 1.0) -> void:
 
 
 func show_title(_title: CurrentLevelData.Titles) -> void:
-	pass
-	'''if not ui:
+	if not ui:
 		ui = get_tree().get_first_node_in_group("ui")
-	ui.show_title(title)'''
+	ui.show_title(title)
 
 
 func add_skill(_name: SkillsData.SkillsType) -> void:
@@ -193,13 +213,6 @@ func update_honey(op: Honey_options) -> void:
 	update_Honey.emit(data.items.honey)
 
 
-
-
-
-
-
-
-
 func check_equipped_skill(skill: SkillsData.SkillsType) -> bool:
 	var equipped_skills :Array =  data.player.equipped_skills
 	for i :SkillsData.SkillsType in equipped_skills:
@@ -209,18 +222,16 @@ func check_equipped_skill(skill: SkillsData.SkillsType) -> bool:
 
 
 func save_meta_data_change_escene(_link_scene_id: StringName, _is_dark_zone: bool) -> void:
-	pass
-	'''meta_data_change_escene = {
+	meta_data_change_escene = {
 		"door_id": link_scene_id,
 		"is_dark_zone": is_dark_zone
-	}'''
+	}
 
 
 
 
 func load_game(_slot: int) -> void:
-	pass
-	'''specify_slot = slot
+	specify_slot = slot
 
 	if data.is_initial :
 		data.is_initial = false
@@ -229,4 +240,7 @@ func load_game(_slot: int) -> void:
 	else:
 		get_tree().change_scene_to_file("res://Scenes/word.tscn")
 
-	SaveManager.load_specify_slot_data(specify_slot)'''
+	SaveManager.load_specify_slot_data(specify_slot)
+'''
+
+#endregion

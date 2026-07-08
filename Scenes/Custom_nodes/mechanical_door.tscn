@@ -115,7 +115,6 @@ size = Vector2(64, 128)
 
 [node name="mechanical_door" type="Node2D" unique_id=1294071322]
 script = ExtResource("1_t6oat")
-facade_y_size = null
 metadata/open = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=181411826]

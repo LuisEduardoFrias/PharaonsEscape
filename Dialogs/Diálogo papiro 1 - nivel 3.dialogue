@@ -7,8 +7,11 @@ Esas malditas sombras... me han alcanzado. Siento cómo la corrupción se propag
     do _enable()
    => END
 - Dejar el pergamino
+	do data._release_parchment.call()
     do _enable()
-   => END
+    [Sistema]
+    Se deshizo el pergamino
+    => END
 
 ~ dia_2
 [Día 2 - Papiro deteriorado]
@@ -19,7 +22,10 @@ Por alguna extraña razón, puedo sentir el paso del tiempo... Esta pirámide es
     do _enable()
    => END
 - Dejar el pergamino
+	do data._release_parchment.call()
     do _enable()
+    [Sistema]
+    Se deshizo el pergamino
     => END
 
 ~ dia_1
@@ -30,5 +36,8 @@ No se puede bajar la guardia en cualquier rincón. Intenté acampar en uno de lo
     do _enable()
    => END
 - Dejar el pergamino
-    do _enable()
+	do data._release_parchment.call()
+	do _enable()
+    [Sistema]
+    Se deshizo el pergamino
     => END

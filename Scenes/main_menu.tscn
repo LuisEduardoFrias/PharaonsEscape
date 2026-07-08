@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dugp4sjwfkw0i"]
+
+[ext_resource type="Script" uid="uid://dyl0qv1c5173n" path="res://Scenes/main_menu.gd" id="1_28flt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erv1k"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="main_menu" type="Control" unique_id=85314879]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28flt")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=705253600]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.17254902, 1)
+
+[node name="Panel" type="Panel" parent="." unique_id=1950047224]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -272.75
+offset_right = 210.0
+offset_bottom = 272.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_erv1k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1074600085]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -206.0
+offset_right = 150.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer" unique_id=963576195]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "inicio"
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer" unique_id=1018923408]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "opciones"
+
+[node name="Button3" type="Button" parent="Panel/VBoxContainer" unique_id=1218646136]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "otros"
+
+[node name="Button4" type="Button" parent="Panel/VBoxContainer" unique_id=1267008234]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "salir"
+
+[connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
