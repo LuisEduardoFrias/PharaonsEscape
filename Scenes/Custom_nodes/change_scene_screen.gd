@@ -15,9 +15,11 @@ func transition_in(time: float = 1.0) -> void:
 	var tween = create_tween()
 	tween.tween_property(material, "shader_parameter/fade_progress", 1.0, time).from(0.0)\
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_callback(func () -> void: visible = false )
 
 
 func transition_out(time: float = 0.5) -> void:
+	visible = true
 	var tween = create_tween()
 	tween.tween_property(material, "shader_parameter/fade_progress", 0.0, time).from(1.0)\
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)

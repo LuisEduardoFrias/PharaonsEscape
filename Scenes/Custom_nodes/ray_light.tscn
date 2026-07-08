@@ -18,10 +18,31 @@ shader_parameter/color = Color(1, 0.9, 0.65, 0.8)
 shader_parameter/hdr = false
 shader_parameter/seed = 5.0
 
+[sub_resource type="Gradient" id="Gradient_06tpx"]
+offsets = PackedFloat32Array(0.3236997, 0.9937956, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.112838626, 0.112838626, 0.112838626, 0.112838626, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ijm27"]
+gradient = SubResource("Gradient_06tpx")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.78825915, 0.8189029)
+
 [node name="ray_light" type="ColorRect" unique_id=751003021]
 z_index = 2
 material = SubResource("ShaderMaterial_ttk4p")
-offset_left = -567.0
-offset_top = 1062.0
-offset_right = -407.0
-offset_bottom = 1222.0
+offset_right = 160.0
+offset_bottom = 160.0
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=966909736]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(72, 72)
+color = Color(1, 1, 1, 0.42745098)
+energy = 2.0
+shadow_enabled = true
+shadow_filter_smooth = 22.0
+shadow_item_cull_mask = 0
+texture = SubResource("GradientTexture2D_ijm27")

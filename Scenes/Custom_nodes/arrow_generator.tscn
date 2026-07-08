@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b8m2pv3o85n7u"]
+
+[ext_resource type="Script" uid="uid://bt2boefnib2" path="res://Scenes/Custom_nodes/arrow_generator.gd" id="1_pmc80"]
+
+[node name="arrow_generator" type="Node2D" unique_id=1615502791]
+script = ExtResource("1_pmc80")

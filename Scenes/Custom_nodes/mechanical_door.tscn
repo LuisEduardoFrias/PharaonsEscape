@@ -111,31 +111,46 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hvfjh"]
-size = Vector2(64, 64)
+size = Vector2(64, 128)
 
 [node name="mechanical_door" type="Node2D" unique_id=1294071322]
 script = ExtResource("1_t6oat")
-metadata/_edit_lock_ = true
 metadata/open = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=181411826]
+position = Vector2(32, -32)
+rotation = 3.1415927
+texture = ExtResource("1_hvfjh")
+hframes = 16
+vframes = 16
+frame = 234
+metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2098037329]
 sprite_frames = SubResource("SpriteFrames_pac64")
-animation = &"open"
+animation = &"default_close"
 autoplay = "default_close"
+offset = Vector2(32, 32)
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=144299180]
+visible = false
+sprite_frames = SubResource("SpriteFrames_pac64")
+animation = &"default_close"
+autoplay = "default_close"
+frame_progress = 1.0
+offset = Vector2(96, 32)
 metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=955888373]
 light_mask = 0
 z_index = 4
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = -93.0
-offset_top = -32.0
-offset_right = 97.0
-offset_bottom = 158.0
-grow_vertical = 0
+offset_left = -64.0
+offset_right = 128.0
+offset_bottom = 256.0
 scale = Vector2(1, -1)
+pivot_offset = Vector2(96, 0)
+accessibility_name = "."
 color = Color(0.20784314, 0, 0.019607844, 1)
 metadata/_edit_lock_ = true
 
@@ -144,5 +159,6 @@ collision_mask = 0
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=616477848]
+position = Vector2(32, 0)
 shape = SubResource("RectangleShape2D_hvfjh")
 metadata/_edit_lock_ = true

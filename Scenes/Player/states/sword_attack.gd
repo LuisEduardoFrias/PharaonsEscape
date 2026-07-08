@@ -2,8 +2,10 @@
 extends StateBase
 
 func enter(_data: Dictionary = {}) -> void:
+	actor._input_physics_off(true)
 	super()
-	#actor._input_physics_off(true)
+	await parent.animation_finished
+	actor._input_physics_off(false)
 
 
 func _on_hit_body_entered(body: Node2D) -> void:

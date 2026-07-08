@@ -93,7 +93,14 @@ size = Vector2(192, 64)
 [node name="level_3_section_2" unique_id=2045360606 instance=ExtResource("1_xxc5k")]
 script = ExtResource("2_8hf7j")
 
+[node name="change_scene_screen" parent="CanvasLayer" parent_id_path=PackedInt32Array(158355276) index="0" unique_id=381274439]
+visible = true
+
+[node name="CanvasModulate" parent="." index="1" unique_id=940825755]
+visible = false
+
 [node name="fog" parent="." index="2" unique_id=1285428728]
+visible = false
 position = Vector2(-4990, -1930.9999)
 scale = Vector2(8590, 4539)
 
@@ -101,7 +108,7 @@ scale = Vector2(8590, 4539)
 z_index = -1
 
 [node name="Player" parent="." index="4" unique_id=667587367]
-position = Vector2(-1036, 1019)
+position = Vector2(321, 1224)
 scale = Vector2(1, 1)
 
 [node name="lower_level" parent="." index="6" unique_id=589084019]
@@ -537,30 +544,23 @@ metadata/_edit_lock_ = true
 shape = SubResource("RectangleShape2D_pwpwa")
 
 [node name="mechanical_door" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="11" unique_id=1294071322 instance=ExtResource("7_iijwr")]
-position = Vector2(117, 889)
-rotation = -1.5707964
-
-[node name="ColorRect" parent="doors/mechanical_door" index="1" unique_id=955888373]
-offset_left = -158.58716
-offset_top = -381.328
+position = Vector2(64, 1152)
+rotation = 4.712389
+scale = Vector2(-1, 1)
+double_door = true
+direction = "LEFT"
+metadata/_edit_lock_ = true
 
 [node name="mechanical_door2" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="12" unique_id=606375684 instance=ExtResource("7_iijwr")]
 position = Vector2(31, 1503)
 rotation = -1.5707964
 
 [node name="mechanical_door3" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="13" unique_id=713235240 instance=ExtResource("7_iijwr")]
-position = Vector2(-1248, 1184)
+position = Vector2(-1323, 1100)
 rotation = -1.5707964
-
-[node name="ColorRect" parent="doors/mechanical_door3" index="1" unique_id=955888373]
-offset_left = -159.15356
-offset_top = -393.9734
 
 [node name="mechanical_door4" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="14" unique_id=1063398489 instance=ExtResource("7_iijwr")]
 position = Vector2(-1248, 1248)
 rotation = -1.5707964
 
 [connection signal="switch" from="platform/switch" to="." method="_on_switch_switch"]
-
-[editable path="doors/mechanical_door"]
-[editable path="doors/mechanical_door3"]

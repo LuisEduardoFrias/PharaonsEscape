@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bolgghax813qo"]
+
+[ext_resource type="Script" uid="uid://b48q64c8040c5" path="res://Deletes/state_machine.gd" id="1_403f5"]
+[ext_resource type="Script" uid="uid://bpu4lkmrkev22" path="res://Deletes/old_states/idle.gd" id="2_4kugp"]
+[ext_resource type="Script" uid="uid://cjaxbmllfps20" path="res://Deletes/old_states/walk.gd" id="3_flexm"]
+[ext_resource type="Script" uid="uid://dp3ije0ys6wtn" path="res://Deletes/old_states/jump.gd" id="4_uautv"]
+[ext_resource type="Script" uid="uid://drvfhoks56clj" path="res://Deletes/sword_attack.gd" id="5_b7235"]
+[ext_resource type="Script" uid="uid://c6r2o6ppr0nhn" path="res://Deletes/hammer_attack.gd" id="6_nbj5p"]
+[ext_resource type="Script" uid="uid://bbohrl7404hpp" path="res://Deletes/interact.gd" id="7_sqy6a"]
+[ext_resource type="Script" uid="uid://r0hccatw2ke1" path="res://Deletes/hurt.gd" id="8_42q7j"]
+[ext_resource type="Script" uid="uid://71e6v3jpo3xb" path="res://Deletes/pushing.gd" id="9_7t1ve"]
+[ext_resource type="Script" uid="uid://dujhyimuymdpa" path="res://Deletes/roll.gd" id="10_kt3y7"]
+
+[node name="StateMachine" type="Node" unique_id=44871324 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_403f5")
+initial_state = NodePath("idle")
+
+[node name="idle" type="Node" parent="." unique_id=497702329]
+script = ExtResource("2_4kugp")
+
+[node name="walk" type="Node" parent="." unique_id=1353003992]
+script = ExtResource("3_flexm")
+
+[node name="jump" type="Node" parent="." unique_id=547073467]
+script = ExtResource("4_uautv")
+
+[node name="sword_attack" type="Node" parent="." unique_id=1824973572]
+script = ExtResource("5_b7235")
+
+[node name="hammer_attack" type="Node" parent="." unique_id=595831000]
+script = ExtResource("6_nbj5p")
+
+[node name="interact" type="Node" parent="." unique_id=1930008277]
+script = ExtResource("7_sqy6a")
+
+[node name="hurt" type="Node" parent="." unique_id=2024012522]
+script = ExtResource("8_42q7j")
+
+[node name="pulling" type="Node" parent="." unique_id=1376898894]
+script = ExtResource("9_7t1ve")
+
+[node name="roll" type="Node" parent="." unique_id=459160575]
+script = ExtResource("10_kt3y7")

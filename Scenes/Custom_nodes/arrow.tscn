@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://xfd6fvor73ix"]
+
+[ext_resource type="Script" uid="uid://b61u38v6eri2f" path="res://Scenes/Custom_nodes/arrow.gd" id="1_6k15i"]
+[ext_resource type="Texture2D" uid="uid://c7lcluh6gi3da" path="res://Textures/Sprites/map_decorations.png" id="2_t8qcb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlh4n"]
+atlas = ExtResource("2_t8qcb")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yb5u"]
+atlas = ExtResource("2_t8qcb")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftwe4"]
+atlas = ExtResource("2_t8qcb")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6k15i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlh4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yb5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftwe4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k7bv"]
+size = Vector2(8, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8qcb"]
+size = Vector2(3, 22.5)
+
+[node name="arrow" type="CharacterBody2D" unique_id=653061769]
+collision_layer = 0
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_6k15i")
+
+[node name="animated" type="AnimatedSprite2D" parent="." unique_id=1782936513]
+sprite_frames = SubResource("SpriteFrames_6k15i")
+autoplay = "default"
+frame_progress = 0.454213
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="animated" unique_id=845431906]
+collision_layer = 0
+collision_mask = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="animated/Area2D" unique_id=773796758]
+position = Vector2(-1, 13)
+shape = SubResource("RectangleShape2D_1k7bv")
+debug_color = Color(1, 0, 0, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1188151696]
+position = Vector2(-1, -0.25)
+shape = SubResource("RectangleShape2D_t8qcb")
+
+[connection signal="body_entered" from="animated/Area2D" to="." method="_on_area_2d_body_entered"]

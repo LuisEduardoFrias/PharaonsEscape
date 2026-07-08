@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 			pj.ray.collision_mask = 0
 
 			pj._input_physics_off(true)
-			pj.state_machine.on_child_transition("jump")
+			pj.state_machine._on_child_transition(AnimationStateMachine.States.JUMP)
 
 			await Util.timerout(0.5)
 			pj.ray.collision_mask = 1

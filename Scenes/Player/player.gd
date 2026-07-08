@@ -60,7 +60,7 @@ func _physics_process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"ui_action_2") :
-		eye_horus._enable_eje_horus()
+		pass#eye_horus._enable_eje_horus()
 
 
 #Detiene todas las entradas al player
@@ -124,8 +124,6 @@ func intermittency(duration: float = 1.0, callback: Callable = Callable()) -> vo
 
 ## Método que silve para interacion con cosas en el piso
 func _floor_detected_body_entered(body: Node2D) -> void:
-	print(body.name)
-
 	if body as TileMapLayer:
 		_tile_hit(body)
 		return

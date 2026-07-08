@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://kd0dy0vw1t1d" path="res://Scenes/Player/player.gd" id="1_uvnfx"]
 [ext_resource type="Texture2D" uid="uid://c67xv1ssek1gj" path="res://Textures/Player/player.png" id="2_06tpx"]
 [ext_resource type="PackedScene" uid="uid://db4y8jgpslv6l" path="res://Scenes/Player/eye_of_horus.tscn" id="2_7g0yx"]
-[ext_resource type="AnimationLibrary" uid="uid://1ishv1atht3g" path="res://Scenes/player_animations.res" id="3_06tpx"]
+[ext_resource type="AnimationLibrary" uid="uid://1ishv1atht3g" path="res://Deletes/player_animations.res" id="3_06tpx"]
 [ext_resource type="Script" uid="uid://ciu4gaw2cpa7g" path="res://Scenes/Player/states/fall.gd" id="11_74mp2"]
 [ext_resource type="Script" uid="uid://bmcgp1dg58haq" path="res://Scenes/Player/states/interact.gd" id="12_oikmp"]
 [ext_resource type="PackedScene" uid="uid://b11hw3gadi0ds" path="res://Scenes/Custom_nodes/animation_state_machine.tscn" id="15_hnuln"]
@@ -181,10 +181,12 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_enij7")
 blend_point_2/pos = Vector2(0, 1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_mwii3")
 blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_m6ahd"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_oikmp"]
+graph_offset = Vector2(-5.2119946, 11.158509)
 nodes/output/position = Vector2(666.6667, 120)
 nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_2aanf")
 nodes/BlendSpace2D/position = Vector2(80, 106.666664)
@@ -367,11 +369,11 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dey5f"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r5xpd"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r5xpd"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7g0yx"]
 switch_mode = 2
 advance_mode = 2
 
@@ -384,8 +386,8 @@ states/hurt/node = SubResource("AnimationNodeBlendTree_74mp2")
 states/hurt/position = Vector2(500.56314, 103.38183)
 states/idle/node = SubResource("AnimationNodeBlendTree_ks1b7")
 states/idle/position = Vector2(347.31317, 99.67998)
-states/interect/node = SubResource("AnimationNodeBlendTree_oikmp")
-states/interect/position = Vector2(506.02472, 210.33476)
+states/interact/node = SubResource("AnimationNodeBlendTree_oikmp")
+states/interact/position = Vector2(506.02472, 210.33476)
 states/jump/node = SubResource("AnimationNodeBlendTree_rcvs5")
 states/jump/position = Vector2(347.56772, 301.19034)
 states/pilling/node = SubResource("AnimationNodeBlendTree_aqm4k")
@@ -396,11 +398,12 @@ states/sword_attack/node = SubResource("AnimationNodeBlendTree_7g0yx")
 states/sword_attack/position = Vector2(347.10852, 208.74284)
 states/walk/node = SubResource("AnimationNodeBlendTree_hnuln")
 states/walk/position = Vector2(640.3985, 104.1331)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_jhyir"), "roll", "idle", SubResource("AnimationNodeStateMachineTransition_74mp2"), "sword_attack", "idle", SubResource("AnimationNodeStateMachineTransition_oikmp"), "hammer_attack", "idle", SubResource("AnimationNodeStateMachineTransition_06tpx"), "interect", "idle", SubResource("AnimationNodeStateMachineTransition_dey5f"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_r5xpd")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_jhyir"), "roll", "idle", SubResource("AnimationNodeStateMachineTransition_74mp2"), "sword_attack", "idle", SubResource("AnimationNodeStateMachineTransition_oikmp"), "hammer_attack", "idle", SubResource("AnimationNodeStateMachineTransition_06tpx"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_r5xpd"), "interact", "idle", SubResource("AnimationNodeStateMachineTransition_7g0yx")]
 graph_offset = Vector2(-24.447262, 53.276234)
 
 [node name="Player" type="CharacterBody2D" unique_id=667587367 node_paths=PackedStringArray("sprite_node", "ray", "audio_player") groups=["Player"]]
-collision_layer = 18
+collision_layer = 2
+collision_mask = 145
 motion_mode = 1
 script = ExtResource("1_uvnfx")
 speed = 150.0
@@ -461,7 +464,6 @@ metadata/_edit_lock_ = true
 collision_layer = 0
 collision_mask = 21
 monitoring = false
-monitorable = false
 
 [node name="collision" type="CollisionShape2D" parent="hit" unique_id=759670530]
 debug_color = Color(0.99215686, 1, 0, 1)
@@ -490,7 +492,6 @@ shape = SubResource("RectangleShape2D_0a2xn")
 debug_color = Color(0.9612482, 1.92523e-07, 0.5114325, 0.42)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=607798832]
-visible = false
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.6627451)
 shadow_item_cull_mask = 2
@@ -519,8 +520,8 @@ parameters/hurt/BlendSpace2D/blend_position = Vector2(0, 0)
 parameters/hurt/TimeScale/scale = 1.0
 parameters/idle/BlendSpace2D/blend_position = Vector2(0.039675117, 1.7751381)
 parameters/idle/TimeScale/scale = 1.0
-parameters/interect/BlendSpace2D/blend_position = Vector2(0, 0)
-parameters/interect/TimeScale/scale = 1.0
+parameters/interact/BlendSpace2D/blend_position = Vector2(-1.1998703, -0.022626162)
+parameters/interact/TimeScale/scale = 1.0
 parameters/jump/BlendSpace2D/blend_position = Vector2(0, 0)
 parameters/jump/TimeScale/scale = 1.0
 parameters/pilling/BlendSpace2D/blend_position = Vector2(0, 0)

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dhltha0ohhirh"]
+
+[ext_resource type="Script" uid="uid://cvl0ev4bx24fj" path="res://Scenes/Custom_nodes/floor_button.gd" id="1_tabgf"]
+[ext_resource type="Texture2D" uid="uid://c7lcluh6gi3da" path="res://Textures/Sprites/map_decorations.png" id="1_xkv30"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u80j6"]
+atlas = ExtResource("1_xkv30")
+region = Rect2(288, 224, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k7bv"]
+atlas = ExtResource("1_xkv30")
+region = Rect2(336, 224, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xu64f"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_u80j6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1k7bv")
+}],
+"loop": false,
+"name": &"activate",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tabgf"]
+size = Vector2(40, 40)
+
+[node name="floor_button" type="StaticBody2D" unique_id=1388817653]
+script = ExtResource("1_tabgf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1343067404]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1806137720]
+sprite_frames = SubResource("SpriteFrames_xu64f")
+animation = &"activate"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=810569975]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2061616663]
+shape = SubResource("RectangleShape2D_tabgf")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

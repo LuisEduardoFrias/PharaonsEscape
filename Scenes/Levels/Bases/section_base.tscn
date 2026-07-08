@@ -6,7 +6,7 @@
 [ext_resource type="Shader" uid="uid://bsjyupln4s0nx" path="res://Shaders/fade_in_out.gdshader" id="2_q2xws"]
 [ext_resource type="TileSet" uid="uid://cjacau0u51usp" path="res://Resources/tileset_word.tres" id="2_xa4ot"]
 [ext_resource type="PackedScene" uid="uid://bdmjillkn4yex" path="res://Scenes/Player/player.tscn" id="4_nkl22"]
-[ext_resource type="Script" uid="uid://ctmw3qq476emi" path="res://Scenes/custom_camera.gd" id="5_b48bf"]
+[ext_resource type="Script" uid="uid://ctmw3qq476emi" path="res://Deletes/custom_camera.gd" id="5_b48bf"]
 [ext_resource type="PackedScene" uid="uid://hvkwx7wiiige" path="res://Scenes/Custom_nodes/fog.tscn" id="5_l2xlv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l2xlv"]
@@ -25,6 +25,7 @@ metadata/_edit_lock_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=158355276]
 
 [node name="change_scene_screen" type="ColorRect" parent="CanvasLayer" unique_id=381274439 node_paths=PackedStringArray("player")]
+visible = false
 material = SubResource("ShaderMaterial_l2xlv")
 anchors_preset = 15
 anchor_right = 1.0

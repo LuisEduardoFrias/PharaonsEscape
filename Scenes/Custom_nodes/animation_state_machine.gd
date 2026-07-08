@@ -33,15 +33,18 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		generate_states()
-	if current_state: current_state.update(delta)
+	if not Engine.is_editor_hint():
+		if current_state: current_state.update(delta)
 
 
 func _physics_process(delta: float) -> void:
-	if current_state: current_state.physics_update(delta)
+	if not Engine.is_editor_hint():
+		if current_state: current_state.physics_update(delta)
 
 
 func _input(event: InputEvent) -> void:
-	if current_state: current_state.input(event)
+	if not Engine.is_editor_hint():
+		if current_state: current_state.input(event)
 
 
 ## retorna un valor del enumerado como string
