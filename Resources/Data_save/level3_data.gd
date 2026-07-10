@@ -9,6 +9,10 @@ class_name Level3 extends Resource
 
 	"level_3_section_2_mechanical_door" : false,
 	"level_3_section_2_mechanical_door2" : false,
+	"level_3_section_2_double_mechanical_door" : false,
+	"level_3_section_2_double_mechanical_door2" : false,
+	"level_3_section_2_escalator" : false,
+	"level_3_section_2_escalator2" : false,
 
 	"level_3_section_3_mechanical_door" : false,
 	"level_3_section_3_mechanical_door2" : false,

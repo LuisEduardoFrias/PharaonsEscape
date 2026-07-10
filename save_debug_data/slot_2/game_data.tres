@@ -1,15 +1,15 @@
-[gd_resource type="Resource" script_class="Data" format=3 uid="uid://4e6fjth1ifov"]
+[gd_resource type="Resource" script_class="Data" format=3]
 
-[ext_resource type="Script" uid="uid://dx0p6qdb3a3w5" path="res://Resources/Data_save/current_level_data.gd" id="1_lwavb"]
+[ext_resource type="Script" path="res://Resources/Data_save/current_level_data.gd" id="1_lwavb"]
 [ext_resource type="Script" path="res://Resources/Data_save/items_data.gd" id="2_emrqo"]
 [ext_resource type="Script" path="res://Resources/Data_save/level1_data.gd" id="3_d0wj1"]
 [ext_resource type="Script" path="res://Resources/Data_save/level2_data.gd" id="4_1dcmw"]
-[ext_resource type="Script" uid="uid://bdm50lmvu0lab" path="res://Resources/Data_save/level3_data.gd" id="5_lhd7n"]
+[ext_resource type="Script" path="res://Resources/Data_save/level3_data.gd" id="5_lhd7n"]
 [ext_resource type="Script" path="res://Resources/Data_save/level4_data.gd" id="6_6yx7p"]
 [ext_resource type="Script" path="res://Resources/Data_save/level5_data.gd" id="7_7hxdi"]
 [ext_resource type="Script" path="res://Resources/Data_save/levels_data.gd" id="8_gyv7e"]
 [ext_resource type="Script" path="res://Resources/Data_save/player_data.gd" id="9_h6ch1"]
-[ext_resource type="Script" uid="uid://cckso7pcsn4ck" path="res://Resources/Data_save/data.gd" id="10_too4j"]
+[ext_resource type="Script" path="res://Resources/Data_save/data.gd" id="10_too4j"]
 [ext_resource type="Script" path="res://Resources/Data_save/skills_data.gd" id="11_p75pt"]
 
 [sub_resource type="Resource" id="Resource_0xumm"]
@@ -29,10 +29,14 @@ script = ExtResource("4_1dcmw")
 script = ExtResource("5_lhd7n")
 doors = {
 "level_3_section_1_mechanical_door": false,
-"level_3_section_1_mechanical_door2": true,
-"level_3_section_1_mechanical_door3": true,
+"level_3_section_1_mechanical_door2": false,
+"level_3_section_1_mechanical_door3": false,
 "level_3_section_1_mechanical_door4": false,
-"level_3_section_2_mechanical_door": true,
+"level_3_section_2_double_mechanical_door": true,
+"level_3_section_2_double_mechanical_door2": true,
+"level_3_section_2_escalator": true,
+"level_3_section_2_escalator2": true,
+"level_3_section_2_mechanical_door": false,
 "level_3_section_2_mechanical_door2": false,
 "level_3_section_3_mechanical_door": false,
 "level_3_section_3_mechanical_door2": false,
@@ -42,13 +46,6 @@ doors = {
 "level_3_section_3_mechanical_door6": false,
 "level_3_section_3_mechanical_door7": false,
 "level_3_section_3_mechanical_door8": false
-}
-parchments = {
-"level_3_section_2_skeleton": {
-"dialog_name": "res://Dialogs/Diálogo papiro 1 - nivel 3.dialogue",
-"is_interject": false,
-"is_take": true
-}
 }
 
 [sub_resource type="Resource" id="Resource_n2qnk"]
@@ -73,7 +70,6 @@ script = ExtResource("11_p75pt")
 
 [resource]
 script = ExtResource("10_too4j")
-is_initial = false
 items = SubResource("Resource_65dk7")
 current_level = SubResource("Resource_0xumm")
 player = SubResource("Resource_7caai")

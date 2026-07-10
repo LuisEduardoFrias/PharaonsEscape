@@ -4,9 +4,10 @@ extends ColorRect
 
 
 func _process(_delta: float) -> void:
-	var posicion_pantalla: Vector2 = player.get_global_transform_with_canvas().origin
-	var mat = material as ShaderMaterial
-	mat.set_shader_parameter("player_uv", posicion_pantalla)
+	if player:
+		var posicion_pantalla: Vector2 = player.get_global_transform_with_canvas().origin
+		var mat = material as ShaderMaterial
+		mat.set_shader_parameter("player_uv", posicion_pantalla)
 
 
 func transition_in(time: float = 1.0) -> void:

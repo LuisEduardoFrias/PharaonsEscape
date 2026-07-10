@@ -1,8 +1,7 @@
 class_name Player extends Entity
 
-enum States { IDLE, WALK, JUMP }
-
 @onready var shadow: Sprite2D = $shadow
+@onready var effect: AnimatedSprite2D = $effects
 @onready var floor_detected: Area2D = $floor_detected #area para detectar cosas en el suelo
 @onready var shadow2: LightOccluder2D = $LightOccluder2D
 @onready var eye_horus: EyeHorus = $eye_of_horus
@@ -17,7 +16,6 @@ enum States { IDLE, WALK, JUMP }
 
 signal is_static_state(value: bool)
 
-var current_state: States = States.IDLE
 var interactive_object: Variant = null
 var spawner_point: Vector2 = Vector2.LEFT
 var is_jumping: bool = false # Para validar si está en faltando
@@ -141,3 +139,7 @@ func _tile_hit(_body: TileMapLayer) -> void:
 	await Util.timerout(0.5)
 	owner.change_platform()
 	_input_physics_off(false)
+
+
+func add_skill_effect(h_effect: bool) -> void:
+	effect.play(&"add_skill_horizontal" if h_effect else &"add_skill_vertical")

@@ -1,0 +1,7 @@
+~ start
+Sistema: Cuatro hermanos, cuatro vasijas, una sola entrada.
+Sistema: Los guardianes de Horus custodian el umbral. Imsety, Hapy, Duamutef y Qebehsenuef esperan ser guiados hacia su lugar en el vacío.
+Sistema: Solo cuando los cuatro descansen en sus nichos, el camino del santuario será revelado.
+do data._start_puzle.call()
+=> END
+

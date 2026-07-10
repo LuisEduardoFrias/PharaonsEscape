@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ddmdeno56x511"
+path="res://.godot/imported/Diálogo para puzzle 1 - Las 4  jarras canopo.dialogue-680c763d4cfb2c5de5c3a645b2269bf7.tres"
+
+[deps]
+
+source_file="res://Dialogs/Diálogo para puzzle 1 - Las 4  jarras canopo.dialogue"
+dest_files=["res://.godot/imported/Diálogo para puzzle 1 - Las 4  jarras canopo.dialogue-680c763d4cfb2c5de5c3a645b2269bf7.tres"]
+
+[params]
+
+defaults=true

@@ -3,7 +3,7 @@
 @export var initial_state: StateBase
 @export_dir var state_script_path: String
 
-enum States { NONE__NOT_ADD, IDLE, WALK, JUMP, ROLL, SWORD_ATTACK, FALL, INTERACT }
+enum States { NONE__NOT_ADD, ADD_SKILL, IDLE, WALK, JUMP, ROLL, SWORD_ATTACK, FALL, INTERACT }
 
 var states_node: Dictionary = {}
 var current_state: StateBase:
@@ -23,7 +23,7 @@ func _ready() -> void:
 
 	for child: StateBase in get_children():
 		states_node[child.name.to_lower()] = child
-		child.change_state.connect(_on_child_transition)
+		(child as StateBase).change_state.connect(_on_child_transition)
 		child.actor = owner as Entity
 
 	if initial_state:

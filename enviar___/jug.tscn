@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://c1dkv3j0li7j8"]
+
+[ext_resource type="Script" uid="uid://c21u4joqjlu4y" path="res://Scripts/custom_node/jug.gd" id="1_ipp1n"]
+[ext_resource type="PackedScene" uid="uid://gpqy5u3rvy84" path="res://Scenes/custom_node/pushable.tscn" id="2_gdk78"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_strj0"]
+size = Vector2(32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_strj0"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"inlaid",
+"speed": 5.0
+}]
+
+[node name="jug" type="AnimatableBody2D" unique_id=58035539]
+y_sort_enabled = true
+collision_layer = 512
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("1_ipp1n")
+
+[node name="collision_shape" type="CollisionShape2D" parent="." unique_id=1674532584]
+shape = SubResource("RectangleShape2D_strj0")
+metadata/_edit_lock_ = true
+
+[node name="anim" type="AnimatedSprite2D" parent="." unique_id=1942593128]
+y_sort_enabled = true
+position = Vector2(0, -35)
+sprite_frames = SubResource("SpriteFrames_strj0")
+animation = &"inlaid"
+autoplay = "default"
+offset = Vector2(0, 15)
+metadata/_edit_lock_ = true
+
+[node name="audio_stream_player" type="AudioStreamPlayer2D" parent="." unique_id=1771354191]
+bus = &"fx"
+
+[node name="pushable" parent="." unique_id=2143912840 instance=ExtResource("2_gdk78")]

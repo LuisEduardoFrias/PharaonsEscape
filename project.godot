@@ -112,7 +112,7 @@ ui_pause={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Deletes/menu.tscn", "res://Deletes/opciones.tscn", "res://Deletes/extras.tscn", "res://Dialogs/Diálogo para lápida del papiro.dialogue", "res://Dialogs/Diálogo para lápida de la daga.dialogue", "res://Dialogs/Diálogo  lápida de la moneda.dialogue", "res://Dialogs/Diálogo para algunas lápidas.dialogue", "res://Dialogs/Diálogo papiro 1 - nivel 3.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Deletes/menu.tscn", "res://Deletes/opciones.tscn", "res://Deletes/extras.tscn", "res://Dialogs/Diálogo para lápida del papiro.dialogue", "res://Dialogs/Diálogo para lápida de la daga.dialogue", "res://Dialogs/Diálogo  lápida de la moneda.dialogue", "res://Dialogs/Diálogo para algunas lápidas.dialogue", "res://Dialogs/Diálogo papiro 1 - nivel 3.dialogue", "res://Dialogs/Diálogo para puzzle 1 - Las 4  jarras canopo.dialogue")
 
 [layer_names]
 

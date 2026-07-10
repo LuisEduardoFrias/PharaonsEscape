@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://cxsk7um32xwc8"]
+
+[ext_resource type="Script" uid="uid://xtsxl0cq1b5" path="res://Scripts/mobile_rotating_blade.gd" id="1_6hjsj"]
+[ext_resource type="Texture2D" uid="uid://dn0a2f5md707n" path="res://Textures/trampas.png" id="2_rhwwo"]
+
+[sub_resource type="Curve2D" id="Curve2D_u178q"]
+_data = {
+"points": PackedVector2Array(-1.6618958, -123.000626, 0, 0, 0, 0, 0, 0, 4.388237, 160.62518, 0, 160)
+}
+point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qauy8"]
+atlas = ExtResource("2_rhwwo")
+region = Rect2(0, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldbca"]
+atlas = ExtResource("2_rhwwo")
+region = Rect2(32, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inha6"]
+atlas = ExtResource("2_rhwwo")
+region = Rect2(64, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76xs0"]
+atlas = ExtResource("2_rhwwo")
+region = Rect2(96, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihsk8"]
+atlas = ExtResource("2_rhwwo")
+region = Rect2(128, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50cox"]
+atlas = ExtResource("2_rhwwo")
+region = Rect2(160, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nnop"]
+atlas = ExtResource("2_rhwwo")
+region = Rect2(192, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfnxp"]
+atlas = ExtResource("2_rhwwo")
+region = Rect2(224, 352, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_glr3m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qauy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldbca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inha6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76xs0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihsk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50cox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nnop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfnxp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n8k7i"]
+radius = 15.741941
+
+[node name="mobile_rotating_blade" type="Node2D" unique_id=1657496131]
+script = ExtResource("1_6hjsj")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1963474484]
+curve = SubResource("Curve2D_u178q")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=109574118]
+position = Vector2(0, 11.112505)
+progress = 11.153831
+rotates = false
+loop = false
+
+[node name="blade" type="AnimatedSprite2D" parent="Path2D/PathFollow2D" unique_id=1443765715]
+sprite_frames = SubResource("SpriteFrames_glr3m")
+autoplay = "default"
+frame_progress = 0.6908563
+
+[node name="hit" type="Area2D" parent="Path2D/PathFollow2D/blade" unique_id=314041254]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/blade/hit" unique_id=1793274490]
+shape = SubResource("CircleShape2D_n8k7i")
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="Path2D/PathFollow2D/blade/hit" to="." method="_on_hit_area_entered"]

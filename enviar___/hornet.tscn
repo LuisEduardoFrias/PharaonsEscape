@@ -1,0 +1,353 @@
+[gd_scene format=3 uid="uid://ccq3ukplitmtf"]
+
+[ext_resource type="Script" uid="uid://b3vjhojqddl3o" path="res://Scripts/enemics/hornet.gd" id="1_7qfpa"]
+[ext_resource type="Script" uid="uid://pav2lj831s3y" path="res://Scripts/enemics/detect_the_player.gd" id="2_n6xx1"]
+[ext_resource type="Script" uid="uid://cqj570bku43wf" path="res://Scripts/enemics/attack_the_player.gd" id="3_1hfic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyvrj"]
+size = Vector2(34, 20)
+
+[sub_resource type="Shader" id="Shader_dbaqc"]
+code = "shader_type canvas_item;
+
+uniform float black_amount : hint_range(0.0, 1.0) = 0.0;
+uniform float progress : hint_range(0.0, 1.0) = 0.0;
+uniform float particle_size : hint_range(1.0, 10.0) = 1.0;
+uniform float lift_strength : hint_range(0.0, 2.0) = 0.5;
+
+varying float rel_y; // Variable para calcular la posición real dentro del frame
+
+void vertex() {
+	// Calculamos la posición vertical relativa al frame actual
+	// Esto hace que el 0.0 sea siempre la cabeza del frame actual y 1.0 los pies
+	rel_y = UV.y;
+}
+
+float hash(vec2 p) {
+	return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+void fragment() {
+	// Usamos AT_LIGHT_PASS o un truco de escalado para ignorar el atlas
+	// En Godot, para fragmentos de Spritesheet, el UV ya viene normalizado al frame
+	// si usamos la configuración correcta.
+	
+	vec2 tex_size = vec2(textureSize(TEXTURE, 0));
+	vec2 size = tex_size / particle_size;
+	vec2 grid_uv = floor(UV * size) / size;
+	
+	float p_id = hash(grid_uv);
+	
+	// --- LA CLAVE ---
+	// Usamos fract(UV.y * 16.0) para que el shader crea que el frame mide de 0 a 1
+	// (Cambiamos el 16.0 por tu numero de Vframes)
+	float local_y = fract(UV.y * 16.0);
+	
+	float lift = 0.0;
+	float alpha_val = 1.0;
+	
+	if (local_y < progress) {
+		lift = (progress - local_y) * lift_strength * (1.0 + p_id);
+		// Ajustamos el desvanecimiento para que sea más lento y se aprecie
+		alpha_val = clamp(1.0 - (lift * 2.0), 0.0, 1.0);
+	}
+	
+	// Movimiento de partículas
+	vec2 target_uv = vec2(UV.x, UV.y - (lift / 16.0)); // Dividimos lift por vframes
+	
+	vec4 tex = texture(TEXTURE, target_uv);
+	
+	// Aplicar color negro
+	tex.rgb = mix(tex.rgb, vec3(0.0), black_amount);
+	
+	// Máscara de partículas precisa
+	if (local_y < progress) {
+		if (p_id < 0.4) {
+			discard;
+		}
+		tex.a *= alpha_val;
+	}
+	
+	COLOR = tex;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dtsff"]
+shader = SubResource("Shader_dbaqc")
+shader_parameter/black_amount = 1.0
+shader_parameter/progress = 1.0
+shader_parameter/particle_size = 1.0
+shader_parameter/lift_strength = 0.5
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_25hb0"]
+load_path = "res://.godot/imported/coleccion_tiles.png-09115b5e54ea3ac58ffb1a0eee332995.ctex"
+
+[sub_resource type="Animation" id="Animation_afsjl"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(146, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("areas:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vj7t4"]
+resource_name = "attack"
+length = 0.42858574
+step = 0.14285715
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2, 2),
+"points": PackedFloat32Array(146, 0, 0, 0.023809526, 0.16666667, 147, -0.023809526, -0.16666667, 0.023809526, 0.16666667, 148, -0.023809526, -0.16666667, 0, 0, 149, -0.023809528, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.14285715, 0.2857143, 0.42857146)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("areas:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 7)]
+}
+
+[sub_resource type="Animation" id="Animation_v13vj"]
+resource_name = "death"
+length = 0.42858574
+step = 0.14285715
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(162, -0.25, 0, 0.25, 0, 163, -0.023809526, -0.16666667, 0, 0, 164, -0.023809526, -0.16666667, 0, 0, 165, -0.023809528, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.14285715, 0.2857143, 0.42857146)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("areas:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 7)]
+}
+
+[sub_resource type="Animation" id="Animation_rrvtg"]
+resource_name = "hurt"
+length = 0.5714429
+step = 0.14285715
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 1),
+"points": PackedFloat32Array(179, 0, 0, 0, 0, 179, 0, 0, 0, 0, 178, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2857143, 0.42857146)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("areas:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 7)]
+}
+
+[sub_resource type="Animation" id="Animation_hssjx"]
+resource_name = "idle"
+length = 0.42858574
+loop_mode = 1
+step = 0.14285715
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(194, -0.25, 0, 0.25, 0, 195, -0.023809526, -0.16666667, 0, 0, 196, -0.023809526, -0.16666667, 0, 0, 197, -0.023809528, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.14285715, 0.2857143, 0.42857146)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("areas:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0054771844),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 7)]
+}
+
+[sub_resource type="Animation" id="Animation_jyvrj"]
+resource_name = "walk"
+length = 0.42858574
+loop_mode = 1
+step = 0.14285715
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(210, -0.25, 0, 0.25, 0, 211, -0.023809526, -0.16666667, 0, 0, 212, -0.023809526, -0.16666667, 0, 0, 213, -0.023809528, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.14285715, 0.2857143, 0.42857146)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("areas:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rrvtg"]
+_data = {
+&"RESET": SubResource("Animation_afsjl"),
+&"attack": SubResource("Animation_vj7t4"),
+&"death": SubResource("Animation_v13vj"),
+&"hurt": SubResource("Animation_rrvtg"),
+&"idle": SubResource("Animation_hssjx"),
+&"walk": SubResource("Animation_jyvrj")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtsff"]
+size = Vector2(48, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jyvrj"]
+radius = 119.519875
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dbaqc"]
+radius = 89.26926
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbaqc"]
+size = Vector2(42, 17)
+
+[node name="hornet" type="CharacterBody2D" unique_id=1347327644]
+collision_layer = 64
+velocity = Vector2(-167.28, 0)
+script = ExtResource("1_7qfpa")
+current_live = 3
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1884082621]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_jyvrj")
+metadata/_edit_lock_ = true
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=16510276]
+visible = false
+material = SubResource("ShaderMaterial_dtsff")
+texture = SubResource("CompressedTexture2D_25hb0")
+hframes = 16
+vframes = 16
+frame = 146
+
+[node name="Anim" type="AnimationPlayer" parent="." unique_id=991617867]
+libraries/ = SubResource("AnimationLibrary_rrvtg")
+
+[node name="areas" type="Node2D" parent="." unique_id=1726521305]
+
+[node name="hurt" type="Area2D" parent="areas" unique_id=131154603]
+collision_layer = 64
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areas/hurt" unique_id=253013164]
+position = Vector2(-1, -4)
+shape = SubResource("RectangleShape2D_dtsff")
+debug_color = Color(0.03529412, 1, 0, 0.41960785)
+
+[node name="raycast" type="RayCast2D" parent="." unique_id=2089524949]
+target_position = Vector2(-32, 1)
+collision_mask = 13
+
+[node name="detect_the_player" type="Node2D" parent="." unique_id=1177569283]
+script = ExtResource("2_n6xx1")
+
+[node name="area" type="Area2D" parent="detect_the_player" unique_id=1710340262]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+metadata/_edit_lock_ = true
+
+[node name="collision" type="CollisionShape2D" parent="detect_the_player/area" unique_id=339760701]
+shape = SubResource("CircleShape2D_jyvrj")
+metadata/_edit_lock_ = true
+
+[node name="attack_the_player" type="Node2D" parent="." unique_id=941506995]
+script = ExtResource("3_1hfic")
+
+[node name="area" type="Area2D" parent="attack_the_player" unique_id=392158651]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="collision" type="CollisionShape2D" parent="attack_the_player/area" unique_id=1866123266]
+shape = SubResource("CircleShape2D_dbaqc")
+debug_color = Color(0.9529412, 0.08627451, 0, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="hit" type="Area2D" parent="attack_the_player" unique_id=2058064807]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="collision" type="CollisionShape2D" parent="attack_the_player/hit" unique_id=1068861052]
+position = Vector2(-3, -4.5)
+shape = SubResource("RectangleShape2D_dbaqc")
+debug_color = Color(0.9607843, 0, 0, 0.41960785)
+
+[connection signal="body_entered" from="detect_the_player/area" to="detect_the_player" method="_on_area_body_entered"]
+[connection signal="body_exited" from="detect_the_player/area" to="detect_the_player" method="_on_area_body_exited"]
+[connection signal="body_entered" from="attack_the_player/area" to="attack_the_player" method="_on_area_body_entered"]
+[connection signal="body_exited" from="attack_the_player/area" to="attack_the_player" method="_on_area_body_exited"]
+[connection signal="body_entered" from="attack_the_player/hit" to="attack_the_player" method="_on_hit_body_entered"]

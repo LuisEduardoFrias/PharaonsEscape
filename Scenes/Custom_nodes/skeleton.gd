@@ -16,7 +16,6 @@ func _ready() -> void:
 	Global.check_parchment(LevelsData.Levels.LEVEL3, owner.name, self)
 
 
-
 func _save_papyrus() -> void:
 	Global.save_parchment(LevelsData.Levels.LEVEL3, owner.name, self, true)
 

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://uylwr3kxju4e"]
+
+[ext_resource type="Script" uid="uid://7avlpjbcoxlw" path="res://Scripts/holo.gd" id="1_ioqux"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sj4f8"]
+radius = 3.5
+
+[node name="holo_1" type="Area2D" unique_id=403197083]
+scale = Vector2(3, 3)
+collision_layer = 0
+collision_mask = 512
+script = ExtResource("1_ioqux")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=212479862]
+shape = SubResource("CircleShape2D_sj4f8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ccj5yl8y7agus"]
+
+[ext_resource type="Script" uid="uid://d37hdfa86vhx8" path="res://Scenes/Custom_nodes/skill.gd" id="1_16otg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bgy0c"]
+radius = 32.0
+
+[sub_resource type="Gradient" id="Gradient_uc8rf"]
+offsets = PackedFloat32Array(0.1275145, 0.584382, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0627451, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_86x3w"]
+gradient = SubResource("Gradient_uc8rf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_86x3w"]
+emission_shape_scale = Vector3(1, 0, 1)
+emission_shape = 2
+emission_sphere_radius = 34.75
+gravity = Vector3(0, -90, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = 200.0
+radial_accel_min = 24.049997
+radial_accel_max = 24.049997
+scale_min = 2.0
+scale_max = 2.0
+color = Color(0.70980394, 1, 0.98039216, 1)
+color_ramp = SubResource("GradientTexture1D_86x3w")
+
+[node name="skill" type="Node2D" unique_id=1678913765]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_16otg")
+
+[node name="area" type="Area2D" parent="." unique_id=449265317]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="collision" type="CollisionShape2D" parent="area" unique_id=773436790]
+shape = SubResource("CircleShape2D_bgy0c")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=352044186]
+process_material = SubResource("ParticleProcessMaterial_86x3w")

@@ -30,17 +30,16 @@ func save_game() -> void:
 
 
 ##Activa las puertas
-func save_open_door(owner_name: LevelsData.Levels, section_name: String, door: MechanicalDoor) -> void:
+func save_open_door(owner_name: LevelsData.Levels, section_name: String, door: Node2D) -> void:
 	execute(owner_name, section_name, door, "doors", func (val: Variant,  prop_name: String) -> void:
 		door._open()
 		val[prop_name] = true
-		print(val[prop_name])
 		save()
 	)
 
 
 ##Verifica el estado de la puerta
-func check_door(owner_name: LevelsData.Levels, section_name: String, door: MechanicalDoor) -> void:
+func check_door(owner_name: LevelsData.Levels, section_name: String, door: Node2D) -> void:
 	execute(owner_name, section_name, door, "doors", func (val: Variant,  prop_name: String) -> void:
 		door.opening = val[prop_name]
 	)
@@ -79,6 +78,8 @@ func execute(owner_name: LevelsData.Levels, section_name: String, node: Node2D, 
 		push_warning("\n[Custom Warnning]:\nLa propiedad \"", _node_name ,"\" no se encuentra en el espacio de datos globales.")
 
 
+func skill_to_str(skill: SkillsData.SkillsType) -> String:
+	return (SkillsData.SkillsType.keys()[skill]as String).to_lower()
 
 
 #region
@@ -87,8 +88,6 @@ func code_trans_to_str(code_trans: Data.Code_Trans) -> String:
 	return (Data.Code_Trans.keys()[code_trans] as String).to_lower()
 
 
-func skill_to_str(skill: SkillsData.SkillsType) -> String:
-	return (SkillsData.SkillsType.keys()[skill]as String).to_lower()
 
 
 func skill_to_enum(skill: String) -> int:

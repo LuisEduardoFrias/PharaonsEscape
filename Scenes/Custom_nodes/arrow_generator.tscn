@@ -2,5 +2,19 @@
 
 [ext_resource type="Script" uid="uid://bt2boefnib2" path="res://Scenes/Custom_nodes/arrow_generator.gd" id="1_pmc80"]
 
+[sub_resource type="Gradient" id="Gradient_pmc80"]
+interpolation_mode = 1
+colors = PackedColorArray(0.2713832, 0.11786651, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2xwe5"]
+gradient = SubResource("Gradient_pmc80")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.54, 0.5)
+
 [node name="arrow_generator" type="Node2D" unique_id=1615502791]
 script = ExtResource("1_pmc80")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1337722345]
+texture = SubResource("GradientTexture2D_2xwe5")
+metadata/_edit_lock_ = true

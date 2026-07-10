@@ -9,7 +9,6 @@ func enter(_data: Dictionary = {}) -> void:
 		change_state.emit(AnimationStateMachine.States.IDLE, {})
 		return
 	else :
-		actor.current_state = Player.States.JUMP
 		actor.floor_detected.monitoring = false
 		actor.is_jumping = true
 
@@ -38,7 +37,6 @@ func _move_sprite() -> void:
 	tw.tween_callback(func () -> void:
 		change_state.emit(AnimationStateMachine.States.IDLE, {})
 		actor._input_physics_off(false)
-		actor.current_state = Player.States.IDLE
 		actor.floor_detected.monitoring = true
 		actor.is_jumping = false
 	)
