@@ -1,5 +1,7 @@
 extends Area2D
 
+signal battle_finished
+
 @export var Doors: Array[MechanicalDoor] = []
 @export var enemics: Array[Enemy] = []
 
@@ -25,6 +27,7 @@ func enemic_dead() -> void:
 
 	if count_enemic == 0:
 		open_doors()
+		battle_finished.emit()
 
 
 func open_doors() -> void:

@@ -1,7 +1,10 @@
 @tool class_name Skill extends Node2D
 
 @export var skill : SkillsData.SkillsType
+@export var anim: AnimatedSprite2D
 
+
+@onready var area: Area2D = $area
 
 signal set_skill()
 
@@ -16,6 +19,11 @@ func _ready() -> void:
 
 func activate_skill(body: Node2D) -> void:
 	if body is Player:
+		area.set_deferred("monitoring", false)
+		anim.queue_free()
+		if body.is_jumping: await body.state_machine.current_state.jump_finished
+		body._input_physics_off(true)
+		await body.move_to_kinematic_point(global_position)
 		body.state_machine._on_child_transition(AnimationStateMachine.States.ADD_SKILL)
 
 		var tween: Tween = get_tree().create_tween()
@@ -25,4 +33,6 @@ func activate_skill(body: Node2D) -> void:
 		tween.tween_property($GPUParticles2D, "self_modulate", Color(0.912, 0.912, 0.912, 0.0), 0.5)
 		tween.tween_callback(func () -> void :
 			await get_tree().create_timer(0.5).timeout
-			call_deferred("queue_free"))
+			body._input_physics_off(false)
+			call_deferred("queue_free")
+			)

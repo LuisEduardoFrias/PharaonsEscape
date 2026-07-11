@@ -19,9 +19,7 @@ func exit() -> void:
 
 
 func update(_delta: float) -> void:
-	pass
-
-	parent.animation_direction(actor.current_direction)
+	parent.animation_direction(actor.old_direction)
 
 
 func physics_update(_delta: float) -> void:

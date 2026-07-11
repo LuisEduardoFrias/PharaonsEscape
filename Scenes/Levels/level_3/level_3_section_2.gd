@@ -12,6 +12,7 @@ extends SectionBase
 
 func _ready() -> void:
 	super()
+	show_title._play(CurrentLevelData.Titles.The_Subterranean_Trial)
 	Global.check_door(LevelsData.Levels.LEVEL3, name, door1)
 	Global.check_door(LevelsData.Levels.LEVEL3, name, door2)
 	Global.check_door(LevelsData.Levels.LEVEL3, name, escalagor1)
@@ -35,7 +36,6 @@ func _start_puzle() -> void:
 	$area/show_btn.queue_free()
 
 
-func _on_transport_boss_zone_body_entered(body: Node2D) -> void:
-	if body is Player:
-		Global.save_open_door(LevelsData.Levels.LEVEL3, name, double_door)
-		Global.save_open_door(LevelsData.Levels.LEVEL3, name, double_door2)
+#if body is Player:
+#		Global.save_open_door(LevelsData.Levels.LEVEL3, name, double_door)
+#		Global.save_open_door(LevelsData.Levels.LEVEL3, name, double_door2)

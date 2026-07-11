@@ -65,6 +65,10 @@ func animation_direction(direction: Vector2) -> void:
 		set(parameter, direction)
 
 
+func _cinematic(_new_state: States) -> void:
+	playback.travel(states_to_str(_new_state))
+
+
 ## Canbia el estado actual
 func _on_child_transition(_new_state: States, data: Dictionary = {}) -> void:
 	if _new_state == States.NONE__NOT_ADD:

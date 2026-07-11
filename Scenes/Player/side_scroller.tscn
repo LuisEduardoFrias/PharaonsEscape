@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://xxpt1b53ouab"]
+
+[ext_resource type="Script" uid="uid://dv66jj7423en3" path="res://Scenes/Player/side_scroller.gd" id="1_jdi34"]
+
+[node name="side_scroller" type="Node" unique_id=1330131088]
+script = ExtResource("1_jdi34")

@@ -1,0 +1,235 @@
+[gd_scene format=4 uid="uid://d3ej2rttsh0h6"]
+
+[ext_resource type="PackedScene" uid="uid://bnbb724ew2n4w" path="res://Scenes/Levels/Bases/boss_fight.tscn" id="1_7h8pd"]
+[ext_resource type="Script" uid="uid://e5tv8kssnoh1" path="res://Scenes/Levels/level_3/boss_fight.gd" id="2_2m6yk"]
+[ext_resource type="Texture2D" uid="uid://ccj67e7xhumus" path="res://Textures/Enemies/boss_jug.png" id="2_bp5y5"]
+[ext_resource type="Resource" uid="uid://cow2265jjdwup" path="res://Dialogs/Diálogo para los 4 guardianes - final.dialogue" id="3_4m8sa"]
+[ext_resource type="Resource" uid="uid://bnl2k7xqakj2g" path="res://Dialogs/Diálogo para los 4 Guardianes - inicio.dialogue" id="5_net7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7h8pd"]
+size = Vector2(24, 18)
+
+[sub_resource type="Animation" id="Animation_xqk5n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cuatro_guardianes/CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(400, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cuatro_guardianes/CharacterBody2D4:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(880, 200)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cuatro_guardianes/CharacterBody2D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(520, 200)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("cuatro_guardianes/CharacterBody2D3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(760, 200)]
+}
+
+[sub_resource type="Animation" id="Animation_2m6yk"]
+resource_name = "play"
+length = 6.0
+step = 12.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finiched_cinematic"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cuatro_guardianes/CharacterBody2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(400, 200), Vector2(400, 200), Vector2(400, 500)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cuatro_guardianes/CharacterBody2D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(520, 200), Vector2(520, 200), Vector2(520, 500)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("cuatro_guardianes/CharacterBody2D3:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(760, 200), Vector2(760, 200), Vector2(760, 500)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("cuatro_guardianes/CharacterBody2D4:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(880, 200), Vector2(880, 200), Vector2(880, 500)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xqk5n"]
+_data = {
+&"RESET": SubResource("Animation_xqk5n"),
+&"play": SubResource("Animation_2m6yk")
+}
+
+[node name="boss_fight" unique_id=2134487549 instance=ExtResource("1_7h8pd")]
+script = ExtResource("2_2m6yk")
+dialogo_final = ExtResource("3_4m8sa")
+
+[node name="fog" parent="." index="1" unique_id=1285428728]
+visible = true
+
+[node name="Parallax2D" parent="." index="2" unique_id=1729429033]
+scroll_scale = Vector2(0.5, 1)
+scroll_offset = Vector2(-150, 0)
+metadata/_edit_lock_ = true
+
+[node name="foreground" parent="Parallax2D" index="0" unique_id=1350847786]
+tile_map_data = PackedByteArray("AAAMAAcAAgAHAAAAAAALAAcAAgAIAAIAAAAKAAcAAgAIAAIAAAAJAAcAAgAHAAAAAAAIAAcAAgALAAEAAAAKAAkAAgAJAAEAAAAKAAgAAgAJAAEAAAAKAAoAAgALAAEAAAADAAYAAgAGAAAAAAADAAcAAgAHAAIAAAADAAgAAgAHAAIAAAADAAkAAgAHAAIAAAADAAoAAgAGAAIAAAAGAAYAAgAGAAAAAAAGAAcAAgAGAAIAAAAIAAUAAgAGAAAAAAAIAAYAAgAHAAIAAAALAAgAAgAIAAEAAAALAAkAAgAIAAEAAAALAAoAAgAKAAEAAAANAAUAAgAGAAAAAAANAAYAAgAHAAIAAAANAAcAAgAKAAEAAAAPAAYAAgAGAAAAAAAPAAcAAgAGAAIAAAASAAYAAgAGAAAAAAASAAcAAgAHAAIAAAASAAgAAgAHAAIAAAASAAkAAgAHAAIAAAASAAoAAgAGAAIAAAA=")
+
+[node name="Parallax2D2" parent="." index="3" unique_id=389405119]
+scroll_scale = Vector2(0.7, 1)
+scroll_offset = Vector2(-90, 0)
+metadata/_edit_lock_ = true
+
+[node name="foreground2" parent="Parallax2D2" index="0" unique_id=878543591]
+tile_map_data = PackedByteArray("AAACAAoAAgADAAIAAAAKAAoAAgADAAIAAAARAAoAAgADAAIAAAAFAAkAAgADAAIAAAADAAgAAgADAAIAAAAHAAgAAgADAAIAAAAMAAgAAgADAAIAAAAQAAgAAgADAAIAAAAIAAUAAgADAAIAAAALAAUAAgADAAIAAAAJAAkAAgADAAIAAAAJAAcAAgADAAIAAAA=")
+
+[node name="battle_zone" parent="." index="8" unique_id=300859006]
+metadata/_edit_lock_ = true
+
+[node name="cuatro_guardianes" type="Node2D" parent="." index="9" unique_id=1833597116]
+metadata/_edit_lock_ = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="cuatro_guardianes" index="0" unique_id=631360432]
+position = Vector2(400, 200)
+motion_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="cuatro_guardianes/CharacterBody2D" index="0" unique_id=1332998437]
+texture = ExtResource("2_bp5y5")
+hframes = 8
+vframes = 8
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cuatro_guardianes/CharacterBody2D" index="1" unique_id=2064972059]
+position = Vector2(0, 21)
+shape = SubResource("RectangleShape2D_7h8pd")
+metadata/_edit_lock_ = true
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="cuatro_guardianes" index="1" unique_id=845998719]
+position = Vector2(520, 200)
+motion_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="cuatro_guardianes/CharacterBody2D2" index="0" unique_id=862832296]
+texture = ExtResource("2_bp5y5")
+hframes = 8
+vframes = 8
+frame = 8
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cuatro_guardianes/CharacterBody2D2" index="1" unique_id=685362114]
+position = Vector2(0, 21)
+shape = SubResource("RectangleShape2D_7h8pd")
+metadata/_edit_lock_ = true
+
+[node name="CharacterBody2D3" type="CharacterBody2D" parent="cuatro_guardianes" index="2" unique_id=1382448630]
+position = Vector2(760, 200)
+motion_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="cuatro_guardianes/CharacterBody2D3" index="0" unique_id=1922474815]
+texture = ExtResource("2_bp5y5")
+hframes = 8
+vframes = 8
+frame = 16
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cuatro_guardianes/CharacterBody2D3" index="1" unique_id=259902789]
+position = Vector2(0, 21)
+shape = SubResource("RectangleShape2D_7h8pd")
+metadata/_edit_lock_ = true
+
+[node name="CharacterBody2D4" type="CharacterBody2D" parent="cuatro_guardianes" index="3" unique_id=1907252238]
+position = Vector2(880, 200)
+motion_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="cuatro_guardianes/CharacterBody2D4" index="0" unique_id=599353590]
+texture = ExtResource("2_bp5y5")
+hframes = 8
+vframes = 8
+frame = 24
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cuatro_guardianes/CharacterBody2D4" index="1" unique_id=2056541832]
+position = Vector2(0, 21)
+shape = SubResource("RectangleShape2D_7h8pd")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10" unique_id=808065460]
+libraries/ = SubResource("AnimationLibrary_xqk5n")
+
+[node name="dialog_trigger" parent="." index="11" unique_id=604801993]
+dialog_resouce = ExtResource("5_net7s")

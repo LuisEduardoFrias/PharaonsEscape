@@ -25,6 +25,7 @@ metadata/_edit_lock_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=158355276]
 
 [node name="change_scene_screen" type="ColorRect" parent="CanvasLayer" unique_id=381274439 node_paths=PackedStringArray("player")]
+visible = false
 material = SubResource("ShaderMaterial_l2xlv")
 anchors_preset = 15
 anchor_right = 1.0

@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://cggajk3tpxwc2"]
 
 [ext_resource type="Script" uid="uid://cu3pfacfw2swf" path="res://Scenes/Levels/Bases/world.gd" id="1_x0d8c"]
+[ext_resource type="PackedScene" uid="uid://bjsuw00g8u4l4" path="res://Scenes/Custom_nodes/show_title.tscn" id="3_bytla"]
 [ext_resource type="PackedScene" uid="uid://dmk7m8brrpvt5" path="res://addons/joy_stick/touch_controls.tscn" id="3_ckv4v"]
+[ext_resource type="PackedScene" uid="uid://mv6rb6kr460f" path="res://Scenes/Custom_nodes/vortex_transition.tscn" id="4_bytla"]
 
 [node name="world" type="Node2D" unique_id=820486288 groups=["World"]]
 script = ExtResource("1_x0d8c")
+metadata/_edit_vertical_guides_ = [-582.0]
 
 [node name="AudioManager" type="Node" parent="." unique_id=1054646654]
 
@@ -54,6 +57,9 @@ mouse_filter = 2
 script = null
 metadata/_edit_lock_ = true
 
+[node name="Show_title" parent="CanvasLayer/HUD" unique_id=1833961391 instance=ExtResource("3_bytla")]
+layout_mode = 1
+
 [node name="Pause" type="Control" parent="CanvasLayer" unique_id=89536340]
 layout_mode = 3
 anchors_preset = 15
@@ -75,3 +81,5 @@ grow_vertical = 2
 mouse_filter = 2
 accessibility_name = "Inventory"
 metadata/_edit_lock_ = true
+
+[node name="vortex_transition" parent="." unique_id=1960505436 instance=ExtResource("4_bytla")]

@@ -13,6 +13,7 @@ extends SectionBase
 
 func _ready() -> void:
 	super()
+	show_title._play(CurrentLevelData.Titles.The_Grand_Gallery)
 	if Global.data.is_initial: _initial_game()
 	else:
 		change_scene_screen.transition_in(4.0)

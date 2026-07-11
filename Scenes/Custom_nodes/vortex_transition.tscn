@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://mv6rb6kr460f"]
+
+[ext_resource type="Script" uid="uid://cmrghpmgvctfe" path="res://Scenes/Custom_nodes/vortex_transition.gd" id="1_ymei2"]
+[ext_resource type="Shader" uid="uid://cijps48cqhlm" path="res://Shaders/vortex_transition.gdshader" id="2_u7wpp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x4dfq"]
+shader = ExtResource("2_u7wpp")
+shader_parameter/swirl_velocity = 80.0000038
+shader_parameter/distortion_power = 5.0
+shader_parameter/progress = 0.0
+
+[sub_resource type="Animation" id="Animation_x4dfq"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_8vefy"]
+resource_name = "play"
+step = 1.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.16666667, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vsbcw"]
+_data = {
+&"RESET": SubResource("Animation_x4dfq"),
+&"play": SubResource("Animation_8vefy")
+}
+
+[node name="vortex_transition" type="CanvasLayer" unique_id=629127342 groups=["vortex"]]
+script = ExtResource("1_ymei2")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=746455334]
+material = SubResource("ShaderMaterial_x4dfq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=42102997]
+libraries/ = SubResource("AnimationLibrary_vsbcw")

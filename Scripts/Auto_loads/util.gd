@@ -27,6 +27,14 @@ func _find_owner() -> World:
 	return get_tree().get_first_node_in_group("World")
 
 
+func _find_tittle() -> Control:
+	return get_tree().get_first_node_in_group("tittle")
+
+
+func _find_vortex() -> CanvasLayer:
+	return get_tree().get_first_node_in_group("vortex")
+
+
 func reset_current_camera_limits() -> void:
 	var current_camera: Camera2D = get_viewport().get_camera_2d()
 	if current_camera:

@@ -14,6 +14,8 @@ class_name SectionBase
 signal spawner_ready
 
 var world: World = null
+var show_title: Control = null
+var vortex: CanvasLayer = null
 var is_spawner_ready: bool = false:
 	set(val):
 		is_spawner_ready = val
@@ -23,6 +25,10 @@ var is_spawner_ready: bool = false:
 func _ready() -> void:
 	player = Util._find_player()
 	world = Util._find_owner()
+	show_title = Util._find_tittle()
+	vortex = Util._find_vortex()
+	vortex.player = player
+
 	$Sprite2D.visible = false
 	RenderingServer.set_default_clear_color(Color("350005FF"))
 	if not is_node_ready(): await ready

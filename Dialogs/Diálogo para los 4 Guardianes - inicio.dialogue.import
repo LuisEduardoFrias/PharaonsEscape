@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bnl2k7xqakj2g"
+path="res://.godot/imported/Diálogo para los 4 Guardianes - inicio.dialogue-c37b8ae1820a0516e39723126d257004.tres"
+
+[deps]
+
+source_file="res://Dialogs/Diálogo para los 4 Guardianes - inicio.dialogue"
+dest_files=["res://.godot/imported/Diálogo para los 4 Guardianes - inicio.dialogue-c37b8ae1820a0516e39723126d257004.tres"]
+
+[params]
+
+defaults=true
