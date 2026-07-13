@@ -11,7 +11,7 @@ enum Titles {
 }
 
 @export var level_name: String = titles_to_str(Titles.The_Grand_Gallery)
-@export var section: String = "res://Scenes/Levels/level_3/level_3_section_2.tscn"
+@export var section: String = "res://Scenes/Levels/level_3/level_3_section_6.tscn"
 
 
 static func titles_to_str(titles: Titles) -> String:

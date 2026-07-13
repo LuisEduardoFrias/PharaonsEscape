@@ -8,8 +8,9 @@ func _on_body_entered(body: Node2D) -> void:
 		body._input_physics_off(true)
 		body.current_direction = Vector2.ZERO
 		await Util.timerout(1.0)
-		body.old_direction = Vector2.DOWN
 		body.show_quetion(true)
+		await Util.timerout(1.0)
+		body.old_direction = Vector2.DOWN
 		await Util.timerout(1.0)
 		body.state_machine._on_child_transition(AnimationStateMachine.States.IDLE)
 		await Util.timerout(1.0)

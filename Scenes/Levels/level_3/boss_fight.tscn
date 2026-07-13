@@ -137,13 +137,9 @@ _data = {
 script = ExtResource("2_2m6yk")
 dialogo_final = ExtResource("3_4m8sa")
 
-[node name="fog" parent="." index="1" unique_id=1285428728]
-visible = true
-
 [node name="Parallax2D" parent="." index="2" unique_id=1729429033]
 scroll_scale = Vector2(0.5, 1)
 scroll_offset = Vector2(-150, 0)
-metadata/_edit_lock_ = true
 
 [node name="foreground" parent="Parallax2D" index="0" unique_id=1350847786]
 tile_map_data = PackedByteArray("AAAMAAcAAgAHAAAAAAALAAcAAgAIAAIAAAAKAAcAAgAIAAIAAAAJAAcAAgAHAAAAAAAIAAcAAgALAAEAAAAKAAkAAgAJAAEAAAAKAAgAAgAJAAEAAAAKAAoAAgALAAEAAAADAAYAAgAGAAAAAAADAAcAAgAHAAIAAAADAAgAAgAHAAIAAAADAAkAAgAHAAIAAAADAAoAAgAGAAIAAAAGAAYAAgAGAAAAAAAGAAcAAgAGAAIAAAAIAAUAAgAGAAAAAAAIAAYAAgAHAAIAAAALAAgAAgAIAAEAAAALAAkAAgAIAAEAAAALAAoAAgAKAAEAAAANAAUAAgAGAAAAAAANAAYAAgAHAAIAAAANAAcAAgAKAAEAAAAPAAYAAgAGAAAAAAAPAAcAAgAGAAIAAAASAAYAAgAGAAAAAAASAAcAAgAHAAIAAAASAAgAAgAHAAIAAAASAAkAAgAHAAIAAAASAAoAAgAGAAIAAAA=")
@@ -151,7 +147,6 @@ tile_map_data = PackedByteArray("AAAMAAcAAgAHAAAAAAALAAcAAgAIAAIAAAAKAAcAAgAIAAI
 [node name="Parallax2D2" parent="." index="3" unique_id=389405119]
 scroll_scale = Vector2(0.7, 1)
 scroll_offset = Vector2(-90, 0)
-metadata/_edit_lock_ = true
 
 [node name="foreground2" parent="Parallax2D2" index="0" unique_id=878543591]
 tile_map_data = PackedByteArray("AAACAAoAAgADAAIAAAAKAAoAAgADAAIAAAARAAoAAgADAAIAAAAFAAkAAgADAAIAAAADAAgAAgADAAIAAAAHAAgAAgADAAIAAAAMAAgAAgADAAIAAAAQAAgAAgADAAIAAAAIAAUAAgADAAIAAAALAAUAAgADAAIAAAAJAAkAAgADAAIAAAAJAAcAAgADAAIAAAA=")
@@ -232,4 +227,5 @@ metadata/_edit_lock_ = true
 libraries/ = SubResource("AnimationLibrary_xqk5n")
 
 [node name="dialog_trigger" parent="." index="11" unique_id=604801993]
+monitoring = false
 dialog_resouce = ExtResource("5_net7s")

@@ -11,5 +11,4 @@ func _ready() -> void:
 
 func finiched_cinematic() -> void:
 	player.show_quetion(false)
-	player._input_physics_off(false)
 	dialog._interact({})

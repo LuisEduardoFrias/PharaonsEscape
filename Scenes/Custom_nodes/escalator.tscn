@@ -184,6 +184,7 @@ _data = {
 
 [node name="escalator" type="StaticBody2D" unique_id=2113681559]
 script = ExtResource("1_paef6")
+metadata/open = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=338731444]
 texture = ExtResource("1_r704q")

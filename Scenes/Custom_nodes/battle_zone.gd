@@ -2,6 +2,7 @@ extends Area2D
 
 signal battle_finished
 
+@export var escalators: Array[Escalator] = []
 @export var Doors: Array[MechanicalDoor] = []
 @export var enemics: Array[Enemy] = []
 
@@ -31,10 +32,14 @@ func enemic_dead() -> void:
 
 
 func open_doors() -> void:
-	for door: MechanicalDoor in Doors:
+	for door in Doors:
 		if door.get_meta("open"): door._open()
+	for escalator in escalators:
+		if escalator.get_meta("open"): escalator._open()
 
 
 func close_doors() -> void:
-	for door: MechanicalDoor in Doors:
+	for door in Doors:
 		door._close()
+	for escalator in escalators:
+		escalator._close()
