@@ -11,6 +11,14 @@ signal is_activated(on: bool)
 		is_active = val
 		if not is_node_ready(): await ready
 		is_activated.emit(val)
+		if one_activation and val:
+			area.monitorable = false
+			area.monitoring = false
+			set_collision_layer_value(5, false)
+		if not val:
+			area.monitorable = true
+			area.monitoring = true
+			set_collision_layer_value(5, true)
 		anim.play(&"activate" if val else &"desactivate")
 
 
@@ -25,10 +33,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 
 func _interact(_data: Dictionary) -> void:
-	if one_activation:
-		area.monitorable = false
-		area.monitoring = false
-		set_collision_layer_value(5, false)
 	is_active = !is_active
 
 

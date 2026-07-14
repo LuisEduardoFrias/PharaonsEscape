@@ -1,11 +1,32 @@
 class_name Bridge extends Node2D
 
+signal is_jumping(on: bool)
+
+enum Dir { UP, RIGHT, DOWN, LEFT }
+
 @onready var elevate_tile: Area2D = $elevate_tile
 @onready var lower_tile: Area2D = $lower_tile
 @onready var auto_jump1: Area2D = $auto_jump1
 @onready var auto_jump2: Area2D = $auto_jump2
 @onready var bridge: StaticBody2D = $bridge
 
+var active: bool = false
+
+@export var jumping: bool = false:
+	set(val):
+		jumping = val
+		if not is_node_ready(): await ready
+		active_bridge(val)
+@export var dir_auto_jump1: Dir = Dir.DOWN:
+	set(val):
+		dir_auto_jump1 = val
+		if not is_node_ready(): await ready
+		auto_jump1.direction = val
+@export var dir_auto_jump2: Dir = Dir.DOWN:
+	set(val):
+		dir_auto_jump2 = val
+		if not is_node_ready(): await ready
+		auto_jump2.direction = val
 @export var background: TileMapLayer = null
 @export var lower_level: TileMapLayer = null
 @export var elevate_shape: CollisionShape2D = null:
@@ -59,11 +80,11 @@ func _on_elevate_tile_body_exited(body: Node2D) -> void:
 
 
 func _on_auto_jump_jumping() -> void:
-	active_bridge(true)
+	jumping = true
 
 
 func _on_lower_tile_body_entered(body: Node2D) -> void:
-	if body is Player: active_bridge(false)
+	if body is Player: jumping = false
 
 
 func active_bridge(on: bool) -> void:
@@ -72,3 +93,10 @@ func active_bridge(on: bool) -> void:
 	bridge.set_collision_layer_value(1, !on)
 	await Util.timerout(0.5)
 	elevate_tile.monitoring = on
+
+	if on and not active:
+		active = true
+		is_jumping.emit(on)
+	if not on and active:
+		active = on
+		is_jumping.emit(on)

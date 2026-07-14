@@ -2,9 +2,17 @@ extends SectionBase
 
 @onready var escalator: Escalator = $platform/escalator
 @onready var escalator2: Escalator = $platform/escalator2
+@onready var escalator3: Escalator = $platform/escalator3
+@onready var escalator4: Escalator = $platform/escalator4
+@onready var lever: StaticBody2D = $objs/floor_lever
+@onready var lever2: StaticBody2D = $objs/floor_lever2
+@onready var lever3: StaticBody2D = $objs/floor_lever3
 @onready var elevate_tile: Area2D = $area/bridge/elevate_tile
 @onready var lower_tile: Area2D = $area/bridge/lower_tile
-@onready var bridge: StaticBody2D = $area/bridge/bridge
+@onready var bridge: Bridge = $area/bridge
+@onready var bridge2: Bridge = $area/bridge2
+@onready var bridge3: Bridge = $area/bridge3
+@onready var camera2: Camera2D = $Camera2D
 
 
 func _ready() -> void:
@@ -27,16 +35,43 @@ func _on_floor_lever_is_activated(on: bool) -> void:
 	if on: escalator2._open()
 
 
-func _on_auto_jump_jumping() -> void:
-	lower_tile.monitoring = true
-	lower_level.collision_enabled = true
-	elevate_tile.monitoring = true
-	bridge.set_collision_layer_value(1, false)
-
-
-func _on_lower_tile_body_entered(body: Node2D) -> void:
+func _on_change_camera_body_entered(body: Node2D) -> void:
 	if body is Player:
-		lower_tile.monitoring = false
-		lower_level.collision_enabled = false
-		elevate_tile.monitoring = false
-		bridge.set_collision_layer_value(1, true)
+		camera.enabled = false
+		camera2.enabled = true
+
+
+func _on_change_camera_body_exited(body: Node2D) -> void:
+	if body is Player:
+		camera2.enabled = false
+		camera.enabled = true
+
+
+func _on_floor_lever_2_is_activated(on: bool) -> void:
+	if on: escalator3._open()
+
+
+func _on_floor_lever_3_is_activated(on: bool) -> void:
+	if on: escalator4._open()
+
+
+func _on_bridge_2_is_jumping(on: bool) -> void:
+	bridge3.jumping = on
+
+	if not on:
+		escalator4._close()
+		lever3.is_active = false
+
+
+func _on_bridge_3_is_jumping(on: bool) -> void:
+	bridge2.jumping = on
+
+	if not on:
+		escalator3._close()
+		lever2.is_active = false
+
+
+func _on_bridge_is_jumping(on: bool) -> void:
+	if not on:
+		escalator2._close()
+		lever.is_active = false

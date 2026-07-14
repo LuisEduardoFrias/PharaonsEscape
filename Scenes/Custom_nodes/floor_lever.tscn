@@ -3,9 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://c7lcluh6gi3da" path="res://Textures/Sprites/map_decorations.png" id="1_nh3pr"]
 [ext_resource type="Script" uid="uid://345oinxtcknf" path="res://Scenes/Custom_nodes/floor_lever.gd" id="1_on074"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k7bv"]
-size = Vector2(40, 22)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_aywy5"]
 atlas = ExtResource("1_nh3pr")
 region = Rect2(288, 272, 32, 32)
@@ -78,15 +75,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k6ave"]
 size = Vector2(40, 37)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k7bv"]
+size = Vector2(40, 22)
+
 [node name="floor_lever" type="StaticBody2D" unique_id=2039444333]
 collision_layer = 144
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_on074")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1731905439]
-position = Vector2(0, -2)
-shape = SubResource("RectangleShape2D_1k7bv")
 metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=397129334]
@@ -107,6 +102,12 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1376603507]
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_k6ave")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1731905439]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_1k7bv")
+debug_color = Color(0.9647059, 0, 0, 0.41960785)
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

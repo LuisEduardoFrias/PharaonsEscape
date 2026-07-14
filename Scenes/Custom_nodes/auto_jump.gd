@@ -38,13 +38,13 @@ func _physics_process(delta: float) -> void:
 			time_btn_press = 0.0
 
 			var pj: Player = player
-			pj.collision_mask = 0
-			pj.ray.collision_mask = 0
+			pj.set_collision_mask_value(1, false)
+			pj.ray.set_collision_mask_value(1, false)
 
 			pj._input_physics_off(true)
 			jumping.emit()
 			pj.state_machine._on_child_transition(AnimationStateMachine.States.JUMP)
 
 			await Util.timerout(0.5)
-			pj.ray.collision_mask = 1
-			pj.collision_mask = 1
+			pj.set_collision_mask_value(1, true)
+			pj.ray.set_collision_mask_value(1, true)

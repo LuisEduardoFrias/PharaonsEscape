@@ -4,6 +4,7 @@ class_name SectionBase
 @export var melody: AudioStream
 
 @onready var player: Player
+@onready var camera: CustomCamera = $custom_camera
 @onready var dead_black_screen: ColorRect
 @onready var lower_level := $lower_level
 @onready var background := $background
