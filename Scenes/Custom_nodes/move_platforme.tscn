@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://c7weery41sdj1"]
+
+[ext_resource type="Texture2D" uid="uid://ddj3gno6r750g" path="res://Textures/Sprites/coleccion_tiles.png" id="1_14bht"]
+[ext_resource type="Script" uid="uid://dgrbq8udcvtjg" path="res://Scenes/Custom_nodes/move_platforme.gd" id="1_ansgy"]
+
+[sub_resource type="Curve2D" id="Curve2D_i57h4"]
+bake_interval = 10.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 448)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ansgy"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61dkn"]
+size = Vector2(64, 64)
+
+[node name="Path2D" type="Path2D" unique_id=2080492486]
+curve = SubResource("Curve2D_i57h4")
+script = ExtResource("1_ansgy")
+progress = 0.60927504
+play = true
+time_move = 4.0
+time_stop = 2.0
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=1151190779]
+position = Vector2(0, 272.95523)
+progress = 272.95523
+rotates = false
+cubic_interp = false
+loop = false
+metadata/_edit_lock_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D" unique_id=89078889]
+remote_path = NodePath("../../platform")
+metadata/_edit_lock_ = true
+
+[node name="platform" type="AnimatableBody2D" parent="." unique_id=1842705537]
+position = Vector2(0, 272.95523)
+collision_layer = 64
+collision_mask = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform" unique_id=1056302998]
+shape = SubResource("RectangleShape2D_ansgy")
+debug_color = Color(0.9843137, 0, 0, 0.67058825)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="platform" unique_id=2082970280]
+texture = ExtResource("1_14bht")
+hframes = 16
+vframes = 16
+frame = 188
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="platform" unique_id=1158635858]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform/Area2D" unique_id=627705497]
+shape = SubResource("RectangleShape2D_61dkn")
+
+[connection signal="body_entered" from="platform/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="platform/Area2D" to="." method="_on_area_2d_body_exited"]

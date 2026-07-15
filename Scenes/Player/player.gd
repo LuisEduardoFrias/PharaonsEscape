@@ -16,9 +16,11 @@ class_name Player extends Entity
 
 
 signal is_static_state(value: bool)
+signal tile_hit_respawnd
 
 var interactive_object: Variant = null
 var spawner_point: Vector2 = Vector2.LEFT
+var is_in_platform: bool = false
 var is_jumping: bool = false # Para validar si está en faltando
 var is_eye_horus_enable: bool = false # Verifica si está activada la habilidad del ojo de horus
 var is_control_off: bool = false
@@ -70,7 +72,7 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"ui_action_2") :
-		pass#eye_horus._enable_eje_horus()
+		eye_horus._enable_eje_horus()
 
 
 #Detiene todas las entradas al player
@@ -160,14 +162,16 @@ func intermittency(duration: float = 1.0, callback: Callable = Callable()) -> vo
 
 ## Método que silve para interacion con cosas en el piso
 func _floor_detected_body_entered(body: Node2D) -> void:
-	if body as TileMapLayer:
+	if body is TileMapLayer and not is_in_platform:
 		_tile_hit(body)
-		return
+
+
+func _move_platform(body: AnimatableBody2D) -> void:
+	position.move_toward(body.position, 0.5)
 
 
 ## Método que silve para interacion con Tiles que hacen daño
 func _tile_hit(_body: TileMapLayer) -> void:
-	#hacer daño y spawner
 	_input_physics_off(true)
 	state_machine._on_child_transition(AnimationStateMachine.States.FALL)
 	await state_machine.animation_finished
@@ -175,8 +179,9 @@ func _tile_hit(_body: TileMapLayer) -> void:
 	intermittency()
 	state_machine._on_child_transition(AnimationStateMachine.States.IDLE)
 	await Util.timerout(0.5)
-	owner.change_platform()
+	tile_hit_respawnd.emit()
 	_input_physics_off(false)
+
 
 
 func show_quetion(is_show: bool) -> void:

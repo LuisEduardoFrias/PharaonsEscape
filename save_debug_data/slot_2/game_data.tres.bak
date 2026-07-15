@@ -36,7 +36,7 @@ doors = {
 "level_3_section_2_double_mechanical_door2": true,
 "level_3_section_2_escalator": true,
 "level_3_section_2_escalator2": true,
-"level_3_section_2_mechanical_door": false,
+"level_3_section_2_mechanical_door": true,
 "level_3_section_2_mechanical_door2": false,
 "level_3_section_3_mechanical_door": false,
 "level_3_section_3_mechanical_door2": false,
@@ -46,6 +46,13 @@ doors = {
 "level_3_section_3_mechanical_door6": false,
 "level_3_section_3_mechanical_door7": false,
 "level_3_section_3_mechanical_door8": false
+}
+parchments = {
+"level_3_section_2_skeleton": {
+"dialog_name": "res://Dialogs/Diálogo papiro 1 - nivel 3.dialogue",
+"is_interject": true,
+"is_take": false
+}
 }
 
 [sub_resource type="Resource" id="Resource_n2qnk"]
@@ -70,6 +77,7 @@ script = ExtResource("11_p75pt")
 
 [resource]
 script = ExtResource("10_too4j")
+is_initial = false
 items = SubResource("Resource_65dk7")
 current_level = SubResource("Resource_0xumm")
 player = SubResource("Resource_7caai")
