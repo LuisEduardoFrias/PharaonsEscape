@@ -68,3 +68,7 @@ func _initial_game() -> void:
 
 func _on_switch_switch() -> void:
 	Global.save_open_door(LevelsData.Levels.LEVEL3, name, door4)
+
+
+func _on_firt_item_interac(item: int) -> void:
+	print("get item: ", item)

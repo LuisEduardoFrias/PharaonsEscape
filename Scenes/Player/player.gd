@@ -70,11 +70,6 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"ui_action_2") :
-		eye_horus._enable_eje_horus()
-
-
 #Detiene todas las entradas al player
 func _input_physics_off(val):
 	set_physics_process(!val)
@@ -183,8 +178,39 @@ func _tile_hit(_body: TileMapLayer) -> void:
 	_input_physics_off(false)
 
 
-
 func show_quetion(is_show: bool) -> void:
 	if is_show: $question/AnimationPlayer.play(&"play")
 	else: $question/AnimationPlayer.stop()
 	question.visible = is_show
+
+
+func input(state: StateBase, event: InputEvent) -> void:
+	if is_control_off:
+		return
+	var skill: SkillsData.SkillsType = SkillsData.SkillsType.NONE
+
+	if event.is_action_pressed(&"ui_action_1"):
+		if interactive_object:
+			state.change_state.emit(AnimationStateMachine.States.INTERACT, {})
+		elif not is_jumping:
+			state.change_state.emit(AnimationStateMachine.States.JUMP, {})
+		return
+	if event.is_action_pressed(&"ui_action_2"):
+		skill = Global.player_data.equipped_skills[0]
+	if event.is_action_pressed(&"ui_action_3"):
+		skill = Global.player_data.equipped_skills[1]
+	if event.is_action_pressed(&"ui_action_4"):
+		skill = Global.player_data.equipped_skills[2]
+
+	if skill != SkillsData.SkillsType.NONE:
+			action_btn(skill, state)
+
+
+func action_btn(skill_type: SkillsData.SkillsType, state: StateBase) -> void:
+	match skill_type:
+		SkillsData.SkillsType.SWORD:
+			state.change_state.emit(AnimationStateMachine.States.SWORD_ATTACK, {})
+		SkillsData.SkillsType.ROLL:
+			state.change_state.emit(AnimationStateMachine.States.ROLL, {})
+		SkillsData.SkillsType.EYE_OF_HORUS:
+			eye_horus._enable_eje_horus()

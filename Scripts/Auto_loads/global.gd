@@ -12,6 +12,7 @@ func _ready() -> void:
 #region Solo para desarrollo
 	var slot: Slot = SaveManager.available_slots[1]
 	data = SaveManager.select_and_load_slot(slot)
+	player_data = data.player
 	current_slot = slot
 #endregion
 

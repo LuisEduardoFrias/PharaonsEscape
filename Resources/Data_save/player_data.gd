@@ -8,7 +8,7 @@ enum Player_direction { FRONT, BACK, LEFT, RIGHT }
 @export var direction: Player_direction = Player_direction.FRONT
 @export var position: Vector2 = Vector2(0.0, 0.0)
 @export var equipped_skills: Array[SkillsData.SkillsType] = [
-	SkillsData.SkillsType.HAMMER,
+	SkillsData.SkillsType.EYE_OF_HORUS,
 	SkillsData.SkillsType.NECKLACE_OF_LIGHT,
 	SkillsData.SkillsType.SPIRIT_BLUE_CHARTER
 ]

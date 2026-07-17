@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://duijmf4g1n1gv"]
 
 [ext_resource type="Script" uid="uid://byq5um8ha678d" path="res://Scenes/menu_selection_game.gd" id="1_86jjs"]
+[ext_resource type="PackedScene" uid="uid://du13ciajxb5eo" path="res://Scenes/Custom_nodes/menus/torch.tscn" id="2_bdaro"]
+[ext_resource type="Texture2D" uid="uid://b08iow4pa1rn0" path="res://Textures/Ui/menu_selection_game/word2.png" id="3_8as8g"]
+[ext_resource type="Texture2D" uid="uid://c845x6gl621mp" path="res://Textures/Ui/menu_selection_game/select (1).png" id="4_cm2du"]
+[ext_resource type="Texture2D" uid="uid://c1flvn4fbj7rb" path="res://Textures/Ui/menu_selection_game/select.png" id="5_vu3be"]
 
 [node name="menu_selection_game" type="Control" unique_id=1821255652]
 layout_mode = 3
@@ -19,8 +23,42 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0.34033492, 0.34035298, 1)
+color = Color(2.1057204e-08, 0.1245958, 0.124603994, 1)
 metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=121272703]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" parent="TextureRect" unique_id=720693207 instance=ExtResource("2_bdaro")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 207.0
+offset_top = -184.0
+offset_right = 247.0
+offset_bottom = -68.0
+grow_vertical = 2
+
+[node name="TextureRect2" parent="TextureRect" unique_id=878247725 instance=ExtResource("2_bdaro")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -185.0
+offset_right = -206.0
+offset_bottom = -69.0
+grow_horizontal = 0
+grow_vertical = 2
+flip_h = true
 
 [node name="Panel" type="Panel" parent="." unique_id=415997472]
 layout_mode = 1
@@ -37,6 +75,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="container" type="HBoxContainer" parent="Panel" unique_id=280691609]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -50,6 +89,51 @@ offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=1642555716]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1469667277]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureButton" type="TextureButton" parent="Panel/HBoxContainer/VBoxContainer" unique_id=230760778]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_cm2du")
+texture_pressed = ExtResource("5_vu3be")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1850962691]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_cm2du")
+texture_pressed = ExtResource("5_vu3be")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton3" type="TextureButton" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1590135489]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_cm2du")
+texture_pressed = ExtResource("5_vu3be")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/HBoxContainer" unique_id=1582779152]
+custom_minimum_size = Vector2(312, 312)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.4
+texture = ExtResource("3_8as8g")
+expand_mode = 1
 
 [node name="Button" type="Button" parent="." unique_id=1780250855]
 layout_mode = 1
@@ -67,5 +151,8 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "Back
 "
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=604534293]
+position = Vector2(640, 363)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

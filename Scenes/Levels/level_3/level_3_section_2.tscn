@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cn4oisvyrp6jv" path="res://Scenes/Custom_nodes/mechanical_door.tscn" id="7_iijwr"]
 [ext_resource type="PackedScene" uid="uid://bx230apubl0hd" path="res://Scenes/Custom_nodes/switch.tscn" id="8_0d0be"]
 [ext_resource type="PackedScene" uid="uid://dlru85dj8pbx7" path="res://Scenes/Custom_nodes/transport_boss_zone.tscn" id="8_8avp3"]
+[ext_resource type="PackedScene" uid="uid://cau5jmtu4na54" path="res://Scenes/Custom_nodes/hit_spawner.tscn" id="9_o88wl"]
 [ext_resource type="PackedScene" uid="uid://cj46q4f5m2ihl" path="res://Scenes/Custom_nodes/escalator.tscn" id="15_ri54s"]
 [ext_resource type="PackedScene" uid="uid://vwwydso00p4o" path="res://Scenes/Custom_nodes/double_mechanical_door.tscn" id="16_oa1lm"]
 [ext_resource type="PackedScene" uid="uid://b4v0lxo004snp" path="res://Scenes/Custom_nodes/torch_2.tscn" id="17_pwpwa"]
@@ -32,6 +33,24 @@ size = Vector2(25, 72.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkgdc"]
 size = Vector2(47, 860)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bs3u"]
+size = Vector2(53, 132)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6vdy"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppst0"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnpwu"]
+size = Vector2(64, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2ccf"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydgjc"]
+size = Vector2(67, 111)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itx8p"]
 size = Vector2(299, 442)
@@ -208,9 +227,10 @@ size = Vector2(192, 64)
 
 [node name="level_3_section_2" unique_id=2045360606 instance=ExtResource("1_xxc5k")]
 script = ExtResource("2_8hf7j")
+metadata/_edit_vertical_guides_ = [-2602.0]
 
-[node name="CanvasLayer" parent="." index="0" unique_id=158355276]
-visible = false
+[node name="change_scene_screen" parent="CanvasLayer" parent_id_path=PackedInt32Array(158355276) index="0" unique_id=381274439]
+visible = true
 
 [node name="fog" parent="." index="2" unique_id=1285428728]
 position = Vector2(-4990, -1930.9999)
@@ -221,7 +241,7 @@ z_index = -1
 
 [node name="Player" parent="." index="4" unique_id=667587367]
 z_as_relative = false
-position = Vector2(419, 2357)
+position = Vector2(-4578, 1221)
 scale = Vector2(1, 1)
 
 [node name="lower_level" parent="." index="6" unique_id=589084019]
@@ -283,6 +303,47 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area/transport_boss_zone" index="0" unique_id=1015113912]
 position = Vector2(-3910.5, 1582)
 shape = SubResource("RectangleShape2D_bkgdc")
+
+[node name="hit_spawner" parent="area" parent_id_path=PackedInt32Array(1466910654) index="2" unique_id=1196485071 instance=ExtResource("9_o88wl")]
+position = Vector2(-1888, 1032)
+collision_mask = 2
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="area/hit_spawner" index="0" unique_id=858976123]
+position = Vector2(447, 183)
+shape = SubResource("RectangleShape2D_4bs3u")
+metadata/type = &"point"
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="area/hit_spawner" index="1" unique_id=1536595292]
+position = Vector2(319, 151)
+shape = SubResource("RectangleShape2D_y6vdy")
+metadata/type = &"point"
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="area/hit_spawner" index="2" unique_id=1358515841]
+position = Vector2(1, 152)
+shape = SubResource("RectangleShape2D_ppst0")
+metadata/type = &"point"
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="area/hit_spawner" index="3" unique_id=1813518793]
+position = Vector2(-128, 183)
+shape = SubResource("RectangleShape2D_pnpwu")
+metadata/type = &"point"
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="area/hit_spawner" index="4" unique_id=870337160]
+position = Vector2(-445, 217)
+shape = SubResource("RectangleShape2D_u2ccf")
+metadata/type = &"point"
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="area/hit_spawner" index="5" unique_id=1906764650]
+position = Vector2(-579, 184.5)
+shape = SubResource("RectangleShape2D_ydgjc")
+metadata/type = &"point"
+metadata/_edit_lock_ = true
 
 [node name="camera_limit" parent="limist" parent_id_path=PackedInt32Array(1406101213) index="0" unique_id=1039128866 instance=ExtResource("2_itx8p")]
 activate_left_limit = false

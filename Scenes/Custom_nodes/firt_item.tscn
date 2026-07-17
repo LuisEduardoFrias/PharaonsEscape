@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cqsi66hqxsbgp"]
+
+[ext_resource type="Script" uid="uid://ngmcnl6hflva" path="res://Scenes/Custom_nodes/firt_item.gd" id="1_gha6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ekrj"]
+size = Vector2(23, 43)
+
+[node name="firt_item" type="Node2D" unique_id=1948176057]
+script = ExtResource("1_gha6k")
+metadata/_edit_lock_ = true
+
+[node name="item" type="Area2D" parent="." unique_id=1791936018]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item" unique_id=404989096]
+position = Vector2(-1.5, -11.5)
+shape = SubResource("RectangleShape2D_3ekrj")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="item" to="." method="_on_item_body_entered"]
+[connection signal="body_exited" from="item" to="." method="_on_item_body_exited"]

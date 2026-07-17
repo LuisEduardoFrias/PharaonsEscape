@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://du13ciajxb5eo"]
+
+[ext_resource type="Texture2D" uid="uid://br13c70to52fe" path="res://Textures/Ui/menu_selection_game/antorcha..png" id="1_l6jwa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8as8g"]
+atlas = ExtResource("1_l6jwa")
+region = Rect2(0, 0, 32, 116)
+
+[sub_resource type="Animation" id="Animation_l6jwa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 32, 116)]
+}
+
+[sub_resource type="Animation" id="Animation_av72d"]
+resource_name = "play"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 32, 116), Rect2(32, 0, 32, 116), Rect2(0, 116, 32, 116), Rect2(32, 116, 32, 116)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w5xro"]
+_data = {
+&"RESET": SubResource("Animation_l6jwa"),
+&"play": SubResource("Animation_av72d")
+}
+
+[sub_resource type="Gradient" id="Gradient_06tpx"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l6jwa"]
+gradient = SubResource("Gradient_06tpx")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.9026454, 0.12433403)
+
+[node name="torch" type="TextureRect" unique_id=720693207]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_8as8g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=131214594]
+libraries/ = SubResource("AnimationLibrary_w5xro")
+autoplay = &"play"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1719617322]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(23, 52)
+color = Color(1, 1, 0.38039216, 0.42745098)
+shadow_enabled = true
+shadow_filter_smooth = 22.0
+texture = SubResource("GradientTexture2D_l6jwa")

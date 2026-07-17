@@ -28,8 +28,8 @@ script = ExtResource("4_1dcmw")
 [sub_resource type="Resource" id="Resource_sj0if"]
 script = ExtResource("5_lhd7n")
 doors = {
-"level_3_section_1_mechanical_door": false,
-"level_3_section_1_mechanical_door2": false,
+"level_3_section_1_mechanical_door": true,
+"level_3_section_1_mechanical_door2": true,
 "level_3_section_1_mechanical_door3": true,
 "level_3_section_1_mechanical_door4": false,
 "level_3_section_2_double_mechanical_door": true,
