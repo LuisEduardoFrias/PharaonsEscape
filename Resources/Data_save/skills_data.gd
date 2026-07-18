@@ -33,3 +33,7 @@ enum SkillsType {
 
 @export var spirit_blue_charter: bool = false
 @export var necklace_of_light: bool = false
+
+
+static func equipped_index_to_skill(skill: SkillsData.SkillsType) -> int:
+	return -1

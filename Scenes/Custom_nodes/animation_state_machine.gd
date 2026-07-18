@@ -23,7 +23,7 @@ func _ready() -> void:
 
 	for child: StateBase in get_children():
 		states_node[child.name.to_lower()] = child
-		(child as StateBase).change_state.connect(_on_child_transition)
+		child.change_state.connect(_on_child_transition)
 		child.actor = owner as Entity
 
 	if initial_state:

@@ -1,6 +1,8 @@
 # Global
 extends Node
 
+signal added_skill
+
 var player_data: PlayerData #para persistir la data del Player aparte.
 
 var current_slot: Slot
@@ -83,6 +85,31 @@ func skill_to_str(skill: SkillsData.SkillsType) -> String:
 	return (SkillsData.SkillsType.keys()[skill]as String).to_lower()
 
 
+func add_skill(skill: SkillsData.SkillsType) -> void:
+	var skill_name : String = skill_to_str(skill)
+
+	if data.skills[skill_name] == null:
+		push_error("La habilidad '%s' no se encuentras" % skill)
+		return
+
+	data.skills.set(skill_name, true)
+	equipped_skill(skill_name)
+	save()
+	added_skill.emit(skill_name)
+
+
+#equipa la habilidad con el nombre dado en el ID del campo dado
+func equipped_skill(skill_name: String) -> void:
+	var skill: SkillsData.SkillsType =  skill_to_enum(skill_name)
+	data.player.equipped_skills[SkillsData.equipped_index_to_skill(skill)] = skill
+	save()
+
+
+func skill_to_enum(skill: String) -> SkillsData.SkillsType:
+	return SkillsData.SkillsType[skill.to_upper()]
+
+
+
 #region
 '''
 func code_trans_to_str(code_trans: Data.Code_Trans) -> String:
@@ -90,9 +117,6 @@ func code_trans_to_str(code_trans: Data.Code_Trans) -> String:
 
 
 
-
-func skill_to_enum(skill: String) -> int:
-	return SkillsData.SkillsType[skill.to_upper()]
 
 
 ##Verifica el estado de la puerta

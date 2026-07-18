@@ -8,9 +8,9 @@
 [ext_resource type="Script" path="res://Resources/Data_save/level4_data.gd" id="6_4nyaq"]
 [ext_resource type="Script" path="res://Resources/Data_save/level5_data.gd" id="7_20ak8"]
 [ext_resource type="Script" path="res://Resources/Data_save/levels_data.gd" id="8_x1d45"]
-[ext_resource type="Script" path="res://Resources/Data_save/player_data.gd" id="9_20ebd"]
+[ext_resource type="Script" uid="uid://dldgoqqatmqt7" path="res://Resources/Data_save/player_data.gd" id="9_20ebd"]
 [ext_resource type="Script" uid="uid://cckso7pcsn4ck" path="res://Resources/Data_save/data.gd" id="10_ffaag"]
-[ext_resource type="Script" path="res://Resources/Data_save/skills_data.gd" id="11_ilp7p"]
+[ext_resource type="Script" uid="uid://c5n8jnutmbi0p" path="res://Resources/Data_save/skills_data.gd" id="11_ilp7p"]
 
 [sub_resource type="Resource" id="Resource_3tdit"]
 script = ExtResource("1_5jgkc")

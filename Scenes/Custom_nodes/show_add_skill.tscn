@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bitvpuffwckia"]
+
+[ext_resource type="Script" uid="uid://csc0tqqh1drw" path="res://Scenes/Custom_nodes/show_add_skill.gd" id="1_15iwr"]
+[ext_resource type="Texture2D" uid="uid://c7lcluh6gi3da" path="res://Textures/Sprites/map_decorations.png" id="2_mehef"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15iwr"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.17254902)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2lq1"]
+atlas = ExtResource("2_mehef")
+region = Rect2(288, 160, 32, 32)
+
+[node name="show_add_skill" type="Control" unique_id=48872718]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+script = ExtResource("1_15iwr")
+metadata/_edit_lock_ = true
+
+[node name="panel" type="Panel" parent="." unique_id=4552118]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -130.0
+offset_right = 250.00049
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 2
+accessibility_name = "."
+theme_override_styles/panel = SubResource("StyleBoxFlat_15iwr")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="panel" unique_id=671158072]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="panel/MarginContainer" unique_id=1741681043]
+layout_mode = 2
+accessibility_name = "."
+
+[node name="texture" type="TextureRect" parent="panel/MarginContainer/HBoxContainer" unique_id=2109166508]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+accessibility_name = "."
+texture = SubResource("AtlasTexture_q2lq1")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="panel/MarginContainer/HBoxContainer" unique_id=688684441]
+layout_mode = 2
+size_flags_horizontal = 3
+accessibility_name = "."
+theme_override_font_sizes/font_size = 18
+text = "Daga eterna."
+vertical_alignment = 1
