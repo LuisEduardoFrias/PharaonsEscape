@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://du13ciajxb5eo"]
 
 [ext_resource type="Texture2D" uid="uid://br13c70to52fe" path="res://Textures/Ui/menu_selection_game/antorcha..png" id="1_l6jwa"]
+[ext_resource type="Script" uid="uid://dssnyo6xeklwu" path="res://Scenes/Custom_nodes/menus/torch.gd" id="2_av72d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8as8g"]
 atlas = ExtResource("1_l6jwa")
@@ -44,11 +45,12 @@ _data = {
 &"play": SubResource("Animation_av72d")
 }
 
-[sub_resource type="Gradient" id="Gradient_06tpx"]
+[sub_resource type="Gradient" id="Gradient_l6jwa"]
+offsets = PackedFloat32Array(0.4065681, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_l6jwa"]
-gradient = SubResource("Gradient_06tpx")
+gradient = SubResource("Gradient_l6jwa")
 width = 256
 height = 256
 fill = 1
@@ -59,6 +61,7 @@ fill_to = Vector2(0.9026454, 0.12433403)
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("AtlasTexture_8as8g")
+script = ExtResource("2_av72d")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=131214594]
 libraries/ = SubResource("AnimationLibrary_w5xro")
@@ -67,7 +70,8 @@ autoplay = &"play"
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1719617322]
 z_index = 2
 y_sort_enabled = true
-position = Vector2(23, 52)
+position = Vector2(25.00003, 47.000008)
+scale = Vector2(3, 3)
 color = Color(1, 1, 0.38039216, 0.42745098)
 shadow_enabled = true
 shadow_filter_smooth = 22.0

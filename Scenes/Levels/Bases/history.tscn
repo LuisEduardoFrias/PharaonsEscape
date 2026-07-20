@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://bpw8bno5rbxdk"]
+
+[ext_resource type="Script" uid="uid://dh0up2j0asyqj" path="res://Scenes/Levels/Bases/history.gd" id="1_omv3t"]
+[ext_resource type="AudioStream" uid="uid://dwc3eovgpusvr" path="res://Audios/Melodys/history-01.mp3" id="2_s5hwu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s5hwu"]
+load_path = "res://.godot/imported/H_1.png-450d0fc67c32c724033290be8c81ba6c.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omv3t"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_omv3t")
+next_scene_path = "uid://ochbuxteoh0t"
+metadata/_edit_lock_ = true
+
+[node name="container" type="Panel" parent="."]
+self_modulate = Color(0, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="hbc" type="HBoxContainer" parent="container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="pictures" type="Panel" parent="container/hbc"]
+self_modulate = Color(0, 0, 0, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_lock_ = true
+
+[node name="texture" type="TextureRect" parent="container/hbc/pictures"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = SubResource("CompressedTexture2D_s5hwu")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="labels" type="Panel" parent="container/hbc"]
+self_modulate = Color(0, 0, 0, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_lock_ = true
+
+[node name="Label1" type="Label" parent="container/hbc/labels"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.5
+offset_top = -110.0
+offset_right = 282.5
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "En el lejano reino de Egipto, el faraón gobernaba con inmenso poder y misticismo."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 234
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="container/hbc/labels"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.5
+offset_top = -82.5
+offset_right = 286.5
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Hasta que, un fatídico día, el aliento del faraón se extinguió."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 234
+metadata/_edit_lock_ = true
+
+[node name="Label3" type="Label" parent="container/hbc/labels"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = -124.5
+offset_right = 282.0
+offset_bottom = 124.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Los ancianos de la corte se reúnen en las sombras, iniciando los preparativos para el nuevo soberano."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 234
+metadata/_edit_lock_ = true
+
+[node name="Label4" type="Label" parent="container/hbc/labels"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.5
+offset_top = -115.5
+offset_right = 283.5
+offset_bottom = 115.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "El sucesor es convocado a la ceremonia de inicio, un ritual sagrado dictado por los dioses antiguos."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 234
+metadata/_edit_lock_ = true
+
+[node name="Label5" type="Label" parent="container/hbc/labels"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.5
+offset_top = -114.0
+offset_right = 286.5
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Sin sospecharlo, es sumido en un sueño profundo y preparado para el rito de pasaje."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 234
+metadata/_edit_lock_ = true
+
+[node name="Label6" type="Label" parent="container/hbc/labels"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.5
+offset_top = -114.0
+offset_right = 286.5
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Es conducido a las entrañas de la Gran Pirámide; no es una tumba, sino una prueba de fuego e iniciación."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 234
+metadata/_edit_lock_ = true
+
+[node name="Label7" type="Label" parent="container/hbc/labels"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.5
+offset_top = -114.0
+offset_right = 286.5
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Solo si sobrevive a las trampas, resuelve los enigmas y logra escapar, obtendrá el favor de los dioses para gobernar."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 234
+metadata/_edit_lock_ = true
+
+[node name="panel_btn" type="Panel" parent="container/hbc/labels"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_lock_ = true
+
+[node name="next_btn" type="Button" parent="container/hbc/labels/panel_btn"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -95.0
+offset_top = -66.0
+offset_right = -50.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_omv3t")
+text = "Next
+"
+metadata/_edit_lock_ = true
+
+[node name="skip_btn" type="Button" parent="container/hbc/labels/panel_btn"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = -59.0
+offset_right = 80.0
+offset_bottom = -28.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_omv3t")
+text = "Skip"
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s5hwu")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="container/hbc/labels/panel_btn/skip_btn" to="." method="_on_skip_btn_pressed"]

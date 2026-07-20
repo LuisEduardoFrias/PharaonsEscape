@@ -13,15 +13,11 @@ level_name = "The Grand Gallery"
 [sub_resource type="Resource" id="Resource_vgbfs"]
 script = ExtResource("2_uhbn7")
 slot_id = 2
-is_slot_empty = false
-data_game_path = "res://save_debug_data/slot_2/game_data.tres"
 level_name = "The Grand Gallery"
 
 [sub_resource type="Resource" id="Resource_6yvvm"]
 script = ExtResource("2_uhbn7")
 slot_id = 3
-is_slot_empty = false
-data_game_path = "res://save_debug_data/slot_3/game_data.tres"
 level_name = "The Grand Gallery"
 
 [resource]

@@ -33,6 +33,17 @@
         "visibility": 0.0
       }
     },
+    "res://save_debug_data/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0
+      },
+      "resource_name": {
+        "visibility": 0
+      }
+    },
     "res://save_debug_data/slot_1/": {
       "metadata/_custom_type_script": {
         "visibility": 0.0
@@ -71,7 +82,7 @@
     "res://save_pharaons_escape/",
     "res://Resources/",
     "res://save_debug_data/slot_2/",
-    "res://save_debug_data/slot_1/"
+    "res://save_debug_data/"
   ],
   "table_functions": {
     "filter": [

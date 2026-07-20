@@ -1,4 +1,4 @@
-extends Node2D
+extends TextureRect
 
 @onready var luz: PointLight2D = $PointLight2D
 
@@ -10,9 +10,6 @@ var tiempo: float = 0.0
 
 func _process(delta: float) -> void:
 	tiempo += delta * velocidad_parpadeo
-
 	var ruido = sin(tiempo) * cos(tiempo * 0.7)
-
 	luz.energy = energia_base + (ruido * variacion_energia)
-
 	luz.texture_scale = 1.5 + (ruido * 0.05)

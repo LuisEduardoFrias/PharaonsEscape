@@ -189,7 +189,7 @@ texture_pressed = ExtResource("5_vu3be")
 texture_hover = ExtResource("5_vu3be")
 texture_disabled = null
 texture_focused = ExtResource("5_vu3be")
-text = "start"
+text = "New Game"
 metadata/_edit_lock_ = true
 
 [node name="option_btn2" parent="AspectRatioContainer/bg/Panel/HBoxContainer/VBoxContainer" unique_id=1402275660 instance=ExtResource("7_kl1jx")]
@@ -202,7 +202,7 @@ texture_pressed = ExtResource("5_vu3be")
 texture_hover = ExtResource("5_vu3be")
 texture_disabled = null
 texture_focused = ExtResource("5_vu3be")
-text = "Continue"
+text = "New Game"
 metadata/_edit_lock_ = true
 
 [node name="option_btn3" parent="AspectRatioContainer/bg/Panel/HBoxContainer/VBoxContainer" unique_id=1007635152 instance=ExtResource("7_kl1jx")]
@@ -215,7 +215,7 @@ texture_pressed = ExtResource("5_vu3be")
 texture_hover = ExtResource("5_vu3be")
 texture_disabled = null
 texture_focused = ExtResource("5_vu3be")
-text = "Continue"
+text = "New Game"
 metadata/_edit_lock_ = true
 
 [node name="Panel" type="Panel" parent="AspectRatioContainer/bg/Panel/HBoxContainer" unique_id=1355620889]
@@ -281,7 +281,8 @@ size_flags_horizontal = 3
 accessibility_name = "."
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer" unique_id=367344112]
+[node name="time" type="Label" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer" unique_id=367344112]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -306,7 +307,8 @@ size_flags_horizontal = 3
 accessibility_name = "."
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer2" unique_id=477398301]
+[node name="bugs" type="Label" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer2" unique_id=477398301]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -331,7 +333,8 @@ size_flags_horizontal = 3
 accessibility_name = "."
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer3" unique_id=1316088521]
+[node name="live" type="Label" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer3" unique_id=1316088521]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -351,7 +354,8 @@ size_flags_horizontal = 3
 accessibility_name = "."
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container" unique_id=2049199431]
+[node name="level" type="Label" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container" unique_id=2049199431]
+unique_name_in_owner = true
 layout_mode = 2
 accessibility_name = "."
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -440,6 +444,7 @@ offset_right = 210.0
 offset_bottom = -50.0
 grow_vertical = 0
 scale = Vector2(1.5, 1.5)
+flip_v = true
 text = "Back"
 metadata/_edit_lock_ = true
 
@@ -453,10 +458,12 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="directional_light" type="DirectionalLight2D" parent="." unique_id=875191550]
-energy = 0.72
-blend_mode = 2
+energy = 0.3
 metadata/_edit_lock_ = true
 
+[connection signal="pressed" from="AspectRatioContainer/bg/Panel/HBoxContainer/VBoxContainer/option_btn" to="." method="_on_option_btn_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/bg/Panel/HBoxContainer/VBoxContainer/option_btn2" to="." method="_on_option_btn_2_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/bg/Panel/HBoxContainer/VBoxContainer/option_btn3" to="." method="_on_option_btn_3_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/Panel/MarginContainer/HBoxContainer/back_zoom" to="." method="_on_back_zoom_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/bg/Panel/zoom" to="." method="_on_zoom_pressed"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

@@ -5,20 +5,19 @@ signal added_skill
 
 var player_data: PlayerData #para persistir la data del Player aparte.
 
-var current_slot: Slot
-var data: Data = Data.new()
+var current_slot: Slot:
+	set(val):
+		current_slot = val
+		data = SaveManager.select_and_load_slot(val)
+var data: Data = Data.new():
+	set(val):
+		data = val
+		player_data = data.player
 var current_scene: Node2D
 
 
 func _ready() -> void:
-#region Solo para desarrollo
-	var slot: Slot = SaveManager.available_slots[1]
-	data = SaveManager.select_and_load_slot(slot)
-	player_data = data.player
-	current_slot = slot
-#endregion
-
-	player_data = data.player
+	pass
 
 
 # Guada los datos generales
