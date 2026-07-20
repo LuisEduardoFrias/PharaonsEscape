@@ -2,9 +2,35 @@
 
 [ext_resource type="Script" uid="uid://byq5um8ha678d" path="res://Scenes/menu_selection_game.gd" id="1_86jjs"]
 [ext_resource type="PackedScene" uid="uid://du13ciajxb5eo" path="res://Scenes/Custom_nodes/menus/torch.tscn" id="2_bdaro"]
+[ext_resource type="Texture2D" uid="uid://qv88eirnh2k3" path="res://Textures/Ui/menu_selection_game/bg2.png" id="2_vu3be"]
 [ext_resource type="Texture2D" uid="uid://b08iow4pa1rn0" path="res://Textures/Ui/menu_selection_game/word2.png" id="3_8as8g"]
 [ext_resource type="Texture2D" uid="uid://c845x6gl621mp" path="res://Textures/Ui/menu_selection_game/select (1).png" id="4_cm2du"]
 [ext_resource type="Texture2D" uid="uid://c1flvn4fbj7rb" path="res://Textures/Ui/menu_selection_game/select.png" id="5_vu3be"]
+[ext_resource type="PackedScene" uid="uid://bfk0mdurlhpnm" path="res://Scenes/Custom_nodes/menus/option_btn.tscn" id="7_kl1jx"]
+[ext_resource type="AudioStream" uid="uid://0y11pxf3rfeh" path="res://Audios/Melodys/menu-02.mp3" id="8_2ojfo"]
+[ext_resource type="FontFile" uid="uid://b7boea1jnj8eq" path="res://Resources/Fonts/skandal/Skandal.ttf" id="8_5basi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kl1jx"]
+atlas = ExtResource("2_vu3be")
+region = Rect2(0, 0, 578, 322)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5basi"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [node name="menu_selection_game" type="Control" unique_id=1821255652]
 layout_mode = 3
@@ -13,146 +39,424 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+accessibility_name = "."
 script = ExtResource("1_86jjs")
 metadata/_edit_lock_ = true
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1207872203]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=905035211]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(2.1057204e-08, 0.1245958, 0.124603994, 1)
+accessibility_name = "."
+ratio = 1.78
+stretch_mode = 3
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=121272703]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="bg" type="TextureRect" parent="AspectRatioContainer" unique_id=323168381]
+layout_mode = 2
+accessibility_name = "."
+texture = SubResource("AtlasTexture_kl1jx")
+expand_mode = 1
+metadata/_edit_lock_ = true
 
-[node name="TextureRect" parent="TextureRect" unique_id=720693207 instance=ExtResource("2_bdaro")]
+[node name="torch" parent="AspectRatioContainer/bg" unique_id=720693207 instance=ExtResource("2_bdaro")]
+custom_minimum_size = Vector2(32, 116)
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 207.0
-offset_top = -184.0
-offset_right = 247.0
-offset_bottom = -68.0
-grow_vertical = 2
+anchors_preset = -1
+anchor_left = 0.10859375
+anchor_top = 0.24406253
+anchor_right = 0.13359375
+anchor_bottom = 0.40718755
+offset_right = 0.0
+offset_bottom = 0.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+accessibility_name = "."
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
-[node name="TextureRect2" parent="TextureRect" unique_id=878247725 instance=ExtResource("2_bdaro")]
+[node name="torch2" parent="AspectRatioContainer/bg" unique_id=878247725 instance=ExtResource("2_bdaro")]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -246.0
-offset_top = -185.0
-offset_right = -206.0
-offset_bottom = -69.0
-grow_horizontal = 0
-grow_vertical = 2
+anchors_preset = -1
+anchor_left = 0.87890625
+anchor_top = 0.24546878
+anchor_right = 0.9039062
+anchor_bottom = 0.4085938
+offset_right = 0.0
+offset_bottom = 0.0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+accessibility_name = "."
 flip_h = true
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
-[node name="Panel" type="Panel" parent="." unique_id=415997472]
+[node name="Panel" type="Panel" parent="AspectRatioContainer/bg" unique_id=415997472]
+self_modulate = Color(1, 1, 1, 0)
+layout_direction = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -367.25
-offset_top = -177.75
-offset_right = 367.25
-offset_bottom = 177.75
+offset_left = -260.0
+offset_top = -125.0
+offset_right = 260.0
+offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.323, 0.323)
+pivot_offset = Vector2(260, 125)
+accessibility_name = "."
+metadata/_edit_lock_ = true
 
-[node name="container" type="HBoxContainer" parent="Panel" unique_id=280691609]
-visible = false
+[node name="Panel" type="Panel" parent="AspectRatioContainer/bg/Panel" unique_id=882060486]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 14
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -199.0
-offset_top = -80.0
-offset_right = 199.0
-offset_bottom = 80.0
+offset_left = -21.000061
+offset_top = -128.0
+offset_right = 13.999939
+offset_bottom = -83.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 15
+accessibility_name = "."
+metadata/_edit_lock_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=1642555716]
+[node name="Panel2" type="Panel" parent="AspectRatioContainer/bg/Panel" unique_id=611448382]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -21.000061
+offset_top = -23.0
+offset_right = 13.999939
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="Panel3" type="Panel" parent="AspectRatioContainer/bg/Panel" unique_id=1630364382]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -21.000061
+offset_top = 82.5
+offset_right = 13.999939
+offset_bottom = 127.5
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/bg/Panel" unique_id=1642555716]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -31.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
+accessibility_name = "."
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_lock_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1469667277]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/bg/Panel/HBoxContainer" unique_id=1469667277]
 layout_mode = 2
 size_flags_horizontal = 3
+accessibility_name = "."
+metadata/_edit_lock_ = true
 
-[node name="TextureButton" type="TextureButton" parent="Panel/HBoxContainer/VBoxContainer" unique_id=230760778]
+[node name="option_btn" parent="AspectRatioContainer/bg/Panel/HBoxContainer/VBoxContainer" unique_id=1071333461 instance=ExtResource("7_kl1jx")]
+custom_minimum_size = Vector2(180, 35)
 layout_mode = 2
+size_flags_horizontal = 1
 size_flags_vertical = 3
 texture_normal = ExtResource("4_cm2du")
 texture_pressed = ExtResource("5_vu3be")
-ignore_texture_size = true
-stretch_mode = 0
+texture_hover = ExtResource("5_vu3be")
+texture_disabled = null
+texture_focused = ExtResource("5_vu3be")
+text = "start"
+metadata/_edit_lock_ = true
 
-[node name="TextureButton2" type="TextureButton" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1850962691]
+[node name="option_btn2" parent="AspectRatioContainer/bg/Panel/HBoxContainer/VBoxContainer" unique_id=1402275660 instance=ExtResource("7_kl1jx")]
+custom_minimum_size = Vector2(180, 35)
 layout_mode = 2
+size_flags_horizontal = 1
 size_flags_vertical = 3
 texture_normal = ExtResource("4_cm2du")
 texture_pressed = ExtResource("5_vu3be")
-ignore_texture_size = true
-stretch_mode = 0
+texture_hover = ExtResource("5_vu3be")
+texture_disabled = null
+texture_focused = ExtResource("5_vu3be")
+text = "Continue"
+metadata/_edit_lock_ = true
 
-[node name="TextureButton3" type="TextureButton" parent="Panel/HBoxContainer/VBoxContainer" unique_id=1590135489]
+[node name="option_btn3" parent="AspectRatioContainer/bg/Panel/HBoxContainer/VBoxContainer" unique_id=1007635152 instance=ExtResource("7_kl1jx")]
+custom_minimum_size = Vector2(180, 35)
 layout_mode = 2
+size_flags_horizontal = 1
 size_flags_vertical = 3
 texture_normal = ExtResource("4_cm2du")
 texture_pressed = ExtResource("5_vu3be")
-ignore_texture_size = true
-stretch_mode = 0
+texture_hover = ExtResource("5_vu3be")
+texture_disabled = null
+texture_focused = ExtResource("5_vu3be")
+text = "Continue"
+metadata/_edit_lock_ = true
 
-[node name="TextureRect2" type="TextureRect" parent="Panel/HBoxContainer" unique_id=1582779152]
+[node name="Panel" type="Panel" parent="AspectRatioContainer/bg/Panel/HBoxContainer" unique_id=1355620889]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="AspectRatioContainer/bg/Panel/HBoxContainer" unique_id=1582779152]
 custom_minimum_size = Vector2(312, 312)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.4
+accessibility_name = "."
 texture = ExtResource("3_8as8g")
 expand_mode = 1
+metadata/_edit_lock_ = true
 
-[node name="Button" type="Button" parent="." unique_id=1780250855]
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2" unique_id=1331909761]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -35.0
-offset_top = -142.0
-offset_right = 47.0
-offset_bottom = -89.0
 grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 35
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="container" type="VBoxContainer" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer" unique_id=2110982277]
+layout_mode = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="container" type="HBoxContainer" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container" unique_id=280691609]
+layout_mode = 2
+size_flags_vertical = 3
+accessibility_name = "."
+theme_override_constants/separation = 15
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container" unique_id=1906101302]
+layout_mode = 2
+size_flags_horizontal = 3
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer" unique_id=689653618]
+layout_mode = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer" unique_id=1830370503]
+layout_mode = 2
+size_flags_horizontal = 3
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer" unique_id=367344112]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+accessibility_name = "."
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_5basi")
+theme_override_font_sizes/font_size = 22
+text = "00:00:00"
+vertical_alignment = 1
+autowrap_trim_flags = 0
+justification_flags = 0
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer" unique_id=685014842]
+layout_mode = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer2" unique_id=1604145903]
+layout_mode = 2
+size_flags_horizontal = 3
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer2" unique_id=477398301]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+accessibility_name = "."
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_5basi")
+theme_override_font_sizes/font_size = 22
+text = "0"
+vertical_alignment = 1
+autowrap_trim_flags = 0
+justification_flags = 0
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer" unique_id=1370849645]
+layout_mode = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer3" unique_id=362997614]
+layout_mode = 2
+size_flags_horizontal = 3
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer3" unique_id=1316088521]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+accessibility_name = "."
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_5basi")
+theme_override_font_sizes/font_size = 22
+text = "6"
+vertical_alignment = 1
+autowrap_trim_flags = 0
+justification_flags = 0
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container" unique_id=613554142]
+layout_mode = 2
+size_flags_horizontal = 3
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container" unique_id=2049199431]
+layout_mode = 2
+accessibility_name = "."
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_5basi")
+theme_override_font_sizes/font_size = 22
+text = "La gran galeria"
+vertical_alignment = 1
+autowrap_trim_flags = 0
+justification_flags = 0
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container" unique_id=1398809841]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/Panel" unique_id=1688550332]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/Panel/MarginContainer" unique_id=268480588]
+layout_mode = 2
+accessibility_name = "."
+theme_override_constants/separation = 8
+metadata/_edit_lock_ = true
+
+[node name="option_btn" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/Panel/MarginContainer/HBoxContainer" unique_id=1510971459 instance=ExtResource("7_kl1jx")]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Delete"
+metadata/_edit_lock_ = true
+
+[node name="back_zoom" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/Panel/MarginContainer/HBoxContainer" unique_id=1634550327 instance=ExtResource("7_kl1jx")]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Back"
+metadata/_edit_lock_ = true
+
+[node name="zoom" type="Button" parent="AspectRatioContainer/bg/Panel" unique_id=1162750911]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -136.28503
+offset_top = -97.91022
+offset_right = 136.28455
+offset_bottom = 97.91022
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+theme_override_styles/normal = SubResource("StyleBoxFlat_5basi")
+
+[node name="Camera2D" type="Camera2D" parent="AspectRatioContainer" unique_id=1593328666]
+position = Vector2(640, 360)
+ignore_rotation = false
+limit_enabled = false
+limit_left = 0
+limit_top = 0
+limit_right = 1280
+limit_bottom = 720
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="back" parent="." unique_id=1385642223 instance=ExtResource("7_kl1jx")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -85.0
+offset_right = 210.0
+offset_bottom = -50.0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "Back
-"
+scale = Vector2(1.5, 1.5)
+text = "Back"
+metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=604534293]
-position = Vector2(640, 363)
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=997423112]
+stream = ExtResource("8_2ojfo")
+volume_db = -10.0
+autoplay = true
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=976499106]
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="directional_light" type="DirectionalLight2D" parent="." unique_id=875191550]
+energy = 0.72
+blend_mode = 2
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/Panel/MarginContainer/HBoxContainer/back_zoom" to="." method="_on_back_zoom_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/bg/Panel/zoom" to="." method="_on_zoom_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

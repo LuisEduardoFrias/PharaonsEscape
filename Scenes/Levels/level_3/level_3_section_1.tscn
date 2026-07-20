@@ -528,6 +528,9 @@ metadata/_edit_lock_ = true
 [node name="objs" parent="." index="14" unique_id=1562350721]
 z_index = 1
 
+[node name="items" parent="." index="15" unique_id=115144001]
+visible = false
+
 [node name="shadow_door" parent="platform" parent_id_path=PackedInt32Array(1532119724) index="0" unique_id=365671981 instance=ExtResource("5_wxnvl")]
 offset_left = 960.0
 offset_top = 1875.0

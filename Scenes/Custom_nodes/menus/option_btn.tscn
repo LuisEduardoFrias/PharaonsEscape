@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bfk0mdurlhpnm"]
+
+[ext_resource type="Texture2D" uid="uid://bdd2gkfuw7ija" path="res://Textures/Ui/ main_menu/button_pressed.png" id="1_xym2y"]
+[ext_resource type="Script" uid="uid://cnr4kcxx6fhkm" path="res://Scenes/Custom_nodes/menus/option_btn.gd" id="2_5enqh"]
+[ext_resource type="FontFile" uid="uid://b7boea1jnj8eq" path="res://Resources/Fonts/skandal/Skandal.ttf" id="2_x7guo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ojfo"]
+atlas = ExtResource("1_xym2y")
+region = Rect2(0, 0, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5basi"]
+atlas = ExtResource("1_xym2y")
+region = Rect2(0, 48, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c57a"]
+atlas = ExtResource("1_xym2y")
+region = Rect2(0, 96, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmbfv"]
+atlas = ExtResource("1_xym2y")
+region = Rect2(0, 192, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxhes"]
+atlas = ExtResource("1_xym2y")
+region = Rect2(0, 144, 200, 48)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5basi"]
+content_margin_top = 5.0
+
+[node name="option_btn" type="TextureButton" unique_id=1071333461]
+custom_minimum_size = Vector2(160, 35)
+offset_right = 160.0
+offset_bottom = 35.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+accessibility_name = "."
+texture_normal = SubResource("AtlasTexture_2ojfo")
+texture_pressed = SubResource("AtlasTexture_5basi")
+texture_hover = SubResource("AtlasTexture_1c57a")
+texture_disabled = SubResource("AtlasTexture_qmbfv")
+texture_focused = SubResource("AtlasTexture_cxhes")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_5enqh")
+
+[node name="Label" type="Label" parent="." unique_id=581660873]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(80, 17)
+accessibility_name = "."
+theme_override_colors/font_color = Color(0.9999998, 0.8721962, 0.639496, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.6537705, 0.37352312, 2.8878452e-07, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("2_x7guo")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5basi")
+text = "Example Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 0
+justification_flags = 0
+metadata/_edit_lock_ = true
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

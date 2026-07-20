@@ -1,8 +1,16 @@
-extends Area2D
+@tool extends Area2D
 
 signal switch(on: bool)
 
-@export var invisible: bool = false
+@onready var sprit_wall: Sprite2D = $Sprite2D
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+
+@export var invisible: bool = false:
+	set(val):
+		invisible = val
+		if not is_node_ready(): await ready
+		monitoring = !val
+		sprit_wall.visible = val
 @export var active: bool = false:
 	set(val):
 		active =  val
@@ -12,7 +20,7 @@ signal switch(on: bool)
 			set_deferred("monitorable", false)
 
 		switch.emit(val)
-		$AnimatedSprite2D.play(&"active" if !val else &"desactive")
+		anim.play(&"active" if !val else &"desactive")
 @export var one_activation: bool = true
 
 
@@ -20,7 +28,7 @@ func _ready() -> void:
 	if invisible:
 		monitoring = false
 	else:
-		$Sprite2D.visible = false
+		sprit_wall.visible = false
 
 	body_entered.connect(_body_entered)
 	body_exited.connect(_body_exited)

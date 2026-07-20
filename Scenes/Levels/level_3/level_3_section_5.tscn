@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c60jt0q2nd5b1" path="res://Scenes/Custom_nodes/door.tscn" id="3_qieo7"]
 [ext_resource type="TileSet" uid="uid://cjacau0u51usp" path="res://Resources/tileset_word.tres" id="4_6ty7l"]
 [ext_resource type="Shader" uid="uid://onhweg8qkg65" path="res://Shaders/visibility_tml_.gdshader" id="5_4eh51"]
+[ext_resource type="PackedScene" uid="uid://bkldctx0dg0d0" path="res://Scenes/Custom_nodes/horus_eye.tscn" id="5_ui62i"]
 [ext_resource type="PackedScene" uid="uid://cau5jmtu4na54" path="res://Scenes/Custom_nodes/hit_spawner.tscn" id="8_rklwa"]
-[ext_resource type="Texture2D" uid="uid://ddj3gno6r750g" path="res://Textures/Sprites/coleccion_tiles.png" id="8_ui62i"]
 [ext_resource type="TileSet" uid="uid://bo1hnjq8v5e3m" path="res://Resources/visibility_tml.tres" id="9_ui62i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rklwa"]
@@ -143,13 +143,8 @@ metadata/_edit_lock_ = true
 position = Vector2(256, 704)
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="platform/platform" index="0" unique_id=959437884]
+[node name="horus_eye" parent="platform/platform" index="0" unique_id=2131305654 instance=ExtResource("5_ui62i")]
 position = Vector2(224, 96)
-texture = ExtResource("8_ui62i")
-hframes = 16
-vframes = 16
-frame = 245
-metadata/_edit_lock_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="platform/platform" index="1" unique_id=57488012]
 visible = false

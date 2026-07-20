@@ -9,16 +9,27 @@
 		active = val
 		if not is_node_ready(): await ready
 		if val:
-			_show(SkillsData.SkillsType.SWORD)
+			_show_skill(SkillsData.SkillsType.SWORD)
 
 
 var is_active: bool = false
 
-
-func _show(skill: SkillsData.SkillsType) -> void:
+func _show_skill(skill: SkillsData.SkillsType) -> void:
 	if not is_active:
 		is_active = true
 		change_img(skill)
+		var tw: Tween = create_tween()
+		tw.tween_property(panel, ^"position:x", panel.position.x - 250.0, 1.0)
+		tw.tween_interval(3.0)
+		tw.tween_property(panel, ^"position:x", panel.position.x, 1.0)
+		tw.tween_callback(func()->void: is_active = false)
+
+
+func _show_coin() -> void:
+	if not is_active:
+		is_active = true
+		img.texture.region = Rect2(288.0, 160.0, 32.0, 32.0)
+		desc.text = "Daga eterna."
 		var tw: Tween = create_tween()
 		tw.tween_property(panel, ^"position:x", panel.position.x - 250.0, 1.0)
 		tw.tween_interval(3.0)

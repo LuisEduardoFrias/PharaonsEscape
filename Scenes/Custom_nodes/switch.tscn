@@ -89,7 +89,9 @@ animation = &"desactive"
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1090200125]
+visible = false
 material = SubResource("ShaderMaterial_g2bwo")
 position = Vector2(0, -32)
 texture = SubResource("AtlasTexture_l67o2")
+flip_h = true
 metadata/_edit_lock_ = true

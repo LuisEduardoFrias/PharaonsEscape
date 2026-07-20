@@ -1,0 +1,54 @@
+[gd_resource type="Theme" format=3 uid="uid://wneol1sellg4"]
+
+[ext_resource type="FontFile" uid="uid://b7boea1jnj8eq" path="res://Resources/Fonts/skandal/Skandal.ttf" id="1_e6kqw"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_e6kqw"]
+content_margin_top = 6.0
+thickness = 0
+vertical = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0odm5"]
+bg_color = Color(0.69803923, 0.5294118, 0.25490198, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6kqw"]
+bg_color = Color(0.8235294, 0.70980394, 0.5019608, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.43137255, 0.28235295, 0.09803922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4w0n"]
+bg_color = Color(0.39025077, 0.28929237, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.078342386, 0.000100665464, 0.16632512, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+shadow_offset = Vector2(0.13, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyaoq"]
+bg_color = Color(1, 0.7607843, 0, 1)
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_e6kqw")
+Label/styles/normal = SubResource("StyleBoxLine_e6kqw")
+PopupMenu/colors/font_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_disabled_color = Color(0.4, 0.4, 0.4, 0.8)
+PopupMenu/colors/font_hover_color = Color(0, 0, 0, 1)
+PopupMenu/font_sizes/font_size = 12
+PopupMenu/fonts/font = ExtResource("1_e6kqw")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_0odm5")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_e6kqw")
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 2
+ProgressBar/font_sizes/font_size = 24
+ProgressBar/styles/background = SubResource("StyleBoxFlat_u4w0n")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_cyaoq")

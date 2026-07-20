@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://csqpy424n2dol"]
+
+[ext_resource type="Texture2D" uid="uid://bvghnc13671gj" path="res://Textures/items.png" id="2_3uasc"]
+[ext_resource type="Script" uid="uid://dbpc5itwvymmk" path="res://Scripts/custom_node/heart.gd" id="2_5djcc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5djcc"]
+atlas = ExtResource("2_3uasc")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="Animation" id="Animation_mmixe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 64, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_ryf15"]
+resource_name = "heartbeat"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 64, 32, 32), Rect2(32, 64, 32, 32), Rect2(64, 64, 32, 32), Rect2(96, 64, 32, 32), Rect2(128, 64, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_g0wmg"]
+resource_name = "heartbeat_hit"
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 128, 32, 32), Rect2(32, 128, 32, 32), Rect2(64, 128, 32, 32), Rect2(96, 128, 32, 32), Rect2(128, 128, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_nt8jn"]
+resource_name = "hit"
+length = 1.0000125
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 96, 32, 32), Rect2(32, 96, 32, 32), Rect2(64, 96, 32, 32), Rect2(96, 96, 32, 32), Rect2(128, 96, 32, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nt8jn"]
+_data = {
+&"RESET": SubResource("Animation_mmixe"),
+&"heartbeat": SubResource("Animation_ryf15"),
+&"heartbeat_hit": SubResource("Animation_g0wmg"),
+&"hit": SubResource("Animation_nt8jn")
+}
+
+[node name="Heart" type="Control" unique_id=87615927]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 30.0
+offset_bottom = 30.0
+script = ExtResource("2_5djcc")
+
+[node name="heart" type="TextureRect" parent="." unique_id=226447275]
+layout_mode = 0
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_5djcc")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1608113784]
+root_node = NodePath("../heart")
+libraries/ = SubResource("AnimationLibrary_nt8jn")
+autoplay = &"heartbeat"

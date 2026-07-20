@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bkldctx0dg0d0"]
+
+[ext_resource type="Texture2D" uid="uid://ddj3gno6r750g" path="res://Textures/Sprites/coleccion_tiles.png" id="1_ivndy"]
+
+[node name="horus_eye" type="Sprite2D" unique_id=2131305654]
+z_index = 1
+texture = ExtResource("1_ivndy")
+hframes = 16
+vframes = 16
+frame = 245
+metadata/_edit_lock_ = true
