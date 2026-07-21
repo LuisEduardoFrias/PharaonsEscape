@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://tkcxscp8bdo8"]
+
+[ext_resource type="Script" uid="uid://clx3lg01qyafj" path="res://Scenes/ui_dev.gd" id="1_7olmi"]
+
+[node name="desarrollo" type="Control" unique_id=232060259]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+script = ExtResource("1_7olmi")
+
+[node name="Panel" type="Panel" parent="." unique_id=379756160]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -390.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=1065621223]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="Panel/HBoxContainer" unique_id=1650686771]
+custom_minimum_size = Vector2(70, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 22
+text = "<="
+
+[node name="OptionButton" type="OptionButton" parent="Panel/HBoxContainer" unique_id=1284766211]
+layout_mode = 2
+size_flags_horizontal = 3

@@ -241,7 +241,7 @@ z_index = -1
 
 [node name="Player" parent="." index="4" unique_id=667587367]
 z_as_relative = false
-position = Vector2(-4578, 1221)
+position = Vector2(352, 1236)
 scale = Vector2(1, 1)
 
 [node name="lower_level" parent="." index="6" unique_id=589084019]
@@ -859,6 +859,7 @@ scale = Vector2(-1, 1)
 facade_y_size = 512.0
 double_door = true
 direction = "LEFT"
+opening = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door2" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="12" unique_id=606375684 instance=ExtResource("7_iijwr")]
@@ -866,6 +867,7 @@ position = Vector2(-1280, 1280)
 rotation = -1.5707964
 facade_y_size = 512.0
 double_door = true
+opening = true
 metadata/_edit_lock_ = true
 
 [connection signal="switch" from="platform/switch" to="." method="_on_switch_switch"]

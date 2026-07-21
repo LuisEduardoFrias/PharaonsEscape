@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dugp4sjwfkw0i"]
 
 [ext_resource type="Script" uid="uid://dyl0qv1c5173n" path="res://Scenes/main_menu.gd" id="1_28flt"]
+[ext_resource type="PackedScene" uid="uid://mv6rb6kr460f" path="res://Scenes/Custom_nodes/vortex_transition.tscn" id="2_48xlc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erv1k"]
 content_margin_left = 0.0
@@ -22,6 +23,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_28flt")
+
+[node name="vortex_transition" parent="." unique_id=629127342 instance=ExtResource("2_48xlc")]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=705253600]
 layout_mode = 1

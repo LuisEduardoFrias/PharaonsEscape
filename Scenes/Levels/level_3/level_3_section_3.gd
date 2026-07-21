@@ -76,5 +76,5 @@ func _on_floor_button_2_is_activated() -> void:
 
 func _on_floor_button_3_is_activated() -> void:
 	door1._open()
-	Global.active_door = true
+	#Global.active_door = true
 	battle_zone.monitoring = true

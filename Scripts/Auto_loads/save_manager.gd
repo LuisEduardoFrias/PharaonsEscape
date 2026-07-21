@@ -149,7 +149,7 @@ func _create_new_slot_game(slot_index: int) -> Data:
 	new_data.is_initial = true
 
 	var slot_obj: Slot = _get_slot_by_index(slot_index)
-	slot_obj.is_slot_empty = false
+	#slot_obj.is_slot_empty = false
 	slot_obj.data_game_path = data_path
 
 	_save_game_file(slot_obj, new_data)

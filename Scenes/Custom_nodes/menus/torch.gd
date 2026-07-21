@@ -1,4 +1,4 @@
-extends TextureRect
+@tool extends TextureRect
 
 @onready var luz: PointLight2D = $PointLight2D
 
@@ -7,6 +7,12 @@ extends TextureRect
 @export var velocidad_parpadeo: float = 15.0
 
 var tiempo: float = 0.0
+
+
+func _ready() -> void:
+	if not Engine.is_editor_hint():
+		Util.region_animation(2, 2, 32.0, 116.0, self, 3, 1.0)
+
 
 func _process(delta: float) -> void:
 	tiempo += delta * velocidad_parpadeo

@@ -2,6 +2,7 @@ extends Control
 
 ## Nodo que contiene las imágenes
 @onready var texture_node: TextureRect = $container/hbc/pictures/texture
+@onready var vortex: CanvasLayer = $vortex_transition
 
 ## Ruta de la escena final
 @export_file("*.tscn") var next_scene_path: String
@@ -34,6 +35,7 @@ var current_index: int = 0
 var is_transitioning: bool = false
 
 func _ready() -> void:
+	vortex.transition_out(0.4)
 	RenderingServer.set_default_clear_color(Color("000000ff"))
 
 	for i: int in range(1, labels.size()):
@@ -104,7 +106,7 @@ func on_next_button_pressed() -> void:
 
 
 func _on_skip_btn_pressed() -> void:
-	get_tree().change_scene_to_file(next_scene_path)
-	'''Global.trigger_screen_transition(func() -> void:
-
-	)'''
+	Global.current_slot.is_slot_empty = false
+	Global.save()
+	await vortex.transition_in(0.4)
+	get_tree().change_scene_to_file("res://Scenes/Levels/Bases/world.tscn")

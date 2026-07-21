@@ -196,7 +196,7 @@ func input(state: StateBase, event: InputEvent) -> void:
 			state.change_state.emit(AnimationStateMachine.States.JUMP, {})
 		return
 	if event.is_action_pressed(&"ui_action_2"):
-		skill = Global.player_data.equipped_skills[0]
+		skill = SkillsData.SkillsType.EYE_OF_HORUS#   Global.player_data.equipped_skills[0]
 	if event.is_action_pressed(&"ui_action_3"):
 		skill = Global.player_data.equipped_skills[1]
 	if event.is_action_pressed(&"ui_action_4"):

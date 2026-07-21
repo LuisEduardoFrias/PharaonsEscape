@@ -282,6 +282,7 @@ z_index = 5
 z_index = 5
 
 [node name="fog" parent="." index="2" unique_id=1285428728]
+visible = false
 position = Vector2(-569.99994, -215.00002)
 scale = Vector2(3259.9998, 2279)
 
@@ -293,7 +294,6 @@ position = Vector2(800, 1555)
 metadata/_edit_lock_ = true
 
 [node name="lower_level" parent="." index="6" unique_id=589084019]
-visible = false
 modulate = Color(1, 1, 1, 0)
 tile_map_data = PackedByteArray("AAAJACIAAgAAAAAAAAAJACMAAgAAAAEAAAAJACQAAgAAAAEAAAAJACUAAgAAAAIAAAAKACIAAgABAAAAAAAKACMAAgABAAEAAAAKACQAAgABAAEAAAAKACUAAgABAAIAAAALAB4AAgAAAAEAAAALAB8AAgAAAAEAAAALACAAAgAAAAEAAAALACEAAgAAAAEAAAALACIAAgAEAAEAAAALACMAAgABAAEAAAALACQAAgABAAEAAAALACUAAgABAAIAAAAMAB4AAgABAAEAAAAMAB8AAgABAAEAAAAMACAAAgABAAEAAAAMACEAAgABAAEAAAAMACIAAgABAAEAAAAMACMAAgABAAEAAAAMACQAAgABAAEAAAAMACUAAgABAAIAAAANAB4AAgADAAAAAAANAB8AAgACAAEAAAANACAAAgACAAEAAAANACEAAgACAAEAAAANACIAAgADAAEAAAANACMAAgABAAEAAAANACQAAgABAAEAAAANACUAAgABAAIAAAAOAB4AAgABAAIAAAAOACIAAgABAAAAAAAOACMAAgABAAEAAAAOACQAAgABAAEAAAAOACUAAgABAAIAAAAPAB4AAgABAAIAAAAPACIAAgACAAAAAAAPACMAAgACAAEAAAAPACQAAgACAAEAAAAPACUAAgACAAIAAAAQAB4AAgABAAIAAAARABwAAgACAAAAAAARAB0AAgACAAEAAAARAB4AAgACAAIAAAALABYAAgAAAAAAAAALABcAAgAAAAEAAAALABgAAgAAAAEAAAALABkAAgAAAAEAAAALABoAAgAAAAEAAAALABsAAgAAAAEAAAALABwAAgAAAAEAAAALAB0AAgAAAAEAAAAMABkAAgABAAEAAAAMABoAAgABAAEAAAAMABsAAgABAAEAAAAMABwAAgABAAEAAAAMAB0AAgABAAEAAAANABcAAgACAAEAAAANABgAAgACAAEAAAANABkAAgACAAEAAAANABoAAgACAAEAAAANABsAAgACAAEAAAANABwAAgADAAEAAAANAB0AAgABAAEAAAAOABwAAgABAAAAAAAOAB0AAgABAAEAAAAPABwAAgABAAAAAAAPAB0AAgABAAEAAAAQABwAAgABAAAAAAAQAB0AAgABAAEAAAAMABcAAgABAAEAAAAMABgAAgABAAEAAAAMABYAAgABAAAAAAA=")
 collision_enabled = false
@@ -447,7 +447,10 @@ position = Vector2(0.5, 9.125)
 shape = SubResource("RectangleShape2D_mrmg1")
 metadata/_edit_lock_ = true
 
-[node name="camera_limit" parent="limist" parent_id_path=PackedInt32Array(1406101213) index="0" unique_id=1039128866 instance=ExtResource("3_jb2g4")]
+[node name="limist" parent="." index="13" unique_id=1406101213]
+visible = false
+
+[node name="camera_limit" parent="limist" index="0" unique_id=1039128866 instance=ExtResource("3_jb2g4")]
 position = Vector2(512, 1280)
 activate_right_limit = false
 usar_zona_muerta = null
@@ -468,7 +471,7 @@ shape = SubResource("RectangleShape2D_ekchl")
 debug_color = Color(0.95941585, 0, 0.52174795, 0.42)
 metadata/_edit_lock_ = true
 
-[node name="camera_limit4" parent="limist" parent_id_path=PackedInt32Array(1406101213) index="1" unique_id=1975193301 instance=ExtResource("3_jb2g4")]
+[node name="camera_limit4" parent="limist" index="1" unique_id=1975193301 instance=ExtResource("3_jb2g4")]
 position = Vector2(512, 1280)
 activate_right_limit = false
 activate_bottom_limit = false
@@ -484,7 +487,7 @@ position = Vector2(-416, -161)
 shape = SubResource("RectangleShape2D_0owj1")
 metadata/_edit_lock_ = true
 
-[node name="camera_limit2" parent="limist" parent_id_path=PackedInt32Array(1406101213) index="2" unique_id=1090463377 instance=ExtResource("3_jb2g4")]
+[node name="camera_limit2" parent="limist" index="2" unique_id=1090463377 instance=ExtResource("3_jb2g4")]
 position = Vector2(768, 1024)
 activate_left_limit = null
 activate_top_limit = null
@@ -508,7 +511,7 @@ shape = SubResource("RectangleShape2D_25f48")
 debug_color = Color(0.97164613, 0, 0.4465232, 0.42)
 metadata/_edit_lock_ = true
 
-[node name="camera_limit3" parent="limist" parent_id_path=PackedInt32Array(1406101213) index="3" unique_id=232857670 instance=ExtResource("3_jb2g4")]
+[node name="camera_limit3" parent="limist" index="3" unique_id=232857670 instance=ExtResource("3_jb2g4")]
 activate_left_limit = null
 activate_top_limit = null
 activate_right_limit = null
@@ -541,6 +544,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="sarcofago" parent="platform" parent_id_path=PackedInt32Array(1532119724) index="1" unique_id=1181579159 instance=ExtResource("6_ekchl")]
+visible = false
 position = Vector2(798, 1494)
 
 [node name="torch2" parent="platform" parent_id_path=PackedInt32Array(1532119724) index="2" unique_id=974165636 instance=ExtResource("7_ekchl")]
@@ -553,6 +557,7 @@ metadata/_edit_lock_ = true
 
 [node name="switch" parent="platform" parent_id_path=PackedInt32Array(1532119724) index="4" unique_id=1972006669 instance=ExtResource("14_gn0q3")]
 position = Vector2(928, 1344)
+monitoring = false
 invisible = true
 metadata/_edit_lock_ = true
 
@@ -578,19 +583,16 @@ shape = SubResource("RectangleShape2D_jb2g4")
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="2" unique_id=1294071322 instance=ExtResource("9_25f48")]
-visible = false
 position = Vector2(-128, 1344)
 facade_y_size = 416.0
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door2" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="3" unique_id=1015017250 instance=ExtResource("9_25f48")]
-visible = false
 position = Vector2(64, 1344)
 facade_y_size = 416.0
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door3" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="4" unique_id=1663234040 instance=ExtResource("9_25f48")]
-visible = false
 position = Vector2(256, 1344)
 facade_y_size = 416.0
 metadata/_edit_lock_ = true

@@ -23,6 +23,22 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0)
 }
 
+[sub_resource type="Animation" id="Animation_ty8tn"]
+resource_name = "black"
+length = 0.1
+step = 1.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.16666667, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_8vefy"]
 resource_name = "play"
 step = 1.0
@@ -41,6 +57,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vsbcw"]
 _data = {
 &"RESET": SubResource("Animation_x4dfq"),
+&"black": SubResource("Animation_ty8tn"),
 &"play": SubResource("Animation_8vefy")
 }
 
@@ -58,3 +75,4 @@ mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=42102997]
 libraries/ = SubResource("AnimationLibrary_vsbcw")
+autoplay = &"play"

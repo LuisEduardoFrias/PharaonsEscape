@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bpw8bno5rbxdk"]
 
 [ext_resource type="Script" uid="uid://dh0up2j0asyqj" path="res://Scenes/Levels/Bases/history.gd" id="1_omv3t"]
+[ext_resource type="PackedScene" uid="uid://mv6rb6kr460f" path="res://Scenes/Custom_nodes/vortex_transition.tscn" id="2_ojp4a"]
 [ext_resource type="AudioStream" uid="uid://dwc3eovgpusvr" path="res://Audios/Melodys/history-01.mp3" id="2_s5hwu"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s5hwu"]
@@ -13,7 +14,7 @@ content_margin_right = 20.0
 content_margin_bottom = 10.0
 bg_color = Color(0, 0, 0, 1)
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=663219136]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +25,9 @@ script = ExtResource("1_omv3t")
 next_scene_path = "uid://ochbuxteoh0t"
 metadata/_edit_lock_ = true
 
-[node name="container" type="Panel" parent="."]
+[node name="vortex_transition" parent="." unique_id=629127342 instance=ExtResource("2_ojp4a")]
+
+[node name="container" type="Panel" parent="." unique_id=1886153782]
 self_modulate = Color(0, 0, 0, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -34,7 +37,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="hbc" type="HBoxContainer" parent="container"]
+[node name="hbc" type="HBoxContainer" parent="container" unique_id=1652420166]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,13 +46,13 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="pictures" type="Panel" parent="container/hbc"]
+[node name="pictures" type="Panel" parent="container/hbc" unique_id=5418843]
 self_modulate = Color(0, 0, 0, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 metadata/_edit_lock_ = true
 
-[node name="texture" type="TextureRect" parent="container/hbc/pictures"]
+[node name="texture" type="TextureRect" parent="container/hbc/pictures" unique_id=219005616]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,13 +64,13 @@ texture = SubResource("CompressedTexture2D_s5hwu")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="labels" type="Panel" parent="container/hbc"]
+[node name="labels" type="Panel" parent="container/hbc" unique_id=363972850]
 self_modulate = Color(0, 0, 0, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 metadata/_edit_lock_ = true
 
-[node name="Label1" type="Label" parent="container/hbc/labels"]
+[node name="Label1" type="Label" parent="container/hbc/labels" unique_id=558797087]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -89,7 +92,7 @@ autowrap_mode = 2
 justification_flags = 234
 metadata/_edit_lock_ = true
 
-[node name="Label2" type="Label" parent="container/hbc/labels"]
+[node name="Label2" type="Label" parent="container/hbc/labels" unique_id=77393977]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -112,7 +115,7 @@ autowrap_mode = 2
 justification_flags = 234
 metadata/_edit_lock_ = true
 
-[node name="Label3" type="Label" parent="container/hbc/labels"]
+[node name="Label3" type="Label" parent="container/hbc/labels" unique_id=1686529490]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -135,7 +138,7 @@ autowrap_mode = 2
 justification_flags = 234
 metadata/_edit_lock_ = true
 
-[node name="Label4" type="Label" parent="container/hbc/labels"]
+[node name="Label4" type="Label" parent="container/hbc/labels" unique_id=26633742]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -158,7 +161,7 @@ autowrap_mode = 2
 justification_flags = 234
 metadata/_edit_lock_ = true
 
-[node name="Label5" type="Label" parent="container/hbc/labels"]
+[node name="Label5" type="Label" parent="container/hbc/labels" unique_id=1110427320]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -181,7 +184,7 @@ autowrap_mode = 2
 justification_flags = 234
 metadata/_edit_lock_ = true
 
-[node name="Label6" type="Label" parent="container/hbc/labels"]
+[node name="Label6" type="Label" parent="container/hbc/labels" unique_id=844655321]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -204,7 +207,7 @@ autowrap_mode = 2
 justification_flags = 234
 metadata/_edit_lock_ = true
 
-[node name="Label7" type="Label" parent="container/hbc/labels"]
+[node name="Label7" type="Label" parent="container/hbc/labels" unique_id=1027061850]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -227,7 +230,7 @@ autowrap_mode = 2
 justification_flags = 234
 metadata/_edit_lock_ = true
 
-[node name="panel_btn" type="Panel" parent="container/hbc/labels"]
+[node name="panel_btn" type="Panel" parent="container/hbc/labels" unique_id=68851600]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 12
@@ -238,7 +241,7 @@ grow_horizontal = 2
 grow_vertical = 0
 metadata/_edit_lock_ = true
 
-[node name="next_btn" type="Button" parent="container/hbc/labels/panel_btn"]
+[node name="next_btn" type="Button" parent="container/hbc/labels/panel_btn" unique_id=1504164260]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -257,7 +260,7 @@ text = "Next
 "
 metadata/_edit_lock_ = true
 
-[node name="skip_btn" type="Button" parent="container/hbc/labels/panel_btn"]
+[node name="skip_btn" type="Button" parent="container/hbc/labels/panel_btn" unique_id=563490380]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -272,7 +275,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_omv3t")
 text = "Skip"
 metadata/_edit_lock_ = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=64185907]
 stream = ExtResource("2_s5hwu")
 volume_db = -10.0
 autoplay = true

@@ -5,7 +5,12 @@ class_name World extends Node2D
 
 
 func _ready() -> void:
-	SceneLoader.world = get_tree().get_first_node_in_group("World")
+	SceneLoader.world = self#get_tree().get_first_node_in_group("World")
+
+	#region para desarrollo
+	if not Global.current_slot:
+		Global.current_slot = SaveManager.available_slots[0]
+	#endregion
 
 	var section: PackedScene = load(Global.data.current_level.section)
 	level_container.add_child(section.instantiate())

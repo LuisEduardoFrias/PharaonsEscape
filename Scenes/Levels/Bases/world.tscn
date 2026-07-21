@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bjsuw00g8u4l4" path="res://Scenes/Custom_nodes/show_title.tscn" id="3_bytla"]
 [ext_resource type="PackedScene" uid="uid://dmk7m8brrpvt5" path="res://addons/joy_stick/touch_controls.tscn" id="3_ckv4v"]
 [ext_resource type="PackedScene" uid="uid://mv6rb6kr460f" path="res://Scenes/Custom_nodes/vortex_transition.tscn" id="4_bytla"]
+[ext_resource type="PackedScene" uid="uid://tkcxscp8bdo8" path="res://Scenes/ui_dev.tscn" id="4_qghhs"]
 
 [node name="world" type="Node2D" unique_id=820486288 groups=["World"]]
 script = ExtResource("1_x0d8c")
@@ -61,6 +62,7 @@ script = null
 metadata/_edit_lock_ = true
 
 [node name="Control" type="Control" parent="CanvasLayer/HUD" unique_id=1809306783]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -112,5 +114,7 @@ grow_vertical = 2
 mouse_filter = 2
 accessibility_name = "Inventory"
 metadata/_edit_lock_ = true
+
+[node name="ui_dev" parent="CanvasLayer" unique_id=232060259 instance=ExtResource("4_qghhs")]
 
 [node name="vortex_transition" parent="." unique_id=1960505436 instance=ExtResource("4_bytla")]

@@ -44,6 +44,9 @@ size = Vector2(128, 70)
 [node name="level_3_section_3" unique_id=2045360606 instance=ExtResource("1_2dsh0")]
 script = ExtResource("2_um31y")
 
+[node name="change_scene_screen" parent="CanvasLayer" parent_id_path=PackedInt32Array(158355276) index="0" unique_id=381274439]
+visible = true
+
 [node name="CanvasModulate" parent="." index="1" unique_id=940825755]
 color = Color(0.5455919, 0.54559195, 0.5455919, 1)
 
@@ -55,7 +58,7 @@ scale = Vector2(3756, 2668.0002)
 z_index = -1
 
 [node name="Player" parent="." index="4" unique_id=667587367]
-position = Vector2(1780, 142)
+position = Vector2(115, -42)
 damage = 50.0
 
 [node name="lower_level" parent="." index="6" unique_id=589084019]
