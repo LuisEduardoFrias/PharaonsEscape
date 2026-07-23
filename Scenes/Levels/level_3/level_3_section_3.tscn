@@ -44,13 +44,12 @@ size = Vector2(128, 70)
 [node name="level_3_section_3" unique_id=2045360606 instance=ExtResource("1_2dsh0")]
 script = ExtResource("2_um31y")
 
-[node name="change_scene_screen" parent="CanvasLayer" parent_id_path=PackedInt32Array(158355276) index="0" unique_id=381274439]
-visible = true
-
 [node name="CanvasModulate" parent="." index="1" unique_id=940825755]
+visible = false
 color = Color(0.5455919, 0.54559195, 0.5455919, 1)
 
 [node name="fog" parent="." index="2" unique_id=1285428728]
+visible = false
 position = Vector2(-949, -546)
 scale = Vector2(3756, 2668.0002)
 
@@ -58,7 +57,7 @@ scale = Vector2(3756, 2668.0002)
 z_index = -1
 
 [node name="Player" parent="." index="4" unique_id=667587367]
-position = Vector2(115, -42)
+position = Vector2(1664, 1702)
 damage = 50.0
 
 [node name="lower_level" parent="." index="6" unique_id=589084019]
@@ -74,62 +73,68 @@ tile_map_data = PackedByteArray("AABKADUAAQAIAAAAAABHAC4AAAAAAAYAAABKAC4AAAAAAAY
 [node name="foreground" parent="." index="9" unique_id=710057140]
 tile_map_data = PackedByteArray("AABGACEAAQAIAAAAAGBGACAAAQAAAAAAAABKADQAAQAIAAAAADBJADwAAQANAA4AAABJADkAAQANAA4AAABJADYAAQANAA4AAABKADYAAQAOAA4AAABKADkAAQAOAA4AAABLADYAAQAPAA4AAABLADkAAQAPAA4AAABKADwAAQAOAA4AAABLADwAAQAPAA4AAABVADYAAQANAA4AAFBVADcAAQAOAA4AAFBVADgAAQAPAA4AAFBYADcAAQAOAA4AAFBYADYAAQANAA4AAFBYADgAAQAPAA4AAFBNADwAAQANAA4AAABOADwAAQAOAA4AAABPADwAAQAPAA4AAABYADoAAQANAA4AAFBgADoAAQANAA4AAFBYADsAAQAOAA4AAFBYADwAAQAOAA4AAFBYAD0AAQAOAA4AAFBYAD4AAQAOAA4AAFBYAD8AAQAOAA4AAFBgADsAAQAOAA4AAFBgADwAAQAOAA4AAFBgAD0AAQAOAA4AAFBgAD4AAQAOAA4AAFBgAD8AAQAOAA4AAFBYAEAAAQAPAA4AAFBgAEAAAQAPAA4AAFBoAEAAAQAIAAAAADAZABwAAgAFAAsAACAaABwAAgAHAAsAACAUAAMAAgACAAAAAAAVAAMAAgAAAAAAAAAKAAwAAgAAAAEAAAAJAAwAAgACAAAAAAAKABYAAgAAAAAAAAAJABYAAgACAAEAAAAVABYAAgAAAAEAAAAUABYAAgACAAAAAAAfABYAAgAAAAAAAAAeABYAAgACAAEAAAAOAAkAAgAEAAsAACAOABIAAgAEAAsAACATAAwAAgAAAAAAAAASAAwAAgACAAEAAAA=")
 
-[node name="arrow_generator" parent="tramps" parent_id_path=PackedInt32Array(1411443235) index="0" unique_id=1615502791 instance=ExtResource("3_u80j6")]
+[node name="tramps" parent="." index="10" unique_id=1411443235]
+visible = false
+
+[node name="arrow_generator" parent="tramps" index="0" unique_id=1615502791 instance=ExtResource("3_u80j6")]
 position = Vector2(-490, 1278)
 node = ExtResource("4_1k7bv")
 metadata/_edit_lock_ = true
 
-[node name="arrow_generator2" parent="tramps" parent_id_path=PackedInt32Array(1411443235) index="1" unique_id=1635247063 instance=ExtResource("3_u80j6")]
+[node name="arrow_generator2" parent="tramps" index="1" unique_id=1635247063 instance=ExtResource("3_u80j6")]
 position = Vector2(-469, 1278)
 node = ExtResource("4_1k7bv")
 metadata/_edit_lock_ = true
 
-[node name="arrow_generator3" parent="tramps" parent_id_path=PackedInt32Array(1411443235) index="2" unique_id=976316841 instance=ExtResource("3_u80j6")]
+[node name="arrow_generator3" parent="tramps" index="2" unique_id=976316841 instance=ExtResource("3_u80j6")]
 position = Vector2(-405, 1406)
 node = ExtResource("4_1k7bv")
 metadata/_edit_lock_ = true
 
-[node name="arrow_generator4" parent="tramps" parent_id_path=PackedInt32Array(1411443235) index="3" unique_id=1104969395 instance=ExtResource("3_u80j6")]
+[node name="arrow_generator4" parent="tramps" index="3" unique_id=1104969395 instance=ExtResource("3_u80j6")]
 position = Vector2(-427, 1406)
 node = ExtResource("4_1k7bv")
 metadata/_edit_lock_ = true
 
-[node name="arrow_generator5" parent="tramps" parent_id_path=PackedInt32Array(1411443235) index="4" unique_id=683027326 instance=ExtResource("3_u80j6")]
+[node name="arrow_generator5" parent="tramps" index="4" unique_id=683027326 instance=ExtResource("3_u80j6")]
 position = Vector2(-490, 1534)
 node = ExtResource("4_1k7bv")
 metadata/_edit_lock_ = true
 
-[node name="arrow_generator6" parent="tramps" parent_id_path=PackedInt32Array(1411443235) index="5" unique_id=205356448 instance=ExtResource("3_u80j6")]
+[node name="arrow_generator6" parent="tramps" index="5" unique_id=205356448 instance=ExtResource("3_u80j6")]
 position = Vector2(-469, 1534)
 node = ExtResource("4_1k7bv")
 metadata/_edit_lock_ = true
 
-[node name="arrow_generator7" parent="tramps" parent_id_path=PackedInt32Array(1411443235) index="6" unique_id=662798066 instance=ExtResource("3_u80j6")]
+[node name="arrow_generator7" parent="tramps" index="6" unique_id=662798066 instance=ExtResource("3_u80j6")]
 position = Vector2(209, -193)
 node = ExtResource("4_1k7bv")
 time = 1.0
 metadata/_edit_lock_ = true
 
-[node name="arrow_generator8" parent="tramps" parent_id_path=PackedInt32Array(1411443235) index="7" unique_id=1020185473 instance=ExtResource("3_u80j6")]
+[node name="arrow_generator8" parent="tramps" index="7" unique_id=1020185473 instance=ExtResource("3_u80j6")]
 position = Vector2(241, 129)
 node = ExtResource("4_1k7bv")
 time = 1.0
 direction = "TOP"
 metadata/_edit_lock_ = true
 
-[node name="arrow_generator9" parent="tramps" parent_id_path=PackedInt32Array(1411443235) index="8" unique_id=1988710147 instance=ExtResource("3_u80j6")]
+[node name="arrow_generator9" parent="tramps" index="8" unique_id=1988710147 instance=ExtResource("3_u80j6")]
 position = Vector2(336, -194)
 node = ExtResource("4_1k7bv")
 time = 1.5
 metadata/_edit_lock_ = true
 
-[node name="arrow_generator10" parent="tramps" parent_id_path=PackedInt32Array(1411443235) index="9" unique_id=978191707 instance=ExtResource("3_u80j6")]
+[node name="arrow_generator10" parent="tramps" index="9" unique_id=978191707 instance=ExtResource("3_u80j6")]
 position = Vector2(367, -194)
 node = ExtResource("4_1k7bv")
 time = 1.5
 metadata/_edit_lock_ = true
 
-[node name="auto_jump" parent="area" parent_id_path=PackedInt32Array(1466910654) index="0" unique_id=173970314 instance=ExtResource("3_7km8i")]
+[node name="area" parent="." index="11" unique_id=1466910654]
+visible = false
+
+[node name="auto_jump" parent="area" index="0" unique_id=173970314 instance=ExtResource("3_7km8i")]
 position = Vector2(194, 1277)
 direction = 1
 metadata/_edit_lock_ = true
@@ -146,28 +151,31 @@ shape = SubResource("RectangleShape2D_um31y")
 debug_color = Color(0.8103676, 0.0021583755, 0.98599094, 0.42)
 metadata/_edit_lock_ = true
 
-[node name="Maniqui" parent="enemics" parent_id_path=PackedInt32Array(1684955296) index="0" unique_id=1368260100 instance=ExtResource("2_ttk4p")]
+[node name="enemics" parent="." index="12" unique_id=1684955296]
+visible = false
+
+[node name="Maniqui" parent="enemics" index="0" unique_id=1368260100 instance=ExtResource("2_ttk4p")]
 position = Vector2(1492, 1397)
 
-[node name="Maniqui2" parent="enemics" parent_id_path=PackedInt32Array(1684955296) index="1" unique_id=1967769726 instance=ExtResource("2_ttk4p")]
+[node name="Maniqui2" parent="enemics" index="1" unique_id=1967769726 instance=ExtResource("2_ttk4p")]
 position = Vector2(1790, 1412)
 
-[node name="Maniqui3" parent="enemics" parent_id_path=PackedInt32Array(1684955296) index="2" unique_id=1143329891 instance=ExtResource("2_ttk4p")]
+[node name="Maniqui3" parent="enemics" index="2" unique_id=1143329891 instance=ExtResource("2_ttk4p")]
 position = Vector2(1729, 1543)
 
-[node name="Maniqui4" parent="enemics" parent_id_path=PackedInt32Array(1684955296) index="3" unique_id=1568426547 instance=ExtResource("2_ttk4p")]
+[node name="Maniqui4" parent="enemics" index="3" unique_id=1568426547 instance=ExtResource("2_ttk4p")]
 position = Vector2(805, 797)
 metadata/_edit_lock_ = true
 
-[node name="Maniqui5" parent="enemics" parent_id_path=PackedInt32Array(1684955296) index="4" unique_id=1512024255 instance=ExtResource("2_ttk4p")]
+[node name="Maniqui5" parent="enemics" index="4" unique_id=1512024255 instance=ExtResource("2_ttk4p")]
 position = Vector2(1049, 769)
 metadata/_edit_lock_ = true
 
-[node name="Maniqui6" parent="enemics" parent_id_path=PackedInt32Array(1684955296) index="5" unique_id=938577726 instance=ExtResource("2_ttk4p")]
+[node name="Maniqui6" parent="enemics" index="5" unique_id=938577726 instance=ExtResource("2_ttk4p")]
 position = Vector2(937, 1036)
 metadata/_edit_lock_ = true
 
-[node name="Maniqui7" parent="enemics" parent_id_path=PackedInt32Array(1684955296) index="6" unique_id=1965520022 instance=ExtResource("2_ttk4p")]
+[node name="Maniqui7" parent="enemics" index="6" unique_id=1965520022 instance=ExtResource("2_ttk4p")]
 position = Vector2(382, 1375)
 metadata/_edit_lock_ = true
 
@@ -210,40 +218,50 @@ position = Vector2(581, 351.5)
 shape = SubResource("RectangleShape2D_7km8i")
 metadata/_edit_lock_ = true
 
-[node name="floor_lever" parent="objs" parent_id_path=PackedInt32Array(1562350721) index="0" unique_id=1298879555 instance=ExtResource("6_xu64f")]
+[node name="objs" parent="." index="14" unique_id=1562350721]
+visible = false
+
+[node name="floor_lever" parent="objs" index="0" unique_id=1298879555 instance=ExtResource("6_xu64f")]
 position = Vector2(1696, 102)
 is_active = false
 
-[node name="floor_lever2" parent="objs" parent_id_path=PackedInt32Array(1562350721) index="1" unique_id=2039444333 instance=ExtResource("6_xu64f")]
+[node name="floor_lever2" parent="objs" index="1" unique_id=2039444333 instance=ExtResource("6_xu64f")]
+visible = false
 position = Vector2(2336, 869)
 is_active = false
 
-[node name="floor_button" parent="objs" parent_id_path=PackedInt32Array(1562350721) index="2" unique_id=1388817653 instance=ExtResource("7_aywy5")]
+[node name="floor_button" parent="objs" index="2" unique_id=1388817653 instance=ExtResource("7_aywy5")]
 position = Vector2(-32, -224)
 collision_layer = 0
 collision_mask = 0
 metadata/_edit_lock_ = true
 
-[node name="floor_button2" parent="objs" parent_id_path=PackedInt32Array(1562350721) index="3" unique_id=1468136848 instance=ExtResource("7_aywy5")]
+[node name="floor_button2" parent="objs" index="3" unique_id=1468136848 instance=ExtResource("7_aywy5")]
 position = Vector2(416, 96)
 direction = "RIGHT"
 metadata/_edit_lock_ = true
 
-[node name="floor_button3" parent="objs" parent_id_path=PackedInt32Array(1562350721) index="4" unique_id=264268199 instance=ExtResource("7_aywy5")]
+[node name="floor_button3" parent="objs" index="4" unique_id=264268199 instance=ExtResource("7_aywy5")]
 position = Vector2(-482, 1183)
 direction = "LEFT"
 metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="objs" parent_id_path=PackedInt32Array(1562350721) index="5" unique_id=48637968]
+[node name="Camera2D" type="Camera2D" parent="objs" index="5" unique_id=48637968]
 position = Vector2(937, 1040)
 enabled = false
 metadata/_edit_lock_ = true
 
-[node name="Camera2D2" type="Camera2D" parent="objs" parent_id_path=PackedInt32Array(1562350721) index="6" unique_id=1294532427]
+[node name="Camera2D2" type="Camera2D" parent="objs" index="6" unique_id=1294532427]
 position = Vector2(1690, 1493)
 enabled = false
 
-[node name="ray_light" parent="platform" parent_id_path=PackedInt32Array(1532119724) index="0" unique_id=751003021 instance=ExtResource("4_7km8i")]
+[node name="items" parent="." index="15" unique_id=115144001]
+visible = false
+
+[node name="platform" parent="." index="16" unique_id=1532119724]
+visible = false
+
+[node name="ray_light" parent="platform" index="0" unique_id=751003021 instance=ExtResource("4_7km8i")]
 z_index = 3
 offset_left = -576.0
 offset_top = 1088.0
@@ -254,7 +272,7 @@ metadata/_edit_lock_ = true
 [node name="PointLight2D" parent="platform/ray_light" index="0" unique_id=966909736]
 position = Vector2(103, 99)
 
-[node name="ray_light2" parent="platform" parent_id_path=PackedInt32Array(1532119724) index="1" unique_id=1540546186 instance=ExtResource("4_7km8i")]
+[node name="ray_light2" parent="platform" index="1" unique_id=1540546186 instance=ExtResource("4_7km8i")]
 z_index = 3
 offset_left = -128.0
 offset_top = -320.0
@@ -265,7 +283,7 @@ metadata/_edit_lock_ = true
 [node name="PointLight2D" parent="platform/ray_light2" index="0" unique_id=966909736]
 position = Vector2(103, 101)
 
-[node name="ray_light3" parent="platform" parent_id_path=PackedInt32Array(1532119724) index="2" unique_id=1686088376 instance=ExtResource("4_7km8i")]
+[node name="ray_light3" parent="platform" index="2" unique_id=1686088376 instance=ExtResource("4_7km8i")]
 z_index = 3
 offset_left = 512.0
 offset_right = 662.4201
@@ -276,7 +294,7 @@ metadata/_edit_lock_ = true
 [node name="PointLight2D" parent="platform/ray_light3" index="0" unique_id=966909736]
 position = Vector2(89, 104)
 
-[node name="ray_light4" parent="platform" parent_id_path=PackedInt32Array(1532119724) index="3" unique_id=1810731120 instance=ExtResource("4_7km8i")]
+[node name="ray_light4" parent="platform" index="3" unique_id=1810731120 instance=ExtResource("4_7km8i")]
 z_index = 3
 offset_left = 1600.0
 offset_right = 1750.0
@@ -286,7 +304,7 @@ metadata/_edit_lock_ = true
 [node name="PointLight2D" parent="platform/ray_light4" index="0" unique_id=966909736]
 position = Vector2(96, 102)
 
-[node name="ray_light5" parent="platform" parent_id_path=PackedInt32Array(1532119724) index="4" unique_id=287534349 instance=ExtResource("4_7km8i")]
+[node name="ray_light5" parent="platform" index="4" unique_id=287534349 instance=ExtResource("4_7km8i")]
 z_index = 3
 offset_left = 2240.0
 offset_top = 768.0
@@ -297,7 +315,7 @@ metadata/_edit_lock_ = true
 [node name="PointLight2D" parent="platform/ray_light5" index="0" unique_id=966909736]
 position = Vector2(96, 102)
 
-[node name="battle_zone" parent="platform" parent_id_path=PackedInt32Array(1532119724) index="5" unique_id=300859006 node_paths=PackedStringArray("Doors", "enemics") instance=ExtResource("7_yqbt2")]
+[node name="battle_zone" parent="platform" index="5" unique_id=300859006 node_paths=PackedStringArray("Doors", "enemics") instance=ExtResource("7_yqbt2")]
 position = Vector2(1667, 1607)
 Doors = [NodePath("../../doors/mechanical_door"), NodePath("../../doors/mechanical_door2"), NodePath("../../doors/mechanical_door3"), NodePath("../../doors/mechanical_door4")]
 enemics = [NodePath("../../enemics/Maniqui"), NodePath("../../enemics/Maniqui2"), NodePath("../../enemics/Maniqui3")]
@@ -308,7 +326,7 @@ shape = SubResource("RectangleShape2D_xu64f")
 debug_color = Color(0.9843137, 0, 0, 0.41960785)
 metadata/_edit_lock_ = true
 
-[node name="battle_zone2" parent="platform" parent_id_path=PackedInt32Array(1532119724) index="6" unique_id=2146253002 node_paths=PackedStringArray("Doors", "enemics") instance=ExtResource("7_yqbt2")]
+[node name="battle_zone2" parent="platform" index="6" unique_id=2146253002 node_paths=PackedStringArray("Doors", "enemics") instance=ExtResource("7_yqbt2")]
 position = Vector2(1085, 928)
 Doors = [NodePath("../../doors/mechanical_door4"), NodePath("../../doors/mechanical_door5"), NodePath("../../doors/mechanical_door6"), NodePath("../../doors/mechanical_door7")]
 enemics = [NodePath("../../enemics/Maniqui4"), NodePath("../../enemics/Maniqui5"), NodePath("../../enemics/Maniqui6")]
@@ -320,11 +338,12 @@ shape = SubResource("RectangleShape2D_aywy5")
 debug_color = Color(0.9843137, 0, 0, 0.41960785)
 metadata/_edit_lock_ = true
 
-[node name="battle_zone3" parent="platform" parent_id_path=PackedInt32Array(1532119724) index="7" unique_id=1134583539 node_paths=PackedStringArray("Doors", "enemics") instance=ExtResource("7_yqbt2")]
+[node name="battle_zone3" parent="platform" index="7" unique_id=1134583539 node_paths=PackedStringArray("Doors", "enemics") instance=ExtResource("7_yqbt2")]
 position = Vector2(492, 1490)
 monitoring = false
 Doors = [NodePath("../../doors/mechanical_door8")]
 enemics = [NodePath("../../enemics/Maniqui7")]
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform/battle_zone3" index="0" unique_id=721615714]
 position = Vector2(-1.5, 0)
@@ -332,7 +351,11 @@ shape = SubResource("RectangleShape2D_aywy5")
 debug_color = Color(0.9843137, 0, 0, 0.41960785)
 metadata/_edit_lock_ = true
 
-[node name="door" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="0" unique_id=1407476871 instance=ExtResource("3_l1dqx")]
+[node name="doors" parent="." index="17" unique_id=1553830324]
+visible = false
+
+[node name="door" parent="doors" index="0" unique_id=1407476871 instance=ExtResource("3_l1dqx")]
+visible = false
 position = Vector2(1666, 1846)
 next_scene = "uid://2h72ddq4jvgh"
 direction = "DOWN"
@@ -344,7 +367,7 @@ position = Vector2(-2, 2)
 shape = SubResource("RectangleShape2D_tfc24")
 metadata/_edit_lock_ = true
 
-[node name="mechanical_door" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="1" unique_id=1294071322 instance=ExtResource("7_bnnu6")]
+[node name="mechanical_door" parent="doors" index="1" unique_id=1294071322 instance=ExtResource("7_bnnu6")]
 position = Vector2(1728, 1858)
 rotation = 3.1415927
 scale = Vector2(-1, 1)
@@ -353,14 +376,14 @@ direction = "DOWN"
 opening = true
 metadata/_edit_lock_ = true
 
-[node name="mechanical_door2" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="2" unique_id=2073686494 instance=ExtResource("7_bnnu6")]
+[node name="mechanical_door2" parent="doors" index="2" unique_id=2073686494 instance=ExtResource("7_bnnu6")]
 position = Vector2(1984, 1472)
 rotation = 1.5707964
 direction = "RIGHT"
 opening = true
 metadata/_edit_lock_ = true
 
-[node name="mechanical_door3" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="3" unique_id=2127541454 instance=ExtResource("7_bnnu6")]
+[node name="mechanical_door3" parent="doors" index="3" unique_id=2127541454 instance=ExtResource("7_bnnu6")]
 position = Vector2(1344, 1472)
 rotation = 4.712389
 scale = Vector2(-1, 1)
@@ -368,7 +391,7 @@ direction = "LEFT"
 opening = true
 metadata/_edit_lock_ = true
 
-[node name="mechanical_door4" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="4" unique_id=378718379 instance=ExtResource("7_bnnu6")]
+[node name="mechanical_door4" parent="doors" index="4" unique_id=378718379 instance=ExtResource("7_bnnu6")]
 position = Vector2(1216, 832)
 rotation = 4.712389
 scale = Vector2(-1, 1)
@@ -377,12 +400,12 @@ opening = true
 metadata/open = true
 metadata/_edit_lock_ = true
 
-[node name="mechanical_door5" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="5" unique_id=662745473 instance=ExtResource("7_bnnu6")]
+[node name="mechanical_door5" parent="doors" index="5" unique_id=662745473 instance=ExtResource("7_bnnu6")]
 position = Vector2(896, 640)
 metadata/open = true
 metadata/_edit_lock_ = true
 
-[node name="mechanical_door6" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="6" unique_id=684082623 instance=ExtResource("7_bnnu6")]
+[node name="mechanical_door6" parent="doors" index="6" unique_id=684082623 instance=ExtResource("7_bnnu6")]
 position = Vector2(640, 832)
 rotation = 4.712389
 scale = Vector2(-1, 1)
@@ -390,14 +413,14 @@ direction = "LEFT"
 opening = true
 metadata/_edit_lock_ = true
 
-[node name="mechanical_door7" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="7" unique_id=121540845 instance=ExtResource("7_bnnu6")]
+[node name="mechanical_door7" parent="doors" index="7" unique_id=121540845 instance=ExtResource("7_bnnu6")]
 position = Vector2(896, 1216)
 rotation = 3.1415927
 scale = Vector2(-1, 1)
 direction = "DOWN"
 metadata/_edit_lock_ = true
 
-[node name="mechanical_door8" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="8" unique_id=1985899006 instance=ExtResource("7_bnnu6")]
+[node name="mechanical_door8" parent="doors" index="8" unique_id=1985899006 instance=ExtResource("7_bnnu6")]
 position = Vector2(640, 1472.198)
 rotation = 1.5707964
 direction = "RIGHT"

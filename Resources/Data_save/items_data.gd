@@ -1,9 +1,14 @@
 class_name ItemsData extends Resource
 
-enum ItemType { NONE, COIN, EGYPTIAN_CROSS, EGYPTIAN_VASE, GOLDEN_SCARAB, LARGE_SCARAB, HONEY }
+enum ItemType { NONE, COIN, COUNTER_COIN, PARCHMENTS, EGYPTIAN_CROSS, EGYPTIAN_VASE, GOLDEN_SCARAB, LARGE_SCARAB, HONEY }
 
 @export var coin: bool = false:
-	set(val): coin = bool(val)
+	set(val):
+		coin = bool(val)
+		counter_coin += 50
+
+@export var counter_coin: int = 0:
+	set(val): counter_coin = int(val)
 
 @export var egyptian_cross: bool = false:
 	set(val): egyptian_cross = bool(val)
@@ -23,10 +28,11 @@ enum ItemType { NONE, COIN, EGYPTIAN_CROSS, EGYPTIAN_VASE, GOLDEN_SCARAB, LARGE_
 	null
 ]
 
-@export var parchments: Array[bool] = [
+@export var parchment: bool = false
+''' Array[bool] = [
 	false, false, false, false,
 	false, false, false, false,
-	false, false, false, false ]
+	false, false, false, false ]'''
 
 
 static func item_to_str(item_type: ItemType) -> String:

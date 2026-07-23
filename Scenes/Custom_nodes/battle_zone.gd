@@ -33,7 +33,8 @@ func enemic_dead() -> void:
 
 func open_doors() -> void:
 	for door in Doors:
-		if door.get_meta("open"): door._open()
+		if door.get_meta("open"):
+			Global.save_open_door(LevelsData.Levels.LEVEL3, owner.name, door)
 	for escalator in escalators:
 		if escalator.get_meta("open"): escalator._open()
 

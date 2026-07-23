@@ -45,19 +45,19 @@ func reset_current_camera_limits() -> void:
 
 
 func temporarily_switch_camera(camera1: Camera2D, camera2: Camera2D, callback: Callable, await_timein: float = 1.0, await_timeout: float = 3.0) -> void:
-	Global.current_scene.change_scene_screen.transition_out(1.0)
-	await timerout(1.0)
+	await Global.current_scene.change_scene_screen.transition_out(1.0)
+	#await timerout(1.0)
 	camera1.enabled = false
 	camera2.enabled = true
-	Global.current_scene.change_scene_screen.transition_in()
-	await timerout(await_timein)
+	await Global.current_scene.change_scene_screen.transition_in()
+	#await timerout(await_timein)
 	callback.call()
 	await timerout(await_timeout)
-	Global.current_scene.change_scene_screen.transition_out(1.0)
-	await timerout(1.0)
+	await Global.current_scene.change_scene_screen.transition_out(1.0)
+	#await timerout(1.0)
 	camera2.enabled = false
 	camera1.enabled = true
-	Global.current_scene.change_scene_screen.transition_in()
+	await Global.current_scene.change_scene_screen.transition_in()
 
 
 func region_animation(width: int, height: int, r_w: float, r_h: float, node: Node, count_frame: int, speed: float = 3.0) -> void:

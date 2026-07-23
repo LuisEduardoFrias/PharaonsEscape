@@ -12,14 +12,19 @@ signal is_activated(on: bool)
 		if not is_node_ready(): await ready
 		is_activated.emit(val)
 		if one_activation and val:
-			area.monitorable = false
-			area.monitoring = false
+			area.queue_free()
+			#area.monitorable = false
+			#area.monitoring = false
 			set_collision_layer_value(5, false)
 		if not val:
 			area.monitorable = true
 			area.monitoring = true
 			set_collision_layer_value(5, true)
 		anim.play(&"activate" if val else &"desactivate")
+
+
+func _ready() -> void:
+	Global.check_switch(LevelsData.Levels.LEVEL3, owner.name, self)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -33,6 +38,10 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 
 func _interact(_data: Dictionary) -> void:
+	Global.save_switch(LevelsData.Levels.LEVEL3, owner.name, self)
+
+
+func active() -> void:
 	is_active = !is_active
 
 

@@ -82,7 +82,8 @@
     "res://save_pharaons_escape/",
     "res://Resources/",
     "res://save_debug_data/slot_2/",
-    "res://save_debug_data/"
+    "res://save_debug_data/",
+    "res://save_debug_data/slot_1/"
   ],
   "table_functions": {
     "filter": [

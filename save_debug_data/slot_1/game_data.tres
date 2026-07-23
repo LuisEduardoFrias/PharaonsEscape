@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Data" format=3 uid="uid://dcjlb5koxdayx"]
+[gd_resource type="Resource" script_class="Data" format=3 uid="uid://cpj8gq15tabsc"]
 
 [ext_resource type="Script" uid="uid://dx0p6qdb3a3w5" path="res://Resources/Data_save/current_level_data.gd" id="1_5jgkc"]
 [ext_resource type="Script" uid="uid://dapxu2f7w8ls4" path="res://Resources/Data_save/items_data.gd" id="2_xogpi"]
@@ -18,6 +18,8 @@ level_name = "The Grand Gallery"
 
 [sub_resource type="Resource" id="Resource_abtga"]
 script = ExtResource("2_xogpi")
+coin = true
+counter_coin = 50
 
 [sub_resource type="Resource" id="Resource_unl8j"]
 script = ExtResource("3_3vvrr")
@@ -28,15 +30,15 @@ script = ExtResource("4_gfo5i")
 [sub_resource type="Resource" id="Resource_lymtr"]
 script = ExtResource("5_5kksw")
 doors = {
-"level_3_section_1_mechanical_door": false,
+"level_3_section_1_mechanical_door": true,
 "level_3_section_1_mechanical_door2": true,
 "level_3_section_1_mechanical_door3": true,
-"level_3_section_1_mechanical_door4": false,
+"level_3_section_1_mechanical_door4": true,
 "level_3_section_2_double_mechanical_door": false,
 "level_3_section_2_double_mechanical_door2": false,
 "level_3_section_2_escalator": false,
 "level_3_section_2_escalator2": false,
-"level_3_section_2_mechanical_door": false,
+"level_3_section_2_mechanical_door": true,
 "level_3_section_2_mechanical_door2": false,
 "level_3_section_3_mechanical_door": false,
 "level_3_section_3_mechanical_door2": false,
@@ -46,6 +48,13 @@ doors = {
 "level_3_section_3_mechanical_door6": false,
 "level_3_section_3_mechanical_door7": false,
 "level_3_section_3_mechanical_door8": false
+}
+parchments = {
+"level_3_section_2_skeleton": {
+"dialog_name": "res://Dialogs/Diálogo papiro 1 - nivel 3.dialogue",
+"is_interject": true,
+"is_take": false
+}
 }
 
 [sub_resource type="Resource" id="Resource_qamee"]
@@ -64,9 +73,11 @@ level5 = SubResource("Resource_sjx8d")
 
 [sub_resource type="Resource" id="Resource_i08hb"]
 script = ExtResource("9_20ebd")
+equipped_skills = Array[int]([2, 3, 0])
 
 [sub_resource type="Resource" id="Resource_s2dlk"]
 script = ExtResource("11_ilp7p")
+sword = true
 
 [resource]
 script = ExtResource("10_ffaag")

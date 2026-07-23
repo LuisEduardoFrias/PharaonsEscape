@@ -1,7 +1,10 @@
 # Global
 extends Node
 
-signal added_skill
+signal added_skill(skill: SkillsData.SkillsType)
+signal added_coint(value: int)
+signal added_parchment(index: int)
+signal added_honey(index:int)
 
 var player_data: PlayerData #para persistir la data del Player aparte.
 
@@ -14,11 +17,11 @@ var data: Data = Data.new():
 		data = val
 		player_data = data.player
 var current_scene: Node2D
+var section_2_active_door: bool = false
 
 
 func _ready() -> void:
 	pass
-
 
 # Guada los datos generales
 func save() -> void:
@@ -51,12 +54,14 @@ func check_door(owner_name: LevelsData.Levels, section_name: String, door: Node2
 func save_parchment(owner_name: LevelsData.Levels, section_name: String, parchment: Node2D, is_take: bool) -> void:
 	execute(owner_name, section_name, parchment, "parchments", func (val: Variant, prop_name: String) -> void:
 		val[prop_name] = {
+			"index": parchment.index,
 			"dialog_name": parchment.dialog_resouce.resource_path,
 			"is_take": is_take,
 			"is_interject": !is_take
 		}
 		parchment.anim.stop()
 		parchment.dialogue_trigger.queue_free()
+		added_parchment.emit(parchment.index)
 		save()
 	)
 
@@ -70,11 +75,28 @@ func check_parchment(owner_name: LevelsData.Levels, section_name: String, parchm
 	)
 
 
+
+##Activa las puertas
+func save_switch(owner_name: LevelsData.Levels, section_name: String, switch: Node2D) -> void:
+	execute(owner_name, section_name, switch, "switches", func (val: Variant,  prop_name: String) -> void:
+		switch._interact({})
+		val[prop_name] = switch.is_active
+		save()
+	)
+
+
+##Verifica el estado de la puerta
+func check_switch(owner_name: LevelsData.Levels, section_name: String, switch: Node2D) -> void:
+	execute(owner_name, section_name, switch, "switches", func (val: Variant,  prop_name: String) -> void:
+		switch.is_active = val[prop_name]
+	)
+
+
 func execute(owner_name: LevelsData.Levels, section_name: String, node: Node2D, fill: String, callback: Callable) -> void:
 	var _owner_name_: String = LevelsData.level_to_str(owner_name)
 	var _node_name: String = "%s_%s" %[section_name, node.name]
 
-	if data.levels[_owner_name_][fill].has(_node_name):
+	if data.levels[_owner_name_][fill] and data.levels[_owner_name_][fill].has(_node_name):
 		callback.call(data.levels[_owner_name_][fill], _node_name)
 	else:
 		push_warning("\n[Custom Warnning]:\nLa propiedad \"", _node_name ,"\" no se encuentra en el espacio de datos globales.")
@@ -107,6 +129,41 @@ func equipped_skill(skill_name: String) -> void:
 func skill_to_enum(skill: String) -> SkillsData.SkillsType:
 	return SkillsData.SkillsType[skill.to_upper()]
 
+
+func add_item(item: ItemsData.ItemType, index: int = -1) -> void:
+	match item:
+		ItemsData.ItemType.HONEY:
+			if index == -1: push_error("Proporciona un index"); return
+			data.items.honey[index] = true
+			added_honey.emit(index)
+		ItemsData.ItemType.PARCHMENTS:
+			data.items.parchment = true
+			added_parchment.emit(0)
+		ItemsData.ItemType.COIN:
+			data.items[ItemsData.item_to_str(item)] = true
+			added_coint.emit(50)
+		ItemsData.ItemType.COUNTER_COIN:
+			if index == -1: push_error("Proporciona un index"); return
+			data.items[ItemsData.item_to_str(item)] += index
+			added_coint.emit(index)
+		_: data.items[ItemsData.item_to_str(item)] = true
+	save()
+
+
+func hidden_item(item: ItemsData.ItemType, index: int = -1) -> bool:
+	match item:
+		ItemsData.ItemType.HONEY:
+			if index == -1: push_error("Proporciona un index")
+			return data.items.honey[index]
+		ItemsData.ItemType.PARCHMENTS:
+			return data.items.parchment
+
+	return data.items[ItemsData.item_to_str(item)]
+
+
+func hidden_skill(skill: SkillsData.SkillsType) -> bool:
+	var skill_name : String = skill_to_str(skill)
+	return data.skills[skill_name]
 
 
 #region

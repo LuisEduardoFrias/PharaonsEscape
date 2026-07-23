@@ -15,6 +15,8 @@ func _ready() -> void:
 	show_title._play(CurrentLevelData.Titles.The_Subterranean_Trial)
 	Global.check_door(LevelsData.Levels.LEVEL3, name, door1)
 	Global.check_door(LevelsData.Levels.LEVEL3, name, door2)
+	if not door2.opening and Global.section_2_active_door:
+		Global.save_open_door(LevelsData.Levels.LEVEL3, name, door2)
 	Global.check_door(LevelsData.Levels.LEVEL3, name, escalagor1)
 	Global.check_door(LevelsData.Levels.LEVEL3, name, escalagor2)
 	Global.check_door(LevelsData.Levels.LEVEL3, name, double_door)

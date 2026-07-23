@@ -23,8 +23,11 @@ class_name Level3 extends Resource
 	"level_3_section_3_mechanical_door7" : false,
 	"level_3_section_3_mechanical_door8" : false,
 }
+@export var switches: Dictionary = {
+}
 @export var parchments: Dictionary = {
 	"level_3_section_2_skeleton" : {
+		"index": -1,
 		"dialog_name": "",
 		"is_take": false,
 		"is_interject": false

@@ -73,7 +73,7 @@ atlas = ExtResource("3_xdwtm")
 region = Rect2(64, 0, 64, 64)
 
 [node name="switch" type="Area2D" unique_id=1972006669]
-collision_layer = 16
+collision_layer = 256
 collision_mask = 2
 script = ExtResource("1_sfi16")
 

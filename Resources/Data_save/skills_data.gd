@@ -36,4 +36,20 @@ enum SkillsType {
 
 
 static func equipped_index_to_skill(skill: SkillsData.SkillsType) -> int:
-	return -1
+	match skill:
+		SkillsType.SWORD: return 0
+		SkillsType.ROLL: return 0
+		SkillsType.EYE_OF_HORUS: return 0
+
+		SkillsType.HAMMER: return 1
+		SkillsType.LUMINOUS_NECKLACE: return 1
+		SkillsType.ANUBISS_SHADOW_BRACELET: return 1
+
+		SkillsType.BUG_TRANSFORM: return 2
+		SkillsType.DASH: return 2
+		SkillsType.SPIRIT_RED_CHARTER: return 2
+
+		_: return -1
+
+'''	SPIRIT_BLUE_CHARTER,
+	NECKLACE_OF_LIGHT'''

@@ -544,7 +544,6 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="sarcofago" parent="platform" parent_id_path=PackedInt32Array(1532119724) index="1" unique_id=1181579159 instance=ExtResource("6_ekchl")]
-visible = false
 position = Vector2(798, 1494)
 
 [node name="torch2" parent="platform" parent_id_path=PackedInt32Array(1532119724) index="2" unique_id=974165636 instance=ExtResource("7_ekchl")]
@@ -602,7 +601,4 @@ position = Vector2(1024, 1280)
 double_door = true
 metadata/_edit_lock_ = true
 
-[connection signal="interac" from="midground/firt_item" to="." method="_on_firt_item_interac"]
-[connection signal="interac" from="midground/firt_item2" to="." method="_on_firt_item_interac"]
-[connection signal="interac" from="midground/firt_item3" to="." method="_on_firt_item_interac"]
 [connection signal="switch" from="platform/switch" to="." method="_on_switch_switch"]

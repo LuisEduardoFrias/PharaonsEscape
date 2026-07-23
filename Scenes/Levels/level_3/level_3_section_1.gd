@@ -13,8 +13,9 @@ extends SectionBase
 
 func _ready() -> void:
 	super()
-	show_title._play(CurrentLevelData.Titles.The_Grand_Gallery)
-	if Global.data.is_initial: _initial_game()
+	if Global.data.is_initial:
+		_initial_game()
+		show_title._play(CurrentLevelData.Titles.The_Grand_Gallery)
 	else:
 		change_scene_screen.transition_in(4.0)
 		sarcofago.play(&"on")
@@ -66,9 +67,13 @@ func _initial_game() -> void:
 	Global.save()
 
 
-func _on_switch_switch() -> void:
-	Global.save_open_door(LevelsData.Levels.LEVEL3, name, door4)
+func _on_switch_switch(on: bool) -> void:
+	if on:
+		Global.save_open_door(LevelsData.Levels.LEVEL3, name, door4)
 
 
 func _on_firt_item_interac(item: int) -> void:
-	print("get item: ", item)
+	match item:
+		2: Global.add_item(ItemsData.ItemType.PARCHMENTS, 0)
+		1: Global.add_skill(SkillsData.SkillsType.SWORD)
+		0: Global.add_item(ItemsData.ItemType.COIN)

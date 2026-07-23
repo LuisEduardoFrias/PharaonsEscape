@@ -2,7 +2,6 @@
 
 enum Type_Item { COINT, DAGGER, PARCHMENT }
 
-signal interac(item: Type_Item)
 
 @export var type_Item: Type_Item = Type_Item.COINT
 @export var anim: Node2D = null:
@@ -12,8 +11,22 @@ signal interac(item: Type_Item)
 		anim.position = Vector2(0.0, -36.0)
 
 
+func _ready() -> void:
+	match type_Item:
+		Type_Item.PARCHMENT, Type_Item.COINT:
+			if Global.hidden_item(ItemsData.ItemType.COIN if (type_Item == Type_Item.COINT) else ItemsData.ItemType.PARCHMENTS): queue_free()
+		Type_Item.DAGGER:
+			if Global.hidden_skill(SkillsData.SkillsType.SWORD): queue_free()
+
+
 func _interact(_data: Dictionary) -> void:
-	interac.emit(type_Item)
+	match type_Item:
+		Type_Item.PARCHMENT:
+			Global.add_item(ItemsData.ItemType.PARCHMENTS, 0)
+		Type_Item.COINT:
+			Global.add_item(ItemsData.ItemType.COIN)
+		Type_Item.DAGGER:
+			Global.add_skill(SkillsData.SkillsType.SWORD)
 	queue_free()
 
 

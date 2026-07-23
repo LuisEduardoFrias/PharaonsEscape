@@ -28,6 +28,14 @@ func _ready() -> void:
 	super()
 	set_process(false)
 	door1.position.x -= 128.0
+	Global.check_door(LevelsData.Levels.LEVEL3, name, door1)
+	Global.check_door(LevelsData.Levels.LEVEL3, name, door2)
+	Global.check_door(LevelsData.Levels.LEVEL3, name, door3)
+	Global.check_door(LevelsData.Levels.LEVEL3, name, door4)
+	Global.check_door(LevelsData.Levels.LEVEL3, name, door5)
+	Global.check_door(LevelsData.Levels.LEVEL3, name, door6)
+	Global.check_door(LevelsData.Levels.LEVEL3, name, door7)
+	Global.check_door(LevelsData.Levels.LEVEL3, name, door8)
 
 
 func _process(delta: float) -> void:
@@ -41,8 +49,8 @@ func _process(delta: float) -> void:
 		else:
 			set_process(false)
 			Util.temporarily_switch_camera(camera1, camera2, func() -> void:
-				door3._open()
-				door7._open()
+				Global.save_open_door(LevelsData.Levels.LEVEL3, name, door3)
+				Global.save_open_door(LevelsData.Levels.LEVEL3, name, door7)
 			)
 
 
@@ -54,14 +62,14 @@ func _on_battle_zone_2_body_entered(body: Node2D) -> void:
 func _on_floor_lever_is_activated(on: bool) -> void:
 	if on:
 		Util.temporarily_switch_camera(camera1, camera3, func() -> void:
-			door2._open()
+			Global.save_open_door(LevelsData.Levels.LEVEL3, name, door2)
 		)
 
 
 func _on_floor_lever_2_is_activated(on: bool) -> void:
 	if on:
 		Util.temporarily_switch_camera(camera1, camera2, func() -> void:
-			door6._open()
+			Global.save_open_door(LevelsData.Levels.LEVEL3, name, door6)
 		)
 
 
@@ -75,6 +83,6 @@ func _on_floor_button_2_is_activated() -> void:
 
 
 func _on_floor_button_3_is_activated() -> void:
-	door1._open()
-	#Global.active_door = true
+	Global.save_open_door(LevelsData.Levels.LEVEL3, name, door1)
+	Global.section_2_active_door = true
 	battle_zone.monitoring = true

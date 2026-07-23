@@ -3,6 +3,7 @@ extends Node2D
 @onready var dialogue_trigger: DialogTrigger = $dialogue_trigger
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
+@export var index: int = -1
 @export var dialog_resouce: DialogueResource:
 	set(val):
 		dialog_resouce = val
