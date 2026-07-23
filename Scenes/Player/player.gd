@@ -18,6 +18,7 @@ class_name Player extends Entity
 signal is_static_state(value: bool)
 signal tile_hit_respawnd
 
+var wall_gap: WallGapRoll = null
 var interactive_object: Variant = null
 var spawner_point: Vector2 = Vector2.LEFT
 var is_in_platform: bool = false
@@ -25,9 +26,7 @@ var is_jumping: bool = false # Para validar si está en faltando
 var is_eye_horus_enable: bool = false # Verifica si está activada la habilidad del ojo de horus
 var is_control_off: bool = false
 var side_scroller: Node = null
-
-
-const TARGET_DIR_RAY: Vector2 = Vector2(13.0, 8.0)
+var target_dir_ray: Vector2 = Vector2(13.0, 8.0)
 
 
 func _ready() -> void:
@@ -52,7 +51,8 @@ func _physics_process(delta: float) -> void:
 			direction = Vector2.ZERO
 
 		current_direction = direction
-		ray.target_position = (direction * TARGET_DIR_RAY)
+		if direction != Vector2.ZERO:
+			ray.target_position = (direction * target_dir_ray)
 
 		if direction != Vector2.ZERO:
 			old_direction = direction.normalized()

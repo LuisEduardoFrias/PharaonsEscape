@@ -7,7 +7,7 @@
 size = Vector2(43, 116)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17g10"]
-size = Vector2(32, 145)
+size = Vector2(13, 145)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysk5l"]
 size = Vector2(45, 110)
@@ -16,7 +16,7 @@ size = Vector2(45, 110)
 script = ExtResource("1_rwlw3")
 
 [node name="tile_map_layer" type="TileMapLayer" parent="." unique_id=518580150]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 2, 0, 3, 0, 11, 0, 0, 0, 0, 0, 255, 255, 2, 0, 3, 0, 11, 0, 0, 32)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 11, 0, 0, 0, 0, 0, 255, 255, 2, 0, 1, 0, 11, 0, 0, 32, 1, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 1, 0, 255, 255, 2, 0, 1, 0, 2, 0, 0, 0)
 tile_set = ExtResource("2_i0x53")
 metadata/_edit_lock_ = true
 
@@ -26,6 +26,7 @@ metadata/_edit_lock_ = true
 [node name="collision" type="CollisionShape2D" parent="static_body" unique_id=542235217]
 position = Vector2(31.5, 0)
 shape = SubResource("RectangleShape2D_gey8l")
+metadata/_edit_lock_ = true
 
 [node name="open_wall_gap" type="Area2D" parent="." unique_id=99141179]
 position = Vector2(32, 0)
@@ -35,7 +36,7 @@ monitorable = false
 metadata/_edit_lock_ = true
 
 [node name="Collision" type="CollisionShape2D" parent="open_wall_gap" unique_id=937991112]
-position = Vector2(0, -0.5)
+position = Vector2(-1.5, -0.5)
 shape = SubResource("RectangleShape2D_17g10")
 metadata/_edit_lock_ = true
 

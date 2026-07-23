@@ -119,6 +119,9 @@ _data = {
 radius = 5.0
 height = 16.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7g0yx"]
+blend_mode = 1
+
 [sub_resource type="Gradient" id="Gradient_oikmp"]
 interpolation_mode = 1
 colors = PackedColorArray(0.101960786, 0.101960786, 0.101960786, 0.5058824, 1, 1, 1, 0)
@@ -581,6 +584,9 @@ metadata/_edit_lock_ = true
 [node name="eye_of_horus" parent="." unique_id=120811126 instance=ExtResource("2_7g0yx")]
 
 [node name="ray_cast" type="RayCast2D" parent="." unique_id=205126762]
+modulate = Color(1, 1, 0, 1)
+self_modulate = Color(1, 1, 0, 1)
+material = SubResource("CanvasItemMaterial_7g0yx")
 position = Vector2(0, -1)
 target_position = Vector2(0, 8)
 metadata/_edit_lock_ = true
@@ -611,7 +617,6 @@ metadata/_edit_lock_ = true
 libraries/ = ExtResource("3_06tpx")
 
 [node name="active_dialog" type="Area2D" parent="." unique_id=1527061459]
-visible = false
 position = Vector2(-1, 8)
 collision_layer = 0
 collision_mask = 4
@@ -633,7 +638,6 @@ monitoring = false
 debug_color = Color(0.99215686, 1, 0, 1)
 
 [node name="hurt" type="Area2D" parent="." unique_id=1387364052]
-visible = false
 collision_layer = 2
 collision_mask = 0
 monitoring = false
