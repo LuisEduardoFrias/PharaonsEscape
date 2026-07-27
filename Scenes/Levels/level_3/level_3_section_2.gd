@@ -41,3 +41,13 @@ func _start_puzle() -> void:
 #if body is Player:
 #		Global.save_open_door(LevelsData.Levels.LEVEL3, name, double_door)
 #		Global.save_open_door(LevelsData.Levels.LEVEL3, name, double_door2)
+
+
+func _on_fall_level_one_body_entered(body: Node2D) -> void:
+	if body is Player:
+		body.is_fall_level_one = true
+
+
+func _on_fall_level_one_body_exited(body: Node2D) -> void:
+	if body is Player:
+		body.is_fall_level_one = false
