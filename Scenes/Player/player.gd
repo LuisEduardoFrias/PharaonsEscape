@@ -27,8 +27,8 @@ var is_eye_horus_enable: bool = false # Verifica si está activada la habilidad 
 var is_control_off: bool = false
 var side_scroller: Node = null
 var target_dir_ray: Vector2 = Vector2(13.0, 8.0)
-var is_fall_level_one: bool = false
 var in_bridge: bool = false
+
 
 
 func _ready() -> void:
@@ -74,15 +74,17 @@ func _physics_process(delta: float) -> void:
 
 #Detiene todas las entradas al player
 func _input_physics_off(val):
+	is_control_off = true
 	set_physics_process(!val)
 	set_process_input(!val)
+	current_direction = Vector2.ZERO
+	state_machine._on_child_transition(AnimationStateMachine.States.IDLE)
 	is_control_off = val
 	is_static_state.emit(val)
 
 	if val:
 		velocity = Vector2.ZERO
 		move_and_slide()
-		#current_direction = Vector2.ZERO
 
 
 # Método para cinematica de movimientos en Top-Down
@@ -170,7 +172,7 @@ func _move_platform(body: AnimatableBody2D) -> void:
 
 ## Método que silve para interacion con Tiles que hacen daño
 func _tile_hit(_body: TileMapLayer) -> void:
-	if not is_fall_level_one:
+	if not in_bridge:
 		_input_physics_off(true)
 		state_machine._on_child_transition(AnimationStateMachine.States.FALL)
 		await state_machine.animation_finished
@@ -180,10 +182,7 @@ func _tile_hit(_body: TileMapLayer) -> void:
 		await Util.timerout(0.5)
 		tile_hit_respawnd.emit()
 		_input_physics_off(false)
-	elif not in_bridge:
-		_input_physics_off(true)
-		state_machine._on_child_transition(AnimationStateMachine.States.FALL)
-		await state_machine.animation_finished
+
 
 
 func show_quetion(is_show: bool) -> void:

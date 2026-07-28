@@ -37,13 +37,11 @@ accessibility_name = "change_scene_screen"
 color = Color(0, 0, 0, 1)
 script = ExtResource("2_b48bf")
 player = NodePath("../../Player")
-metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=940825755]
 z_index = 2
 position = Vector2(523, -563)
 color = Color(0.54509807, 0.54509807, 0.54509807, 1)
-metadata/_edit_lock_ = true
 
 [node name="fog" parent="." unique_id=1285428728 instance=ExtResource("5_l2xlv")]
 z_index = 5

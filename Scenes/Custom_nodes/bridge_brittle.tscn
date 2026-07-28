@@ -7,13 +7,17 @@
 size = Vector2(25, 63.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vc2fv"]
-size = Vector2(400, 65.75)
+size = Vector2(340.40625, 45)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vc2fv"]
+b = Vector2(-211.47705, -240.16339)
 
 [node name="bridge_brittle" type="Sprite2D" unique_id=1691405197]
 texture = ExtResource("1_vc2fv")
 hframes = 3
 vframes = 5
 script = ExtResource("2_vc2fv")
+next_scene = "uid://b36vam0p6syup"
 metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1721580193]
@@ -36,6 +40,22 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bridge" unique_id=1217421412]
 shape = SubResource("RectangleShape2D_vc2fv")
 debug_color = Color(1, 0, 0, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=471474526]
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=181599267]
+position = Vector2(-160, -21)
+rotation = 2.2896388
+shape = SubResource("SegmentShape2D_vc2fv")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=359754983]
+position = Vector2(-160, 22)
+rotation = 2.2896388
+shape = SubResource("SegmentShape2D_vc2fv")
 metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
