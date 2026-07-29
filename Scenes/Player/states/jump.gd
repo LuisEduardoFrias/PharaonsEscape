@@ -14,6 +14,7 @@ func enter(_data: Dictionary = {}) -> void:
 		return
 	else :
 		actor.floor_detected.monitoring = false
+		actor.floor_detected.monitorable = false
 		actor.is_jumping = true
 		if actor.side_scroller:
 			jump_force = actor.side_scroller.jump_force
@@ -40,6 +41,7 @@ func _move_sprite() -> void:
 		change_state.emit(AnimationStateMachine.States.IDLE, {})
 		actor._input_physics_off(false)
 		actor.floor_detected.monitoring = true
+		actor.floor_detected.monitorable = true
 		actor.is_jumping = false
 		jump_finished.emit()
 	)

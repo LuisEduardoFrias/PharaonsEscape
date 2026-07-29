@@ -15,6 +15,23 @@
 [ext_resource type="Script" uid="uid://bv68arr2lb31j" path="res://Scenes/Player/states/roll.gd" id="19_eksi1"]
 [ext_resource type="Script" uid="uid://b642hsjejwt1g" path="res://Scenes/Player/states/sword_attack.gd" id="20_rcvs5"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7g0yx"]
+radius = 5.0
+height = 16.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7g0yx"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_oikmp"]
+interpolation_mode = 1
+colors = PackedColorArray(0.101960786, 0.101960786, 0.101960786, 0.5058824, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_06tpx"]
+gradient = SubResource("Gradient_oikmp")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.86, 0.86)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7g0yx"]
 bg_color = Color(1, 1, 0, 1)
 skew = Vector2(0.01, 0.05)
@@ -115,23 +132,6 @@ _data = {
 &"play": SubResource("Animation_r5xpd")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7g0yx"]
-radius = 5.0
-height = 16.0
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7g0yx"]
-blend_mode = 1
-
-[sub_resource type="Gradient" id="Gradient_oikmp"]
-interpolation_mode = 1
-colors = PackedColorArray(0.101960786, 0.101960786, 0.101960786, 0.5058824, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_06tpx"]
-gradient = SubResource("Gradient_oikmp")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.86, 0.86)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5eiq"]
 size = Vector2(18, 11)
 
@@ -139,7 +139,7 @@ size = Vector2(18, 11)
 size = Vector2(16, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0a2xn"]
-size = Vector2(16, 7)
+size = Vector2(6.703125, 2.625)
 
 [sub_resource type="Gradient" id="Gradient_06tpx"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
@@ -536,45 +536,6 @@ sprite_node = NodePath("sprite")
 ray = NodePath("ray_cast")
 audio_player = NodePath("audio_stream_player")
 
-[node name="question" type="Label" parent="." unique_id=95862054]
-custom_minimum_size = Vector2(25, 25)
-offset_left = -12.0
-offset_top = -70.0
-offset_right = 13.0
-offset_bottom = -45.0
-theme_override_constants/outline_size = 1
-theme_override_font_sizes/font_size = 9
-theme_override_styles/normal = SubResource("StyleBoxFlat_7g0yx")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_trim_flags = 0
-justification_flags = 0
-
-[node name="Label2" type="Label" parent="question" unique_id=2054659149]
-custom_minimum_size = Vector2(25, 25)
-layout_mode = 0
-offset_left = 1.0
-offset_top = -2.0
-offset_right = 26.0
-offset_bottom = 26.0
-theme_override_colors/font_color = Color(0, 0.6745098, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0.13333334, 1)
-theme_override_colors/font_outline_color = Color(0.9670964, 0.9670964, 0.96709627, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/outline_size = 2
-theme_override_constants/shadow_outline_size = 2
-theme_override_font_sizes/font_size = 20
-text = "?"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_trim_flags = 0
-justification_flags = 0
-metadata/_edit_lock_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="question" unique_id=1343537390]
-libraries/ = SubResource("AnimationLibrary_ks1b7")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=338224056]
 visible = false
 position = Vector2(0, 1)
@@ -617,6 +578,45 @@ metadata/_edit_lock_ = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="sprite" unique_id=1805094574]
 libraries/ = ExtResource("3_06tpx")
 
+[node name="question" type="Label" parent="sprite" unique_id=95862054]
+custom_minimum_size = Vector2(25, 25)
+offset_left = -12.0
+offset_top = -48.0
+offset_right = 13.0
+offset_bottom = -23.0
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_7g0yx")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="Label2" type="Label" parent="sprite/question" unique_id=2054659149]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 26.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0, 0.6745098, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.13333334, 1)
+theme_override_colors/font_outline_color = Color(0.9670964, 0.9670964, 0.96709627, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/font_size = 20
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 0
+justification_flags = 0
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="sprite/question" unique_id=1343537390]
+libraries/ = SubResource("AnimationLibrary_ks1b7")
+
 [node name="active_dialog" type="Area2D" parent="." unique_id=1527061459]
 position = Vector2(-1, 8)
 collision_layer = 0
@@ -653,7 +653,6 @@ debug_color = Color(1, 0, 0, 0.8352941)
 metadata/_edit_lock_ = true
 
 [node name="floor_detected" type="Area2D" parent="." unique_id=1139548907]
-visible = false
 position = Vector2(0, 1)
 collision_layer = 0
 collision_mask = 64
@@ -689,7 +688,7 @@ parameters/hammer_attack/BlendSpace2D/blend_position = Vector2(0, 0)
 parameters/hammer_attack/TimeScale/scale = 1.0
 parameters/hurt/BlendSpace2D/blend_position = Vector2(0, 0)
 parameters/hurt/TimeScale/scale = 1.0
-parameters/idle/BlendSpace2D/blend_position = Vector2(0.039675117, 1.7751381)
+parameters/idle/BlendSpace2D/blend_position = Vector2(0, 1)
 parameters/idle/TimeScale/scale = 1.0
 parameters/interact/BlendSpace2D/blend_position = Vector2(-1.1998703, -0.022626162)
 parameters/interact/TimeScale/scale = 1.0

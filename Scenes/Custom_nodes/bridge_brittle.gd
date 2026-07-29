@@ -1,7 +1,5 @@
 extends Sprite2D
 
-signal brittle
-
 @export_file("*.tscn") var next_scene: String = "":
 	set(val):
 		if Engine.is_editor_hint() and val == "":
@@ -9,23 +7,38 @@ signal brittle
 		next_scene = val
 
 @onready var bridge: Area2D = $bridge
+@onready var actived: Area2D = $actived
+
+var is_collapse: bool = false
 
 
+func _ready() -> void:
+	Global.interact_objects(LevelsData.Levels.LEVEL3, owner.name, self)
+
+
+func _interact(_data: Dictionary) -> void:
+	collapsed()
+
+
+#activador del colapso
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
-		fall(body)
+		fall_collapsed(body)
 
 
 func animate_bridge_collapse() -> Signal:
 	var tw:Tween = create_tween()
 	tw.tween_property(self, ^"frame", 14, 1.0)
-	brittle.emit()
 	return tw.finished
 
 
 func _on_bridge_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.in_bridge = true
+		if ! body.fall.is_connected(change_scene): body.fall.connect(change_scene)
+		if is_collapse:
+			Util.timerout(0.2)
+			body.in_bridge = false
 
 
 func _on_bridge_body_exited(body: Node2D) -> void:
@@ -33,18 +46,28 @@ func _on_bridge_body_exited(body: Node2D) -> void:
 		body.in_bridge = false
 
 
-func fall(player: Player) -> void:
+func fall_collapsed(player: Player) -> void:
+	actived.queue_free()
 	player._input_physics_off(true)
-	await Util.timerout(1.0)
+	player.state_machine._cinematic(AnimationStateMachine.States.IDLE)
+	await Util.timerout(0.5)
 	player.show_quetion(true)
 	await Util.timerout(1.0)
 	await animate_bridge_collapse()
+	bridge.queue_free()
 
-	player.state_machine._on_child_transition(AnimationStateMachine.States.FALL)
-	await player.state_machine.animation_finished
 
+func collapsed() -> void:
+	animate_bridge_collapse()
+	is_collapse = true
+	actived.queue_free()
+	$StaticBody2D.queue_free()
+
+
+func change_scene() -> void:
 	SceneLoader.level_change("drop", Vector2.ZERO)
-	owner.change_scene_screen.transition_out()
+	await owner.change_scene_screen.transition_out()
+	if ! is_collapse: Global.interact_objects(LevelsData.Levels.LEVEL3, owner.name, self, true)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	#SceneLoader.change_scene(next_scene)
+	SceneLoader.change_scene(next_scene)

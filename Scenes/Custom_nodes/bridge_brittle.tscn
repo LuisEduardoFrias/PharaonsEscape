@@ -4,13 +4,17 @@
 [ext_resource type="Script" uid="uid://cjdbf75yayp5f" path="res://Scenes/Custom_nodes/bridge_brittle.gd" id="2_vc2fv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8i5l"]
-size = Vector2(25, 63.5)
+size = Vector2(30.625, 63.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vc2fv"]
-size = Vector2(340.40625, 45)
+size = Vector2(204, 45)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_vc2fv"]
 b = Vector2(-211.47705, -240.16339)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0gwrd"]
+a = Vector2(-106.86738, -119.09393)
+b = Vector2(-136.97012, -92.75337)
 
 [node name="bridge_brittle" type="Sprite2D" unique_id=1691405197]
 texture = ExtResource("1_vc2fv")
@@ -20,13 +24,13 @@ script = ExtResource("2_vc2fv")
 next_scene = "uid://b36vam0p6syup"
 metadata/_edit_lock_ = true
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1721580193]
+[node name="actived" type="Area2D" parent="." unique_id=1721580193]
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=75415273]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="actived" unique_id=75415273]
 shape = SubResource("RectangleShape2D_m8i5l")
 debug_color = Color(0, 1, 0, 1)
 metadata/_edit_lock_ = true
@@ -58,6 +62,12 @@ rotation = 2.2896388
 shape = SubResource("SegmentShape2D_vc2fv")
 metadata/_edit_lock_ = true
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1801606764]
+position = Vector2(-160, 22)
+rotation = 2.2896388
+shape = SubResource("SegmentShape2D_0gwrd")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="actived" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="bridge" to="." method="_on_bridge_body_entered"]
 [connection signal="body_exited" from="bridge" to="." method="_on_bridge_body_exited"]

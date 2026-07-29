@@ -92,6 +92,24 @@ func check_switch(owner_name: LevelsData.Levels, section_name: String, switch: N
 	)
 
 
+## Interactúa con los objetos pertenecientes a una sección específica del nivel.
+##
+## Busca y activa la lógica de interacción para el nodo [param objects]
+## correspondiente al [param section_name] dentro de [param owner_name].
+##
+## - [param owner_name]: El identificador del nivel (Enum [member LevelsData.Levels]).
+## - [param section_name]: El nombre de la sección a procesar.
+## - [param objects]: El nodo contenedor ([Node2D]) que posee los objetos interactivos.
+func interact_objects(owner_name: LevelsData.Levels, section_name: String, objects: Node2D, is_save: bool = false) -> void:
+	execute(owner_name, section_name, objects, "objects", func (val: Variant,  prop_name: String) -> void:
+		if val[prop_name]:
+			objects._interact({})
+		if is_save:
+			val[prop_name] = true
+			save()
+	)
+
+
 func execute(owner_name: LevelsData.Levels, section_name: String, node: Node2D, fill: String, callback: Callable) -> void:
 	var _owner_name_: String = LevelsData.level_to_str(owner_name)
 	var _node_name: String = "%s_%s" %[section_name, node.name]

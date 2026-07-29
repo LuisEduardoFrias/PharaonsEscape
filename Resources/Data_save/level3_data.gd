@@ -33,8 +33,13 @@ class_name Level3 extends Resource
 		"is_interject": false
 	},
 }
+
+
 @export var goldens_scarabs: Array[String] = []
-@export var objects: Array = []
+
+@export var objects: Dictionary = {
+	"level_3_section_2_bridge_brittle": false,
+}
 @export var puzles: Dictionary = {
 	"pizle_boss": { "on": false, "jug_position": {"jug1": null, "jug2": null, "jug3": null, "jug4": null } }
 }

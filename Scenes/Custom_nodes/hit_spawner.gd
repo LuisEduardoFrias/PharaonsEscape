@@ -11,10 +11,12 @@ extends Area2D
 
 var last_safe_position: Vector2 = Vector2.INF
 
+
 func _ready() -> void:
 	body_shape_entered.connect(_on_body_shape_entered)
 
-func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+
+func _on_body_shape_entered(_body_rid: RID, body: Node2D, _body_shape_index: int, local_shape_index: int) -> void:
 	if not body is Player:
 		return
 
@@ -34,6 +36,7 @@ func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, 
 
 			if last_safe_position != Vector2.INF:
 				_respawn_player(body)
+
 
 func _respawn_player(player: Node2D) -> void:
 	(player as Player).global_position = last_safe_position

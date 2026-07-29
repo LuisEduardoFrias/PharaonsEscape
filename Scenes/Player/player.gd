@@ -6,7 +6,7 @@ class_name Player extends Entity
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var eye_horus: EyeHorus = $eye_of_horus
 @onready var hit: Area2D = $hit
-@onready var question: Label = $question
+@onready var question: Label = $sprite/question
 
 @export_group("Visuals & Audio")
 @export var wark_sfx: AudioStream
@@ -17,18 +17,21 @@ class_name Player extends Entity
 
 signal is_static_state(value: bool)
 signal tile_hit_respawnd
+signal fall
 
 var wall_gap: WallGapRoll = null
 var interactive_object: Variant = null
-var spawner_point: Vector2 = Vector2.LEFT
-var is_in_platform: bool = false
+var spawner_point: Vector2 = Vector2.INF
+var is_in_platform: bool = false #verifica si no está en una plataforma el móvil
 var is_jumping: bool = false # Para validar si está en faltando
 var is_eye_horus_enable: bool = false # Verifica si está activada la habilidad del ojo de horus
 var is_control_off: bool = false
 var side_scroller: Node = null
 var target_dir_ray: Vector2 = Vector2(13.0, 8.0)
-var in_bridge: bool = false
-
+var in_bridge: bool = false: # verifica que estén encima de un puente
+	set(val):
+		floor_detected.monitoring = !val
+		in_bridge = val
 
 
 func _ready() -> void:
@@ -73,13 +76,11 @@ func _physics_process(delta: float) -> void:
 
 
 #Detiene todas las entradas al player
-func _input_physics_off(val):
-	is_control_off = true
+func _input_physics_off(val) -> void:
+	is_control_off = val
 	set_physics_process(!val)
 	set_process_input(!val)
 	current_direction = Vector2.ZERO
-	state_machine._on_child_transition(AnimationStateMachine.States.IDLE)
-	is_control_off = val
 	is_static_state.emit(val)
 
 	if val:
@@ -160,10 +161,26 @@ func intermittency(duration: float = 1.0, callback: Callable = Callable()) -> vo
 	if callback.is_valid(): callback.call_deferred()
 
 
-## Método que silve para interacion con cosas en el piso
+## Método para interacción con el piso
 func _floor_detected_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer and not is_in_platform:
-		_tile_hit(body)
+		var tilemap_layer := body as TileMapLayer
+
+		# Punto de contacto corregido hacia el interior del detector
+		var detector_pos: Vector2 = floor_detected.global_position
+		var velocity_dir: Vector2 = velocity.normalized() if "velocity" in self and velocity != Vector2.ZERO else Vector2.ZERO
+
+		# Proyección de 2 a 4 píxeles en la dirección de entrada para asegurar la celda correcta
+		var evaluation_point: Vector2 = detector_pos + (velocity_dir * 4.0)
+
+		var local_pos: Vector2 = tilemap_layer.to_local(evaluation_point)
+		var cell_coords: Vector2i = tilemap_layer.local_to_map(local_pos)
+
+		var tile_center_local: Vector2 = tilemap_layer.map_to_local(cell_coords)
+		var tile_center_global: Vector2 = tilemap_layer.to_global(tile_center_local)
+
+		_tile_hit(body, tile_center_global)
+
 
 
 func _move_platform(body: AnimatableBody2D) -> void:
@@ -171,11 +188,16 @@ func _move_platform(body: AnimatableBody2D) -> void:
 
 
 ## Método que silve para interacion con Tiles que hacen daño
-func _tile_hit(_body: TileMapLayer) -> void:
-	if not in_bridge:
-		_input_physics_off(true)
-		state_machine._on_child_transition(AnimationStateMachine.States.FALL)
-		await state_machine.animation_finished
+func _tile_hit(_body: TileMapLayer, tile_center_global: Vector2) -> void:
+	_input_physics_off(true)
+	var tw: Tween = create_tween()
+	tw.tween_property(self, ^"position", tile_center_global, 1.0)
+	state_machine._on_child_transition(AnimationStateMachine.States.FALL)
+	await state_machine.animation_finished
+	fall.emit()
+
+	if spawner_point != Vector2.INF:
+		await Util.timerout(0.5)
 		position = spawner_point
 		intermittency()
 		state_machine._on_child_transition(AnimationStateMachine.States.IDLE)
@@ -184,10 +206,9 @@ func _tile_hit(_body: TileMapLayer) -> void:
 		_input_physics_off(false)
 
 
-
 func show_quetion(is_show: bool) -> void:
-	if is_show: $question/AnimationPlayer.play(&"play")
-	else: $question/AnimationPlayer.stop()
+	if is_show: $sprite/question/AnimationPlayer.play(&"play")
+	else: $sprite/question/AnimationPlayer.stop()
 	question.visible = is_show
 
 

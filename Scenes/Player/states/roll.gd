@@ -20,9 +20,9 @@ func enter(_data: Dictionary = {}) -> void:
 
 func physics_update(_delta: float) -> void:
 	actor.ray.force_raycast_update()
-	if (actor as Player).ray.is_colliding() and tween != null:
+	if actor.ray.is_colliding() and tween != null:
 		tween.kill()
-		change_state.emit(AnimationStateMachine.States.IDLE)
+		#change_state.emit(AnimationStateMachine.States.IDLE)
 	elif not is_physics_processing():
 		set_physics_process(true)
 

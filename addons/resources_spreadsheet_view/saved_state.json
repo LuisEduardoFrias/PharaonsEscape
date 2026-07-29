@@ -22,6 +22,17 @@
         "visibility": 0.0
       }
     },
+    "res://Textures/Sprites/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0
+      },
+      "resource_name": {
+        "visibility": 0
+      }
+    },
     "res://Translates/": {
       "metadata/_custom_type_script": {
         "visibility": 0.0
@@ -79,10 +90,7 @@
     }
   },
   "recent_paths": [
-    "res://save_pharaons_escape/",
-    "res://Resources/",
-    "res://save_debug_data/slot_2/",
-    "res://save_debug_data/",
+    "res://Textures/Sprites/",
     "res://save_debug_data/slot_1/"
   ],
   "table_functions": {
