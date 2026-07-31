@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Data" format=3 uid="uid://brvwytitxgoi7"]
+[gd_resource type="Resource" script_class="Data" format=3 uid="uid://bf46e8ooy8ty2"]
 
 [ext_resource type="Script" uid="uid://dx0p6qdb3a3w5" path="res://Resources/Data_save/current_level_data.gd" id="1_5jgkc"]
 [ext_resource type="Script" uid="uid://dapxu2f7w8ls4" path="res://Resources/Data_save/items_data.gd" id="2_xogpi"]
@@ -33,7 +33,7 @@ metadata/_custom_type_script = "uid://bkrwlc6k0e03x"
 script = ExtResource("5_5kksw")
 objects = {
 "level_3_section_2_bridge_brittle": {
-"full_colapse": false,
+"full_colapse": true,
 "middle_colapse": true
 }
 }

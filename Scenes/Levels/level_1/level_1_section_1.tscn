@@ -94,7 +94,8 @@ position = Vector2(-2111, -271)
 scale = Vector2(8194, 5492)
 
 [node name="Sprite2D" parent="." index="3" unique_id=1108214542]
-position = Vector2(5113, -15937.999)
+visible = true
+position = Vector2(5505, -19376)
 
 [node name="Player" parent="." index="4" unique_id=667587367]
 position = Vector2(2336, 1568)

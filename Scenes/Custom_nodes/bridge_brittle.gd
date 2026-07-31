@@ -20,6 +20,7 @@ func _ready() -> void:
 
 func _interact(data: Dictionary) -> void:
 	middle_colapse = data.middle_colapse if data else false
+	is_collapse = data.full_colapse
 	collapsed()
 
 
@@ -30,6 +31,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func animate_bridge_collapse() -> Signal:
+
 	var tw:Tween = create_tween()
 	tw.tween_property(self, ^"frame", 14 if middle_colapse and is_collapse else 5, 1.0)
 	return tw.finished
@@ -63,11 +65,13 @@ func fall_collapsed(player: Player) -> void:
 	if middle_colapse:
 		bridge.queue_free()
 
+	Global.bridge(LevelsData.Levels.LEVEL3, owner.name, self, true)
+
 
 func collapsed() -> void:
 	animate_bridge_collapse()
 
-	if middle_colapse:
+	if is_collapse:
 		actived.queue_free()
 		$StaticBody2D.queue_free()
 
@@ -75,7 +79,6 @@ func collapsed() -> void:
 func change_scene() -> void:
 	SceneLoader.level_change("drop", Vector2.ZERO)
 	await owner.change_scene_screen.transition_out()
-	if ! is_collapse: Global.bridge(LevelsData.Levels.LEVEL3, owner.name, self, true)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	Global.bridge_fall = true

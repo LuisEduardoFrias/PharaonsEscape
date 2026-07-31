@@ -116,15 +116,17 @@ func interact_objects(owner_name: LevelsData.Levels, section_name: String, objec
 
 func bridge(owner_name: LevelsData.Levels, section_name: String, objects: Node2D, is_save: bool = false) -> void:
 	execute(owner_name, section_name, objects, "objects", func (val: Variant,  prop_name: String) -> void:
-		if val[prop_name].middle_colapse:
-			objects._interact(val[prop_name])
 		if is_save:
 			val[prop_name] = {
 				"middle_colapse": true,
 				"full_colapse": val[prop_name].middle_colapse
 			}
+			objects.middle_colapse = true
 
 			save()
+			return
+		if val[prop_name].middle_colapse:
+			objects._interact(val[prop_name])
 	)
 
 
