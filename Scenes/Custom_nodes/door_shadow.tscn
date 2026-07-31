@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://q2p2n28syeqo"]
+
+[ext_resource type="Shader" uid="uid://b2itbqjc3uogb" path="res://Shaders/door_shadow.gdshader" id="1_ngfc1"]
+[ext_resource type="Script" uid="uid://cpu276df0ee3u" path="res://Scenes/Custom_nodes/door_shadow.gd" id="3_bnyy6"]
+
+[sub_resource type="Gradient" id="Gradient_bnyy6"]
+offsets = PackedFloat32Array(0.43450055, 0.59814864)
+colors = PackedColorArray(0, 1, 1, 1, 0.41960785, 1, 0.23921569, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kg2lw"]
+seed = 1
+frequency = 0.0749
+fractal_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_34trp"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_kg2lw")
+color_ramp = SubResource("Gradient_bnyy6")
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y6vdy"]
+shader = ExtResource("1_ngfc1")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_34trp")
+shader_parameter/portal_color = Color(0, 0.02745098, 0.5254902, 1)
+shader_parameter/glow_color = Color(0, 1, 1, 1)
+shader_parameter/noise_speed = 0.1
+shader_parameter/vignette_strength = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ngfc1"]
+load_path = "res://.godot/imported/door_shadow.png-840259fe7407927b6515c7f63f276eb5.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngfc1"]
+size = Vector2(64, 106)
+
+[node name="door_shadow" type="Node2D" unique_id=550879923]
+script = ExtResource("3_bnyy6")
+direction = null
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1614594614]
+material = SubResource("ShaderMaterial_y6vdy")
+texture = SubResource("CompressedTexture2D_ngfc1")
+hframes = 4
+vframes = 4
+frame = 8
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=643719866]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1311601844]
+position = Vector2(0, -36)
+shape = SubResource("RectangleShape2D_ngfc1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

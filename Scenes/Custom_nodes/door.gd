@@ -123,3 +123,4 @@ func spawn_player() -> void:
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player: enabled = true
+	#print("door enabled: ", enabled)

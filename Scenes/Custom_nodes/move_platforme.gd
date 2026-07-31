@@ -56,14 +56,22 @@ func _process(_delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
+		if body.is_jumping:
+			body.jump_finished.connect(flatform)
+		body.is_in_platform = true
 		player = body
-		player.is_in_platform = true
 		last_platform_pos = platform.global_position
 		set_process(true)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Player:
+		if body.jump_finished.is_connected(flatform):
+			body.jump_finished.disconnect(flatform)
+		body.is_in_platform = false
 		set_process(false)
-		player.is_in_platform = false
 		player = null
+
+
+func flatform() -> void:
+	player.is_in_platform = true

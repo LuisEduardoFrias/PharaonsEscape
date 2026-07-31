@@ -28,6 +28,7 @@ hframes = 16
 vframes = 16
 frame = 210
 script = ExtResource("3_ws72d")
+effect_strength = null
 metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1220952911]

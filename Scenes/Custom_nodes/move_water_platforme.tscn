@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://c7weery41sdj1"]
+[gd_scene format=4 uid="uid://q2gxty6nifxn"]
 
-[ext_resource type="Texture2D" uid="uid://ddj3gno6r750g" path="res://Textures/Sprites/coleccion_tiles.png" id="1_14bht"]
-[ext_resource type="Script" uid="uid://dgrbq8udcvtjg" path="res://Scenes/Custom_nodes/move_platforme.gd" id="1_ansgy"]
+[ext_resource type="Script" uid="uid://dgrbq8udcvtjg" path="res://Scenes/Custom_nodes/move_platforme.gd" id="1_h3w5o"]
+[ext_resource type="Texture2D" uid="uid://ddj3gno6r750g" path="res://Textures/Sprites/coleccion_tiles.png" id="2_kdyqd"]
+[ext_resource type="TileSet" uid="uid://cjacau0u51usp" path="res://Resources/tileset_word.tres" id="3_kdyqd"]
 
 [sub_resource type="Curve2D" id="Curve2D_i57h4"]
 bake_interval = 10.0
@@ -16,9 +17,9 @@ size = Vector2(64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61dkn"]
 size = Vector2(64, 64)
 
-[node name="move_platforme" type="Path2D" unique_id=2080492486]
+[node name="move_water_platforme" type="Path2D" unique_id=2080492486]
 curve = SubResource("Curve2D_i57h4")
-script = ExtResource("1_ansgy")
+script = ExtResource("1_h3w5o")
 progress = 0.60927504
 play = true
 time_move = 4.0
@@ -48,10 +49,16 @@ debug_color = Color(0.9843137, 0, 0, 0.67058825)
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="platform" unique_id=2082970280]
-texture = ExtResource("1_14bht")
+texture = ExtResource("2_kdyqd")
 hframes = 16
 vframes = 16
 frame = 188
+metadata/_edit_lock_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="platform/Sprite2D" unique_id=710945935]
+position = Vector2(-32, -31.95523)
+tile_map_data = PackedByteArray("AAD/////AwAEAAoAAAABAAEAAwAEAAoAADABAP//AwAEAAoAAFD//wEAAwAEAAoAAGAAAAEAAwAEAAwAADAAAP//AwAEAAwAAAABAAAAAwAEAAwAAFD//wAAAwAEAAwAAGA=")
+tile_set = ExtResource("3_kdyqd")
 metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="platform" unique_id=1158635858]
@@ -61,6 +68,7 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform/Area2D" unique_id=627705497]
 shape = SubResource("RectangleShape2D_61dkn")
+debug_color = Color(1, 0, 1, 0.41960785)
 
 [connection signal="body_entered" from="platform/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="platform/Area2D" to="." method="_on_area_2d_body_exited"]

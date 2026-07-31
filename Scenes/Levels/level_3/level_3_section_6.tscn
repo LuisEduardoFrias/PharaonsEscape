@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cx21xdn45b3dr" path="res://Scenes/Enemies/Maniqui.tscn" id="4_alwg7"]
 [ext_resource type="PackedScene" uid="uid://cj46q4f5m2ihl" path="res://Scenes/Custom_nodes/escalator.tscn" id="4_g3pjt"]
 [ext_resource type="PackedScene" uid="uid://kaf4ygfxguer" path="res://Scenes/Custom_nodes/bridge.tscn" id="4_hhd0d"]
+[ext_resource type="Script" uid="uid://ciu4gaw2cpa7g" path="res://Scenes/Player/states/fall.gd" id="4_kjgq7"]
 [ext_resource type="PackedScene" uid="uid://b0l5rvf6oen6d" path="res://Scenes/Custom_nodes/floor_lever.tscn" id="5_ndbxc"]
 [ext_resource type="PackedScene" uid="uid://cau5jmtu4na54" path="res://Scenes/Custom_nodes/hit_spawner.tscn" id="6_4piaj"]
 [ext_resource type="PackedScene" uid="uid://cn4oisvyrp6jv" path="res://Scenes/Custom_nodes/mechanical_door.tscn" id="7_4qwh2"]
@@ -49,7 +50,7 @@ b = Vector2(0, 65)
 size = Vector2(459.75, 50.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imn10"]
-size = Vector2(66, 51)
+size = Vector2(48, 51)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxwvb"]
 size = Vector2(64, 64)
@@ -125,7 +126,7 @@ rotation = -1.5707964
 position = Vector2(3454, 1312)
 rotation = -1.5707964
 frame = 1
-wall = 1
+script = ExtResource("4_kjgq7")
 
 [node name="auto_jump" parent="area" parent_id_path=PackedInt32Array(1466910654) index="0" unique_id=173970314 instance=ExtResource("2_g3pjt")]
 position = Vector2(2691, 2810)

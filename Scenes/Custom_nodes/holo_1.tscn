@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://uylwr3kxju4e"]
 
-[ext_resource type="Script" uid="uid://7avlpjbcoxlw" path="res://Scripts/holo.gd" id="1_ioqux"]
+[ext_resource type="Script" uid="uid://csj87dwo0m7r" path="res://Scenes/Custom_nodes/holo.gd" id="1_ioqux"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sj4f8"]
 radius = 3.5

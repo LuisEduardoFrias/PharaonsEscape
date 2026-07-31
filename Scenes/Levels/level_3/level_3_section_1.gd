@@ -48,7 +48,7 @@ func _ready() -> void:
 
 func _initial_game() -> void:
 	change_scene_screen.transition_out(0.0)
-	player.visible = false
+	player.state_machine.playback.travel("stop_invisible")
 	player._input_physics_off(true)
 
 	await get_tree().physics_frame

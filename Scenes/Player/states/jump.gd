@@ -1,8 +1,6 @@
 # JumpState.gd
 extends StateBase
 
-signal jump_finished
-
 var default_shadow_scale: Vector2 = Vector2(0.280, 0.095)
 var mini_shadow_scale: Vector2 = Vector2(0.185, 0.070)
 
@@ -13,6 +11,7 @@ func enter(_data: Dictionary = {}) -> void:
 		change_state.emit(AnimationStateMachine.States.IDLE, {})
 		return
 	else :
+		actor.set_collision_mask_value(10, false)
 		actor.floor_detected.monitoring = false
 		actor.floor_detected.monitorable = false
 		actor.is_jumping = true
@@ -39,9 +38,10 @@ func _move_sprite() -> void:
 
 	tw.tween_callback(func () -> void:
 		change_state.emit(AnimationStateMachine.States.IDLE, {})
+		actor.set_collision_mask_value(10, true)
 		actor._input_physics_off(false)
 		actor.floor_detected.monitoring = true
 		actor.floor_detected.monitorable = true
 		actor.is_jumping = false
-		jump_finished.emit()
+		actor.jump_finished.emit()
 	)

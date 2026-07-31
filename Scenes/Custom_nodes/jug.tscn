@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c1dkv3j0li7j8"]
 
-[ext_resource type="Script" uid="uid://c21u4joqjlu4y" path="res://Scripts/custom_node/jug.gd" id="1_ipp1n"]
-[ext_resource type="PackedScene" uid="uid://gpqy5u3rvy84" path="res://Scenes/custom_node/pushable.tscn" id="2_gdk78"]
+[ext_resource type="Script" uid="uid://bwc4c7vttoxs8" path="res://Scenes/Custom_nodes/jug.gd" id="1_ipp1n"]
+[ext_resource type="PackedScene" uid="uid://gpqy5u3rvy84" path="res://Scenes/Custom_nodes/Verificar /pushable.tscn" id="2_gdk78"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_strj0"]
 size = Vector2(32, 32)
@@ -26,8 +26,8 @@ animations = [{
 
 [node name="jug" type="AnimatableBody2D" unique_id=58035539]
 y_sort_enabled = true
-collision_layer = 512
-collision_mask = 0
+collision_layer = 4
+collision_mask = 2
 sync_to_physics = false
 script = ExtResource("1_ipp1n")
 
@@ -36,15 +36,14 @@ shape = SubResource("RectangleShape2D_strj0")
 metadata/_edit_lock_ = true
 
 [node name="anim" type="AnimatedSprite2D" parent="." unique_id=1942593128]
+z_index = 1
 y_sort_enabled = true
-position = Vector2(0, -35)
 sprite_frames = SubResource("SpriteFrames_strj0")
 animation = &"inlaid"
 autoplay = "default"
-offset = Vector2(0, 15)
+offset = Vector2(0, -20)
 metadata/_edit_lock_ = true
 
 [node name="audio_stream_player" type="AudioStreamPlayer2D" parent="." unique_id=1771354191]
-bus = &"fx"
 
 [node name="pushable" parent="." unique_id=2143912840 instance=ExtResource("2_gdk78")]

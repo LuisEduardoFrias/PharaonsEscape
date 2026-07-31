@@ -1,0 +1,70 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://ducikd80d2dq5"]
+
+[ext_resource type="Texture2D" uid="uid://ch5wa63y6h1uo" path="res://Textures/enemics/Jugs/boss_jug.png" id="1_o5qi2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22mif"]
+atlas = ExtResource("1_o5qi2")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cs2y"]
+atlas = ExtResource("1_o5qi2")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkj0i"]
+atlas = ExtResource("1_o5qi2")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpe1c"]
+atlas = ExtResource("1_o5qi2")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi2ya"]
+atlas = ExtResource("1_o5qi2")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36p8b"]
+atlas = ExtResource("1_o5qi2")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3krdw"]
+atlas = ExtResource("1_o5qi2")
+region = Rect2(256, 64, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22mif")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cs2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkj0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpe1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi2ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36p8b")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3krdw")
+}],
+"loop": true,
+"name": &"inlaid",
+"speed": 5.0
+}]

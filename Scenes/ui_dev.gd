@@ -3,6 +3,7 @@ extends Control
 # Configuración de rutas y carpetas a escanear
 const FOLDERS_TO_SCAN: Array[String] = [
 	"res://Scenes/Levels/level_1/",
+	"res://Scenes/Levels/level_2/",
 	"res://Scenes/Levels/level_3"
 ]
 

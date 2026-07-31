@@ -14,7 +14,7 @@ func enter(_data: Dictionary = {}) -> void:
 	if actor.wall_gap:
 		actor.wall_gap._open()
 
-	var _position: Vector2 = actor.global_position + (140.0 * actor.old_direction)
+	var _position: Vector2 = actor.global_position + (actor.speed * actor.old_direction)
 	tween.tween_property(actor, ^"global_position", _position, 1.0)
 
 

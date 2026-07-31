@@ -19,10 +19,16 @@ signal is_static_state(value: bool)
 signal tile_hit_respawnd
 signal fall
 
+@warning_ignore("unused_signal")
+signal jump_finished
+
 var wall_gap: WallGapRoll = null
 var interactive_object: Variant = null
 var spawner_point: Vector2 = Vector2.INF
-var is_in_platform: bool = false #verifica si no está en una plataforma el móvil
+var is_in_platform: bool = false: #verifica si no está en una plataforma el móvil
+	set(val):
+		floor_detected.monitoring = !val
+		is_in_platform = val
 var is_jumping: bool = false # Para validar si está en faltando
 var is_eye_horus_enable: bool = false # Verifica si está activada la habilidad del ojo de horus
 var is_control_off: bool = false
@@ -32,6 +38,7 @@ var in_bridge: bool = false: # verifica que estén encima de un puente
 	set(val):
 		floor_detected.monitoring = !val
 		in_bridge = val
+var is_shadow_mode: bool = false
 
 
 func _ready() -> void:
@@ -125,8 +132,9 @@ func _move_to(dir: Vector2, move_time: float) -> void:
 
 	velocity = Vector2.ZERO
 	move_and_slide()
-
 	current_direction = Vector2.ZERO
+	_input_physics_off(false)
+	state_machine._on_child_transition(AnimationStateMachine.States.IDLE)
 
 
 func move_to_kinematic_point(destination_point: Vector2):
@@ -163,7 +171,7 @@ func intermittency(duration: float = 1.0, callback: Callable = Callable()) -> vo
 
 ## Método para interacción con el piso
 func _floor_detected_body_entered(body: Node2D) -> void:
-	if body is TileMapLayer and not is_in_platform:
+	if body is TileMapLayer: #and not is_in_platform:
 		var tilemap_layer := body as TileMapLayer
 
 		# Punto de contacto corregido hacia el interior del detector
@@ -228,6 +236,8 @@ func input(state: StateBase, event: InputEvent) -> void:
 	if event.is_action_pressed(&"ui_action_3"):
 		skill = Global.player_data.equipped_skills[1]
 	if event.is_action_pressed(&"ui_action_4"):
+		'''print(!is_shadow_mode)
+		is_shadow_mode  = !is_shadow_mode'''
 		skill = Global.player_data.equipped_skills[2]
 
 	if skill != SkillsData.SkillsType.NONE:

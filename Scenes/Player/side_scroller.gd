@@ -15,7 +15,7 @@ func _on_physics_process(_delta: float, player: Player) -> void:
 		direction = Vector2.ZERO
 
 	player.current_direction = direction
-	player.ray.target_position = (direction * player.TARGET_DIR_RAY)
+	player.ray.target_position = (direction * player.current_direction)
 
 	if direction != Vector2.ZERO:
 		player.old_direction = direction.normalized()

@@ -19,6 +19,10 @@ var data: Data = Data.new():
 var current_scene: Node2D
 var section_2_active_door: bool = false
 
+# tadosnpara compartir entre escenas
+var bridge_fall: bool = false # Para verificar cuando cae del puente
+
+
 
 func _ready() -> void:
 	pass
@@ -106,6 +110,20 @@ func interact_objects(owner_name: LevelsData.Levels, section_name: String, objec
 			objects._interact({})
 		if is_save:
 			val[prop_name] = true
+			save()
+	)
+
+
+func bridge(owner_name: LevelsData.Levels, section_name: String, objects: Node2D, is_save: bool = false) -> void:
+	execute(owner_name, section_name, objects, "objects", func (val: Variant,  prop_name: String) -> void:
+		if val[prop_name].middle_colapse:
+			objects._interact(val[prop_name])
+		if is_save:
+			val[prop_name] = {
+				"middle_colapse": true,
+				"full_colapse": val[prop_name].middle_colapse
+			}
+
 			save()
 	)
 

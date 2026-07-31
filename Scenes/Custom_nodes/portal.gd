@@ -7,6 +7,10 @@ enum Type_Wall { WALL1, WALL2 }
 		wall = val
 		if not is_node_ready(): await ready
 		frame = 210 if val == Type_Wall.WALL1 else 1
+@export var effect_strength: float = 0.03:
+	set(val):
+		effect_strength = val
+		material["shader_parameter/effect_strength"] = val
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

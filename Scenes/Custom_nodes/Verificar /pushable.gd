@@ -25,10 +25,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if player:
 		ray.add_exception(player)
-		ray.add_exception(player.static_body_player)
+		#ray.add_exception(player.static_body_player)
 		timer += delta
 
-		var control_direction : Vector2 = ControlerManager.get_direction()
+		var control_direction : Vector2 = player.current_direction
 
 		if not direction.is_equal_approx(control_direction):
 			timer = 0.0

@@ -201,6 +201,19 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_rcvs5")
 nodes/TimeScale/position = Vector2(426.66666, 106.666664)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0liok"]
+animation = &"fall_bridge"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_qflxp"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0pk7v"]
+nodes/output/position = Vector2(453.33334, 80)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_0liok")
+nodes/Animation/position = Vector2(80, 53.333332)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_qflxp")
+nodes/TimeScale/position = Vector2(280, 40)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_jhyir"]
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_74mp2"]
@@ -409,6 +422,15 @@ nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ur3l4")
 nodes/TimeScale/position = Vector2(373.33334, 133.33333)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"BlendSpace2D"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gyc8k"]
+animation = &"stop_invisible"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rblve"]
+graph_offset = Vector2(-239.81264, 68.28836)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_gyc8k")
+nodes/Animation/position = Vector2(63.2487, 146.88477)
+node_connections = [&"output", 0, &"Animation"]
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h8ma5"]
 animation = &"attack_sword_side"
 
@@ -500,11 +522,17 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rblve"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jhyir"]
 states/add_skill/node = SubResource("AnimationNodeBlendTree_qflxp")
 states/add_skill/position = Vector2(648.2403, 154.2951)
 states/fall/node = SubResource("AnimationNodeBlendTree_jhyir")
 states/fall/position = Vector2(477.32492, 300.61267)
+states/fall_bridge/node = SubResource("AnimationNodeBlendTree_0pk7v")
+states/fall_bridge/position = Vector2(90.75781, 153.96178)
 states/hammer_attack/node = SubResource("AnimationNodeBlendTree_dey5f")
 states/hammer_attack/position = Vector2(668.39716, 213.22632)
 states/hurt/node = SubResource("AnimationNodeBlendTree_74mp2")
@@ -519,16 +547,18 @@ states/pilling/node = SubResource("AnimationNodeBlendTree_aqm4k")
 states/pilling/position = Vector2(75.75521, 214.08391)
 states/roll/node = SubResource("AnimationNodeBlendTree_06tpx")
 states/roll/position = Vector2(199.72324, 210.25052)
+states/stop_invisible/node = SubResource("AnimationNodeBlendTree_rblve")
+states/stop_invisible/position = Vector2(66.65632, 80.52634)
 states/sword_attack/node = SubResource("AnimationNodeBlendTree_7g0yx")
 states/sword_attack/position = Vector2(347.10852, 208.74284)
 states/walk/node = SubResource("AnimationNodeBlendTree_hnuln")
 states/walk/position = Vector2(640.3985, 104.1331)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_jhyir"), "roll", "idle", SubResource("AnimationNodeStateMachineTransition_74mp2"), "sword_attack", "idle", SubResource("AnimationNodeStateMachineTransition_oikmp"), "hammer_attack", "idle", SubResource("AnimationNodeStateMachineTransition_06tpx"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_r5xpd"), "interact", "idle", SubResource("AnimationNodeStateMachineTransition_7g0yx"), "add_skill", "idle", SubResource("AnimationNodeStateMachineTransition_dey5f")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_jhyir"), "roll", "idle", SubResource("AnimationNodeStateMachineTransition_74mp2"), "sword_attack", "idle", SubResource("AnimationNodeStateMachineTransition_oikmp"), "hammer_attack", "idle", SubResource("AnimationNodeStateMachineTransition_06tpx"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_r5xpd"), "interact", "idle", SubResource("AnimationNodeStateMachineTransition_7g0yx"), "add_skill", "idle", SubResource("AnimationNodeStateMachineTransition_dey5f"), "fall_bridge", "idle", SubResource("AnimationNodeStateMachineTransition_rblve")]
 graph_offset = Vector2(-24.447262, 53.276234)
 
 [node name="Player" type="CharacterBody2D" unique_id=667587367 node_paths=PackedStringArray("sprite_node", "ray", "audio_player") groups=["Player"]]
 collision_layer = 2
-collision_mask = 145
+collision_mask = 657
 motion_mode = 1
 script = ExtResource("1_uvnfx")
 speed = 150.0
@@ -573,7 +603,6 @@ position = Vector2(0, -22)
 texture = ExtResource("2_06tpx")
 hframes = 32
 vframes = 32
-metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="sprite" unique_id=1805094574]
 libraries/ = ExtResource("3_06tpx")
@@ -618,6 +647,7 @@ metadata/_edit_lock_ = true
 libraries/ = SubResource("AnimationLibrary_ks1b7")
 
 [node name="active_dialog" type="Area2D" parent="." unique_id=1527061459]
+visible = false
 position = Vector2(-1, 8)
 collision_layer = 0
 collision_mask = 4
@@ -653,6 +683,7 @@ debug_color = Color(1, 0, 0, 0.8352941)
 metadata/_edit_lock_ = true
 
 [node name="floor_detected" type="Area2D" parent="." unique_id=1139548907]
+visible = false
 position = Vector2(0, 1)
 collision_layer = 0
 collision_mask = 64
@@ -663,19 +694,20 @@ shape = SubResource("RectangleShape2D_0a2xn")
 debug_color = Color(0.9612482, 1.92523e-07, 0.5114325, 0.42)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=607798832]
+visible = false
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.6627451)
 shadow_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_7g0yx")
 texture_scale = 1.5
-metadata/_edit_lock_ = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=302750314]
+visible = false
 occluder = SubResource("OccluderPolygon2D_06tpx")
 metadata/_edit_lock_ = true
 
 [node name="audio_stream_player" type="AudioStreamPlayer2D" parent="." unique_id=1443477830]
-metadata/_edit_lock_ = true
+visible = false
 
 [node name="animation_state_machine" parent="." unique_id=1619879097 node_paths=PackedStringArray("initial_state") instance=ExtResource("15_hnuln")]
 root_node = NodePath("../sprite")
@@ -684,6 +716,7 @@ anim_player = NodePath("../sprite/AnimationPlayer")
 parameters/add_skill/BlendSpace2D/blend_position = Vector2(0, 1)
 parameters/add_skill/TimeScale/scale = 0.29999999999999716
 parameters/fall/TimeScale/scale = 1.0
+parameters/fall_bridge/TimeScale/scale = 5.0
 parameters/hammer_attack/BlendSpace2D/blend_position = Vector2(0, 0)
 parameters/hammer_attack/TimeScale/scale = 1.0
 parameters/hurt/BlendSpace2D/blend_position = Vector2(0, 0)

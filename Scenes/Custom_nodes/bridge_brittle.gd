@@ -8,15 +8,18 @@ extends Sprite2D
 
 @onready var bridge: Area2D = $bridge
 @onready var actived: Area2D = $actived
+@onready var coli: CollisionShape2D = $StaticBody2D/CollisionShape2D3
 
 var is_collapse: bool = false
+var middle_colapse: bool = false
 
 
 func _ready() -> void:
-	Global.interact_objects(LevelsData.Levels.LEVEL3, owner.name, self)
+	Global.bridge(LevelsData.Levels.LEVEL3, owner.name, self)
 
 
-func _interact(_data: Dictionary) -> void:
+func _interact(data: Dictionary) -> void:
+	middle_colapse = data.middle_colapse if data else false
 	collapsed()
 
 
@@ -28,7 +31,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func animate_bridge_collapse() -> Signal:
 	var tw:Tween = create_tween()
-	tw.tween_property(self, ^"frame", 14, 1.0)
+	tw.tween_property(self, ^"frame", 14 if middle_colapse and is_collapse else 5, 1.0)
 	return tw.finished
 
 
@@ -47,27 +50,33 @@ func _on_bridge_body_exited(body: Node2D) -> void:
 
 
 func fall_collapsed(player: Player) -> void:
-	actived.queue_free()
-	player._input_physics_off(true)
-	player.state_machine._cinematic(AnimationStateMachine.States.IDLE)
-	await Util.timerout(0.5)
-	player.show_quetion(true)
-	await Util.timerout(1.0)
+	coli.disabled = !middle_colapse
+	is_collapse = middle_colapse
+	if middle_colapse:
+		actived.queue_free()
+		player._input_physics_off(true)
+		player.state_machine._cinematic(AnimationStateMachine.States.IDLE)
+		await Util.timerout(0.5)
+		player.show_quetion(true)
+		await Util.timerout(1.0)
 	await animate_bridge_collapse()
-	bridge.queue_free()
+	if middle_colapse:
+		bridge.queue_free()
 
 
 func collapsed() -> void:
 	animate_bridge_collapse()
-	is_collapse = true
-	actived.queue_free()
-	$StaticBody2D.queue_free()
+
+	if middle_colapse:
+		actived.queue_free()
+		$StaticBody2D.queue_free()
 
 
 func change_scene() -> void:
 	SceneLoader.level_change("drop", Vector2.ZERO)
 	await owner.change_scene_screen.transition_out()
-	if ! is_collapse: Global.interact_objects(LevelsData.Levels.LEVEL3, owner.name, self, true)
+	if ! is_collapse: Global.bridge(LevelsData.Levels.LEVEL3, owner.name, self, true)
 	await get_tree().physics_frame
 	await get_tree().physics_frame
+	Global.bridge_fall = true
 	SceneLoader.change_scene(next_scene)
