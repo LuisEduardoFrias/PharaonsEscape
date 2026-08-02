@@ -1,32 +1,39 @@
 [gd_scene format=3 uid="uid://chm4rrscurjva"]
 
 [ext_resource type="Script" uid="uid://bg2ajsrhp6hau" path="res://Scenes/Custom_nodes/skeleton.gd" id="1_s853r"]
-[ext_resource type="Texture2D" uid="uid://c7lcluh6gi3da" path="res://Textures/Sprites/map_decorations.png" id="2_s6sl8"]
+[ext_resource type="Texture2D" uid="uid://cwlpbwspg1w5y" path="res://Textures/Sprites/cadaver-sheet.png" id="2_ytow2"]
 [ext_resource type="PackedScene" uid="uid://bwhpr1f354a3l" path="res://Scenes/Custom_nodes/dialog_trigger.tscn" id="3_s6sl8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ytow2"]
-atlas = ExtResource("2_s6sl8")
-region = Rect2(288, 128, 64, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_frwt3"]
-atlas = ExtResource("2_s6sl8")
-region = Rect2(352, 128, 64, 32)
+atlas = ExtResource("2_ytow2")
+region = Rect2(0, 0, 88, 52)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g1apj"]
-atlas = ExtResource("2_s6sl8")
-region = Rect2(416, 128, 64, 32)
+atlas = ExtResource("2_ytow2")
+region = Rect2(88, 0, 88, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ova1p"]
+atlas = ExtResource("2_ytow2")
+region = Rect2(176, 0, 88, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxgs1"]
+atlas = ExtResource("2_ytow2")
+region = Rect2(264, 0, 88, 52)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_76xs0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ytow2")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_frwt3")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g1apj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ova1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgs1")
 }],
 "loop": true,
 "name": &"default",
@@ -37,17 +44,16 @@ animations = [{
 size = Vector2(29, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytow2"]
-size = Vector2(29, 16)
+size = Vector2(55, 16)
 
 [node name="skeleton" type="Node2D" unique_id=1956545777]
 script = ExtResource("1_s853r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1527157383]
-scale = Vector2(0.5, 0.5)
+position = Vector2(8, -12)
 sprite_frames = SubResource("SpriteFrames_76xs0")
 autoplay = "default"
 frame_progress = 0.8343137
-metadata/_edit_lock_ = true
 
 [node name="dialogue_trigger" parent="." unique_id=888492315 instance=ExtResource("3_s6sl8")]
 metadata/_edit_lock_ = true
@@ -61,6 +67,6 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=700806071]
-position = Vector2(0, 1)
+position = Vector2(3.5, 1)
 shape = SubResource("RectangleShape2D_ytow2")
 metadata/_edit_lock_ = true
