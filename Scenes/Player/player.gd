@@ -34,10 +34,10 @@ var is_eye_horus_enable: bool = false # Verifica si está activada la habilidad 
 var is_control_off: bool = false
 var side_scroller: Node = null
 var target_dir_ray: Vector2 = Vector2(13.0, 8.0)
-var in_bridge: bool = false: # verifica que estén encima de un puente
-	set(val):
-		floor_detected.monitoring = !val
-		in_bridge = val
+#var in_bridge: bool = false: # verifica que estén encima de un puente
+	#set(val):
+		#floor_detected.monitoring = !val
+		#in_bridge = val
 var is_shadow_mode: bool = false
 
 
@@ -197,7 +197,8 @@ func _move_platform(body: AnimatableBody2D) -> void:
 
 ## Método que silve para interacion con Tiles que hacen daño
 func _tile_hit(_body: TileMapLayer, tile_center_global: Vector2) -> void:
-	_input_physics_off(true)
+	pass
+	'''_input_physics_off(true)
 	var tw: Tween = create_tween()
 	tw.tween_property(self, ^"position", tile_center_global, 1.0)
 	state_machine._on_child_transition(AnimationStateMachine.States.FALL)
@@ -211,7 +212,7 @@ func _tile_hit(_body: TileMapLayer, tile_center_global: Vector2) -> void:
 		state_machine._on_child_transition(AnimationStateMachine.States.IDLE)
 		await Util.timerout(0.5)
 		tile_hit_respawnd.emit()
-		_input_physics_off(false)
+		_input_physics_off(false)'''
 
 
 func show_quetion(is_show: bool) -> void:

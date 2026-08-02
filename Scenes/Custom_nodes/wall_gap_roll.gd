@@ -8,12 +8,14 @@ enum WallType { roll_1, roll_2 } #, roll_3, roll_4 }
 
 var unblock_sprite_1 := Vector2i(3, 11)
 var unblock_sprite_2 := Vector2i(3, 12)
-'''var unblock_sprite_3 := Vector2i(7, 2)
-var unblock_sprite_4 := Vector2i(7, 3)'''
+var unblock_sprite_3 := Vector2i(7, 2)
+var unblock_sprite_4 := Vector2i(7, 3)
+
 var block_sprite_1 :=   Vector2i(1, 11)
 var block_sprite_2 :=   Vector2i(1, 12)
-'''var block_sprite_3 :=   Vector2i(5, 2)
-var block_sprite_4 :=   Vector2i(5, 3)'''
+var block_sprite_3 :=   Vector2i(5, 2)
+var block_sprite_4 :=   Vector2i(5, 3)
+
 var block_sprite:   Vector2i = block_sprite_1
 var unblock_sprite: Vector2i = unblock_sprite_1
 
