@@ -3,6 +3,34 @@
 [ext_resource type="PackedScene" uid="uid://cp4a4jbvmwbpu" path="res://Scenes/Levels/Bases/section_base.tscn" id="1_relli"]
 [ext_resource type="PackedScene" uid="uid://bx230apubl0hd" path="res://Scenes/Custom_nodes/switch.tscn" id="2_gdtcu"]
 [ext_resource type="PackedScene" uid="uid://cn4oisvyrp6jv" path="res://Scenes/Custom_nodes/mechanical_door.tscn" id="3_3otuv"]
+[ext_resource type="PackedScene" uid="uid://cpqnvbt4cjlnp" path="res://Scenes/Custom_nodes/battle_zone.tscn" id="3_tq21a"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gff5n"]
+b = Vector2(335, 311)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8gr41"]
+a = Vector2(10, 407)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ij7on"]
+b = Vector2(14, 370)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_b8xs2"]
+b = Vector2(380, -373)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_22i86"]
+b = Vector2(-425, 482)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bnmgf"]
+b = Vector2(-557, 396)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_coufq"]
+b = Vector2(-498, 379)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ixgse"]
+b = Vector2(332, 398)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3otuv"]
+b = Vector2(499, 259)
 
 [node name="level_1_section_3" unique_id=2045360606 instance=ExtResource("1_relli")]
 
@@ -35,17 +63,109 @@ metadata/_edit_lock_ = true
 [node name="foreground" parent="." index="9" unique_id=710057140]
 tile_map_data = PackedByteArray("AAAsAC4AAgAEAAsAACAvAC0AAgAEAAsAAFAwAC0AAgAEAAsAAGArAC4AAgABAAIAAAAtAC4AAgABAAIAAAAvACwAAgACAAAAAAAwACwAAgAAAAEAAAAwABkAAgAEAAsAADA3ABkAAgAEAAsAADAtABYAAgAEAAsAAEAzABYAAgAEAAsAAFA6ABUAAgAEAAsAAFA0ABYAAgAEAAsAAEAwACEAAgAEAAsAACAgACEAAgAEAAsAACAtAB4AAgAEAAsAAEAdAB4AAgAEAAsAAEAJACYAAgAEAAsAAEAVACYAAgAEAAsAAEAjAB4AAgAEAAsAAFAYACoAAgAEAAsAACAVADYAAgAEAAsAAFARADkAAgAEAAsAADAwABIAAgAEAAsAACA3ABIAAgAEAAsAACA7ABUAAgAEAAsAAGAsABYAAgAEAAsAAHAkAB4AAgAEAAsAAGAcAB4AAgAEAAsAAHAgABoAAgAEAAsAADAUACYAAgAEAAsAAHAZACIAAgAEAAsAADANACEAAgAEAAsAADAWADYAAgAEAAsAAGARADEAAgAEAAsAADAIACYAAgAEAAsAAFAQAA8AAgAEAAsAACAWAA4AAgAEAAsAAHAXAA4AAgAEAAsAAGASAAgAAgAEAAsAADAZABEAAgAEAAsAACAeABUAAgAEAAsAAEAWABUAAgAEAAsAAEAVABUAAgAEAAsAAFAdABUAAgAEAAsAAFAvABoAAgAFAAIAAAAwABoAAgAFAAIAAAAxABoAAgAFAAIAAAAzAB4AAgAEAAsAAFA1AB4AAgAEAAsAAEA0AB0AAgAFAAIAAAA0AB4AAgAFAAIAAAA0AB8AAgAFAAIAAAArAB4AAgAEAAsAAHAsAB0AAgAFAAIAAAAsAB4AAgAFAAIAAAAsAB8AAgAFAAIAAAAfACgAAgAEAAsAAGAeACoAAgAOAAgAAAAVACoAAgALAAgAAAAeACYAAgAOAAgAAAAeACgAAgAEAAsAAFAOAEsAAgAOAAUAADAQAEIAAgAFAAIAAAARAEIAAgAFAAIAAAASAEIAAgAFAAIAAAAQAD4AAgAFAAIAAAARAD4AAgAFAAIAAAASAD4AAgAFAAIAAAAQADoAAgAFAAIAAAARADoAAgAFAAIAAAASADoAAgAFAAIAAAARAEEAAgAEAAsAACARAD0AAgAEAAsAACAUAEsAAgAOAAgAAAAUAEkAAgAJAAAAAFANACkAAgAEAAsAACAMACoAAgAFAAIAAAANACoAAgAFAAIAAAAOACoAAgAFAAIAAAAMACIAAgAFAAIAAAANACIAAgAFAAIAAAAOACIAAgAFAAIAAAArAC8AAgAFAAIAAAAsAC8AAgAFAAIAAAAtAC8AAgAFAAIAAAAsADAAAgAFAAIAAAAtADAAAgAFAAIAAAArADAAAgAFAAIAAAA7ABQAAgAAAAAAAAA6ABQAAgACAAEAAAAtABUAAgAAAAEAAAAsABUAAgACAAAAAAA1AB0AAgAAAAAAAAAzAB0AAgACAAEAAAAtAB0AAgAAAAEAAAArAB0AAgACAAAAAAAkAB0AAgAAAAAAAAAjAB0AAgACAAEAAAAdAB0AAgAAAAEAAAAcAB0AAgACAAAAAAAUACUAAgACAAAAAAASACUAAgAAAAAAAAAVACUAAgAAAAEAAAARACUAAgACAAEAAAAJACUAAgAAAAEAAAAIACUAAgACAAAAAAAWADUAAgAAAAAAAAAVADUAAgACAAEAAAAfACcAAgAAAAAAAAAeACcAAgACAAAAAAAXAA0AAgAAAAAAAAAeABQAAgAAAAAAAAAVABQAAgACAAEAAAAdABQAAgACAAEAAAAWABQAAgAAAAEAAAAWAA0AAgACAAEAAAA=")
 
+[node name="battle_zone" parent="area" parent_id_path=PackedInt32Array(1466910654) index="0" unique_id=300859006 node_paths=PackedStringArray("Doors") instance=ExtResource("3_tq21a")]
+position = Vector2(2948, 1799)
+Doors = [NodePath("../../doors/mechanical_door2"), NodePath("../../doors/mechanical_door3"), NodePath("../../doors/mechanical_door4"), NodePath("../../doors/mechanical_door5")]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area/battle_zone" index="0" unique_id=1436839395]
+shape = SubResource("SegmentShape2D_gff5n")
+debug_color = Color(0.9490196, 0, 0, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="battle_zone2" parent="area" parent_id_path=PackedInt32Array(1466910654) index="1" unique_id=188712209 node_paths=PackedStringArray("Doors") instance=ExtResource("3_tq21a")]
+position = Vector2(3625, 1244)
+Doors = [NodePath("../../doors/mechanical_door6"), NodePath("../../doors/mechanical_door7"), NodePath("../../doors/mechanical_door8"), NodePath("../../doors/mechanical_door9")]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area/battle_zone2" index="0" unique_id=1162114570]
+shape = SubResource("SegmentShape2D_8gr41")
+debug_color = Color(0.9490196, 0, 0, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="battle_zone3" parent="area" parent_id_path=PackedInt32Array(1466910654) index="2" unique_id=641581393 node_paths=PackedStringArray("Doors") instance=ExtResource("3_tq21a")]
+position = Vector2(3005, 1257)
+Doors = [NodePath("../../doors/mechanical_door10"), NodePath("../../doors/mechanical_door11"), NodePath("../../doors/mechanical_door12"), NodePath("../../doors/mechanical_door13")]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area/battle_zone3" index="0" unique_id=1602573753]
+shape = SubResource("SegmentShape2D_ij7on")
+debug_color = Color(0.9490196, 0, 0, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="battle_zone4" parent="area" parent_id_path=PackedInt32Array(1466910654) index="3" unique_id=1256502082 node_paths=PackedStringArray("Doors") instance=ExtResource("3_tq21a")]
+position = Vector2(1887, 2135)
+Doors = [NodePath("../../doors/mechanical_door14"), NodePath("../../doors/mechanical_door15"), NodePath("../../doors/mechanical_door16"), NodePath("../../doors/mechanical_door17")]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area/battle_zone4" index="0" unique_id=1539056912]
+shape = SubResource("SegmentShape2D_b8xs2")
+debug_color = Color(0.9490196, 0, 0, 0.41960785)
+metadata/_edit_group_ = true
+
+[node name="battle_zone5" parent="area" parent_id_path=PackedInt32Array(1466910654) index="4" unique_id=1558195566 node_paths=PackedStringArray("Doors") instance=ExtResource("3_tq21a")]
+position = Vector2(1886, 1173)
+Doors = [NodePath("../../doors/mechanical_door30"), NodePath("../../doors/mechanical_door31"), NodePath("../../doors/mechanical_door32")]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area/battle_zone5" index="0" unique_id=856671969]
+shape = SubResource("SegmentShape2D_22i86")
+debug_color = Color(0.9490196, 0, 0, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="battle_zone6" parent="area" parent_id_path=PackedInt32Array(1466910654) index="5" unique_id=385661767 node_paths=PackedStringArray("Doors") instance=ExtResource("3_tq21a")]
+position = Vector2(1435, 604)
+Doors = [NodePath("../../doors/mechanical_door34"), NodePath("../../doors/mechanical_door36"), NodePath("../../doors/mechanical_door37")]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area/battle_zone6" index="0" unique_id=1064280186]
+shape = SubResource("SegmentShape2D_bnmgf")
+debug_color = Color(0.9490196, 0, 0, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="battle_zone7" parent="area" parent_id_path=PackedInt32Array(1466910654) index="6" unique_id=1540254251 node_paths=PackedStringArray("Doors") instance=ExtResource("3_tq21a")]
+position = Vector2(1107, 2286)
+Doors = [NodePath("../../doors/mechanical_door18"), NodePath("../../doors/mechanical_door19"), NodePath("../../doors/mechanical_door20"), NodePath("../../doors/mechanical_door21")]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area/battle_zone7" index="0" unique_id=945040698]
+shape = SubResource("SegmentShape2D_coufq")
+debug_color = Color(0.9490196, 0, 0, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="battle_zone8" parent="area" parent_id_path=PackedInt32Array(1466910654) index="7" unique_id=277800575 node_paths=PackedStringArray("Doors") instance=ExtResource("3_tq21a")]
+position = Vector2(1401, 2290)
+Doors = [NodePath("../../doors/mechanical_door22"), NodePath("../../doors/mechanical_door23"), NodePath("../../doors/mechanical_door24"), NodePath("../../doors/mechanical_door25")]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area/battle_zone8" index="0" unique_id=1137803530]
+shape = SubResource("SegmentShape2D_ixgse")
+debug_color = Color(0.9490196, 0, 0, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="battle_zone9" parent="area" parent_id_path=PackedInt32Array(1466910654) index="8" unique_id=444157398 node_paths=PackedStringArray("Doors") instance=ExtResource("3_tq21a")]
+position = Vector2(874, 3423)
+Doors = [NodePath("../../doors/mechanical_door26"), NodePath("../../doors/mechanical_door28"), NodePath("../../doors/mechanical_door29")]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area/battle_zone9" index="0" unique_id=1462712118]
+shape = SubResource("SegmentShape2D_3otuv")
+debug_color = Color(0.9490196, 0, 0, 0.41960785)
+metadata/_edit_lock_ = true
+
 [node name="mechanical_door" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="0" unique_id=1294071322 instance=ExtResource("3_3otuv")]
 position = Vector2(3074, 2880)
 rotation = 1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door2" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="1" unique_id=331652148 instance=ExtResource("3_3otuv")]
 position = Vector2(3072, 1721)
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door3" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="2" unique_id=541263653 instance=ExtResource("3_3otuv")]
@@ -53,6 +173,7 @@ position = Vector2(2873, 1984)
 rotation = -1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door4" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="3" unique_id=805522227 instance=ExtResource("3_3otuv")]
@@ -60,6 +181,7 @@ position = Vector2(3335, 1920)
 rotation = 1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door5" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="4" unique_id=637186080 instance=ExtResource("3_3otuv")]
@@ -67,12 +189,14 @@ position = Vector2(3136, 2183)
 rotation = 3.1415927
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door6" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="5" unique_id=1617718166 instance=ExtResource("3_3otuv")]
 position = Vector2(3520, 1209)
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door7" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="6" unique_id=1976692649 instance=ExtResource("3_3otuv")]
@@ -80,6 +204,7 @@ position = Vector2(3321, 1472)
 rotation = -1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door8" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="7" unique_id=10481507 instance=ExtResource("3_3otuv")]
@@ -87,6 +212,7 @@ position = Vector2(3783, 1344)
 rotation = 1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door9" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="8" unique_id=1725182198 instance=ExtResource("3_3otuv")]
@@ -94,12 +220,14 @@ position = Vector2(3584, 1671)
 rotation = 3.1415927
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door10" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="9" unique_id=95439527 instance=ExtResource("3_3otuv")]
 position = Vector2(3072, 1209)
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door11" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="10" unique_id=1952181540 instance=ExtResource("3_3otuv")]
@@ -107,6 +235,7 @@ position = Vector2(2873, 1472)
 rotation = -1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door12" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="11" unique_id=149664401 instance=ExtResource("3_3otuv")]
@@ -114,6 +243,7 @@ position = Vector2(3335, 1408)
 rotation = 1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door13" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="12" unique_id=860133794 instance=ExtResource("3_3otuv")]
@@ -121,12 +251,14 @@ position = Vector2(3136, 1671)
 rotation = 3.1415927
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door14" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="13" unique_id=520071424 instance=ExtResource("3_3otuv")]
 position = Vector2(2048, 1721)
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door15" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="14" unique_id=1364458218 instance=ExtResource("3_3otuv")]
@@ -134,6 +266,7 @@ position = Vector2(1849, 1984)
 rotation = -1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door16" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="15" unique_id=1919353106 instance=ExtResource("3_3otuv")]
@@ -141,6 +274,7 @@ position = Vector2(2311, 1920)
 rotation = 1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door17" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="16" unique_id=2053731084 instance=ExtResource("3_3otuv")]
@@ -148,12 +282,14 @@ position = Vector2(2112, 2183)
 rotation = 3.1415927
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door18" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="17" unique_id=1077365643 instance=ExtResource("3_3otuv")]
 position = Vector2(832, 2233)
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door19" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="18" unique_id=1436048296 instance=ExtResource("3_3otuv")]
@@ -161,6 +297,7 @@ position = Vector2(569, 2496)
 rotation = -1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door20" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="19" unique_id=657368397 instance=ExtResource("3_3otuv")]
@@ -168,6 +305,7 @@ position = Vector2(1159, 2432)
 rotation = 1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door21" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="20" unique_id=825818922 instance=ExtResource("3_3otuv")]
@@ -175,12 +313,14 @@ position = Vector2(896, 2695)
 rotation = 3.1415927
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door22" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="21" unique_id=1002454411 instance=ExtResource("3_3otuv")]
 position = Vector2(1600, 2233)
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door23" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="22" unique_id=1099026099 instance=ExtResource("3_3otuv")]
@@ -188,6 +328,7 @@ position = Vector2(1337, 2496)
 rotation = -1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door24" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="23" unique_id=1969251599 instance=ExtResource("3_3otuv")]
@@ -195,6 +336,7 @@ position = Vector2(1991, 2560)
 rotation = 1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door25" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="24" unique_id=42984379 instance=ExtResource("3_3otuv")]
@@ -202,12 +344,14 @@ position = Vector2(1600, 2759)
 rotation = 3.1415927
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door26" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="25" unique_id=134606228 instance=ExtResource("3_3otuv")]
 position = Vector2(1088, 3193)
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door28" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="26" unique_id=767383368 instance=ExtResource("3_3otuv")]
@@ -215,6 +359,7 @@ position = Vector2(1415, 3456)
 rotation = 1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door29" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="27" unique_id=2061827104 instance=ExtResource("3_3otuv")]
@@ -222,12 +367,14 @@ position = Vector2(1152, 3719)
 rotation = 3.1415927
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door30" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="28" unique_id=800762137 instance=ExtResource("3_3otuv")]
 position = Vector2(1600, 1145)
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door31" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="29" unique_id=252426578 instance=ExtResource("3_3otuv")]
@@ -235,6 +382,7 @@ position = Vector2(1401, 1408)
 rotation = -1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door32" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="30" unique_id=584460999 instance=ExtResource("3_3otuv")]
@@ -242,12 +390,14 @@ position = Vector2(1927, 1344)
 rotation = 1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door34" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="31" unique_id=1721229614 instance=ExtResource("3_3otuv")]
 position = Vector2(1152, 569)
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door36" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="32" unique_id=1100359482 instance=ExtResource("3_3otuv")]
@@ -255,6 +405,7 @@ position = Vector2(1479, 896)
 rotation = 1.5707964
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door37" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="33" unique_id=2141468035 instance=ExtResource("3_3otuv")]
@@ -262,4 +413,5 @@ position = Vector2(1088, 1031)
 rotation = 3.1415927
 facade_y_size = 0.0
 opening = true
+metadata/open = true
 metadata/_edit_lock_ = true
