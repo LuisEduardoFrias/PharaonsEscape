@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bgydymjcecvbx"]
+
+[ext_resource type="TileSet" uid="uid://cjacau0u51usp" path="res://Resources/tileset_word.tres" id="1_ullkn"]
+
+[node name="ColorRect" type="ColorRect" unique_id=1618409229]
+z_index = 2
+offset_right = 252.0
+offset_bottom = 243.0
+color = Color(0.20784314, 0, 0.019607844, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=925266022]
+tile_set = ExtResource("1_ullkn")
+metadata/_edit_lock_ = true

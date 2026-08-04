@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c7lcluh6gi3da" path="res://Textures/Sprites/map_decorations.png" id="1_spqc1"]
 [ext_resource type="PackedScene" uid="uid://crjuj7alij3e6" path="res://Scenes/Custom_nodes/torch.tscn" id="2_6eyhw"]
 [ext_resource type="Texture2D" uid="uid://n8puhtbjticy" path="res://Textures/Sprites/risco.png" id="4_jak1e"]
+[ext_resource type="Texture2D" uid="uid://b4on2oxvdaew1" path="res://Textures/Sprites/assets.png" id="5_iaqxm"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_jak1e"]
 tile_data = PackedInt32Array(65536, 65539, 3, 131072, 65538, 1, 196608, 327683, 4, 262144, 3, 4, 327680, 3, 4, 393216, 3, 4, 458752, 327683, 1342177284, 524288, 393219, 1610612739, 589824, 393219, 1610612739, 655360, 458755, 536870916, 720896, 65539, 4, 786432, 65539, 5, 1, 3, 3, 65537, 196611, 3, 131073, 65538, 1, 196609, 393219, 3, 262145, 2, 0, 327681, 2, 1, 393217, 2, 1, 458753, 2, 1, 524289, 2, 1, 589825, 2, 2, 655361, 393219, 3, 720897, 65538, 1, 786433, 65539, 5, 2, 65539, 3, 65538, 65538, 1, 131074, 65538, 1, 196610, 393219, 3, 262146, 65538, 0, 327682, 851970, 10, 393218, 851970, 11, 458754, 851970, 11, 524290, 851970, 12, 589826, 65538, 2, 655362, 393219, 3, 720898, 131074, 14, 786434, 65539, 5, 3, 65539, 3, 65539, 65538, 1, 131075, 262147, 5, 196611, 262147, 805306373, 262147, 65538, 0, 327683, 851970, 1342177291, 393219, 131074, 14, 458755, 131074, 14, 524291, 851970, 1610612747, 589827, 65538, 2, 655363, 393219, 3, 720899, 65538, 1, 786435, 65539, 5, 4, 65539, 3, 65540, 65538, 1, 131076, 327683, 268435459, 196612, 2, 0, 262148, 262146, 1, 327684, 917506, 10, 393220, 131074, 14, 458756, 851970, 13, 524292, 983042, 12, 589828, 65538, 2, 655364, 393219, 3, 720900, 65538, 1, 786436, 65539, 5, 5, 65539, 3, 65541, 65538, 1, 131077, 65538, 1, 196613, 65538, 1, 262149, 65538, 1, 327685, 589826, 12, 393221, 131074, 14, 458757, 917506, 12, 524293, 196610, 0, 589829, 131074, 2, 655365, 327683, 268435459, 720901, 65538, 1, 786437, 65539, 5, 6, 131075, 3, 65542, 131075, 4, 131078, 262147, 3, 196614, 131074, 0, 262150, 196610, 1, 327686, 917506, 10, 393222, 131074, 14, 458758, 131074, 14, 524294, 65538, 1, 589830, 65538, 1, 655366, 65538, 1, 720902, 65538, 1, 786438, 65539, 5, 131079, 131075, 3, 196615, 262147, 3, 262151, 65538, 0, 327687, 983042, 1610612748, 393223, 983042, 11, 458759, 983042, 1342177290, 524295, 65538, 2, 589831, 262147, 4, 655367, 131075, 4, 720903, 131075, 4, 786439, 131075, 5, 196616, 65539, 3, 262152, 131074, 0, 327688, 131074, 1, 393224, 131074, 1, 458760, 131074, 1, 524296, 131074, 2, 589832, 65539, 5, 196617, 131075, 3, 262153, 131075, 4, 327689, 131075, 4, 393225, 131075, 4, 458761, 131075, 4, 524297, 131075, 4, 589833, 131075, 5)
@@ -940,10 +941,21 @@ texture_region_size = Vector2i(64, 64)
 13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 20, -21, 20, -21, 32, -32, 32)
 13:1/0/physics_layer_0/polygon_1/points = PackedVector2Array(21, 19, 21, 32, 32, 32, 32, 19)
 12:0/0 = 0
+12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 12:0/0/physics_layer_2/polygon_0/points = PackedVector2Array(-10, -30, -5, -26, -1, -20, -1, -12, -5, -6, -10, -2, -22, -2, -27, -5, -31, -12, -31, -20, -28, -26, -22, -30)
 14:2/0 = 0
 9:0/0 = 0
 9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, -32, -32, 32, -32, 32, 32)
+15:13/0 = 0
+15:13/0/physics_layer_1/polygon_0/points = PackedVector2Array(32, 2, 32, 32, -32, 32, -32, 2)
+15:14/0 = 0
+15:14/0/physics_layer_1/polygon_0/points = PackedVector2Array(32, 2, 32, 32, -32, 32, -32, 2)
+13:0/0 = 0
+13:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+11:0/0 = 0
+11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iaqxm"]
 texture = ExtResource("4_jak1e")
@@ -1331,6 +1343,28 @@ texture_region_size = Vector2i(64, 64)
 4:13/animation_frame_3/duration = 1.0
 4:13/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bgeji"]
+texture = ExtResource("5_iaqxm")
+texture_region_size = Vector2i(64, 64)
+0:0/animation_speed = 6.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/0 = 0
+11:0/0 = 0
+13:0/0 = 0
+15:6/0 = 0
+0:1/size_in_atlas = Vector2i(1, 2)
+0:1/animation_speed = 4.0
+0:1/animation_frame_0/duration = 1.0
+0:1/animation_frame_1/duration = 1.0
+0:1/animation_frame_2/duration = 1.0
+0:1/animation_frame_3/duration = 1.0
+0:1/0 = 0
+
 [resource]
 tile_size = Vector2i(64, 64)
 occlusion_layer_0/light_mask = 1
@@ -1356,4 +1390,5 @@ sources/2 = SubResource("TileSetAtlasSource_xa4ot")
 sources/0 = SubResource("TileSetAtlasSource_6eyhw")
 sources/1 = SubResource("TileSetScenesCollectionSource_jak1e")
 sources/3 = SubResource("TileSetAtlasSource_iaqxm")
+sources/4 = SubResource("TileSetAtlasSource_bgeji")
 pattern_0 = SubResource("TileMapPattern_jak1e")

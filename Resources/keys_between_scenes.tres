@@ -5,6 +5,8 @@
 [resource]
 script = ExtResource("1_t8m2o")
 lista_claves = {
+&"l1s1_l1s2": "nivel 1 sección 1 y nivel 1 sección 2",
+&"l1s2_l1s3": &"nivel 1 sección 2 y nivel 1 sección 3",
 &"l3s1_l3s2": "nivel 3 secciones 1 y 2",
 &"l3s1_l3s2_d2": "nivel 3 secciones 1 y 2 puerta 2",
 &"l3s2_l2s1": "nivel 3 sección 2 y nivel 2 seccion1",

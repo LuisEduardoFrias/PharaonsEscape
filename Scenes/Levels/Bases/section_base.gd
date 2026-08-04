@@ -31,6 +31,6 @@ func _ready() -> void:
 	vortex.player = player
 
 	$Sprite2D.visible = false
-	RenderingServer.set_default_clear_color(Color("350005FF"))
+	RenderingServer.set_default_clear_color(Color("350005FF") * Color("8b8b8b"))
 	if not is_node_ready(): await ready
 	Global.current_scene = self
