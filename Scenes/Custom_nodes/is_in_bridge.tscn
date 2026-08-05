@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cih5v0lv5m2rh"]
+
+[ext_resource type="Script" uid="uid://dowoechmk2768" path="res://Scenes/Custom_nodes/is_in_bridge.gd" id="1_vn1si"]
+
+[node name="is_in_bridge" type="Area2D" unique_id=1818030722]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_vn1si")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

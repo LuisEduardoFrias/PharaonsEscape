@@ -7,16 +7,10 @@ var mini_shadow_scale: Vector2 = Vector2(0.185, 0.070)
 var jump_force: float = 30.0
 
 func enter(_data: Dictionary = {}) -> void:
-	if actor.is_jumping:
-		change_state.emit(AnimationStateMachine.States.IDLE, {})
-		return
-	else :
-		actor.set_collision_mask_value(10, false)
-		actor.floor_detected.monitoring = false
-		actor.floor_detected.monitorable = false
-		actor.is_jumping = true
-		if actor.side_scroller:
-			jump_force = actor.side_scroller.jump_force
+	actor.set_collision_mask_value(10, false) # para poder saltar los hoyos de las basijas canopo
+	actor.is_jumping = true
+	if actor.side_scroller:
+		jump_force = actor.side_scroller.jump_force
 
 	super()
 	_move_sprite()
@@ -40,8 +34,6 @@ func _move_sprite() -> void:
 		change_state.emit(AnimationStateMachine.States.IDLE, {})
 		actor.set_collision_mask_value(10, true)
 		actor._input_physics_off(false)
-		actor.floor_detected.monitoring = true
-		actor.floor_detected.monitorable = true
 		actor.is_jumping = false
 		actor.jump_finished.emit()
 	)

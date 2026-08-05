@@ -585,7 +585,7 @@ metadata/_edit_lock_ = true
 
 [node name="shadow" type="Sprite2D" parent="." unique_id=258790362]
 position = Vector2(0, 4)
-scale = Vector2(0.253, 0.095)
+scale = Vector2(1e-05, 1e-05)
 texture = SubResource("GradientTexture2D_06tpx")
 metadata/_edit_lock_ = true
 

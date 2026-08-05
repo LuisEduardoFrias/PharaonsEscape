@@ -21,7 +21,7 @@ extends Path2D
 var tw: Tween
 var player: Player
 
-var last_platform_pos: Vector2 = Vector2.ZERO
+var last_platform_post: Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
@@ -48,30 +48,28 @@ func setup_tween() -> void:
 
 func _process(_delta: float) -> void:
 	if player:
-		var platform_displacement: Vector2 = platform.global_position - last_platform_pos
+		var platform_displacement: Vector2 = platform.global_position - last_platform_post
 		player.global_position += platform_displacement
 
-	last_platform_pos = platform.global_position
+	last_platform_post = platform.global_position
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
-		if body.is_jumping:
-			body.jump_finished.connect(flatform)
-		body.is_in_platform = true
+		if body.is_jumping: body.jump_finished.connect(flatform)
+		body.on_platform = true
 		player = body
-		last_platform_pos = platform.global_position
+		last_platform_post = platform.global_position
 		set_process(true)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Player:
-		if body.jump_finished.is_connected(flatform):
-			body.jump_finished.disconnect(flatform)
-		body.is_in_platform = false
+		if body.jump_finished.is_connected(flatform): body.jump_finished.disconnect(flatform)
+		body.on_platform = false
 		set_process(false)
 		player = null
 
 
 func flatform() -> void:
-	player.is_in_platform = true
+	player.on_platform = true

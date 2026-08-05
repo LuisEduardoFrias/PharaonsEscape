@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Data" format=3 uid="uid://dxyhvyb0ff83m"]
+[gd_resource type="Resource" script_class="Data" format=3 uid="uid://b1u67ssdeo2xb"]
 
 [ext_resource type="Script" uid="uid://dx0p6qdb3a3w5" path="res://Resources/Data_save/current_level_data.gd" id="1_5jgkc"]
 [ext_resource type="Script" uid="uid://dapxu2f7w8ls4" path="res://Resources/Data_save/items_data.gd" id="2_xogpi"]
@@ -58,7 +58,7 @@ metadata/_custom_type_script = "uid://c86evod0qhgbm"
 
 [sub_resource type="Resource" id="Resource_20ebd"]
 script = ExtResource("9_20ebd")
-equipped_skills = Array[int]([2, 0, 0])
+equipped_skills = Array[int]([2, 3, 0])
 metadata/_custom_type_script = "uid://dldgoqqatmqt7"
 
 [sub_resource type="Resource" id="Resource_ffaag"]

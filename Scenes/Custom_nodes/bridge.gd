@@ -27,6 +27,7 @@ var active: bool = false
 		dir_auto_jump2 = val
 		if not is_node_ready(): await ready
 		auto_jump2.direction = val
+@export var middle: TileMapLayer = null
 @export var background: TileMapLayer = null
 @export var lower_level: TileMapLayer = null
 @export var elevate_shape: CollisionShape2D = null:
@@ -70,13 +71,17 @@ var active: bool = false
 func _on_elevate_tile_body_entered(body: Node2D) -> void:
 	if body is Player:
 		background.z_index = 2
+		middle.z_index = 2
 		background.light_mask = 0
+		background.collision_enabled = false
 
 
 func _on_elevate_tile_body_exited(body: Node2D) -> void:
 	if body is Player:
 		background.z_index = 0
+		middle.z_index = 1
 		background.light_mask = 1
+		background.collision_enabled = true
 
 
 func _on_auto_jump_jumping() -> void:
