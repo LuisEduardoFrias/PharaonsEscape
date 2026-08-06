@@ -25,7 +25,8 @@ var bridge_fall: bool = false # Para verificar cuando cae del puente
 
 
 func _ready() -> void:
-	pass
+	current_slot = SaveManager.available_slots[0]
+
 
 # Guada los datos generales
 func save() -> void:
@@ -145,22 +146,15 @@ func skill_to_str(skill: SkillsData.SkillsType) -> String:
 
 
 func add_skill(skill: SkillsData.SkillsType) -> void:
-	var skill_name : String = skill_to_str(skill)
-
-	if data.skills[skill_name] == null:
-		push_error("La habilidad '%s' no se encuentras" % skill)
-		return
-
-	data.skills.set(skill_name, true)
-	equipped_skill(skill_name)
+	data.skills.unlock_skill(skill)
 	save()
-	added_skill.emit(skill_name)
+	added_skill.emit(skill)
 
 
 #equipa la habilidad con el nombre dado en el ID del campo dado
-func equipped_skill(skill_name: String) -> void:
-	var skill: SkillsData.SkillsType =  skill_to_enum(skill_name)
-	data.player.equipped_skills[SkillsData.equipped_index_to_skill(skill)] = skill
+func equipped_skill(skill_: SkillsData.SkillsType) -> void:
+	var skill: SkillsData.SkillsType =  skill_
+	data.player.equipped_skills[SkillsData.equipped_index_to_skill(skill).container_id] = skill
 	save()
 
 
@@ -200,8 +194,7 @@ func hidden_item(item: ItemsData.ItemType, index: int = -1) -> bool:
 
 
 func hidden_skill(skill: SkillsData.SkillsType) -> bool:
-	var skill_name : String = skill_to_str(skill)
-	return data.skills[skill_name]
+	return data.skills.has_skill(skill)
 
 
 #region

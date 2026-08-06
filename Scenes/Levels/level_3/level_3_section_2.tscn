@@ -523,7 +523,7 @@ z_index = -1
 
 [node name="Player" parent="." index="4" unique_id=667587367]
 z_as_relative = false
-position = Vector2(2119, 1358)
+position = Vector2(-4484, 1521)
 scale = Vector2(1, 1)
 
 [node name="lower_level" parent="." index="6" unique_id=589084019]
@@ -1355,7 +1355,7 @@ metadata/_edit_lock_ = true
 shape = SubResource("RectangleShape2D_pwpwa")
 
 [node name="mechanical_door" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="11" unique_id=1294071322 instance=ExtResource("7_iijwr")]
-position = Vector2(62, 1152)
+position = Vector2(60, 1152)
 rotation = 4.712389
 scale = Vector2(-1, 1)
 facade_y_size = 512.0
@@ -1364,7 +1364,7 @@ direction = "LEFT"
 metadata/_edit_lock_ = true
 
 [node name="mechanical_door2" parent="doors" parent_id_path=PackedInt32Array(1553830324) index="12" unique_id=606375684 instance=ExtResource("7_iijwr")]
-position = Vector2(-1280, 1280)
+position = Vector2(-1285, 1280)
 rotation = -1.5707964
 facade_y_size = 512.0
 double_door = true

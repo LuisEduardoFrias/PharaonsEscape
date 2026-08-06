@@ -22,7 +22,29 @@
         "visibility": 0.0
       }
     },
+    "res://Scenes/Custom_nodes/hub/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0.0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
+      }
+    },
     "res://Textures/Sprites/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0.0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
+      }
+    },
+    "res://Textures/Ui/Hub/": {
       "metadata/_custom_type_script": {
         "visibility": 0.0
       },
@@ -90,7 +112,7 @@
     }
   },
   "recent_paths": [
-    "res://Textures/Sprites/",
+    "res://Textures/Ui/Hub/",
     "res://save_debug_data/slot_1/"
   ],
   "table_functions": {

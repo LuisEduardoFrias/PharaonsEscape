@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://bgk2mavb6kb11"]
+
+[ext_resource type="Texture2D" uid="uid://b7q84qpeoalrk" path="res://Textures/Sprites/all_skills .png" id="1_7ctjj"]
+[ext_resource type="Script" uid="uid://cu8grwwiy238c" path="res://Scenes/Custom_nodes/hub/panel_skills_selector.gd" id="1_lgf7s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiu3k"]
+atlas = ExtResource("1_7ctjj")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_052l7"]
+atlas = ExtResource("1_7ctjj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w0m8"]
+atlas = ExtResource("1_7ctjj")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgf7s"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+draw_center = false
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0w0m8"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6384261, 0.6384262, 0.6384261, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iiu3k"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+draw_center = false
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="panel_skills_selector" type="Panel" unique_id=417328908]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(78, 87)
+size_flags_horizontal = 3
+mouse_filter = 2
+accessibility_name = "."
+script = ExtResource("1_lgf7s")
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=351373724]
+custom_minimum_size = Vector2(64, 200)
+layout_mode = 0
+offset_left = 7.0
+offset_top = -66.5
+offset_right = 71.0
+offset_bottom = 153.5
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/separation = 14
+metadata/_edit_lock_ = true
+
+[node name="texture_rect" type="TextureRect" parent="VBoxContainer" unique_id=827832059]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+accessibility_name = "."
+texture = SubResource("AtlasTexture_iiu3k")
+metadata/_edit_lock_ = true
+
+[node name="texture_rect2" type="TextureRect" parent="VBoxContainer" unique_id=1091942501]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+accessibility_name = "."
+texture = SubResource("AtlasTexture_052l7")
+metadata/_edit_lock_ = true
+
+[node name="texture_rect3" type="TextureRect" parent="VBoxContainer" unique_id=539310623]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+accessibility_name = "."
+texture = SubResource("AtlasTexture_0w0m8")
+metadata/_edit_lock_ = true
+
+[node name="btn_select" type="Button" parent="." unique_id=516917496]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+accessibility_name = "."
+theme_override_styles/normal = SubResource("StyleBoxFlat_lgf7s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0w0m8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iiu3k")
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="btn_select" to="." method="_on_btn_select_pressed"]

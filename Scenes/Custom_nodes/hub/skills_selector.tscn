@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b308fsddrk8dk"]
+
+[ext_resource type="Script" uid="uid://tnn4t7oqtc6r" path="res://Scenes/Custom_nodes/hub/skills_selector.gd" id="1_052l7"]
+[ext_resource type="Texture2D" uid="uid://o3lo0h4yrqgy" path="res://Textures/Ui/Hub/itams_x.png" id="1_vbg74"]
+[ext_resource type="PackedScene" uid="uid://bgk2mavb6kb11" path="res://Scenes/Custom_nodes/hub/panel_skills_selector.tscn" id="3_052l7"]
+
+[node name="skills_selector" type="MarginContainer" unique_id=1089298137]
+custom_minimum_size = Vector2(325, 170)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_bottom = 60.0
+grow_horizontal = 0
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+script = ExtResource("1_052l7")
+metadata/_edit_lock_ = true
+
+[node name="skills" type="TextureRect" parent="." unique_id=498513579]
+layout_mode = 2
+mouse_filter = 2
+accessibility_name = "."
+texture = ExtResource("1_vbg74")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=542811855]
+layout_mode = 2
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/margin_left = 29
+theme_override_constants/margin_top = 29
+theme_override_constants/margin_right = 29
+theme_override_constants/margin_bottom = 29
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1158738945]
+clip_contents = true
+layout_mode = 2
+mouse_filter = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="panel_skills_selector" parent="MarginContainer/HBoxContainer" unique_id=417328908 instance=ExtResource("3_052l7")]
+layout_mode = 2
+
+[node name="panel_skills_selector2" parent="MarginContainer/HBoxContainer" unique_id=1824057052 instance=ExtResource("3_052l7")]
+layout_mode = 2
+container_index = 1
+
+[node name="panel_skills_selector3" parent="MarginContainer/HBoxContainer" unique_id=1136873860 instance=ExtResource("3_052l7")]
+layout_mode = 2
+container_index = 2

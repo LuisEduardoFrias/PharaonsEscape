@@ -12,9 +12,3 @@ enum Player_direction { FRONT, BACK, LEFT, RIGHT }
 	SkillsData.SkillsType.NONE,
 	SkillsData.SkillsType.NONE
 ]
-
-'''
-	SkillsData.SkillsType.ANUBISS_SHADOW_BRACELET,
-	SkillsData.SkillsType.ROLL,
-	SkillsData.SkillsType.HAMMER
-	'''

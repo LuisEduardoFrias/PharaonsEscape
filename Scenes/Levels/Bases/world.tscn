@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bjsuw00g8u4l4" path="res://Scenes/Custom_nodes/show_title.tscn" id="3_bytla"]
 [ext_resource type="PackedScene" uid="uid://dmk7m8brrpvt5" path="res://addons/joy_stick/touch_controls.tscn" id="3_ckv4v"]
 [ext_resource type="PackedScene" uid="uid://mv6rb6kr460f" path="res://Scenes/Custom_nodes/vortex_transition.tscn" id="4_bytla"]
+[ext_resource type="Texture2D" uid="uid://bky0taj6xe32h" path="res://Textures/Ui/Hub/marco.png" id="4_den31"]
 [ext_resource type="PackedScene" uid="uid://tkcxscp8bdo8" path="res://Scenes/ui_dev.tscn" id="4_qghhs"]
+[ext_resource type="PackedScene" uid="uid://b308fsddrk8dk" path="res://Scenes/Custom_nodes/hub/skills_selector.tscn" id="5_s25tx"]
 
 [node name="world" type="Node2D" unique_id=820486288 groups=["World"]]
 script = ExtResource("1_x0d8c")
@@ -54,6 +56,10 @@ metadata/_edit_lock_ = true
 
 [node name="Show_title" parent="CanvasLayer/HUD" unique_id=1833961391 instance=ExtResource("3_bytla")]
 layout_mode = 1
+offset_left = -13.0
+offset_top = 36.0
+offset_right = -13.0
+offset_bottom = 36.0
 
 [node name="toush_controls" parent="CanvasLayer/HUD" unique_id=1883490261 instance=ExtResource("3_ckv4v")]
 layout_mode = 1
@@ -61,7 +67,7 @@ mouse_filter = 2
 script = null
 metadata/_edit_lock_ = true
 
-[node name="Control" type="Control" parent="CanvasLayer/HUD" unique_id=1809306783]
+[node name="show_get_items" type="Control" parent="CanvasLayer/HUD" unique_id=1809306783]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -69,9 +75,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 metadata/_edit_lock_ = true
 
-[node name="Panel" type="Panel" parent="CanvasLayer/HUD/Control" unique_id=703960105]
+[node name="Panel" type="Panel" parent="CanvasLayer/HUD/show_get_items" unique_id=703960105]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -83,15 +90,79 @@ offset_top = -129.0
 offset_bottom = -29.0
 grow_horizontal = 0
 grow_vertical = 2
-metadata/_edit_lock_ = true
+mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/Control/Panel" unique_id=172303579]
-layout_mode = 0
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/show_get_items/Panel" unique_id=1554969146]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/HUD/show_get_items/Panel/HBoxContainer" unique_id=2112045334]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/show_get_items/Panel/HBoxContainer/Panel" unique_id=172303579]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 90.0
 offset_bottom = 90.0
+size_flags_horizontal = 3
+mouse_filter = 2
 metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/show_get_items/Panel/HBoxContainer" unique_id=369142817]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="CanvasLayer/HUD/show_get_items/Panel/HBoxContainer/MarginContainer" unique_id=1472332899]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "
+
+"
+autowrap_mode = 2
+
+[node name="hub" type="Control" parent="CanvasLayer/HUD" unique_id=1448462521]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="box" type="TextureRect" parent="CanvasLayer/HUD/hub" unique_id=327436885]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_den31")
+metadata/_edit_lock_ = true
+
+[node name="skills_selector" parent="CanvasLayer/HUD/hub" unique_id=1089298137 instance=ExtResource("5_s25tx")]
+layout_mode = 1
+offset_left = -325.0
+offset_bottom = 170.0
+
+[node name="live" type="Panel" parent="CanvasLayer/HUD/hub" unique_id=1468640928]
+visible = false
+layout_mode = 1
+offset_right = 614.0
+offset_bottom = 263.0
+mouse_filter = 2
 
 [node name="Pause" type="Control" parent="CanvasLayer" unique_id=89536340]
 layout_mode = 3

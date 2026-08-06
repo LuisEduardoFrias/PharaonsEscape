@@ -22,7 +22,7 @@ script = ExtResource("1_vp6ty")
 metadata/_edit_lock_ = true
 
 [node name="sprite" type="Sprite2D" parent="." unique_id=378491620]
-z_index = 5
+z_index = 10
 scale = Vector2(7, 7)
 texture = SubResource("GradientTexture2D_qr1w5")
 metadata/_edit_lock_ = true
