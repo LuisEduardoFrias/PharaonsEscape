@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bky0taj6xe32h" path="res://Textures/Ui/Hub/marco.png" id="4_den31"]
 [ext_resource type="PackedScene" uid="uid://tkcxscp8bdo8" path="res://Scenes/ui_dev.tscn" id="4_qghhs"]
 [ext_resource type="PackedScene" uid="uid://b308fsddrk8dk" path="res://Scenes/Custom_nodes/hub/skills_selector.tscn" id="5_s25tx"]
+[ext_resource type="Texture2D" uid="uid://cn2qjyek4gggy" path="res://Textures/Ui/Hub/tablero.png" id="6_kjahy"]
+[ext_resource type="PackedScene" uid="uid://d313ni82rrrwh" path="res://Scenes/Custom_nodes/horney.tscn" id="8_7sb43"]
+[ext_resource type="PackedScene" uid="uid://dyncv0jav7xcs" path="res://Scenes/Custom_nodes/heart.tscn" id="9_tll8e"]
 
 [node name="world" type="Node2D" unique_id=820486288 groups=["World"]]
 script = ExtResource("1_x0d8c")
@@ -56,10 +59,10 @@ metadata/_edit_lock_ = true
 
 [node name="Show_title" parent="CanvasLayer/HUD" unique_id=1833961391 instance=ExtResource("3_bytla")]
 layout_mode = 1
-offset_left = -13.0
-offset_top = 36.0
-offset_right = -13.0
-offset_bottom = 36.0
+offset_left = 30.0
+offset_top = 174.0
+offset_right = 30.0
+offset_bottom = 174.0
 
 [node name="toush_controls" parent="CanvasLayer/HUD" unique_id=1883490261 instance=ExtResource("3_ckv4v")]
 layout_mode = 1
@@ -158,11 +161,81 @@ offset_left = -325.0
 offset_bottom = 170.0
 
 [node name="live" type="Panel" parent="CanvasLayer/HUD/hub" unique_id=1468640928]
-visible = false
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-offset_right = 614.0
-offset_bottom = 263.0
+offset_right = 315.0
+offset_bottom = 197.0
 mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/hub/live" unique_id=1156677174]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_kjahy")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HUD/hub/live/TextureRect" unique_id=668383330]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 60
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/hub/live/TextureRect/MarginContainer" unique_id=879522131]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/hub/live/TextureRect/MarginContainer/VBoxContainer" unique_id=2123241534]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AnimatedSprite2D" parent="CanvasLayer/HUD/hub/live/TextureRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=679546568 instance=ExtResource("8_7sb43")]
+position = Vector2(45.800003, 119.8)
+scale = Vector2(1.7, 1.7)
+autoplay = "default_2"
+frame_progress = 0.5659556
+
+[node name="AnimatedSprite2D3" parent="CanvasLayer/HUD/hub/live/TextureRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=747735461 instance=ExtResource("8_7sb43")]
+position = Vector2(147, 117.999985)
+scale = Vector2(1.7, 1.7)
+autoplay = "default_2"
+frame_progress = 0.88971925
+
+[node name="AnimatedSprite2D2" parent="CanvasLayer/HUD/hub/live/TextureRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1541344359 instance=ExtResource("8_7sb43")]
+position = Vector2(247.79999, 115.8)
+scale = Vector2(1.7, 1.7)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/HUD/hub/live/TextureRect/MarginContainer/VBoxContainer" unique_id=725003534]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AnimatedSprite2D4" parent="CanvasLayer/HUD/hub/live/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1763956648 instance=ExtResource("9_tll8e")]
+position = Vector2(45, 44)
+scale = Vector2(2.5, 2.5)
+autoplay = "default_1"
+frame_progress = 0.061389178
+
+[node name="AnimatedSprite2D5" parent="CanvasLayer/HUD/hub/live/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1505492818 instance=ExtResource("9_tll8e")]
+position = Vector2(147, 44)
+scale = Vector2(2.5, 2.5)
+autoplay = "default_1"
+frame_progress = 0.31910667
+
+[node name="AnimatedSprite2D6" parent="CanvasLayer/HUD/hub/live/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=24685522 instance=ExtResource("9_tll8e")]
+position = Vector2(248, 44)
+scale = Vector2(2.5, 2.5)
+animation = &"default_2"
+autoplay = "default_2"
+frame_progress = 0.031673152
 
 [node name="Pause" type="Control" parent="CanvasLayer" unique_id=89536340]
 layout_mode = 3

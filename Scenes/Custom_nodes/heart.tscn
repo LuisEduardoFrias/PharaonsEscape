@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dyncv0jav7xcs"]
+
+[ext_resource type="Texture2D" uid="uid://c7lcluh6gi3da" path="res://Textures/Sprites/map_decorations.png" id="1_uprfb"]
+[ext_resource type="Shader" uid="uid://cmb1b2ypj8scm" path="res://Shaders/grayscale.gdshader" id="1_wxdry"]
+[ext_resource type="Script" uid="uid://d2e7dd7lm58gs" path="res://Scenes/Custom_nodes/heart.gd" id="2_ywxkf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_acnts"]
+shader = ExtResource("1_wxdry")
+shader_parameter/gray_amount = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywxkf"]
+atlas = ExtResource("1_uprfb")
+region = Rect2(128, 384, 32, 32)
+
+[node name="heart" type="TextureRect" unique_id=1007847228]
+material = SubResource("ShaderMaterial_acnts")
+accessibility_name = "heart"
+texture = SubResource("AtlasTexture_ywxkf")
+script = ExtResource("2_ywxkf")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=10501742]
+position = Vector2(17, 15)
+zoom = Vector2(10, 10)
+metadata/_edit_lock_ = true

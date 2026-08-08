@@ -64,7 +64,7 @@ level5 = SubResource("Resource_sjx8d")
 
 [sub_resource type="Resource" id="Resource_5jgkc"]
 script = ExtResource("9_20ebd")
-equipped_skills = Array[int]([1, 0, 0])
+equipped_skills = Array[int]([2, 0, 0])
 
 [sub_resource type="Resource" id="Resource_s2dlk"]
 script = ExtResource("11_ilp7p")
