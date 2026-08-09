@@ -17,8 +17,3 @@ material = SubResource("ShaderMaterial_acnts")
 accessibility_name = "heart"
 texture = SubResource("AtlasTexture_ywxkf")
 script = ExtResource("2_ywxkf")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=10501742]
-position = Vector2(17, 15)
-zoom = Vector2(10, 10)
-metadata/_edit_lock_ = true

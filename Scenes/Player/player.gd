@@ -43,6 +43,8 @@ var tilemap_layer: TileMapLayer
 
 func _ready() -> void:
 	super()
+	max_live = Global.player_data.max_live
+	current_live = Global.player_data.current_live
 	question.visible = false
 	floor_detected.body_entered.connect(_floor_detected_body_entered)
 	side_scroller = get_node_or_null(^"side_scroller")
@@ -80,6 +82,15 @@ func _physics_process(delta: float) -> void:
 			hit.scale = Vector2(1.0, 1.0)
 
 		move_and_slide()
+
+
+func hurt_post(_damage: float) -> void:
+	Global.player_data._hurt(_damage)
+
+
+func dead() -> void:
+	is_dead.emit()
+	#queue_free()
 
 
 #Detiene todas las entradas al player

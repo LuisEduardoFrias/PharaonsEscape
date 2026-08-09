@@ -57,8 +57,9 @@ func temporarily_switch_camera(camera1: Camera2D, camera2: Camera2D, callback: C
 	await Global.current_scene.change_scene_screen.transition_in()
 
 
-func region_animation(width: int, height: int, r_w: float, r_h: float, node: Node, count_frame: int, speed: float = 3.0) -> void:
-	var t: Tween = create_tween().set_loops()
+func region_animation(width: int, height: int, r_w: float, r_h: float, node: Node, count_frame: int, speed: float = 3.0, is_loop: bool = true) -> void:
+	var t: Tween = create_tween()
+	if is_loop: t.set_loops()
 	t.tween_method(func (i: int) -> void:
 		var x: float = i % width
 		var y: int = int(i / float(height))

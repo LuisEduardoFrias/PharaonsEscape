@@ -562,6 +562,7 @@ collision_mask = 657
 motion_mode = 1
 script = ExtResource("1_uvnfx")
 speed = 150.0
+max_live = 3.0
 sprite_node = NodePath("sprite")
 ray = NodePath("ray_cast")
 audio_player = NodePath("audio_stream_player")

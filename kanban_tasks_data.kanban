@@ -10,12 +10,22 @@
 		{
 			"uuid": "a8fc7c3e-f3d2-4b65-be20-368993e935ed",
 			"title": "Todo",
-			"tasks": []
+			"tasks": [
+				"f9cd269c-d5be-42fa-b4d3-418b6a810fa2",
+				"92881a6a-51be-4559-9025-2dc9bd5bd103",
+				"1bdcbb11-901b-46b1-896c-717711db5f15",
+				"46c26794-ca1b-41a2-8a14-838724d12693",
+				"5d001e22-f26d-41c5-814a-436ab81ef347",
+				"7a335610-c7ad-43b6-883f-792b2a3971b3",
+				"2a1a9957-57fe-48e9-a50e-f2dea172f459"
+			]
 		},
 		{
 			"uuid": "af212306-699f-43c4-826b-642fbaceaf66",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"77efdb5b-bab2-4795-8a64-ed78e4566aad"
+			]
 		},
 		{
 			"uuid": "896e84a5-ce48-4601-a515-bf9d89c4a25f",
@@ -23,7 +33,81 @@
 			"tasks": []
 		}
 	],
-	"tasks": [],
+	"tasks": [
+		{
+			"uuid": "77efdb5b-bab2-4795-8a64-ed78e4566aad",
+			"title": "Hub",
+			"description": "Trabajar todas las interfaces visible o que se pueden ver mientas se juega",
+			"category": "85ff7fc6-8214-4a21-9e2c-2ac07ec3efba",
+			"steps": [
+				{
+					"details": "add skill",
+					"done": false
+				},
+				{
+					"details": "live",
+					"done": false
+				},
+				{
+					"details": "skills",
+					"done": true
+				},
+				{
+					"details": "title",
+					"done": true
+				}
+			]
+		},
+		{
+			"uuid": "f9cd269c-d5be-42fa-b4d3-418b6a810fa2",
+			"title": "Items",
+			"description": "",
+			"category": "85ff7fc6-8214-4a21-9e2c-2ac07ec3efba",
+			"steps": []
+		},
+		{
+			"uuid": "92881a6a-51be-4559-9025-2dc9bd5bd103",
+			"title": "Tramps",
+			"description": "",
+			"category": "85ff7fc6-8214-4a21-9e2c-2ac07ec3efba",
+			"steps": []
+		},
+		{
+			"uuid": "46c26794-ca1b-41a2-8a14-838724d12693",
+			"title": "Menú principal",
+			"description": "",
+			"category": "85ff7fc6-8214-4a21-9e2c-2ac07ec3efba",
+			"steps": []
+		},
+		{
+			"uuid": "1bdcbb11-901b-46b1-896c-717711db5f15",
+			"title": "Audio y musica",
+			"description": "",
+			"category": "85ff7fc6-8214-4a21-9e2c-2ac07ec3efba",
+			"steps": []
+		},
+		{
+			"uuid": "5d001e22-f26d-41c5-814a-436ab81ef347",
+			"title": "Menú de pausa e inventario",
+			"description": "",
+			"category": "85ff7fc6-8214-4a21-9e2c-2ac07ec3efba",
+			"steps": []
+		},
+		{
+			"uuid": "7a335610-c7ad-43b6-883f-792b2a3971b3",
+			"title": "Enemigos",
+			"description": "",
+			"category": "85ff7fc6-8214-4a21-9e2c-2ac07ec3efba",
+			"steps": []
+		},
+		{
+			"uuid": "2a1a9957-57fe-48e9-a50e-f2dea172f459",
+			"title": "guardado y purrificacion",
+			"description": "",
+			"category": "85ff7fc6-8214-4a21-9e2c-2ac07ec3efba",
+			"steps": []
+		}
+	],
 	"layout": {
 		"columns": [
 			[

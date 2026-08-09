@@ -6,12 +6,12 @@ var tw: Tween
 func _ready() -> void:
 	texture = texture.duplicate()
 	_defaut_1()
-	await Util.timerout(3)
+	'''await Util.timerout(3)
 	_hurt_1()
 	await Util.timerout(5)
 	_hurt_2()
 	await Util.timerout(5)
-	_restore()
+	_restore()'''
 
 
 func _defaut_1() -> void:

@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://ctiha5s3j1ju6"]
+
+[ext_resource type="Script" uid="uid://dpgmcgmgtdrvf" path="res://Scenes/Custom_nodes/live.gd" id="1_51dwk"]
+[ext_resource type="Texture2D" uid="uid://cn2qjyek4gggy" path="res://Textures/Ui/Hub/tablero.png" id="1_262ch"]
+[ext_resource type="PackedScene" uid="uid://dyncv0jav7xcs" path="res://Scenes/Custom_nodes/heart.tscn" id="2_51dwk"]
+[ext_resource type="PackedScene" uid="uid://d313ni82rrrwh" path="res://Scenes/Custom_nodes/horney.tscn" id="3_2dfad"]
+
+[node name="live" type="MarginContainer" unique_id=1958124661]
+custom_minimum_size = Vector2(325, 225)
+offset_right = 325.0
+offset_bottom = 225.0
+accessibility_name = "."
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+script = ExtResource("1_51dwk")
+metadata/_edit_lock_ = true
+
+[node name="panel" type="Panel" parent="." unique_id=538777059]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+mouse_filter = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="panel" unique_id=1310022675]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+texture = ExtResource("1_262ch")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="panel/TextureRect" unique_id=176113099]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 40
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="panel/TextureRect/MarginContainer" unique_id=399222166]
+layout_mode = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="panel/TextureRect/MarginContainer/VBoxContainer" unique_id=1458604880]
+layout_mode = 2
+size_flags_vertical = 3
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="heart" parent="panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1007847228 instance=ExtResource("2_51dwk")]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="heart2" parent="panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=366120525 instance=ExtResource("2_51dwk")]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="heart3" parent="panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=68703173 instance=ExtResource("2_51dwk")]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="panel/TextureRect/MarginContainer/VBoxContainer" unique_id=1168070516]
+layout_mode = 2
+size_flags_vertical = 3
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="horney" parent="panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=768626326 instance=ExtResource("3_2dfad")]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_lock_ = true
+
+[node name="horney2" parent="panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=45265411 instance=ExtResource("3_2dfad")]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_lock_ = true
+
+[node name="horney3" parent="panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=791533355 instance=ExtResource("3_2dfad")]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_lock_ = true
