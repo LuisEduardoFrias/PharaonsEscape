@@ -27,8 +27,10 @@ func _hurt(damage: float) -> void:
 
 
 func _retore_live() -> void:
-	current_live = 3
+	current_live = max_live
 	restore_all_live.emit()
+	await Util.timerout(2.0)
+	Global.save_game()
 
 
 #--------------------

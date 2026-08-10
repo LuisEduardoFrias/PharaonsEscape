@@ -35,7 +35,10 @@ func save() -> void:
 
 # Guada la partida
 func save_game() -> void:
+	player_data.current_horney = data.player.current_horney
+	player_data.equipped_skills = data.player.equipped_skills
 	data.player = player_data
+
 	SaveManager.save_current_game(current_slot, data)
 
 

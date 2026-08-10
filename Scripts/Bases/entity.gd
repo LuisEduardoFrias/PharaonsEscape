@@ -62,7 +62,7 @@ func apply_knockback(attacker_pos: Vector2) -> void:
 ## Reduce la vida de la entidad, activa el efecto visual de daño y calcula el empuje si aplica.
 func hurt(damage_: float, attacker_pos: Vector2 = Vector2.ZERO) -> void:
 	current_live -= damage_
-	hurt_post(damage)
+	hurt_post(damage_)
 
 	animation_effect()
 	play_sound(hit_sfx, -2.0, randf_range(0.9, 1.1))

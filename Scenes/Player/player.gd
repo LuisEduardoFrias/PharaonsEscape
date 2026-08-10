@@ -45,12 +45,21 @@ func _ready() -> void:
 	super()
 	max_live = Global.player_data.max_live
 	current_live = Global.player_data.current_live
+
+	Global.player_data.restore_all_live.connect(func () -> void: current_live = max_live )
+
+
+
 	question.visible = false
 	floor_detected.body_entered.connect(_floor_detected_body_entered)
 	side_scroller = get_node_or_null(^"side_scroller")
 	if side_scroller:
 		shadow.visible = false
 		collision.shape.radius = 3.0
+
+
+func _process(_delta: float) -> void:
+	Global.player_data.position = position
 
 
 func _physics_process(delta: float) -> void:
@@ -219,6 +228,7 @@ func _tile_hit(tile_center_global: Vector2) -> void:
 		fall.emit()
 
 		if spawner_point != Vector2.INF:
+			hurt(1)
 			await Util.timerout(0.5)
 			position = spawner_point
 			intermittency()

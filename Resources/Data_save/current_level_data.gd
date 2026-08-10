@@ -1,4 +1,4 @@
-#PLACEHOLDER_TO_REPLACE:res://Scenes/Levels/level_1/level_1_section_1.tscn
+#PLACEHOLDER_TO_REPLACE:res://Scenes/Levels/level_1/level_1_section_2.tscn
 
 class_name CurrentLevelData extends Resource
 
@@ -13,7 +13,7 @@ enum Titles {
 }
 
 @export var level_name: String = titles_to_str(Titles.The_Grand_Gallery)
-@export var section: String = "res://Scenes/Levels/level_1/level_1_section_1.tscn"
+@export var section: String = "res://Scenes/Levels/level_1/level_1_section_2.tscn"
 
 
 static func titles_to_str(titles: Titles) -> String:

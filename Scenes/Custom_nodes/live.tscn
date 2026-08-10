@@ -61,23 +61,53 @@ size_flags_vertical = 3
 accessibility_name = "."
 metadata/_edit_lock_ = true
 
-[node name="heart" parent="panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1007847228 instance=ExtResource("2_51dwk")]
+[node name="Control" type="Control" parent="panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1570443372]
 layout_mode = 2
 size_flags_horizontal = 3
-expand_mode = 2
-metadata/_edit_lock_ = true
 
-[node name="heart2" parent="panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=366120525 instance=ExtResource("2_51dwk")]
-layout_mode = 2
-size_flags_horizontal = 3
-expand_mode = 1
-metadata/_edit_lock_ = true
+[node name="heart" parent="panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/Control" unique_id=1007847228 instance=ExtResource("2_51dwk")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(38, 29)
+size_flags_horizontal = 0
 
-[node name="heart3" parent="panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=68703173 instance=ExtResource("2_51dwk")]
+[node name="Control2" type="Control" parent="panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=386857566]
 layout_mode = 2
 size_flags_horizontal = 3
-expand_mode = 1
-metadata/_edit_lock_ = true
+
+[node name="heart2" parent="panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/Control2" unique_id=366120525 instance=ExtResource("2_51dwk")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(38, 29)
+size_flags_horizontal = 3
+
+[node name="Control3" type="Control" parent="panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1058535373]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="heart3" parent="panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/Control3" unique_id=68703173 instance=ExtResource("2_51dwk")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(38, 29)
+size_flags_horizontal = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="panel/TextureRect/MarginContainer/VBoxContainer" unique_id=1168070516]
 layout_mode = 2
