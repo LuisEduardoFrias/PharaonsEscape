@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c8o08upd74j7d" path="res://addons/joy_stick/joystick.tscn" id="2_420if"]
 [ext_resource type="PackedScene" uid="uid://den6xm23mhb7e" path="res://addons/joy_stick/toush_button.tscn" id="3_tg4w6"]
 [ext_resource type="Texture2D" uid="uid://c1sbuy7eqtois" path="res://addons/joy_stick/buttons.png" id="4_w7f30"]
+[ext_resource type="Texture2D" uid="uid://c7lcluh6gi3da" path="res://Textures/Sprites/map_decorations.png" id="5_br7i0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q6vtx"]
 atlas = ExtResource("4_w7f30")
@@ -39,11 +40,19 @@ region = Rect2(200, 120, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s12b1"]
 atlas = ExtResource("4_w7f30")
-region = Rect2(160, 320, 40, 40)
+region = Rect2(352, 224, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3wos"]
 atlas = ExtResource("4_w7f30")
-region = Rect2(200, 320, 40, 40)
+region = Rect2(416, 224, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br7i0"]
+atlas = ExtResource("5_br7i0")
+region = Rect2(384, 224, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp0xa"]
+atlas = ExtResource("5_br7i0")
+region = Rect2(432, 224, 48, 48)
 
 [node name="toush_controls" type="Control" unique_id=1139636888 groups=["controls_ui"]]
 layout_mode = 3
@@ -195,3 +204,23 @@ normal_rect = Rect2i(160, 320, 40, 40)
 pressed_rect = Rect2i(200, 320, 40, 40)
 action = &"ui_pause"
 metadata/_edit_lock_ = true
+
+[node name="ToushButton6" parent="hbox_container/right" unique_id=576127093 instance=ExtResource("3_tg4w6")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -311.0
+offset_top = -533.0
+offset_right = -211.0
+offset_bottom = -433.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_br7i0")
+texture_pressed = SubResource("AtlasTexture_pp0xa")
+spritesheet = ExtResource("5_br7i0")
+normal_rect = Rect2i(384, 224, 48, 48)
+pressed_rect = Rect2i(432, 224, 48, 48)
+action = &"ui_use_horney"

@@ -4,7 +4,7 @@ extends StateBase
 
 func enter(_data: Dictionary = {}) -> void:
 	super()
-	actor._input_physics_off(false)
+	#actor._input_physics_off(false)
 
 
 func physics_update(_delta: float) -> void:

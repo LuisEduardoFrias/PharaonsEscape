@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ddj3gno6r750g" path="res://Textures/Sprites/coleccion_tiles.png" id="1_7pcf5"]
 [ext_resource type="Script" uid="uid://dwn3bckh68dvl" path="res://Scenes/Custom_nodes/save_platform.gd" id="2_muumn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3k367"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pcf5"]
 atlas = ExtResource("1_7pcf5")
 region = Rect2(832, 0, 64, 64)
 
@@ -15,13 +15,11 @@ atlas = ExtResource("1_7pcf5")
 region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3k367"]
-size = Vector2(40, 40)
+size = Vector2(50, 50)
 
 [node name="save_planform" type="Sprite2D" unique_id=1137635860]
-texture = SubResource("AtlasTexture_3k367")
-region_enabled = true
+texture = SubResource("AtlasTexture_7pcf5")
 script = ExtResource("2_muumn")
-metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2028713848]
 metadata/_edit_lock_ = true

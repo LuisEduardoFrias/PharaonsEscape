@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://crjuj7alij3e6" path="res://Scenes/Custom_nodes/torch.tscn" id="2_6eyhw"]
 [ext_resource type="PackedScene" uid="uid://d1yl3yyh4pu2k" path="res://Scenes/Custom_nodes/save_platform.tscn" id="3_bgeji"]
 [ext_resource type="Texture2D" uid="uid://n8puhtbjticy" path="res://Textures/Sprites/risco.png" id="4_jak1e"]
+[ext_resource type="PackedScene" uid="uid://dh0dofcn2h70r" path="res://Scenes/Custom_nodes/purify_platform.tscn" id="4_l5n5i"]
 [ext_resource type="Texture2D" uid="uid://b4on2oxvdaew1" path="res://Textures/Sprites/assets.png" id="5_iaqxm"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_jak1e"]
@@ -100,6 +101,8 @@ scenes/1/scene = ExtResource("2_6eyhw")
 scenes/1/display_placeholder = true
 scenes/2/scene = ExtResource("3_bgeji")
 scenes/2/display_placeholder = true
+scenes/3/scene = ExtResource("4_l5n5i")
+scenes/3/display_placeholder = true
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w4i3x"]
 polygon = PackedVector2Array(64, -32, -32, -32, -32, 0, -64, 0, -65, 62, 29, 62, 30, 30, 64, 31)

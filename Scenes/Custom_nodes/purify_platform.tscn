@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dh0dofcn2h70r"]
+
+[ext_resource type="Texture2D" uid="uid://ddj3gno6r750g" path="res://Textures/Sprites/coleccion_tiles.png" id="1_881hk"]
+[ext_resource type="Script" uid="uid://bga173p488c2d" path="res://Scenes/Custom_nodes/purify_platform.gd" id="2_1o8jp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o8jp"]
+atlas = ExtResource("1_881hk")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehyse"]
+size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngmeb"]
+atlas = ExtResource("1_881hk")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1o8jp"]
+size = Vector2(50, 50)
+
+[node name="purify_platform" type="Sprite2D" unique_id=772847582]
+texture = SubResource("AtlasTexture_1o8jp")
+script = ExtResource("2_1o8jp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1560939917]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1467959492]
+shape = SubResource("RectangleShape2D_ehyse")
+metadata/_edit_lock_ = true
+
+[node name="floor" type="Sprite2D" parent="." unique_id=968270168]
+position = Vector2(0, 64)
+texture = SubResource("AtlasTexture_ngmeb")
+metadata/_edit_lock_ = true
+
+[node name="on_save" type="Area2D" parent="." unique_id=1049107529]
+position = Vector2(0, 64)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="on_save" unique_id=21999183]
+shape = SubResource("RectangleShape2D_1o8jp")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="on_save" to="." method="_on_on_save_body_entered"]
+[connection signal="body_exited" from="on_save" to="." method="_on_on_save_body_exited"]
