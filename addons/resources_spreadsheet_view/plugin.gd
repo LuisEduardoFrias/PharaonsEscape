@@ -24,7 +24,7 @@ func _exit_tree() -> void:
 
 
 func _get_plugin_name():
-	return "R" #"ResourceTables"
+	return "r"
 
 
 func _make_visible(visible):

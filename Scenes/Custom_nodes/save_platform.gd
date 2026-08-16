@@ -20,7 +20,7 @@ func _ready() -> void:
 
 func _interact(_data: Dictionary) -> void:
 	player._input_physics_off(true)
-	await Global.player_data._retore_live()
+	Global.data.player._restore_all_heart()
 	await Util.timerout(2.0)
 	Global.save_game()
 	player._input_physics_off(false)

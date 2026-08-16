@@ -1,33 +1,37 @@
 class_name Live extends MarginContainer
 
-@onready var heart1: Heart = $panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/Control/heart
-@onready var heart2: Heart = $panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/Control2/heart2
-@onready var heart3: Heart = $panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/Control3/heart3
 
-@onready var horney1: Horney = $panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/Control/horney
-@onready var horney2: Horney = $panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/Control2/horney2
-@onready var horney3: Horney = $panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/Control3/horney3
+@onready var hearts: Array[Heart] = [
+	$panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/Control/heart,
+	$panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/Control2/heart2,
+	$panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer2/Control3/heart3]
 
-@onready var hearts: Array[Heart] = [heart1, heart2, heart3]
-@onready var horneys: Array[Horney] = [horney1, horney2, horney3]
+@onready var horneys: Array[Horney] = [
+	$panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/Control/horney,
+	$panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/Control2/horney2,
+	$panel/TextureRect/MarginContainer/VBoxContainer/HBoxContainer/Control3/horney3]
 
 
 func _ready() -> void:
-	Global.player_data.hurt.connect(hurt)
-	Global.player_data.restore_all_live.connect(restore_all_live)
-	Global.player_data.purified_horney.connect(_on_horney_purified)
+	Global.data.player.add_heart.connect(add_heart)
+	Global.data.player.hurt_heart.connect(hurt_heart)
+	Global.data.player.restore_all_heart.connect(restore_all_heart)
+	Global.data.player.retore_one_heart.connect(retore_one_heart)
+
+	Global.data.player.add_horney.connect(add_horney)
+	Global.data.player.used_horney.connect(used_horney)
+	Global.data.player.purified_horney.connect(purified_horney)
+	Global.data.player.restore_horney.connect(restore_horney)
 
 	init_live()
 	init_horney()
 
 
 func init_live() -> void:
-	var current_live: int = Global.player_data.current_live
+	var current_live: int = Global.data.player.current_live
 
 	for heart in hearts:
 		heart.scale = Vector2.ZERO
-
-	await Util.timerout(3)
 
 	var tw: Tween = create_tween().set_parallel(true)
 	for i in range(hearts.size()):
@@ -39,7 +43,7 @@ func init_live() -> void:
 			.set_ease(Tween.EASE_OUT)\
 			.set_delay(delay)
 
-	await Util.timerout(2)
+	await Util.timerout(0.5)
 
 	var full_hearts_count: int = max(0, current_live - 3)
 
@@ -52,34 +56,6 @@ func init_live() -> void:
 			heart._hurt_1()
 		else:
 			heart._hurt_2()
-
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"ui_use_horney"):
-		use_horney()
-
-
-## Consumo de miel en orden: Izquierda a Derecha (0 -> 1 -> 2)
-func use_horney() -> void:
-	var horney_data: Array = Global.data.player.current_horney
-
-	for i in range(horney_data.size()):
-		var item: Dictionary = horney_data[i]
-
-		if item.purified and item.get("use", 0) > 0:
-			item.use -= 1
-
-			if item.use == 1:
-				item.points = Horney.POINTS_PER_USE
-				horneys[i]._use_1()
-
-			elif item.use == 0:
-				item.points = 0
-				horneys[i]._use_2()
-
-			Global.player_data._retore_one_live()
-
-			break
 
 
 func init_horney() -> void:
@@ -95,8 +71,8 @@ func init_horney() -> void:
 		var horney: Horney = horneys[i]
 		var data: Dictionary = horney_data[i]
 
-		var is_purified: bool = data.get("purified", false)
-		var pts: int = data.get("points", 0)
+		var is_purified: bool = data.is_purified
+		var pts: int = data.value
 
 		if not is_purified:
 			horney._defaut_1()
@@ -121,40 +97,37 @@ func init_horney() -> void:
 			.set_delay(delay)
 
 
-#---------------------------
+#--------------------------------------------
 
+func add_heart() -> void:
+	var max_live: int = Global.data.player.max_live
 
-func hurt(_damage: int) -> void:
-	var current_live: int = Global.player_data.current_live
-	var previous_live: int = current_live + _damage
+	var full_hearts_count: int = max(0, max_live - 3)
 
 	for i in range(hearts.size()):
 		var heart: Heart = hearts[i]
 
-		var prev_state: int = _get_heart_state(i, previous_live)
-		var curr_state: int = _get_heart_state(i, current_live)
+		var target_is_full: bool = i >= (hearts.size() - full_hearts_count)
 
-		if curr_state < prev_state:
-			if curr_state == 0:
-				heart._hurt_2()
-			elif curr_state == 1:
-				heart._hurt_1()
+		await Util.timerout(0.2)
 
-
-func _get_heart_state(index: int, live_amount: int) -> int:
-	var full_hearts_count: int = max(0, live_amount - 3)
-
-	if index >= (hearts.size() - full_hearts_count):
-		return 2
-	elif index < live_amount:
-		return 1
-	else:
-		return 0
+		if target_is_full:
+			heart._restore_full()
+		else:
+			heart._restore_partial()
 
 
-#---------------------------
+func hurt_heart(_damage: int) -> void:
+	#var current_live: int = Global.data.player.current_live
 
-func update_live() -> void:
+	for i in range(hearts.size(), -1, -1):
+		var heart: Heart = hearts[i-1]
+
+		if heart.state == Heart.States.NORMAL: heart._hurt_1(); break
+		elif heart.state == Heart.States.MUMMIFIED: heart._hurt_2(); break
+
+
+func restore_all_heart() -> void:
 	var max_live: int = Global.player_data.max_live
 
 	var full_hearts_count: int = max(0, max_live - 3)
@@ -172,27 +145,14 @@ func update_live() -> void:
 			heart._restore_partial()
 
 
-
-func restore_all_live() -> void:
-	var max_live: int = Global.player_data.max_live
-
-	var full_hearts_count: int = max(0, max_live - 3)
-
+func retore_one_heart() -> void:
 	for i in range(hearts.size()):
 		var heart: Heart = hearts[i]
-
-		var target_is_full: bool = i >= (hearts.size() - full_hearts_count)
-
-		await Util.timerout(0.2)
-
-		if target_is_full:
-			heart._restore_full()
-		else:
-			heart._restore_partial()
+		if heart.state == Heart.States.STOPPED: heart._defaut_2(); break
+		elif heart.state == Heart.States.MUMMIFIED: heart._defaut_1(); break
 
 
-## Se conecta a la señal cuando se crea/obtiene un NUEVO horney
-func _on_horney_added() -> void:
+func add_horney() -> void:
 	var horney_data: Array = Global.data.player.current_horney
 	if horney_data.is_empty():
 		return
@@ -204,8 +164,8 @@ func _on_horney_added() -> void:
 	var horney: Horney = horneys[new_index]
 	var data: Dictionary = horney_data[new_index]
 
-	var is_purified: bool = data.get("purified", false)
-	var pts: int = data.get("points", 0)
+	var is_purified: bool = data.is_purified
+	var pts: int = data.value
 
 	if not is_purified:
 		horney._defaut_1()
@@ -219,17 +179,30 @@ func _on_horney_added() -> void:
 		.set_ease(Tween.EASE_OUT)
 
 
+func used_horney(index: int, is_one_use: bool) -> void:
+	if is_one_use: horneys[index]._use_1()
+	else: horneys[index]._use_2()
 
 
-## Se conecta a la señal cuando se PURIFICA una vasija
-func _on_horney_purified(_index: int) -> void:
+func purified_horney(_index: int) -> void:
 	var horney_data: Array = Global.data.player.current_horney
 	if horney_data.is_empty():
 		return
-
 	_sort_horney_data_left_to_right(horney_data)
-
 	update_horney_ui()
+
+
+func restore_horney(_index: int, _value: int) -> void: pass
+
+
+#---------------------------
+#---------------------------
+#---------------------------
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(&"ui_use_horney"):
+		Global.data.player._use_horney()
 
 
 ## Función auxiliar que organiza los datos de menor a mayor contenido (Izquierda -> Derecha)

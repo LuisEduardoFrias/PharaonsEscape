@@ -195,8 +195,8 @@ grow_vertical = 0
 text = "Close"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=868073508]
-position = Vector2(759, 356)
-zoom = Vector2(2, 2)
+position = Vector2(670, 445)
+zoom = Vector2(1.5, 1.5)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

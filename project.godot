@@ -50,6 +50,14 @@ window/canvas_textures/default_texture_filter=1
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/mobile_editor_tools/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://Deletes/": "red",
+"res://Scenes/": "yellow",
+"res://Textures/": "teal"
+}
+
 [global_group]
 
 tittle=""

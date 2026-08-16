@@ -46,7 +46,7 @@ func _ready() -> void:
 	max_live = Global.player_data.max_live
 	current_live = Global.player_data.current_live
 
-	Global.player_data.restore_all_live.connect(func () -> void: current_live = max_live )
+	Global.data.player.restore_all_heart.connect(func () -> void: current_live = max_live )
 
 
 
@@ -94,7 +94,7 @@ func _physics_process(delta: float) -> void:
 
 
 func hurt_post(_damage: float) -> void:
-	Global.player_data._hurt(_damage)
+	Global.data.player._hurt_heart(_damage)
 
 
 func dead() -> void:

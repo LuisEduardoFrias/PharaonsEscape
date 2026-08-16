@@ -2,14 +2,15 @@ class_name PlayerData extends Resource
 
 enum Player_direction { FRONT, BACK, LEFT, RIGHT }
 
-signal hurt(damage: int)
-signal restore_all_live
-signal retore_one_live
+signal add_heart
+signal hurt_heart(damage: int)
+signal restore_all_heart
+signal retore_one_heart
 
-signal get_horney
-signal used_horney
+signal add_horney
+signal used_horney(index: int, is_one_use: bool)
 signal purified_horney(index: int)
-signal get_points_horney
+signal restore_horney(index: int, value: int)
 
 @export var max_live: int = 3
 @export var current_live: int = 3
@@ -24,52 +25,76 @@ signal get_points_horney
 ]
 
 
-#----------------------------------- HEART LIVE
-
-func _hurt(damage: float) -> void:
-	current_live -= int(damage )
-	hurt.emit(current_live)
+#----------- HEART LIVE -----------------
 
 
-func _retore_all_live() -> void:
+func _hurt_heart(damage: int) -> void:
+	if current_live > 0:
+		current_live -= damage
+		hurt_heart.emit(damage)
+
+
+func _restore_all_heart() -> void:
 	current_live = max_live
-	restore_all_live.emit()
+	restore_all_heart.emit()
 
 
-func _retore_one_live() -> void:
+func _restore_one_heart() -> void:
 	if current_live == max_live:
 		return
 	current_live += 1
-	retore_one_live.emit()
+	retore_one_heart.emit()
+
+
+func _add_heart() -> void:
+	if max_live < 6:
+		max_live += 1
+		current_live = max_live
+		add_heart.emit()
 
 
 #-------------------- HORNEY POTION
 
-func _get_horney() -> void:
+
+func _add_horney() -> void:
 	if current_horney.size() < 3:
-		current_horney.append(
-			{ "purified": false, "use": 2, "points": 15 }
-		)
-		get_horney.emit()
+		current_horney.append( { "is_purified": false, "value": 16 } )
+		add_horney.emit()
 
 
 func _purified_horney() -> void:
-	for index:int in range(3):
-		if current_horney[index].purified == false:
-			current_horney[index].purified = true
-			purified_horney.emit(index)
-			break
+	for i:int in range(3):
+		if current_horney.size() >= i:
+			if not current_horney[i].is_purified:
+				current_horney[i].is_purified = true
+				purified_horney.emit(i)
+				break
 
 
-func use_horney() -> void:
+func _use_horney() -> void:
+	if current_live == max_live:
+		return
 	for i in range(current_horney.size() - 1, -1, -1):
-		var dic = current_horney[i]
-		if dic.use in [2, 1]:
-			dic.use -= 1
-			# retore One live
-			used_horney.emit()
+		var obj = current_horney[i]
+		if obj.is_purified and obj.value in [8, 16]:
+			obj.value -= 8
+			used_horney.emit(i, obj.value == 8)
+			_restore_one_heart()
 			break
 
 
-func _get_points_horney(_points: int) -> void:
-	pass
+func _restore_horney(points: int) -> void:
+	for i:int in range(3):
+		var val =  current_horney[i].value
+		if val <= 16:
+			val += points
+			var rest = val - 16
+			var continue_: bool = false
+			if rest >= 1:
+				val -= rest
+				continue_ = true
+				points = rest
+			current_horney[i].value += val
+			restore_horney.emit(i, val)
+			if not continue_:
+				break

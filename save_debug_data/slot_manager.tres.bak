@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SlotManager" format=3 uid="uid://ct3g77omjfrjy"]
+[gd_resource type="Resource" script_class="SlotManager" format=3 uid="uid://bgnbvg3l0d23f"]
 
 [ext_resource type="Script" uid="uid://bv3ooudrj7fg0" path="res://Resources/Data_save/slot_manager.gd" id="1_h7d8g"]
 [ext_resource type="Script" uid="uid://dgunif3p78wm6" path="res://Resources/Data_save/slot.gd" id="2_uhbn7"]

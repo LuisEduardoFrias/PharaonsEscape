@@ -1,105 +1,6 @@
 {
   "column_properties": {
-    "res://Resources/": {
-      "metadata/_custom_type_script": {
-        "visibility": 0.0
-      },
-      "resource_local_to_scene": {
-        "visibility": 0.0
-      },
-      "resource_name": {
-        "visibility": 0.0
-      }
-    },
-    "res://Resources/Data_save/": {
-      "metadata/_custom_type_script": {
-        "visibility": 0.0
-      },
-      "resource_local_to_scene": {
-        "visibility": 0.0
-      },
-      "resource_name": {
-        "visibility": 0.0
-      }
-    },
-    "res://Scenes/Custom_nodes/hub/": {
-      "metadata/_custom_type_script": {
-        "visibility": 0.0
-      },
-      "resource_local_to_scene": {
-        "visibility": 0.0
-      },
-      "resource_name": {
-        "visibility": 0.0
-      }
-    },
-    "res://Textures/Sprites/": {
-      "metadata/_custom_type_script": {
-        "visibility": 0.0
-      },
-      "resource_local_to_scene": {
-        "visibility": 0.0
-      },
-      "resource_name": {
-        "visibility": 0.0
-      }
-    },
-    "res://Textures/Ui/Hub/": {
-      "metadata/_custom_type_script": {
-        "visibility": 0.0
-      },
-      "resource_local_to_scene": {
-        "visibility": 0.0
-      },
-      "resource_name": {
-        "visibility": 0.0
-      }
-    },
-    "res://Translates/": {
-      "metadata/_custom_type_script": {
-        "visibility": 0.0
-      },
-      "resource_local_to_scene": {
-        "visibility": 0.0
-      },
-      "resource_name": {
-        "visibility": 0.0
-      }
-    },
-    "res://save_debug_data/": {
-      "metadata/_custom_type_script": {
-        "visibility": 0.0
-      },
-      "resource_local_to_scene": {
-        "visibility": 0.0
-      },
-      "resource_name": {
-        "visibility": 0.0
-      }
-    },
     "res://save_debug_data/slot_1/": {
-      "metadata/_custom_type_script": {
-        "visibility": 0.0
-      },
-      "resource_local_to_scene": {
-        "visibility": 0.0
-      },
-      "resource_name": {
-        "visibility": 0.0
-      }
-    },
-    "res://save_debug_data/slot_2/": {
-      "metadata/_custom_type_script": {
-        "visibility": 0.0
-      },
-      "resource_local_to_scene": {
-        "visibility": 0.0
-      },
-      "resource_name": {
-        "visibility": 0.0
-      }
-    },
-    "res://save_pharaons_escape/": {
       "metadata/_custom_type_script": {
         "visibility": 0.0
       },
@@ -112,7 +13,6 @@
     }
   },
   "recent_paths": [
-    "res://Textures/Ui/Hub/",
     "res://save_debug_data/slot_1/"
   ],
   "table_functions": {
