@@ -52,6 +52,7 @@ func center_camera_on_viewport():
 
 
 func _on_back_pressed() -> void:
+	await vortex.transition_in(0.4)
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 

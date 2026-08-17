@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="Data" format=3]
+
+[ext_resource type="Script" path="res://Resources/Data_save/current_level_data.gd" id="1_lwavb"]
+[ext_resource type="Script" path="res://Resources/Data_save/items_data.gd" id="2_emrqo"]
+[ext_resource type="Script" path="res://Resources/Data_save/level1_data.gd" id="3_d0wj1"]
+[ext_resource type="Script" path="res://Resources/Data_save/level2_data.gd" id="4_1dcmw"]
+[ext_resource type="Script" path="res://Resources/Data_save/level3_data.gd" id="5_lhd7n"]
+[ext_resource type="Script" path="res://Resources/Data_save/level4_data.gd" id="6_6yx7p"]
+[ext_resource type="Script" path="res://Resources/Data_save/level5_data.gd" id="7_7hxdi"]
+[ext_resource type="Script" path="res://Resources/Data_save/levels_data.gd" id="8_gyv7e"]
+[ext_resource type="Script" path="res://Resources/Data_save/player_data.gd" id="9_h6ch1"]
+[ext_resource type="Script" path="res://Resources/Data_save/data.gd" id="10_too4j"]
+[ext_resource type="Script" path="res://Resources/Data_save/skills_data.gd" id="11_p75pt"]
+
+[sub_resource type="Resource" id="Resource_0xumm"]
+script = ExtResource("1_lwavb")
+level_name = "The Grand Gallery"
+
+[sub_resource type="Resource" id="Resource_65dk7"]
+script = ExtResource("2_emrqo")
+
+[sub_resource type="Resource" id="Resource_jxgyx"]
+script = ExtResource("3_d0wj1")
+
+[sub_resource type="Resource" id="Resource_a78yk"]
+script = ExtResource("4_1dcmw")
+
+[sub_resource type="Resource" id="Resource_sj0if"]
+script = ExtResource("5_lhd7n")
+
+[sub_resource type="Resource" id="Resource_n2qnk"]
+script = ExtResource("6_6yx7p")
+
+[sub_resource type="Resource" id="Resource_qoiv0"]
+script = ExtResource("7_7hxdi")
+
+[sub_resource type="Resource" id="Resource_83for"]
+script = ExtResource("8_gyv7e")
+level1 = SubResource("Resource_jxgyx")
+level2 = SubResource("Resource_a78yk")
+level3 = SubResource("Resource_sj0if")
+level4 = SubResource("Resource_n2qnk")
+level5 = SubResource("Resource_qoiv0")
+
+[sub_resource type="Resource" id="Resource_7caai"]
+script = ExtResource("9_h6ch1")
+
+[sub_resource type="Resource" id="Resource_14te7"]
+script = ExtResource("11_p75pt")
+
+[resource]
+script = ExtResource("10_too4j")
+items = SubResource("Resource_65dk7")
+current_level = SubResource("Resource_0xumm")
+player = SubResource("Resource_7caai")
+skills = SubResource("Resource_14te7")
+levels = SubResource("Resource_83for")

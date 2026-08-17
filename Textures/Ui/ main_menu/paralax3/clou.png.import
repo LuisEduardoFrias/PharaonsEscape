@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgfsk82n77wgr"
-path="res://.godot/imported/2.png-d2a442c686b09537f414dc8fc5762b3e.ctex"
+uid="uid://cf2f48ewp4a8e"
+path="res://.godot/imported/clou.png-0225626899e2e533c65ec7845cc8c842.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Ui/ main_menu/paralax2/2.png"
-dest_files=["res://.godot/imported/2.png-d2a442c686b09537f414dc8fc5762b3e.ctex"]
+source_file="res://Textures/Ui/ main_menu/paralax3/clou.png"
+dest_files=["res://.godot/imported/clou.png-0225626899e2e533c65ec7845cc8c842.ctex"]
 
 [params]
 

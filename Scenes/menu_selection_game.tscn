@@ -51,6 +51,24 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyj1x"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmbfv"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -1049,6 +1067,7 @@ focus_previous = NodePath("../../../../back")
 accessibility_name = "."
 theme_override_styles/normal = SubResource("StyleBoxFlat_5basi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2cqfx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kyj1x")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_qmbfv")
 theme_override_styles/focus = SubResource("StyleBoxFlat_cxhes")
 metadata/_edit_lock_ = true

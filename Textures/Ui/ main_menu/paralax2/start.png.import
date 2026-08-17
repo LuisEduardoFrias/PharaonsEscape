@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by72iulkwyexs"
-path="res://.godot/imported/Estrellas.png-d51115aad4233bd30cce35dc64e81628.ctex"
+uid="uid://puw1hpordyp"
+path="res://.godot/imported/start.png-d950fb6f382adbf7df4def93a310579f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Ui/ main_menu/paralax1/Estrellas.png"
-dest_files=["res://.godot/imported/Estrellas.png-d51115aad4233bd30cce35dc64e81628.ctex"]
+source_file="res://Textures/Ui/ main_menu/paralax2/start.png"
+dest_files=["res://.godot/imported/start.png-d950fb6f382adbf7df4def93a310579f.ctex"]
 
 [params]
 

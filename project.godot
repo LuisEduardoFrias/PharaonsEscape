@@ -24,10 +24,14 @@ resources_spreadsheet_view/freeze_first_column=true
 [application]
 
 config/name="pharaons_escape"
-run/main_scene="uid://cggajk3tpxwc2"
+run/main_scene="uid://dugp4sjwfkw0i"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 boot_splash/use_filter=false
+
+[audio]
+
+buses/default_bus_layout="uid://bf8rci7ueyb7"
 
 [autoload]
 
@@ -155,5 +159,6 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_s3tc_bptc=true
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true
