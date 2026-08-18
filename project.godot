@@ -24,7 +24,8 @@ resources_spreadsheet_view/freeze_first_column=true
 [application]
 
 config/name="pharaons_escape"
-run/main_scene="uid://dugp4sjwfkw0i"
+run/main_scene="uid://b6y8kou6ots35"
+run/disable_stdout=true
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 boot_splash/use_filter=false

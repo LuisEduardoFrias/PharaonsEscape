@@ -23,9 +23,47 @@ var section_2_active_door: bool = false
 var bridge_fall: bool = false # Para verificar cuando cae del puente
 
 
-
 func _ready() -> void:
 	current_slot = SaveManager.available_slots[0]
+
+
+# ==============================================================================
+# region API PÚBLICA (Audio Settings)
+# ==============================================================================
+
+## Guarda la configuración de audio en el recurso global y lo persiste en disco.
+func save_audio(audio_data: Dictionary) -> void:
+	if not game_settings:
+		game_settings = GameSettings.new()
+
+	# Mapeo del diccionario a las propiedades de GameSettings
+	if audio_data.has("melody_on"):
+		game_settings.melody_on = audio_data["melody_on"]
+	if audio_data.has("melody_vol"):
+		game_settings.melody_vol = audio_data["melody_vol"]
+	if audio_data.has("sfx_on"):
+		game_settings.sfx_on = audio_data["sfx_on"]
+	if audio_data.has("sfx_vol"):
+		game_settings.sfx_vol = audio_data["sfx_vol"]
+
+	# Guarda el recurso 'game_settings' en disco usando la función existente
+	save_game_settings()
+
+
+## Retorna la configuración de audio actual almacenada en 'game_settings' como Diccionario.
+func get_audio() -> Dictionary:
+	if not game_settings:
+		game_settings = _load_game_settings() as GameSettings
+
+	return {
+		"melody_on": game_settings.melody_on,
+		"melody_vol": game_settings.melody_vol,
+		"sfx_on": game_settings.sfx_on,
+		"sfx_vol": game_settings.sfx_vol
+	}
+
+# endregion
+
 
 
 # Guada los datos generales

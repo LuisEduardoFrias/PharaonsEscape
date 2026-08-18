@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b6y8kou6ots35"]
+
+[ext_resource type="Script" uid="uid://bsb5du1f3rr2n" path="res://Scenes/menus/menu_container.gd" id="1_i5qjv"]
+[ext_resource type="AudioStream" uid="uid://0y11pxf3rfeh" path="res://Audios/Melodys/menu-02.mp3" id="2_nq6kh"]
+
+[node name="menu_container" type="Control" unique_id=1794265144]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+accessibility_name = "."
+script = ExtResource("1_i5qjv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=244158021]
+stream = ExtResource("2_nq6kh")
+volume_db = -10.0
+autoplay = true
+bus = &"melody"

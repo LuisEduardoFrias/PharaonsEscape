@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bfk0mdurlhpnm"]
 
-[ext_resource type="Texture2D" uid="uid://bdd2gkfuw7ija" path="res://Textures/Ui/ main_menu/button_pressed.png" id="1_xym2y"]
+[ext_resource type="Texture2D" uid="uid://bdd2gkfuw7ija" path="res://Textures/Ui/main_menu/button_pressed.png" id="1_xym2y"]
 [ext_resource type="Script" uid="uid://cnr4kcxx6fhkm" path="res://Scenes/Custom_nodes/menus/option_btn.gd" id="2_5enqh"]
 [ext_resource type="FontFile" uid="uid://b7boea1jnj8eq" path="res://Resources/Fonts/skandal/Skandal.ttf" id="2_x7guo"]
 

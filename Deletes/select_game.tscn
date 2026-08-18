@@ -1,0 +1,667 @@
+[gd_scene format=3 uid="uid://bx7sekhs4na00"]
+
+[ext_resource type="Script" uid="uid://dab8xrkeejyfd" path="res://Scenes/menus/select_game.gd" id="1_jtggt"]
+[ext_resource type="Texture2D" uid="uid://br13c70to52fe" path="res://Textures/Ui/menu_selection_game/antorcha..png" id="3_deffy"]
+[ext_resource type="PackedScene" uid="uid://cst80s52uv0mp" path="res://Scenes/menus/menu_btn.tscn" id="6_1hjkd"]
+[ext_resource type="Texture2D" uid="uid://c1flvn4fbj7rb" path="res://Textures/Ui/menu_selection_game/select.png" id="7_txpi4"]
+[ext_resource type="Texture2D" uid="uid://qv88eirnh2k3" path="res://Textures/Ui/menu_selection_game/bg2.png" id="9_1wbkf"]
+[ext_resource type="Texture2D" uid="uid://c845x6gl621mp" path="res://Textures/Ui/menu_selection_game/select (1).png" id="10_8jm4s"]
+[ext_resource type="PackedScene" uid="uid://csqpy424n2dol" path="res://Deletes/heart.tscn" id="12_54nfv"]
+[ext_resource type="Texture2D" uid="uid://c67xv1ssek1gj" path="res://Textures/Player/player.png" id="13_gr7b2"]
+[ext_resource type="AudioStream" uid="uid://0y11pxf3rfeh" path="res://Audios/Melodys/menu-02.mp3" id="14_1qcoh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d37h"]
+atlas = ExtResource("9_1wbkf")
+region = Rect2(0, 0, 570, 321)
+
+[sub_resource type="Animation" id="Animation_ffxa7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 570, 321)]
+}
+
+[sub_resource type="Animation" id="Animation_1d37h"]
+resource_name = "run"
+length = 4.0000076
+loop_mode = 1
+step = 0.07692308
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.30769232, 0.61538464, 0.9230769, 1.2307693, 1.5384616, 1.8461539, 2.1538463, 2.4615386, 2.7692308, 3.0769231, 3.3846154, 3.692308),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 570, 321), Rect2(570, 0, 570, 321), Rect2(1140, 0, 570, 321), Rect2(1710, 0, 570, 321), Rect2(0, 321, 570, 321), Rect2(570, 321, 570, 321), Rect2(1140, 321, 570, 321), Rect2(1710, 321, 570, 321), Rect2(0, 642, 570, 321), Rect2(570, 642, 570, 321), Rect2(1140, 642, 570, 321), Rect2(1710, 642, 570, 321), Rect2(0, 963, 570, 321)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dkkfp"]
+_data = {
+&"RESET": SubResource("Animation_ffxa7"),
+&"run": SubResource("Animation_1d37h")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wx51"]
+atlas = ExtResource("3_deffy")
+region = Rect2(32, 0, 32, 116)
+
+[sub_resource type="Animation" id="Animation_k4sft"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(32, 0, 32, 116)]
+}
+
+[sub_resource type="Animation" id="Animation_vn64s"]
+resource_name = "new_animation"
+length = 1.000025
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2455615, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 32, 116), Rect2(32, 0, 32, 116), Rect2(0, 116, 32, 116), Rect2(32, 116, 32, 116)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aggc0"]
+_data = {
+&"RESET": SubResource("Animation_k4sft"),
+&"new_animation": SubResource("Animation_vn64s")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1d37h"]
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0, 1)
+border_blend = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkkfp"]
+atlas = ExtResource("10_8jm4s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j3ny"]
+atlas = ExtResource("10_8jm4s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojtqv"]
+atlas = ExtResource("10_8jm4s")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clv4g"]
+atlas = ExtResource("10_8jm4s")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yxtp"]
+atlas = ExtResource("10_8jm4s")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2qx5"]
+atlas = ExtResource("10_8jm4s")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qltld"]
+atlas = ExtResource("10_8jm4s")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2i4y"]
+atlas = ExtResource("10_8jm4s")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efvih"]
+atlas = ExtResource("10_8jm4s")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1iwp3"]
+atlas = ExtResource("10_8jm4s")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dg0bt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkkfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1j3ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojtqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clv4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yxtp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2qx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qltld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2i4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efvih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1iwp3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffxa7"]
+atlas = ExtResource("10_8jm4s")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg0bt"]
+atlas = ExtResource("10_8jm4s")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dr2y4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffxa7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg0bt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr2y4"]
+atlas = ExtResource("13_gr7b2")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="Animation" id="Animation_ojtqv"]
+resource_name = "idle_front"
+length = 1.2000201
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(576, 0, 96, 96), Rect2(672, 0, 96, 96), Rect2(768, 0, 96, 96), Rect2(864, 0, 96, 96), Rect2(960, 0, 96, 96), Rect2(864, 0, 96, 96)]
+}
+
+[sub_resource type="Animation" id="Animation_clv4g"]
+resource_name = "idle_side"
+length = 1.2000201
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(576, 192, 96, 96), Rect2(672, 192, 96, 96), Rect2(768, 192, 96, 96), Rect2(864, 192, 96, 96), Rect2(960, 192, 96, 96), Rect2(768, 192, 96, 96)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g58jd"]
+_data = {
+&"idle_front": SubResource("Animation_ojtqv"),
+&"idle_side": SubResource("Animation_clv4g")
+}
+
+[node name="select_game" type="Control" unique_id=1308807907]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jtggt")
+back_escene = "uid://ck6pet4r2g2pd"
+next_escene_word = "uid://ochbuxteoh0t"
+next_escene_history = "uid://bpw8bno5rbxdk"
+metadata/_edit_lock_ = true
+
+[node name="background" type="TextureRect" parent="." unique_id=83749568]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("AtlasTexture_1d37h")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Anim" type="AnimationPlayer" parent="background" unique_id=1394179033]
+libraries/ = SubResource("AnimationLibrary_dkkfp")
+
+[node name="torch" type="TextureRect" parent="background" unique_id=522567990]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 130.0
+offset_top = -58.0
+offset_right = 170.0
+offset_bottom = 58.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_2wx51")
+
+[node name="Anim" type="AnimationPlayer" parent="background/torch" unique_id=560415121]
+libraries/ = SubResource("AnimationLibrary_aggc0")
+autoplay = &"new_animation"
+
+[node name="multi_light" type="Node2D" parent="background/torch" unique_id=1762441194]
+position = Vector2(20, 51)
+
+[node name="torch2" type="TextureRect" parent="background" unique_id=1148871580]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -58.0
+offset_right = -120.0
+offset_bottom = 58.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_2wx51")
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="Anim" type="AnimationPlayer" parent="background/torch2" unique_id=652703127]
+libraries/ = SubResource("AnimationLibrary_aggc0")
+autoplay = &"new_animation"
+
+[node name="multi_light" type="Node2D" parent="background/torch2" unique_id=1810337906]
+position = Vector2(20, 51)
+
+[node name="MarginContainer" type="MarginContainer" parent="background" unique_id=539643422]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -126.0
+offset_right = 210.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(192, 108)
+metadata/_edit_lock_ = true
+
+[node name="panel_indicator" type="Panel" parent="background/MarginContainer" unique_id=597430702]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1d37h")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="background/MarginContainer/panel_indicator" unique_id=435407059]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -116.0
+offset_right = 200.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="panel_slots" type="Panel" parent="background/MarginContainer/panel_indicator/HBoxContainer" unique_id=268957170]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+metadata/_edit_lock_ = true
+
+[node name="slots" type="VBoxContainer" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_slots" unique_id=1812929386]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_lock_ = true
+
+[node name="slot_100" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_slots/slots" unique_id=1373450962 instance=ExtResource("6_1hjkd")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+texture_normal = ExtResource("7_txpi4")
+texture_pressed = ExtResource("10_8jm4s")
+texture_hover = ExtResource("10_8jm4s")
+texture_disabled = ExtResource("10_8jm4s")
+texture_focused = ExtResource("10_8jm4s")
+button_text = "New Game"
+metadata/slot = 100
+metadata/is_new = true
+
+[node name="slot_200" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_slots/slots" unique_id=2039952636 instance=ExtResource("6_1hjkd")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+texture_normal = ExtResource("7_txpi4")
+texture_pressed = ExtResource("10_8jm4s")
+texture_hover = ExtResource("10_8jm4s")
+texture_disabled = ExtResource("10_8jm4s")
+texture_focused = ExtResource("10_8jm4s")
+button_text = "New Game"
+metadata/slot = 200
+metadata/is_new = true
+
+[node name="slot_300" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_slots/slots" unique_id=947295654 instance=ExtResource("6_1hjkd")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+texture_normal = ExtResource("7_txpi4")
+texture_pressed = ExtResource("10_8jm4s")
+texture_hover = ExtResource("10_8jm4s")
+texture_disabled = ExtResource("10_8jm4s")
+texture_focused = ExtResource("10_8jm4s")
+button_text = "New Game"
+metadata/slot = 300
+metadata/is_new = true
+
+[node name="panel_data" type="Panel" parent="background/MarginContainer/panel_indicator/HBoxContainer" unique_id=1164724529]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+metadata/_edit_lock_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data" unique_id=982839344]
+custom_minimum_size = Vector2(90, 150)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_1wbkf")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data" unique_id=1179649074]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer" unique_id=284109763]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer" unique_id=933739692]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer" unique_id=748664241]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=299881654]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel" unique_id=1586661583]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_right = 90.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel/VBoxContainer2" unique_id=294672687]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="datetime_icom" type="AnimatedSprite2D" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel/VBoxContainer2/Panel" unique_id=1361566694]
+position = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_dg0bt")
+autoplay = "default"
+frame_progress = 0.6124076
+
+[node name="date_timer" type="Label" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel/VBoxContainer2" unique_id=1036058208]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.07233558, 1.7108977e-08, 6.016344e-09, 1)
+
+[node name="Panel2" type="Panel" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=154942306]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2" unique_id=1806806243]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/VBoxContainer2" unique_id=1500211363]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="bug_icon" type="AnimatedSprite2D" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/VBoxContainer2/Panel" unique_id=976644445]
+position = Vector2(16, 16)
+sprite_frames = SubResource("SpriteFrames_dr2y4")
+autoplay = "default"
+frame_progress = 0.12638436
+
+[node name="bug" type="Label" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel2/VBoxContainer2" unique_id=745394219]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.07233558, 1.7108977e-08, 6.016344e-09, 1)
+
+[node name="Panel3" type="Panel" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1025698211]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="live" type="Control" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel3" unique_id=1152620430 groups=["live"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel3/live" unique_id=394428318]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Heart1" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel3/live/HBoxContainer" unique_id=538877673 instance=ExtResource("12_54nfv")]
+layout_mode = 2
+script = null
+
+[node name="Heart2" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel3/live/HBoxContainer" unique_id=1775873254 instance=ExtResource("12_54nfv")]
+layout_mode = 2
+script = null
+
+[node name="Heart3" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel3/live/HBoxContainer" unique_id=952875604 instance=ExtResource("12_54nfv")]
+layout_mode = 2
+script = null
+
+[node name="Panel4" type="Panel" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2035808655]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="level_name" type="Label" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel4" unique_id=1344275671]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 174.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.07233558, 1.7108977e-08, 6.016344e-09, 1)
+text = "Level"
+
+[node name="Panel5" type="Panel" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1104214918]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="level" type="Label" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Panel5" unique_id=1759184165]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 41.0
+offset_bottom = 11.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.07233558, 1.7108977e-08, 6.016344e-09, 1)
+text = "Level"
+
+[node name="TextureRect" type="TextureRect" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1496353581]
+layout_mode = 2
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_dr2y4")
+
+[node name="player_anim" type="AnimationPlayer" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer/TextureRect" unique_id=1563181624]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_g58jd")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer" unique_id=1266122005]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 4
+
+[node name="delete_slot" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=787457267 instance=ExtResource("6_1hjkd")]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+button_text = "Delete"
+
+[node name="back_zoom" parent="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1979354949 instance=ExtResource("6_1hjkd")]
+custom_minimum_size = Vector2(80, 25)
+layout_mode = 2
+size_flags_vertical = 8
+button_text = "Back"
+metadata/_edit_lock_ = true
+
+[node name="zoom_btn" type="TextureButton" parent="background/MarginContainer" unique_id=288932042]
+layout_mode = 2
+
+[node name="back" parent="background" unique_id=1932078637 instance=ExtResource("6_1hjkd")]
+custom_minimum_size = Vector2(80, 25)
+layout_mode = 0
+offset_left = 38.0
+offset_top = 539.00006
+offset_right = 138.0
+offset_bottom = 564.00006
+scale = Vector2(2.3538935, 2.8321042)
+size_flags_vertical = 8
+button_text = "Back"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=491182525]
+visible = false
+color = Color(0, 0, 0, 1)
+
+[node name="directional_light" type="DirectionalLight2D" parent="." unique_id=138149723]
+energy = 0.0
+blend_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1953796416]
+stream = ExtResource("14_1qcoh")
+volume_db = -10.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1013194864]
+position = Vector2(576, 324)
+metadata/_edit_lock_ = true
+
+[connection signal="focus_entered" from="background/MarginContainer/panel_indicator/HBoxContainer/panel_slots/slots/slot_100" to="." method="_on_slot_100_focus_entered"]
+[connection signal="focus_exited" from="background/MarginContainer/panel_indicator/HBoxContainer/panel_slots/slots/slot_100" to="." method="_on_slot_100_focus_exited"]
+[connection signal="mouse_entered" from="background/MarginContainer/panel_indicator/HBoxContainer/panel_slots/slots/slot_100" to="." method="_on_slot_100_focus_entered"]
+[connection signal="focus_entered" from="background/MarginContainer/panel_indicator/HBoxContainer/panel_slots/slots/slot_200" to="." method="_on_slot_200_focus_entered"]
+[connection signal="focus_exited" from="background/MarginContainer/panel_indicator/HBoxContainer/panel_slots/slots/slot_200" to="." method="_on_slot_100_focus_exited"]
+[connection signal="mouse_entered" from="background/MarginContainer/panel_indicator/HBoxContainer/panel_slots/slots/slot_200" to="." method="_on_slot_200_focus_entered"]
+[connection signal="focus_entered" from="background/MarginContainer/panel_indicator/HBoxContainer/panel_slots/slots/slot_300" to="." method="_on_slot_300_focus_entered"]
+[connection signal="focus_exited" from="background/MarginContainer/panel_indicator/HBoxContainer/panel_slots/slots/slot_300" to="." method="_on_slot_100_focus_exited"]
+[connection signal="mouse_entered" from="background/MarginContainer/panel_indicator/HBoxContainer/panel_slots/slots/slot_300" to="." method="_on_slot_300_focus_entered"]
+[connection signal="pressed" from="background/MarginContainer/panel_indicator/HBoxContainer/panel_data/MarginContainer/VBoxContainer/HBoxContainer2/back_zoom" to="." method="_on_back_zoom_pressed"]
+[connection signal="pressed" from="background/MarginContainer/zoom_btn" to="." method="_on_zoom_btn_pressed"]
+[connection signal="pressed" from="background/back" to="." method="_on_back_pressed"]

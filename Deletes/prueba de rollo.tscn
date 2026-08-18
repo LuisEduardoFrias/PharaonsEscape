@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://b2afcl7sjr8wx"]
+
+[ext_resource type="Script" uid="uid://crhu1g6u8atoc" path="res://Deletes/prueba_de_rollo.gd" id="1_7obqk"]
+[ext_resource type="Texture2D" uid="uid://bm1ntifealyek" path="res://Textures/Ui/main_menu/per.png" id="2_wlhht"]
+[ext_resource type="Texture2D" uid="uid://bdd2gkfuw7ija" path="res://Textures/Ui/main_menu/button_pressed.png" id="3_sscan"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h5ai"]
+atlas = ExtResource("2_wlhht")
+region = Rect2(0, 0, 1182, 899)
+
+[sub_resource type="Animation" id="Animation_i3ffc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 1182, 899)]
+}
+
+[sub_resource type="Animation" id="Animation_cat83"]
+resource_name = "open"
+length = 0.33335
+step = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06510773, 0.12873954, 0.1902173, 0.25981858, 0.32551527),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 1182, 899), Rect2(1182, 0, 1182, 899), Rect2(0, 899, 1182, 899), Rect2(1182, 899, 1182, 899), Rect2(0, 1798, 1182, 899), Rect2(1182, 1798, 1182, 899)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vfnnv"]
+_data = {
+&"RESET": SubResource("Animation_i3ffc"),
+&"open": SubResource("Animation_cat83")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cat83"]
+atlas = ExtResource("3_sscan")
+region = Rect2(0, 0, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3ffc"]
+atlas = ExtResource("3_sscan")
+region = Rect2(0, 48, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfnnv"]
+atlas = ExtResource("3_sscan")
+region = Rect2(0, 96, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h1xm"]
+atlas = ExtResource("3_sscan")
+region = Rect2(0, 192, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tastx"]
+atlas = ExtResource("3_sscan")
+region = Rect2(0, 144, 200, 48)
+
+[node name="Control" type="Control" unique_id=224301837]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7obqk")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1496856731]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.5
+offset_top = -112.0
+offset_right = 147.5
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_0h5ai")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="TextureRect" unique_id=1077032515]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_top = 37.0
+offset_right = 34.0
+offset_bottom = 60.0
+grow_horizontal = 2
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect" unique_id=1286240621]
+libraries/ = SubResource("AnimationLibrary_vfnnv")
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect" unique_id=2020148260]
+custom_minimum_size = Vector2(160, 35)
+layout_mode = 0
+offset_left = 68.5
+offset_top = 70.0
+offset_right = 228.5
+offset_bottom = 105.0
+texture_normal = SubResource("AtlasTexture_cat83")
+texture_pressed = SubResource("AtlasTexture_i3ffc")
+texture_hover = SubResource("AtlasTexture_vfnnv")
+texture_disabled = SubResource("AtlasTexture_3h1xm")
+texture_focused = SubResource("AtlasTexture_tastx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureRect/TextureButton" unique_id=1199946187]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="TextureRect" unique_id=953190185]
+custom_minimum_size = Vector2(160, 35)
+layout_mode = 0
+offset_left = 69.5
+offset_top = 115.0
+offset_right = 229.5
+offset_bottom = 150.0
+texture_normal = SubResource("AtlasTexture_cat83")
+texture_pressed = SubResource("AtlasTexture_i3ffc")
+texture_hover = SubResource("AtlasTexture_vfnnv")
+texture_disabled = SubResource("AtlasTexture_3h1xm")
+texture_focused = SubResource("AtlasTexture_tastx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureRect/TextureButton2" unique_id=441478845]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=114177420]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -252.0
+offset_top = -168.0
+offset_right = -52.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Open"
+
+[node name="Button2" type="Button" parent="." unique_id=258636751]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -167.0
+offset_right = 245.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Close"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=868073508]
+position = Vector2(670, 445)
+zoom = Vector2(1.5, 1.5)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
