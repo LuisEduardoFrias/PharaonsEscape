@@ -15,7 +15,8 @@
 [ext_resource type="Shader" uid="uid://u3wob3c2l1ew" path="res://Shaders/disappearance.gdshader" id="14_mkpom"]
 [ext_resource type="Theme" uid="uid://c2kmjbs5p0vke" path="res://Resources/theme.tres" id="15_j4qrq"]
 [ext_resource type="Texture2D" uid="uid://bdd2gkfuw7ija" path="res://Textures/Ui/main_menu/button_pressed.png" id="16_kntui"]
-[ext_resource type="Texture2D" uid="uid://sl8doood0sj7" path="res://Textures/Ui/main_menu/per1.png" id="17_eqws6"]
+[ext_resource type="Texture2D" uid="uid://km6ce7tn24a3" path="res://Textures/Ui/main_menu/IMG_20260821_191526.png" id="16_rm1hn"]
+[ext_resource type="Texture2D" uid="uid://pp41b1jhb26i" path="res://Textures/Ui/main_menu/cenefas.png" id="17_rm1hn"]
 [ext_resource type="Texture2D" uid="uid://ck34mjlwbptur" path="res://Textures/Ui/buttons_game.png" id="18_akeed"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5egv6"]
@@ -97,6 +98,26 @@ region = Rect2(0, 192, 200, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4nkqq"]
 atlas = ExtResource("16_kntui")
 region = Rect2(0, 144, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl4ju"]
+atlas = ExtResource("17_rm1hn")
+region = Rect2(0, 0, 43, 118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm1hn"]
+atlas = ExtResource("17_rm1hn")
+region = Rect2(43, 0, 43, 118)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34hq2"]
+atlas = ExtResource("17_rm1hn")
+region = Rect2(230, 0, 35, 330)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj3ff"]
+atlas = ExtResource("17_rm1hn")
+region = Rect2(265, 0, 70, 330)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf5r6"]
+atlas = ExtResource("17_rm1hn")
+region = Rect2(90, 0, 50, 120)
 
 [sub_resource type="Animation" id="Animation_vtepg"]
 length = 0.001
@@ -246,11 +267,14 @@ grow_vertical = 2
 accessibility_name = "."
 script = ExtResource("1_rm1hn")
 metadata/_edit_lock_ = true
+metadata/_edit_vertical_guides_ = [235.0, 1047.0, 625.0]
+metadata/_edit_horizontal_guides_ = [526.0]
 
 [node name="vortex_transition" parent="." unique_id=629127342 instance=ExtResource("2_34hq2")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=88516613]
 color = Color(0.71833444, 0.7813927, 1, 1)
+metadata/_edit_lock_ = true
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1397209382]
 color = Color(2.4065375e-07, 0, 0.22996223, 1)
@@ -260,6 +284,7 @@ shadow_filter = 1
 shadow_filter_smooth = 64.0
 height = 1.0
 max_distance = 16384.0
+metadata/_edit_lock_ = true
 
 [node name="sky0" type="ColorRect" parent="." unique_id=705253600]
 layout_mode = 1
@@ -555,10 +580,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 accessibility_name = "."
 theme = ExtResource("15_j4qrq")
+theme_override_font_sizes/font_size = 19
 text = "Inicio"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -584,10 +612,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 accessibility_name = "."
 theme = ExtResource("15_j4qrq")
+theme_override_font_sizes/font_size = 19
 text = "Opciones"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -613,10 +644,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 accessibility_name = "."
 theme = ExtResource("15_j4qrq")
+theme_override_font_sizes/font_size = 19
 text = "Extras"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -641,10 +675,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 accessibility_name = "."
 theme = ExtResource("15_j4qrq")
+theme_override_font_sizes/font_size = 19
 text = "Salir"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -680,10 +717,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 accessibility_name = "."
 theme = ExtResource("15_j4qrq")
+theme_override_font_sizes/font_size = 19
 text = "Controles"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -709,11 +749,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 accessibility_name = "."
 theme = ExtResource("15_j4qrq")
-text = "Audio"
+theme_override_font_sizes/font_size = 19
+text = "Configuraciones"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_lock_ = true
@@ -738,10 +781,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 accessibility_name = "."
 theme = ExtResource("15_j4qrq")
+theme_override_font_sizes/font_size = 19
 text = "Volver"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -761,7 +807,218 @@ mouse_filter = 2
 accessibility_name = "."
 metadata/_edit_lock_ = true
 
-[node name="background" type="TextureRect" parent="other_roll" unique_id=1308307787]
+[node name="background" type="NinePatchRect" parent="other_roll" unique_id=1484736586]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+texture = ExtResource("16_rm1hn")
+patch_margin_left = 250
+patch_margin_top = 150
+patch_margin_right = 250
+patch_margin_bottom = 150
+
+[node name="MarginContainer" type="MarginContainer" parent="other_roll/background" unique_id=881380275]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 175
+theme_override_constants/margin_top = 185
+theme_override_constants/margin_right = 175
+theme_override_constants/margin_bottom = 185
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="other_roll/background/MarginContainer" unique_id=179902807]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="other_roll/background/MarginContainer/Panel" unique_id=1205610596]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 53.0
+offset_bottom = 128.0
+texture = SubResource("AtlasTexture_hl4ju")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect3" type="TextureRect" parent="other_roll/background/MarginContainer/Panel" unique_id=1337483509]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -53.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 128.0
+grow_horizontal = 0
+texture = SubResource("AtlasTexture_hl4ju")
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="other_roll/background/MarginContainer/Panel" unique_id=1999717416]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -128.0
+offset_right = 53.0
+offset_bottom = -10.0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_hl4ju")
+flip_v = true
+metadata/_edit_lock_ = true
+
+[node name="TextureRect4" type="TextureRect" parent="other_roll/background/MarginContainer/Panel" unique_id=1894383566]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -53.0
+offset_top = -128.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_hl4ju")
+flip_h = true
+flip_v = true
+metadata/_edit_lock_ = true
+
+[node name="TextureRect5" type="TextureRect" parent="other_roll/background/MarginContainer/Panel" unique_id=741990646]
+layout_mode = 1
+offset_left = 60.0
+offset_top = -108.0
+offset_right = 103.0
+offset_bottom = 10.0
+rotation = 1.5707964
+pivot_offset = Vector2(0, 118)
+texture = SubResource("AtlasTexture_rm1hn")
+flip_v = true
+metadata/_edit_lock_ = true
+
+[node name="TextureRect6" type="TextureRect" parent="other_roll/background/MarginContainer/Panel" unique_id=589993128]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -123.0
+offset_right = 55.0
+offset_bottom = -5.0
+grow_vertical = 0
+rotation = 1.5707964
+pivot_offset = Vector2(48, 118)
+texture = SubResource("AtlasTexture_rm1hn")
+flip_h = true
+flip_v = true
+metadata/_edit_lock_ = true
+
+[node name="TextureRect7" type="TextureRect" parent="other_roll/background/MarginContainer/Panel" unique_id=1048748757]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -122.0
+offset_top = -118.0
+offset_right = -79.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 1.5707964
+pivot_offset = Vector2(0, 64)
+texture = SubResource("AtlasTexture_rm1hn")
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="TextureRect8" type="TextureRect" parent="other_roll/background/MarginContainer/Panel" unique_id=1553466434]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -58.0
+offset_top = 10.0
+offset_right = -15.0
+offset_bottom = 128.0
+grow_horizontal = 0
+rotation = 1.5707964
+texture = SubResource("AtlasTexture_rm1hn")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect9" type="TextureRect" parent="other_roll/background/MarginContainer/Panel" unique_id=1925127118]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -17.5
+offset_top = -130.0
+offset_right = 17.5
+offset_bottom = 200.0
+grow_horizontal = 2
+rotation = -1.5707964
+pivot_offset = Vector2(0, 165)
+texture = SubResource("AtlasTexture_34hq2")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect10" type="TextureRect" parent="other_roll/background/MarginContainer/Panel" unique_id=333234944]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -17.572998
+offset_top = -170.0
+offset_right = 52.427246
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -1.5707964
+pivot_offset = Vector2(0, 165)
+texture = SubResource("AtlasTexture_yj3ff")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect11" type="TextureRect" parent="other_roll/background/MarginContainer/Panel" unique_id=1276606438]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -60.0
+offset_right = 50.0
+offset_bottom = 60.0
+grow_vertical = 2
+pivot_offset = Vector2(25, 60)
+texture = SubResource("AtlasTexture_xf5r6")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect12" type="TextureRect" parent="other_roll/background/MarginContainer/Panel" unique_id=29148355]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -60.0
+offset_bottom = 60.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(25, 60)
+texture = SubResource("AtlasTexture_xf5r6")
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="background1" type="TextureRect" parent="other_roll" unique_id=1308307787]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -776,7 +1033,6 @@ grow_vertical = 2
 rotation = 1.5707964
 pivot_offset = Vector2(360, 640)
 accessibility_name = "."
-texture = ExtResource("17_eqws6")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
@@ -787,10 +1043,10 @@ libraries/ = SubResource("AnimationLibrary_m3bi6")
 use_parent_material = true
 custom_minimum_size = Vector2(160, 35)
 layout_mode = 0
-offset_left = 314.00003
-offset_top = 594.00006
-offset_right = 474.00003
-offset_bottom = 629.00006
+offset_left = 277.00003
+offset_top = 545.0
+offset_right = 437.00003
+offset_bottom = 580.0
 scale = Vector2(1.3, 1.3)
 accessibility_name = "."
 texture_normal = SubResource("AtlasTexture_m3bi6")
@@ -808,13 +1064,17 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 accessibility_name = "."
 theme = ExtResource("15_j4qrq")
+theme_override_font_sizes/font_size = 19
 text = "Volver"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="controls" type="MarginContainer" parent="other_roll" unique_id=1435025155]
 unique_name_in_owner = true
@@ -845,9 +1105,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -132.5
-offset_right = 132.5
-offset_bottom = 51.0
+offset_left = -150.817
+offset_top = -7.0
+offset_right = 114.18298
+offset_bottom = 44.0
 grow_horizontal = 2
 accessibility_name = "."
 theme = ExtResource("15_j4qrq")
@@ -1058,8 +1319,9 @@ theme = ExtResource("15_j4qrq")
 text = "Activar abilidades"
 metadata/_edit_lock_ = true
 
-[node name="audios" type="MarginContainer" parent="other_roll" unique_id=496666662]
+[node name="settings" type="MarginContainer" parent="other_roll" unique_id=496666662]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1074,14 +1336,14 @@ theme_override_constants/margin_right = 270
 theme_override_constants/margin_bottom = 140
 metadata/_edit_lock_ = true
 
-[node name="Panel" type="Panel" parent="other_roll/audios" unique_id=1877230570]
+[node name="Panel" type="Panel" parent="other_roll/settings" unique_id=1877230570]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 mouse_filter = 2
 accessibility_name = "."
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="other_roll/audios/Panel" unique_id=330093489]
+[node name="Label" type="Label" parent="other_roll/settings/Panel" unique_id=330093489]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1093,10 +1355,10 @@ grow_horizontal = 2
 accessibility_name = "."
 theme = ExtResource("15_j4qrq")
 theme_override_font_sizes/font_size = 50
-text = "Audio"
+text = "configuraciones"
 metadata/_edit_lock_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="other_roll/audios/Panel" unique_id=406127403]
+[node name="MarginContainer" type="MarginContainer" parent="other_roll/settings/Panel" unique_id=1644998562]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1104,17 +1366,55 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 accessibility_name = "."
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 70
 metadata/_edit_lock_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="other_roll/audios/Panel/MarginContainer" unique_id=1612008844]
+[node name="HBoxContainer" type="HBoxContainer" parent="other_roll/settings/Panel/MarginContainer" unique_id=1576252915]
+layout_mode = 2
+accessibility_name = "."
+theme_override_constants/separation = 20
+metadata/_edit_lock_ = true
+
+[node name="audio" type="Panel" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer" unique_id=981158562]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio" unique_id=660809519]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_vertical = 6
+accessibility_name = "."
+theme = ExtResource("15_j4qrq")
+text = "Audio"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio" unique_id=287861340]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+theme_override_constants/margin_top = 40
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer" unique_id=1612008844]
 layout_mode = 2
 accessibility_name = "."
 metadata/_edit_lock_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="other_roll/audios/Panel/MarginContainer/VBoxContainer" unique_id=1043288726]
+[node name="HBoxContainer" type="HBoxContainer" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer" unique_id=1043288726]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
@@ -1123,7 +1423,7 @@ accessibility_name = "."
 theme_override_constants/separation = 10
 metadata/_edit_lock_ = true
 
-[node name="checkbox_melody" type="CheckBox" parent="other_roll/audios/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2065227045]
+[node name="checkbox_melody" type="CheckBox" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2065227045]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 30)
 layout_direction = 1
@@ -1135,15 +1435,15 @@ accessibility_name = "."
 theme = ExtResource("15_j4qrq")
 metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="other_roll/audios/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=422000191]
+[node name="Label" type="Label" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer/HBoxContainer" unique_id=422000191]
 layout_mode = 2
 size_flags_vertical = 6
 accessibility_name = "."
 theme = ExtResource("15_j4qrq")
-text = "Melodia"
+text = "Melodia - on"
 metadata/_edit_lock_ = true
 
-[node name="hslider_melody" type="HSlider" parent="other_roll/audios/Panel/MarginContainer/VBoxContainer" unique_id=425194659]
+[node name="hslider_melody" type="HSlider" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer" unique_id=425194659]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 30)
 layout_direction = 1
@@ -1155,7 +1455,7 @@ theme = ExtResource("15_j4qrq")
 value = 50.0
 metadata/_edit_lock_ = true
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="other_roll/audios/Panel/MarginContainer/VBoxContainer" unique_id=1718687556]
+[node name="HBoxContainer2" type="HBoxContainer" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer" unique_id=1718687556]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
@@ -1164,7 +1464,7 @@ accessibility_name = "."
 theme_override_constants/separation = 10
 metadata/_edit_lock_ = true
 
-[node name="checkbox_audio" type="CheckBox" parent="other_roll/audios/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=484842302]
+[node name="checkbox_audio" type="CheckBox" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=484842302]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 30)
 layout_direction = 1
@@ -1176,16 +1476,16 @@ accessibility_name = "."
 theme = ExtResource("15_j4qrq")
 metadata/_edit_lock_ = true
 
-[node name="Label2" type="Label" parent="other_roll/audios/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1530312074]
+[node name="Label2" type="Label" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1530312074]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 6
 accessibility_name = "."
 theme = ExtResource("15_j4qrq")
-text = "Audio"
+text = "Audio - on"
 metadata/_edit_lock_ = true
 
-[node name="hslider_audio" type="HSlider" parent="other_roll/audios/Panel/MarginContainer/VBoxContainer" unique_id=1612459341]
+[node name="hslider_audio" type="HSlider" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer" unique_id=1612459341]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 30)
 layout_direction = 1
@@ -1196,9 +1496,57 @@ accessibility_name = "."
 theme = ExtResource("15_j4qrq")
 metadata/_edit_lock_ = true
 
+[node name="language" type="Panel" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer" unique_id=217297263]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/language" unique_id=634408309]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_vertical = 6
+accessibility_name = "."
+theme = ExtResource("15_j4qrq")
+text = "Idioma"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/language" unique_id=337061746]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+theme_override_constants/margin_top = 40
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/language/MarginContainer" unique_id=497798388]
+layout_mode = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="languaje" type="OptionButton" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/language/MarginContainer/VBoxContainer" unique_id=521616501]
+unique_name_in_owner = true
+layout_mode = 2
+accessibility_name = "."
+theme = ExtResource("15_j4qrq")
+item_count = 2
+popup/item_0/text = "Español"
+popup/item_0/id = 0
+popup/item_1/text = "Ingles"
+popup/item_1/id = 1
+metadata/_edit_lock_ = true
+
 [node name="extras" type="MarginContainer" parent="other_roll" unique_id=538110395]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

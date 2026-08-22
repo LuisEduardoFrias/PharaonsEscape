@@ -23,7 +23,7 @@ signal changen(path: String)
 @onready var panel_material: ShaderMaterial = %Panel.material as ShaderMaterial
 @onready var main: VBoxContainer = %main
 @onready var option: VBoxContainer = %options
-@onready var background: TextureRect = %background
+@onready var background: NinePatchRect = %background
 @onready var other_roll: Panel = %other_roll
 @onready var title: Label = %title
 
@@ -36,9 +36,9 @@ var options: Option = Option.CONTROLS:
 	set(val):
 		options = val
 		match val:
-			Option.CONTROLS: %controls.visible = true;  %audios.visible = false; %extras.visible = false
-			Option.AUDIOS: %audios.visible = true;  %extras.visible = false; %controls.visible = false
-			Option.EXTRAS: %extras.visible = true;  %controls.visible = false; %audios.visible = false
+			Option.CONTROLS: %controls.visible = true;  %settings.visible = false; %extras.visible = false
+			Option.AUDIOS: %settings.visible = true;  %extras.visible = false; %controls.visible = false
+			Option.EXTRAS: %extras.visible = true;  %controls.visible = false; %settings.visible = false
 
 
 func _ready() -> void:
@@ -161,11 +161,12 @@ func _show_magic(duration: float = 1.0) -> Signal:
 
 
 func _ready_background() -> void:
-	background.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	background.stretch_mode = TextureRect.STRETCH_SCALE
-	background.rotation_degrees = 90.0
-	get_viewport().size_changed.connect(_on_viewport_resized)
-	_actualizar_transformacion()
+	pass
+#	background.expand_mode = NinePatchRect.EXPAND_IGNORE_SIZE
+#	background.stretch_mode = NinePatchRect.STRETCH_SCALE
+	#background.rotation_degrees = 90.0
+	#get_viewport().size_changed.connect(_on_viewport_resized)
+	#_actualizar_transformacion()
 
 
 func _on_viewport_resized() -> void:
@@ -224,18 +225,25 @@ func _change_texture(time: int) -> void:
 		else: sprites[i].texture = null
 
 
-#------------------
-#----- AUDIO ------
-#------------------
+#----------------------------------
+#----- AJUSTES (AUDIO E IDIOMA) ---
+#----------------------------------
 #region
 
 @onready var checkbox_melody: CheckBox = %checkbox_melody
 @onready var hslider_melody: HSlider = %hslider_melody
 @onready var checkbox_audio: CheckBox = %checkbox_audio
 @onready var hslider_audio: HSlider = %hslider_audio
+@onready var languaje: OptionButton = %languaje
 
 var bus_melody_idx: int
 var bus_sfx_idx: int
+
+# Mapeo de índices del OptionButton al código ISO de idioma
+const LOCALE_MAP = {
+	GameSettings.Code_Trans.EN: "en",
+	GameSettings.Code_Trans.ES: "es"
+}
 
 
 func _audio_ready() -> void:
@@ -244,14 +252,20 @@ func _audio_ready() -> void:
 
 	_setup_slider(hslider_melody)
 	_setup_slider(hslider_audio)
+	_setup_language_option_button()
 
+	# Cargar ajustes persistentes (Audio e Idioma)
 	_load_audio_settings()
+	_load_language_settings()
 
+	# Conexión de señales de Audio
 	hslider_melody.value_changed.connect(_on_melody_slider_changed)
 	checkbox_melody.toggled.connect(_on_melody_checkbox_toggled)
-
 	hslider_audio.value_changed.connect(_on_sfx_slider_changed)
 	checkbox_audio.toggled.connect(_on_sfx_checkbox_toggled)
+
+	# Conexión de señal de Idioma
+	languaje.item_selected.connect(_on_language_selected)
 
 
 func _setup_slider(slider: HSlider) -> void:
@@ -259,6 +273,15 @@ func _setup_slider(slider: HSlider) -> void:
 	slider.max_value = 1.0
 	slider.step = 0.01
 
+
+func _setup_language_option_button() -> void:
+	languaje.clear()
+	# Los IDs deben coincidir con los valores numéricos del Enum (0: EN, 1: ES)
+	languaje.add_item("English", GameSettings.Code_Trans.EN)
+	languaje.add_item("Español", GameSettings.Code_Trans.ES)
+
+
+# --- Configuración de Audio ---
 
 func _load_audio_settings() -> void:
 	var data: Dictionary = Global.get_audio()
@@ -277,7 +300,6 @@ func _load_audio_settings() -> void:
 		hslider_melody.value = linear_val
 		AudioServer.set_bus_volume_db(bus_melody_idx, linear_to_db(linear_val))
 
-	# Aplicar configuración de SFX
 	if data.has("sfx_on"):
 		checkbox_audio.button_pressed = data["sfx_on"]
 		AudioServer.set_bus_mute(bus_sfx_idx, not data["sfx_on"])
@@ -305,8 +327,26 @@ func _sync_ui_with_audio(bus_idx: int, slider: HSlider, checkbox: CheckBox) -> v
 
 	var db_val = AudioServer.get_bus_volume_db(bus_idx)
 	slider.value = db_to_linear(db_val)
-
 	checkbox.button_pressed = not AudioServer.is_bus_mute(bus_idx)
+
+
+# --- Configuración de Idioma ---
+
+func _load_language_settings() -> void:
+	var current_lang: GameSettings.Code_Trans = Global.get_language()
+
+	# Seleccionar la opción correspondiente en el OptionButton
+	var item_index: int = languaje.get_item_index(current_lang)
+	if item_index != -1:
+		languaje.select(item_index)
+
+	# Aplicar el idioma globalmente
+	_apply_language(current_lang)
+
+
+func _apply_language(code: GameSettings.Code_Trans) -> void:
+	if LOCALE_MAP.has(code):
+		TranslationServer.set_locale(LOCALE_MAP[code])
 
 
 # --- Eventos UI con auto-guardado ---
@@ -329,5 +369,11 @@ func _on_sfx_slider_changed(value: float) -> void:
 func _on_sfx_checkbox_toggled(toggled_on: bool) -> void:
 	AudioServer.set_bus_mute(bus_sfx_idx, not toggled_on)
 	_save_audio_settings()
+
+
+func _on_language_selected(index: int) -> void:
+	var selected_code: GameSettings.Code_Trans = languaje.get_item_id(index) as GameSettings.Code_Trans
+	_apply_language(selected_code)
+	Global.save_language(selected_code)
 
 #endregion

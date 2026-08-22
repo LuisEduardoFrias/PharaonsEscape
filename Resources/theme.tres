@@ -2,35 +2,47 @@
 
 [ext_resource type="FontFile" uid="uid://b7boea1jnj8eq" path="res://Resources/Fonts/skandal/Skandal.ttf" id="1_ho8mu"]
 
+[sub_resource type="Gradient" id="Gradient_ho8mu"]
+offsets = PackedFloat32Array(0.47391668, 0.5841797, 0.678974)
+colors = PackedColorArray(1, 0.9490196, 0, 1, 0, 0, 0, 1, 0.58431375, 0.56078434, 0.12941177, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_luv3h"]
+gradient = SubResource("Gradient_ho8mu")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0.5)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ho8mu"]
-bg_color = Color(0.28627452, 0.7294118, 1, 1)
+bg_color = Color(0, 1, 0.46666667, 1)
 border_width_left = 5
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.8, 0, 0, 0)
-corner_radius_top_left = 5
-corner_radius_bottom_left = 5
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+corner_radius_top_left = 3
+corner_radius_bottom_left = 3
 corner_detail = 20
 expand_margin_top = 3.0
 expand_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_luv3h"]
-bg_color = Color(1.540184e-06, 0.750423, 0.26448447, 1)
+bg_color = Color(0, 1, 0.20784314, 1)
 border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4157809, 0.41578093, 0.41578072, 1)
+corner_detail = 20
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6hc6j"]
-bg_color = Color(0.48235294, 0.77254903, 0.99607843, 0.2901961)
-border_width_left = 5
+bg_color = Color(0.27357307, 0.2735731, 0.27357304, 1)
+border_width_left = 2
 border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0, 0, 1, 1)
+border_width_right = 2
+border_width_bottom = 3
+border_color = Color(0.19630423, 0.19630426, 0.1963042, 1)
 border_blend = true
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -40,11 +52,38 @@ corner_detail = 20
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0abbe"]
+bg_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.17936057, 0.17936057, 0.17936051, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2rm2"]
+bg_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.17936057, 0.17936057, 0.17936051, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [resource]
-CheckBox/colors/checkbox_checked_color = Color(1, 0.63529414, 1, 1)
-CheckBox/colors/checkbox_unchecked_color = Color(0, 0, 18.892157, 1)
+CheckBox/colors/checkbox_checked_color = Color(0.9843227, 0.34015024, 1, 1)
+CheckBox/colors/checkbox_unchecked_color = Color(18.892157, 18.892157, 18.892157, 1)
 CheckBox/colors/icon_normal_color = Color(0, 0, 0, 1)
 CheckBox/font_sizes/font_size = 23
+HSlider/icons/grabber = SubResource("GradientTexture2D_luv3h")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ho8mu")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_luv3h")
 HSlider/styles/slider = SubResource("StyleBoxFlat_6hc6j")
@@ -52,3 +91,5 @@ Label/constants/line_spacing = 25
 Label/constants/outline_size = 8
 Label/font_sizes/font_size = 22
 Label/fonts/font = ExtResource("1_ho8mu")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_0abbe")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_o2rm2")

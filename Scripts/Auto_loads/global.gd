@@ -17,6 +17,7 @@ var data: Data = Data.new():
 		data = val
 		player_data = data.player
 var current_scene: Node2D
+var game_settings: GameSettings
 var section_2_active_door: bool = false
 
 # tadosnpara compartir entre escenas
@@ -25,11 +26,36 @@ var bridge_fall: bool = false # Para verificar cuando cae del puente
 
 func _ready() -> void:
 	current_slot = SaveManager.available_slots[0]
+	game_settings = SaveManager.game_settings
+
+
+# ==============================================================================
+# region API PÚBLICA (Language Settings)
+# ==============================================================================
+
+## Guarda la selección de idioma y persiste las configuraciones en disco.
+func save_language(lang_code: GameSettings.Code_Trans) -> void:
+	if not game_settings:
+		game_settings = SaveManager._load_game_settings() as GameSettings
+
+	game_settings.languaje = lang_code
+	SaveManager.save_game_settings()
+
+
+## Retorna el código Enum del idioma guardado actualmente.
+func get_language() -> GameSettings.Code_Trans:
+	if not game_settings:
+		game_settings = SaveManager._load_game_settings() as GameSettings
+
+	return game_settings.languaje
+
+# endregion
 
 
 # ==============================================================================
 # region API PÚBLICA (Audio Settings)
 # ==============================================================================
+#region
 
 ## Guarda la configuración de audio en el recurso global y lo persiste en disco.
 func save_audio(audio_data: Dictionary) -> void:
@@ -46,14 +72,13 @@ func save_audio(audio_data: Dictionary) -> void:
 	if audio_data.has("sfx_vol"):
 		game_settings.sfx_vol = audio_data["sfx_vol"]
 
-	# Guarda el recurso 'game_settings' en disco usando la función existente
-	save_game_settings()
+	SaveManager.save_game_settings()
 
 
 ## Retorna la configuración de audio actual almacenada en 'game_settings' como Diccionario.
 func get_audio() -> Dictionary:
 	if not game_settings:
-		game_settings = _load_game_settings() as GameSettings
+		game_settings = SaveManager._load_game_settings() as GameSettings
 
 	return {
 		"melody_on": game_settings.melody_on,
@@ -62,8 +87,7 @@ func get_audio() -> Dictionary:
 		"sfx_vol": game_settings.sfx_vol
 	}
 
-# endregion
-
+#endregion
 
 
 # Guada los datos generales

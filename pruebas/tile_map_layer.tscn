@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://mtkioas4p87q"]
+
+[ext_resource type="Script" uid="uid://b76rfjomk4l8v" path="res://pruebas/tile_map_layer.gd" id="1_rfutk"]
+[ext_resource type="Script" uid="uid://bpt6mblitaaku" path="res://addons/joy_stick/toush_button.gd" id="2_6drdu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjg4t"]
+
+[node name="TileMapLayer" type="TileMapLayer" unique_id=1186850336]
+script = ExtResource("1_rfutk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=248962689]
+
+[node name="TouchButton" type="TextureButton" parent="CanvasLayer" unique_id=993407033]
+offset_left = 913.0
+offset_top = 479.0
+offset_right = 1043.0
+offset_bottom = 556.0
+scale = Vector2(2, 2)
+script = ExtResource("2_6drdu")
+action = &""
+metadata/_custom_type_script = "uid://bpt6mblitaaku"
+
+[node name="Label" type="Label" parent="CanvasLayer/TouchButton" unique_id=1408008022]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_jjg4t")
+text = "click"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="touch_pressed" from="CanvasLayer/TouchButton" to="." method="_on_touch_button_touch_pressed"]

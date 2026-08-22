@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dk420prg6h6fx"]
+
+[ext_resource type="Script" uid="uid://c8dtn6cbbloue" path="res://pruebas/prueba.gd" id="1_v0utq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0utq"]
+size = Vector2(67, 67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wiw2"]
+size = Vector2(77, 75)
+
+[sub_resource type="Gradient" id="Gradient_v0utq"]
+offsets = PackedFloat32Array(0, 0.0879951, 0.9693541, 1)
+colors = PackedColorArray(0.742502, 0.3393419, 0, 1, 0.0879951, 0.0879951, 0.0879951, 1, 0.2126408, 0.2126408, 0.2126408, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2wiw2"]
+gradient = SubResource("Gradient_v0utq")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(1, 1)
+
+[node name="caja" type="StaticBody2D" unique_id=97630278]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_v0utq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=644944208]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_v0utq")
+debug_color = Color(9.62615e-08, 0.54361767, 0.7854194, 0.42)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=757543767]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=667745070]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_2wiw2")
+debug_color = Color(0.94509804, 1, 0.5921569, 0.17254902)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=910394162]
+texture = SubResource("GradientTexture2D_2wiw2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
