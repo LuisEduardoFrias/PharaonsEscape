@@ -11,7 +11,7 @@ var tiempo: float = 0.0
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
-		Util.region_animation(2, 2, 32.0, 116.0, self, 3, 1.0)
+		Util.region_animation(2, 2, 32.0, 116.0, self, 3, Vector2.ZERO, 1.0)
 
 
 func _process(delta: float) -> void:

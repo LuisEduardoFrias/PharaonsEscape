@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnhotid5cp0sv"
-path="res://.godot/imported/mosaicos.png-290d27630dfdbd7e2ec59df68883e56d.ctex"
+uid="uid://cg25sekbtikst"
+path="res://.godot/imported/sky2.png-a9a778afc5c341d65c5c8a5d794a89fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Sprites/mosaicos.png"
-dest_files=["res://.godot/imported/mosaicos.png-290d27630dfdbd7e2ec59df68883e56d.ctex"]
+source_file="res://Textures/Ui/main_menu/paralax4/sky2.png"
+dest_files=["res://.godot/imported/sky2.png-a9a778afc5c341d65c5c8a5d794a89fe.ctex"]
 
 [params]
 

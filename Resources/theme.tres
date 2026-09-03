@@ -81,7 +81,7 @@ corner_radius_bottom_left = 3
 [resource]
 CheckBox/colors/checkbox_checked_color = Color(0.9843227, 0.34015024, 1, 1)
 CheckBox/colors/checkbox_unchecked_color = Color(18.892157, 18.892157, 18.892157, 1)
-CheckBox/colors/icon_normal_color = Color(0, 0, 0, 1)
+CheckBox/colors/icon_normal_color = Color(2.0820904, 2.0820904, 2.0820904, 1)
 CheckBox/font_sizes/font_size = 23
 HSlider/icons/grabber = SubResource("GradientTexture2D_luv3h")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ho8mu")

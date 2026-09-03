@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bdd2gkfuw7ija" path="res://Textures/Ui/main_menu/button_pressed.png" id="4_78ii3"]
 [ext_resource type="Texture2D" uid="uid://bdd2gkfuw7ija" path="res://Textures/Ui/main_menu/button_pressed.png" id="5_dw0nj"]
 [ext_resource type="Script" uid="uid://cdj1bbsk6yxgr" path="res://Scenes/menus/menu_btn.gd" id="6_t4gcf"]
-[ext_resource type="AudioStream" uid="uid://bbpqoa3k8t4xj" path="res://Audios/audio_btn.wav" id="7_0oxhy"]
+[ext_resource type="AudioStream" uid="uid://bbpqoa3k8t4xj" path="res://Audios/menus/audio_btn.wav" id="7_0oxhy"]
 [ext_resource type="Theme" uid="uid://wneol1sellg4" path="res://Resources/new_theme.tres" id="8_ghtar"]
 
 [node name="menu_btn" type="TextureButton" unique_id=783085075]

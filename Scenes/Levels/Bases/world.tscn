@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bky0taj6xe32h" path="res://Textures/Ui/Hub/marco.png" id="4_den31"]
 [ext_resource type="PackedScene" uid="uid://tkcxscp8bdo8" path="res://Scenes/ui_dev.tscn" id="4_qghhs"]
 [ext_resource type="PackedScene" uid="uid://b308fsddrk8dk" path="res://Scenes/Custom_nodes/hub/skills_selector.tscn" id="5_s25tx"]
-[ext_resource type="PackedScene" uid="uid://ctiha5s3j1ju6" path="res://Scenes/Custom_nodes/live.tscn" id="6_5itfw"]
+[ext_resource type="PackedScene" uid="uid://b0l8iim3xv2j7" path="res://Scenes/Custom_nodes/container.tscn" id="6_5itfw"]
 
 [node name="world" type="Node2D" unique_id=820486288 groups=["World"]]
 script = ExtResource("1_x0d8c")
@@ -157,7 +157,7 @@ layout_mode = 1
 offset_left = -325.0
 offset_bottom = 170.0
 
-[node name="live" parent="CanvasLayer/HUD/hub" unique_id=1958124661 instance=ExtResource("6_5itfw")]
+[node name="container" parent="CanvasLayer/HUD/hub" unique_id=1958124661 instance=ExtResource("6_5itfw")]
 layout_mode = 0
 
 [node name="Pause" type="Control" parent="CanvasLayer" unique_id=89536340]

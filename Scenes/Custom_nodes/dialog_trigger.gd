@@ -18,7 +18,6 @@ func _interact(_data: Dictionary) -> void:
 	dialogue_active.emit(true)
 	data.merge(_data)
 	data.player._input_physics_off(true)
-	DialogueManager.show_dialogue_balloon(dialog_resouce, DIALOG_START, [self])
 
 
 func _enable() -> void:

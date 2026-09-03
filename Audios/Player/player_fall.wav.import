@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://byo00brquj47q"
-path="res://.godot/imported/player_fall.wav-a66bedab3cf05ba42bd21da466dcb8bc.sample"
+path="res://.godot/imported/player_fall.wav-8ac8ba753a3a9c36b43926bf3c2f3a69.sample"
 
 [deps]
 
-source_file="res://Audios/player_fall.wav"
-dest_files=["res://.godot/imported/player_fall.wav-a66bedab3cf05ba42bd21da466dcb8bc.sample"]
+source_file="res://Audios/Player/player_fall.wav"
+dest_files=["res://.godot/imported/player_fall.wav-8ac8ba753a3a9c36b43926bf3c2f3a69.sample"]
 
 [params]
 

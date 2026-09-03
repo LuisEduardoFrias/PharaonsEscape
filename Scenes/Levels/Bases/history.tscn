@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dh0up2j0asyqj" path="res://Scenes/Levels/Bases/history.gd" id="1_omv3t"]
 [ext_resource type="PackedScene" uid="uid://mv6rb6kr460f" path="res://Scenes/Custom_nodes/vortex_transition.tscn" id="2_ojp4a"]
-[ext_resource type="AudioStream" uid="uid://dwc3eovgpusvr" path="res://Audios/Melodys/history-01.mp3" id="2_s5hwu"]
+[ext_resource type="AudioStream" uid="uid://dwc3eovgpusvr" path="res://Audios/Melodies/history-01.mp3" id="2_s5hwu"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s5hwu"]
 load_path = "res://.godot/imported/H_1.png-450d0fc67c32c724033290be8c81ba6c.ctex"

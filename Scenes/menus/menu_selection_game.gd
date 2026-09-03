@@ -41,10 +41,13 @@ func _ready() -> void:
 	zoom_flicker()
 	show_inicial_btn_text()
 	zoom.grab_focus()
+	Util.region_animation(6, 6, 64, 64, %clock, 25, Vector2(0.0, 736.0))
+	Util.region_animation(2, 0, 32, 32, %bug, 2, Vector2(128.0, 352.0), 1.0)
+	player_anim(randi_range(1, 8))
 
 
 func animated_bg() -> void:
-	Util.region_animation(4, 4, 578.0, 322.0, bg, 12, 3.0)
+	Util.region_animation(4, 4, 578.0, 322.0, bg, 13, Vector2.ZERO, 3.0)
 
 
 func center_camera_on_viewport():
@@ -114,14 +117,17 @@ func _on_back_zoom_pressed() -> void:
 
 
 func _on_option_btn_pressed() -> void:
+	player_anim(randi_range(1, 8))
 	load_data(0)
 
 
 func _on_option_btn_2_pressed() -> void:
+	player_anim(randi_range(1, 8))
 	load_data(1)
 
 
 func _on_option_btn_3_pressed() -> void:
+	player_anim(randi_range(1, 8))
 	load_data(2)
 
 
@@ -149,7 +155,7 @@ func load_data(id: int) -> void:
 
 		time.text = _format_unix_time(slot.time_gaming)
 		bugs.text = str(slot.bugs)
-		live.text = str(slot.current_live)
+		#live.text = str(slot.current_live)
 		level.text = slot.level_name
 	else:
 		Global.current_slot = slot
@@ -213,3 +219,14 @@ func clear_data_ui() -> void:
 func show_inicial_btn_text() -> void:
 	for slot: Slot in SaveManager.available_slots:
 		btns[slot.slot_id - 1].text = "New Game" if slot.is_slot_empty else "Continue"
+
+
+func player_anim(index: int) -> void:
+	match index:
+		1: Util.region_animation(4, 0, 64, 64, %player, 4, Vector2(0.0, 0.0), 1.0)
+		2: Util.region_animation(8, 0, 64, 64, %player, 8, Vector2(0.0, 64.0), 1.0)
+		3: Util.region_animation(8, 0, 64, 64, %player, 8, Vector2(0.0, 128.0), 1.0)
+		4: Util.region_animation(8, 0, 64, 64, %player, 8, Vector2(0.0, 192.0), 1.0)
+		5: Util.region_animation(5, 0, 64, 64, %player, 5, Vector2(0.0, 256.0), 1.0)
+		6: Util.region_animation(5, 0, 64, 64, %player, 5, Vector2(0.0, 320.0), 1.0)
+		7: Util.region_animation(5, 0, 64, 64, %player, 5, Vector2(0.0, 384.0), 1.0)

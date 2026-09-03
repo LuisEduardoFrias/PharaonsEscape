@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bdd2gkfuw7ija" path="res://Textures/Ui/main_menu/button_pressed.png" id="1_xym2y"]
 [ext_resource type="Script" uid="uid://cnr4kcxx6fhkm" path="res://Scenes/Custom_nodes/menus/option_btn.gd" id="2_5enqh"]
 [ext_resource type="FontFile" uid="uid://b7boea1jnj8eq" path="res://Resources/Fonts/skandal/Skandal.ttf" id="2_x7guo"]
+[ext_resource type="AudioStream" uid="uid://bbpqoa3k8t4xj" path="res://Audios/menus/audio_btn.wav" id="4_5enqh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ojfo"]
 atlas = ExtResource("1_xym2y")
@@ -28,6 +29,7 @@ region = Rect2(0, 144, 200, 48)
 content_margin_top = 5.0
 
 [node name="option_btn" type="TextureButton" unique_id=1071333461]
+use_parent_material = true
 custom_minimum_size = Vector2(160, 45)
 offset_right = 160.0
 offset_bottom = 45.0
@@ -45,6 +47,7 @@ stretch_mode = 0
 script = ExtResource("2_5enqh")
 
 [node name="Label" type="Label" parent="." unique_id=581660873]
+use_parent_material = true
 custom_minimum_size = Vector2(160, 45)
 layout_mode = 1
 anchors_preset = 15
@@ -71,6 +74,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
 justification_flags = 0
+
+[node name="audio_sfx" type="AudioStreamPlayer2D" parent="." unique_id=806895966]
+stream = ExtResource("4_5enqh")
+bus = &"sfx"
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]

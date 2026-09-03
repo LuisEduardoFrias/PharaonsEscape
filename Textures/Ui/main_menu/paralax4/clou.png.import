@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jgbxdt42r4se"
-path="res://.godot/imported/tiles .png-2526978290a72737374eff99789dfdc4.ctex"
+uid="uid://cw8qdopn8c4cs"
+path="res://.godot/imported/clou.png-3b03bb1131b091a93de1c7e56e3d2dd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/tiles .png"
-dest_files=["res://.godot/imported/tiles .png-2526978290a72737374eff99789dfdc4.ctex"]
+source_file="res://Textures/Ui/main_menu/paralax4/clou.png"
+dest_files=["res://.godot/imported/clou.png-3b03bb1131b091a93de1c7e56e3d2dd5.ctex"]
 
 [params]
 

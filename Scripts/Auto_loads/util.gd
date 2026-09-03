@@ -57,11 +57,43 @@ func temporarily_switch_camera(camera1: Camera2D, camera2: Camera2D, callback: C
 	await Global.current_scene.change_scene_screen.transition_in()
 
 
-func region_animation(width: int, height: int, r_w: float, r_h: float, node: Node, count_frame: int, speed: float = 3.0, is_loop: bool = true) -> void:
+## Anima la región recortada de la textura de un nodo recorriendo una cuadrícula de frames.
+##
+## Utíl para sprite sheets con múltiples animaciones o capas.
+##
+## @param width Número total de columnas (frames horizontales) por fila en la cuadrícula.
+## @param height Número total de filas (frames verticales) en la cuadrícula.
+## @param r_w Ancho de cada frame individual en píxeles.
+## @param r_h Alto de cada frame individual en píxeles.
+## @param node Nodo objetivo que posee la textura a animar.
+## @param count_frame Cantidad total de frames que dura la animación.
+## @param offset_position Coordenada (X, Y) en píxeles donde inicia la animación dentro de la imagen.
+## @param speed Duración total en segundos del ciclo de animación.
+## @param is_loop Determina si la animación debe repetirse en bucle continuo.
+func region_animation(
+	width: int,
+	height: int,
+	r_w: float,
+	r_h: float,
+	node: Node,
+	count_frame: int,
+	offset_position: Vector2 = Vector2.ZERO,
+	speed: float = 3.0,
+	is_loop: bool = true
+) -> void:
 	var t: Tween = create_tween()
-	if is_loop: t.set_loops()
+	if is_loop:
+		t.set_loops()
+	# Usamos count_frame - 1 porque los índices van de 0 a (count_frame - 1)
 	t.tween_method(func (i: int) -> void:
 		var x: float = i % width
-		var y: int = int(i / float(height))
-		if node: node.texture.region = Rect2(r_w * x, r_h * y, r_w, r_h)
-	, 0, count_frame, speed)
+		var y: int = int(i / float(width))# var y: int = int(i / float(height))
+
+		if node and "texture" in node and node.texture:
+			node.texture.region = Rect2(
+				offset_position.x + (r_w * x),
+				offset_position.y + (r_h * y),
+				r_w,
+				r_h
+			)
+	, 0, count_frame - 1, speed)

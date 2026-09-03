@@ -1,5 +1,7 @@
-@tool extends TextureButton
+@tool
+extends TextureButton
 
+@onready var audio: AudioStreamPlayer2D = $audio_sfx
 @onready var label: Label = $Label
 
 
@@ -20,20 +22,24 @@ func _set(property: StringName, value: Variant) -> bool:
 		if not is_node_ready(): await ready
 		disabled = value
 		label["theme_override_colors/font_color"] = Color("7a7a7aff") if value else Color("ffdea3")
-		label["theme_override_colors/font_outline_color"] = Color("bfbfbfff") if value else  Color("a75f00")
+		label["theme_override_colors/font_outline_color"] = Color("bfbfbfff") if value else Color("a75f00")
 		return true
 	return false
 
 
 func _on_mouse_entered() -> void:
 	if not disabled:
+		play_sfx()
 		enter(true)
 
 
 func _on_mouse_exited() -> void:
 	enter(false)
 
+
 func _on_button_down() -> void:
+	if not disabled:
+		play_sfx()
 		enter(true)
 
 
@@ -42,7 +48,12 @@ func _on_button_up() -> void:
 		enter(false)
 
 
-func enter(is_enter: bool ) -> void:
+func enter(is_enter: bool) -> void:
 	label["theme_override_colors/font_color"] = Color("f0b000ff") if is_enter else Color("ffdea3")
-	label["theme_override_colors/font_outline_color"] = Color("572f00ff") if is_enter else  Color("a75f00")
+	label["theme_override_colors/font_outline_color"] = Color("572f00ff") if is_enter else Color("a75f00")
 	label.scale = Vector2(0.9, 0.9) if is_enter else Vector2(1.0, 1.0)
+
+
+func play_sfx() -> void:
+	if audio and audio.stream:
+		audio.play()

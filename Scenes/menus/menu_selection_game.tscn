@@ -9,9 +9,14 @@
 [ext_resource type="Material" uid="uid://boccc6ujbxk7r" path="res://Resources/canvas_item_material_light.tres" id="5_qmbfv"]
 [ext_resource type="Texture2D" uid="uid://c1flvn4fbj7rb" path="res://Textures/Ui/menu_selection_game/select.png" id="5_vu3be"]
 [ext_resource type="PackedScene" uid="uid://bfk0mdurlhpnm" path="res://Scenes/Custom_nodes/menus/option_btn.tscn" id="7_kl1jx"]
-[ext_resource type="AudioStream" uid="uid://0y11pxf3rfeh" path="res://Audios/Melodys/menu-02.mp3" id="8_2ojfo"]
+[ext_resource type="AudioStream" uid="uid://0y11pxf3rfeh" path="res://Audios/menus/menu-02.mp3" id="8_2ojfo"]
 [ext_resource type="FontFile" uid="uid://b7boea1jnj8eq" path="res://Resources/Fonts/skandal/Skandal.ttf" id="8_5basi"]
+[ext_resource type="Texture2D" uid="uid://c7lcluh6gi3da" path="res://Textures/Sprites/map_decorations.png" id="10_lufft"]
+[ext_resource type="Theme" uid="uid://wneol1sellg4" path="res://Resources/new_theme.tres" id="11_0iq3j"]
 [ext_resource type="Texture2D" uid="uid://bm1ntifealyek" path="res://Textures/Ui/main_menu/per.png" id="11_cxhes"]
+[ext_resource type="PackedScene" uid="uid://ctiha5s3j1ju6" path="res://Scenes/Custom_nodes/live.tscn" id="12_dmbx2"]
+[ext_resource type="PackedScene" uid="uid://0rd3ojt26nuo" path="res://Scenes/Custom_nodes/porions.tscn" id="13_syxvr"]
+[ext_resource type="Texture2D" uid="uid://c67xv1ssek1gj" path="res://Textures/Player/player.png" id="15_0iq3j"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_1c57a"]
 diffuse_texture = ExtResource("3_qmbfv")
@@ -19,6 +24,25 @@ diffuse_texture = ExtResource("3_qmbfv")
 [sub_resource type="AtlasTexture" id="AtlasTexture_qmbfv"]
 atlas = SubResource("CanvasTexture_1c57a")
 region = Rect2(0, 0, 578, 322)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lufft"]
+draw_center = false
+anti_aliasing = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r6ti"]
+atlas = ExtResource("10_lufft")
+region = Rect2(0, 736, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lufft"]
+atlas = ExtResource("10_lufft")
+region = Rect2(128, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iq3j"]
+atlas = ExtResource("15_0iq3j")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eumhy"]
+content_margin_left = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5basi"]
 content_margin_left = 4.0
@@ -874,7 +898,7 @@ grow_vertical = 2
 accessibility_name = "."
 theme_override_constants/margin_left = 35
 theme_override_constants/margin_top = 35
-theme_override_constants/margin_right = 35
+theme_override_constants/margin_right = 37
 theme_override_constants/margin_bottom = 35
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
@@ -899,13 +923,37 @@ metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer" unique_id=689653618]
 layout_mode = 2
+size_flags_vertical = 3
 accessibility_name = "."
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer" unique_id=1830370503]
+[node name="Panel" type="Panel" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer" unique_id=1188690627]
 layout_mode = 2
 size_flags_horizontal = 3
 accessibility_name = "."
+theme_override_styles/panel = SubResource("StyleBoxFlat_lufft")
+metadata/_edit_lock_ = true
+
+[node name="clock" type="TextureRect" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer/Panel" unique_id=1830370503]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.51109
+anchor_top = -0.010881031
+anchor_right = 2.0720658
+anchor_bottom = 2.7717276
+offset_left = -21.0166
+offset_top = -5.625045
+offset_right = -35.455624
+offset_bottom = -52.233746
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+accessibility_name = "."
+texture = SubResource("AtlasTexture_0r6ti")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="time" type="Label" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer" unique_id=367344112]
@@ -914,6 +962,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 accessibility_name = "."
+theme = ExtResource("11_0iq3j")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("8_5basi")
 theme_override_font_sizes/font_size = 22
@@ -925,13 +974,33 @@ metadata/_edit_lock_ = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer" unique_id=685014842]
 layout_mode = 2
+size_flags_vertical = 3
 accessibility_name = "."
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer2" unique_id=1604145903]
+[node name="Panel" type="Panel" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer2" unique_id=63492980]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.58
 accessibility_name = "."
+theme_override_styles/panel = SubResource("StyleBoxFlat_lufft")
+metadata/_edit_lock_ = true
+
+[node name="bug" type="TextureRect" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer2/Panel" unique_id=1604145903]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.615807
+offset_top = 2.5047088
+offset_right = 0.6158066
+offset_bottom = 2.5047073
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+accessibility_name = "."
+texture = SubResource("AtlasTexture_lufft")
 metadata/_edit_lock_ = true
 
 [node name="bugs" type="Label" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer2" unique_id=477398301]
@@ -940,6 +1009,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 accessibility_name = "."
+theme = ExtResource("11_0iq3j")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("8_5basi")
 theme_override_font_sizes/font_size = 22
@@ -949,36 +1019,64 @@ autowrap_trim_flags = 0
 justification_flags = 0
 metadata/_edit_lock_ = true
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer" unique_id=1370849645]
+[node name="HBoxContainer3" type="Panel" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer" unique_id=1883699317]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+size_flags_vertical = 3
 accessibility_name = "."
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer3" unique_id=362997614]
+[node name="live2" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer3" unique_id=1033903593 instance=ExtResource("12_dmbx2")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.6157913
+offset_top = 11.272381
+offset_right = 131.61578
+offset_bottom = 23.272385
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+
+[node name="HBoxContainer4" type="Panel" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer" unique_id=1488769307]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="porions" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer4" unique_id=1444989296 instance=ExtResource("13_syxvr")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.5198164
+offset_top = 10.808006
+offset_right = 128.51982
+offset_bottom = 21.808006
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+
+[node name="panel" type="Panel" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container" unique_id=1042481654]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 accessibility_name = "."
 metadata/_edit_lock_ = true
 
-[node name="live" type="Label" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer3" unique_id=1316088521]
+[node name="player" type="TextureRect" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/panel" unique_id=136685007]
 unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
 accessibility_name = "."
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("8_5basi")
-theme_override_font_sizes/font_size = 22
-text = "6"
-vertical_alignment = 1
-autowrap_trim_flags = 0
-justification_flags = 0
-metadata/_edit_lock_ = true
-
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container" unique_id=613554142]
-layout_mode = 2
-size_flags_horizontal = 3
-accessibility_name = "."
+texture = SubResource("AtlasTexture_0iq3j")
 metadata/_edit_lock_ = true
 
 [node name="level" type="Label" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container" unique_id=2049199431]
@@ -988,6 +1086,7 @@ accessibility_name = "."
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("8_5basi")
 theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eumhy")
 text = "La gran galeria"
 vertical_alignment = 1
 autowrap_trim_flags = 0

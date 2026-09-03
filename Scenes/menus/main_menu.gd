@@ -55,12 +55,17 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	timer += delta
-	if timer >= 30.0:
+	if timer >= 40.0:
+		if current_state != 400:
+			current_state = 400
+			_change_texture(400)
+		timer = 0.0
+		current_state = 0
+
+	elif timer >= 30.0:
 		if current_state != 300:
 			current_state = 300
 			_change_texture(300)
-		timer = 0.0
-		current_state = 0
 
 	elif timer >= 20.0:
 		if current_state != 200:
@@ -186,6 +191,7 @@ func _change_texture(time: int) -> void:
 		100: index = 1
 		200: index = 2
 		300: index = 3
+		400: index = 4
 		_: return
 
 	var target_color: Color
@@ -193,6 +199,7 @@ func _change_texture(time: int) -> void:
 		1: target_color = Color("1d2e4b")
 		2: target_color = Color("68B5DFFF")
 		3: target_color = Color("68B5DFFF")
+		4: target_color = Color("401E43FF")
 
 	var tween = create_tween().set_parallel(true)
 	tween.tween_property(sky0, "color", target_color, 1.0)
@@ -206,12 +213,6 @@ func _change_texture(time: int) -> void:
 		"res://Textures/Ui/main_menu/paralax%d/terrain1.png" % index,
 		"res://Textures/Ui/main_menu/paralax%d/terrain2.png" % index
 	]
-	print(index)
-	print(clous_v[0].modulate.a)
-	print(clous_v[1].modulate.a)
-	print(clous_v[2].modulate.a)
-	print(clous_v[3].modulate.a)
-	print(clous_v[4].modulate.a)
 
 	clous_v[0].modulate.a = 0.2 if index == 3 else 0.070
 	clous_v[1].modulate.a = 1.1 if index == 3 else 0.49

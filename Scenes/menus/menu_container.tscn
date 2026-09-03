@@ -1,19 +1,13 @@
 [gd_scene format=3 uid="uid://b6y8kou6ots35"]
 
 [ext_resource type="Script" uid="uid://bsb5du1f3rr2n" path="res://Scenes/menus/menu_container.gd" id="1_i5qjv"]
-[ext_resource type="AudioStream" uid="uid://0y11pxf3rfeh" path="res://Audios/Melodys/menu-02.mp3" id="2_nq6kh"]
+[ext_resource type="AudioStream" uid="uid://dhswbvciyts00" path="res://Audios/menu-soundtrack -2.mp3" id="2_nq6kh"]
 
 [node name="menu_container" type="Control" unique_id=1794265144]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -640.0
-offset_top = -360.0
-offset_right = -640.0
-offset_bottom = -360.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3

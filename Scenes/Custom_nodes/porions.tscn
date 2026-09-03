@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://0rd3ojt26nuo"]
+
+[ext_resource type="PackedScene" uid="uid://d313ni82rrrwh" path="res://Scenes/Custom_nodes/horney.tscn" id="1_21evv"]
+[ext_resource type="Script" uid="uid://csivbpag28x56" path="res://Scenes/Custom_nodes/porions.gd" id="1_undig"]
+
+[node name="porions" type="HBoxContainer" unique_id=1444989296]
+custom_minimum_size = Vector2(240, 58)
+size_flags_vertical = 3
+accessibility_name = "."
+script = ExtResource("1_undig")
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="." unique_id=733230131]
+layout_mode = 2
+size_flags_horizontal = 3
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="horney" parent="Control" unique_id=768626326 instance=ExtResource("1_21evv")]
+custom_minimum_size = Vector2(64, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -37.0
+offset_right = 38.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(35, 32)
+size_flags_horizontal = 3
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Control2" type="Control" parent="." unique_id=1980794303]
+layout_mode = 2
+size_flags_horizontal = 3
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="horney2" parent="Control2" unique_id=577234425 instance=ExtResource("1_21evv")]
+custom_minimum_size = Vector2(64, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -37.0
+offset_right = 38.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(35, 32)
+size_flags_horizontal = 3
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Control3" type="Control" parent="." unique_id=260284922]
+layout_mode = 2
+size_flags_horizontal = 3
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="horney3" parent="Control3" unique_id=340186320 instance=ExtResource("1_21evv")]
+custom_minimum_size = Vector2(64, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -37.0
+offset_right = 38.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(35, 32)
+size_flags_horizontal = 3
+expand_mode = 1
+metadata/_edit_lock_ = true
