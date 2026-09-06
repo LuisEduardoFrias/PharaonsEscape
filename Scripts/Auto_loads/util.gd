@@ -72,18 +72,19 @@ func temporarily_switch_camera(camera1: Camera2D, camera2: Camera2D, callback: C
 ## @param is_loop Determina si la animación debe repetirse en bucle continuo.
 func region_animation(
 	width: int,
-	height: int,
+	_height: int,
 	r_w: float,
 	r_h: float,
 	node: Node,
 	count_frame: int,
 	offset_position: Vector2 = Vector2.ZERO,
 	speed: float = 3.0,
-	is_loop: bool = true
-) -> void:
+	is_loop: bool = true,
+	step_loop: int = 0
+) -> Tween:
 	var t: Tween = create_tween()
 	if is_loop:
-		t.set_loops()
+		t.set_loops(step_loop)
 	# Usamos count_frame - 1 porque los índices van de 0 a (count_frame - 1)
 	t.tween_method(func (i: int) -> void:
 		var x: float = i % width
@@ -97,3 +98,4 @@ func region_animation(
 				r_h
 			)
 	, 0, count_frame - 1, speed)
+	return t

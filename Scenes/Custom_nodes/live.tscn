@@ -29,7 +29,6 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(38, 29)
 size_flags_horizontal = 0
-metadata/_edit_lock_ = true
 
 [node name="Control2" type="Control" parent="." unique_id=925955116]
 layout_mode = 2
@@ -48,7 +47,6 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(38, 29)
 size_flags_horizontal = 3
-metadata/_edit_lock_ = true
 
 [node name="Control3" type="Control" parent="." unique_id=142837914]
 layout_mode = 2
@@ -67,4 +65,3 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(38, 29)
 size_flags_horizontal = 3
-metadata/_edit_lock_ = true

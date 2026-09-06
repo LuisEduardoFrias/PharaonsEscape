@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://drvqwcsfbqrj8"]
+
+[ext_resource type="PackedScene" uid="uid://davlernu1rr6q" path="res://Scenes/Custom_nodes/item.tscn" id="1_wq832"]
+[ext_resource type="Texture2D" uid="uid://c7lcluh6gi3da" path="res://Textures/Sprites/map_decorations.png" id="2_1w6eg"]
+[ext_resource type="Script" uid="uid://jx51jr5d1lem" path="res://Scenes/Custom_nodes/horney_item.gd" id="3_1w6eg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgtg5"]
+atlas = ExtResource("2_1w6eg")
+region = Rect2(384, 225, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_152j0"]
+atlas = ExtResource("2_1w6eg")
+region = Rect2(432, 225, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6mo38"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgtg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_152j0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="horney_item" unique_id=638211655 instance=ExtResource("1_wq832")]
+sprite_frames = SubResource("SpriteFrames_6mo38")
+script = ExtResource("3_1w6eg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

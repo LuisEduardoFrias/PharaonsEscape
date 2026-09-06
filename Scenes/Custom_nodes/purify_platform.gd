@@ -20,7 +20,7 @@ func _ready() -> void:
 
 func _interact(_data: Dictionary) -> void:
 	player._input_physics_off(true)
-	Global.data.player.purified()
+	Global.data.player._purified_horney()
 	player._input_physics_off(false)
 
 

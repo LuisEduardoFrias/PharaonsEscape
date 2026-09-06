@@ -1,4 +1,4 @@
-class_name Horney extends TextureRect
+class_name HorneyNode extends TextureRect
 
 var tw: Tween
 

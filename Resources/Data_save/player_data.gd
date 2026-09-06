@@ -15,7 +15,7 @@ signal restore_horney(index: int, value: int)
 @export var max_live: int = 3
 @export var current_live: int = 3
 @export var save_on: bool = false
-@export var current_horney: Array[Dictionary] = []
+@export var current_horney: Array[Horney] = []
 @export var direction: Player_direction = Player_direction.FRONT
 @export var position: Vector2 = Vector2(0.0, 0.0)
 @export var equipped_skills: Array[SkillsData.SkillsType] = [
@@ -58,7 +58,8 @@ func _add_heart() -> void:
 
 func _add_horney() -> void:
 	if current_horney.size() < 3:
-		current_horney.append( { "is_purified": false, "value": 16 } )
+		current_horney.append(Horney.new())
+		Global.save()
 		add_horney.emit()
 
 
@@ -67,6 +68,7 @@ func _purified_horney() -> void:
 		if current_horney.size() >= i:
 			if not current_horney[i].is_purified:
 				current_horney[i].is_purified = true
+				Global.save()
 				purified_horney.emit(i)
 				break
 
@@ -78,6 +80,7 @@ func _use_horney() -> void:
 		var obj = current_horney[i]
 		if obj.is_purified and obj.value in [8, 16]:
 			obj.value -= 8
+			Global.save()
 			used_horney.emit(i, obj.value == 8)
 			_restore_one_heart()
 			break

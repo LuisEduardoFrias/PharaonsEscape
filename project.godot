@@ -36,11 +36,11 @@ buses/default_bus_layout="uid://bf8rci7ueyb7"
 
 [autoload]
 
-DialogueManager="*uid://c3rodes2l3gxb"
 SaveManager="*uid://d4gdd5pga5l8g"
 Util="*uid://c7cyi5ceuvove"
 SceneLoader="*uid://c6d3nuqxcktte"
 Global="*uid://bik0sbf1d4pq2"
+DialogueManager="*uid://c3rodes2l3gxb"
 
 [display]
 
@@ -53,7 +53,7 @@ window/canvas_textures/default_texture_filter=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/mobile_editor_tools/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/image_viewer/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/mobile_editor_tools/plugin.cfg")
 
 [file_customization]
 

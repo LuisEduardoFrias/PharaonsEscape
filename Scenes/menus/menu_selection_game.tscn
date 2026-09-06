@@ -1026,7 +1026,8 @@ size_flags_vertical = 3
 accessibility_name = "."
 metadata/_edit_lock_ = true
 
-[node name="live2" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer3" unique_id=1033903593 instance=ExtResource("12_dmbx2")]
+[node name="live" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer3" unique_id=1033903593 instance=ExtResource("12_dmbx2")]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1047,6 +1048,7 @@ accessibility_name = "."
 metadata/_edit_lock_ = true
 
 [node name="porions" parent="AspectRatioContainer/bg/Panel/HBoxContainer/TextureRect2/MarginContainer/container/container/VBoxContainer/HBoxContainer4" unique_id=1444989296 instance=ExtResource("13_syxvr")]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

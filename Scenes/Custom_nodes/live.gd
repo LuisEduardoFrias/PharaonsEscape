@@ -11,12 +11,11 @@ func _ready() -> void:
 	Global.data.player.hurt_heart.connect(hurt_heart)
 	Global.data.player.restore_all_heart.connect(restore_all_heart)
 	Global.data.player.retore_one_heart.connect(retore_one_heart)
-	init_live()
+
+	init_live(Global.data.player.current_live)
 
 
-func init_live() -> void:
-	var current_live: int = Global.data.player.current_live
-
+func init_live(current_live: int) -> void:
 	for heart in hearts:
 		heart.scale = Vector2.ZERO
 
@@ -43,6 +42,12 @@ func init_live() -> void:
 			heart._hurt_1()
 		else:
 			heart._hurt_2()
+
+
+
+
+
+
 
 
 func add_heart() -> void:
@@ -94,5 +99,14 @@ func restore_all_heart() -> void:
 func retore_one_heart() -> void:
 	for i in range(hearts.size()):
 		var heart: Heart = hearts[i]
-		if heart.state == Heart.States.STOPPED: heart._defaut_2(); break
-		elif heart.state == Heart.States.MUMMIFIED: heart._defaut_1(); break
+		if Global.data.player.max_live == 3:
+			if heart.state == Heart.States.STOPPED: heart._defaut_2(); break
+		elif Global.data.player.max_live == 4:
+			if i >= 2 and heart.state == Heart.States.MUMMIFIED: heart._defaut_1(); break
+			if heart.state == Heart.States.STOPPED: heart._defaut_2(); break
+		elif Global.data.player.max_live == 5:
+			if i >= 1 and heart.state == Heart.States.MUMMIFIED: heart._defaut_1(); break
+			if heart.state == Heart.States.STOPPED: heart._defaut_2(); break
+		elif Global.data.player.max_live == 6:
+			if i >= 0 and heart.state == Heart.States.MUMMIFIED: heart._defaut_1(); break
+			if heart.state == Heart.States.STOPPED: heart._defaut_2(); break

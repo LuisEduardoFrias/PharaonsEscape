@@ -1,37 +1,32 @@
-[gd_scene format=3 uid="uid://cj0rc5a5p4id0"]
+[gd_scene format=3 uid="uid://dvk6dca8p06ol"]
 
 [ext_resource type="Texture2D" uid="uid://c7lcluh6gi3da" path="res://Textures/Sprites/map_decorations.png" id="1_8c51a"]
+[ext_resource type="PackedScene" uid="uid://davlernu1rr6q" path="res://Scenes/Custom_nodes/item.tscn" id="1_p4awi"]
 [ext_resource type="Script" uid="uid://d3f123s01ujix" path="res://Scenes/Custom_nodes/heart_item.gd" id="2_qnd4p"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qnd4p"]
-atlas = ExtResource("1_8c51a")
-region = Rect2(128, 384, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p4awi"]
-atlas = ExtResource("1_8c51a")
-region = Rect2(160, 384, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fi4jq"]
 atlas = ExtResource("1_8c51a")
-region = Rect2(192, 384, 32, 32)
+region = Rect2(128, 384, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6c7hb"]
 atlas = ExtResource("1_8c51a")
-region = Rect2(224, 384, 32, 32)
+region = Rect2(160, 384, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kj2uw"]
 atlas = ExtResource("1_8c51a")
+region = Rect2(192, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyxnd"]
+atlas = ExtResource("1_8c51a")
+region = Rect2(224, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13g4i"]
+atlas = ExtResource("1_8c51a")
 region = Rect2(256, 384, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_iyxnd"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_wpcd4"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qnd4p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p4awi")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fi4jq")
 }, {
@@ -40,26 +35,26 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kj2uw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyxnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13g4i")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8c51a"]
-radius = 14.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_p4awi"]
+radius = 13.038404
 
-[node name="heart_item" type="AnimatedSprite2D" unique_id=638211655]
-sprite_frames = SubResource("SpriteFrames_iyxnd")
-autoplay = "default"
+[node name="heart_item" unique_id=638211655 instance=ExtResource("1_p4awi")]
+sprite_frames = SubResource("SpriteFrames_wpcd4")
 script = ExtResource("2_qnd4p")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=751702211]
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1445749940]
-shape = SubResource("CircleShape2D_8c51a")
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(751702211) index="0" unique_id=1445749940]
+shape = SubResource("CircleShape2D_p4awi")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

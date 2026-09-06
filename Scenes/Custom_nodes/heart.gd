@@ -10,7 +10,8 @@ func _ready() -> void:
 	texture = texture.duplicate()
 	if material:
 		material = material.duplicate()
-	'''_defaut_1()
+	'''
+	_defaut_1()
 	await Util.timerout(3)
 	_hurt_1()
 	await Util.timerout(5)
@@ -20,7 +21,8 @@ func _ready() -> void:
 	await Util.timerout(5)
 	_hurt_2()
 	await Util.timerout(5)
-	_restore_full()'''
+	_restore_full()
+	'''
 
 
 ## --- ESTADOS DEFAULT (Bucle) ---
@@ -29,26 +31,18 @@ func _ready() -> void:
 func _defaut_1() -> void:
 	_kill_tween()
 	state = States.NORMAL
-	tw = create_tween().set_loops()
-	tw.tween_method(func(i: int) -> void:
-		texture.region = Rect2(128.0 + (32 * i), 384.0, 32.0, 32.0)
-		var val: float = 1.1 if i%2==0 else 1.0
-		scale = Vector2(val, val)
-	, 0, 4, 1.0)
+	tw = create_tween()
 	tw.tween_property(self, "material:shader_parameter/gray_amount", 0.0, 1.0)
+	tw = Util.region_animation(5, 3, 32, 32, self, 5, Vector2(128.0, 384.0), 1.0)
 
 
 # Corazón vendado latiendo
 func _defaut_2() -> void:
 	_kill_tween()
 	state = States.MUMMIFIED
-	tw = create_tween().set_loops()
-	tw.tween_method(func(i: int) -> void:
-		texture.region = Rect2(128.0 + (32 * i), 448.0, 32.0, 32.0)
-		var val: float = 1.1 if i%2==0 else 1.0
-		scale = Vector2(val, val)
-	, 0, 4, 1.0)
+	tw = create_tween()
 	tw.tween_property(self, "material:shader_parameter/gray_amount", 0.0, 1.0)
+	tw = Util.region_animation(5, 3, 32, 32, self, 5, Vector2(128.0, 448.0), 1.0)
 
 
 ## --- ESTADOS DE DAÑO ---
@@ -56,11 +50,7 @@ func _defaut_2() -> void:
 # Primer golpe: Transición a vendado -> Pasa a _defaut_2
 func _hurt_1() -> void:
 	_kill_tween()
-	tw = create_tween()
-	tw.tween_method(func(i: int) -> void:
-		var j: int = 32 if i < 5 else 64
-		texture.region = Rect2(128.0 + (32 * i), 384.0 + j, 32.0, 32.0)
-	, 0, 4, 1.0)
+	tw = Util.region_animation(5, 3, 32, 32, self, 5, Vector2(128.0, 414.0), 1.0, false)
 	tw.tween_callback(_defaut_2)
 
 
@@ -68,11 +58,7 @@ func _hurt_1() -> void:
 func _hurt_2() -> void:
 	_kill_tween()
 	state = States.STOPPED
-	tw = create_tween()
-	tw.tween_method(func(i: int) -> void:
-		texture.region = Rect2(128.0 + (32 * i), 448.0, 32.0, 32.0)
-	, 0, 4, 1.0)
-
+	tw = Util.region_animation(5, 1, 32, 32, self, 5, Vector2(128.0, 448.0), 0.5, false, 1)
 	tw.tween_property(self, "texture:region", Rect2(128.0, 448.0, 32.0, 32.0), 0.0)
 	tw.tween_property(self, "material:shader_parameter/gray_amount", 1.0, 1.0)
 

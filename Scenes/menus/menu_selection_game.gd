@@ -10,7 +10,6 @@ signal changen(path: String)
 @onready var vortex: CanvasLayer = $vortex_transition
 @onready var time: Label = %time
 @onready var bugs: Label = %bugs
-@onready var live: Label = %live
 @onready var level: Label = %level
 @onready var back: TextureButton = $back
 @onready var accept_delete_slot: TextureButton = $AspectRatioContainer/bg/Panel/verify_panel/TextureRect/HBoxContainer/accept_delete_slot
@@ -23,6 +22,9 @@ signal changen(path: String)
 @onready var directional_light: DirectionalLight2D = $directional_light
 @onready var canvas: CanvasModulate = $CanvasModulate
 @onready var anim_verify: AnimationPlayer = $AspectRatioContainer/bg/Panel/verify_panel/ani_verify
+
+@onready var live: Live = %live
+@onready var potion: Potions = %porions
 
 var selected_slot: int = -1:
 	set(val):
@@ -155,8 +157,9 @@ func load_data(id: int) -> void:
 
 		time.text = _format_unix_time(slot.time_gaming)
 		bugs.text = str(slot.bugs)
-		#live.text = str(slot.current_live)
 		level.text = slot.level_name
+		live.init_live(slot.current_live)
+		potion.init_horney(slot.current_potions)
 	else:
 		Global.current_slot = slot
 		await vortex.transition_in(0.4)

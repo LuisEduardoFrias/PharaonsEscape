@@ -1,5 +1,16 @@
 {
   "column_properties": {
+    "res://addons/joy_stick/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0.0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
+      }
+    },
     "res://save_debug_data/slot_1/": {
       "metadata/_custom_type_script": {
         "visibility": 0.0
@@ -13,6 +24,7 @@
     }
   },
   "recent_paths": [
+    "res://addons/joy_stick/",
     "res://save_debug_data/slot_1/"
   ],
   "table_functions": {

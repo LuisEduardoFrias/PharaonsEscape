@@ -1,106 +1,77 @@
-[gd_resource type="Resource" script_class="Data" format=3 uid="uid://duhedhfq74ibc"]
+[gd_resource type="Resource" script_class="Data" format=3]
 
-[ext_resource type="Script" uid="uid://dx0p6qdb3a3w5" path="res://Resources/Data_save/current_level_data.gd" id="1_5jgkc"]
-[ext_resource type="Script" uid="uid://dapxu2f7w8ls4" path="res://Resources/Data_save/items_data.gd" id="2_xogpi"]
-[ext_resource type="Script" uid="uid://bgshouff75jwc" path="res://Resources/Data_save/level1_data.gd" id="3_3vvrr"]
-[ext_resource type="Script" uid="uid://bkrwlc6k0e03x" path="res://Resources/Data_save/level2_data.gd" id="4_gfo5i"]
-[ext_resource type="Script" uid="uid://bdm50lmvu0lab" path="res://Resources/Data_save/level3_data.gd" id="5_5kksw"]
-[ext_resource type="Script" uid="uid://0sleb53qs8dg" path="res://Resources/Data_save/level4_data.gd" id="6_4nyaq"]
-[ext_resource type="Script" uid="uid://c2722fmr6y3xp" path="res://Resources/Data_save/level5_data.gd" id="7_20ak8"]
-[ext_resource type="Script" uid="uid://c86evod0qhgbm" path="res://Resources/Data_save/levels_data.gd" id="8_x1d45"]
-[ext_resource type="Script" uid="uid://dldgoqqatmqt7" path="res://Resources/Data_save/player_data.gd" id="9_20ebd"]
-[ext_resource type="Script" uid="uid://cckso7pcsn4ck" path="res://Resources/Data_save/data.gd" id="10_ffaag"]
-[ext_resource type="Script" uid="uid://c5n8jnutmbi0p" path="res://Resources/Data_save/skills_data.gd" id="11_ilp7p"]
-
-[sub_resource type="Resource" id="Resource_3tdit"]
-script = ExtResource("1_5jgkc")
-level_name = "The Grand Gallery"
-
-[sub_resource type="Resource" id="Resource_abtga"]
-script = ExtResource("2_xogpi")
+[ext_resource type="Script" path="res://Resources/Data_save/current_level_data.gd" id="1_xogpi"]
+[ext_resource type="Script" path="res://Resources/Data_save/items_data.gd" id="2_3vvrr"]
+[ext_resource type="Script" path="res://Resources/Data_save/level1_data.gd" id="3_gfo5i"]
+[ext_resource type="Script" path="res://Resources/Data_save/level2_data.gd" id="4_5kksw"]
+[ext_resource type="Script" path="res://Resources/Data_save/level3_data.gd" id="5_4nyaq"]
+[ext_resource type="Script" path="res://Resources/Data_save/level4_data.gd" id="6_20ak8"]
+[ext_resource type="Script" path="res://Resources/Data_save/level5_data.gd" id="7_x1d45"]
+[ext_resource type="Script" path="res://Resources/Data_save/levels_data.gd" id="8_20ebd"]
+[ext_resource type="Script" path="res://Resources/Data_save/horney.gd" id="9_ffaag"]
+[ext_resource type="Script" path="res://Resources/Data_save/player_data.gd" id="10_ilp7p"]
+[ext_resource type="Script" path="res://Resources/Data_save/data.gd" id="11_3tdit"]
+[ext_resource type="Script" path="res://Resources/Data_save/skills_data.gd" id="12_abtga"]
 
 [sub_resource type="Resource" id="Resource_unl8j"]
-script = ExtResource("3_3vvrr")
+script = ExtResource("1_xogpi")
+level_name = "The Grand Gallery"
 
 [sub_resource type="Resource" id="Resource_q7suk"]
-script = ExtResource("4_gfo5i")
+script = ExtResource("2_3vvrr")
 
 [sub_resource type="Resource" id="Resource_lymtr"]
-script = ExtResource("5_5kksw")
-doors = {
-"level_3_section_1_mechanical_door": true,
-"level_3_section_1_mechanical_door2": true,
-"level_3_section_1_mechanical_door3": false,
-"level_3_section_1_mechanical_door4": false,
-"level_3_section_2_double_mechanical_door": false,
-"level_3_section_2_double_mechanical_door2": false,
-"level_3_section_2_escalator": true,
-"level_3_section_2_escalator2": true,
-"level_3_section_2_mechanical_door": true,
-"level_3_section_2_mechanical_door2": false,
-"level_3_section_3_mechanical_door": false,
-"level_3_section_3_mechanical_door2": false,
-"level_3_section_3_mechanical_door3": false,
-"level_3_section_3_mechanical_door4": false,
-"level_3_section_3_mechanical_door5": false,
-"level_3_section_3_mechanical_door6": false,
-"level_3_section_3_mechanical_door7": false,
-"level_3_section_3_mechanical_door8": false
-}
+script = ExtResource("3_gfo5i")
 
 [sub_resource type="Resource" id="Resource_qamee"]
-script = ExtResource("6_4nyaq")
+script = ExtResource("4_5kksw")
 
 [sub_resource type="Resource" id="Resource_sjx8d"]
-script = ExtResource("7_20ak8")
+script = ExtResource("5_4nyaq")
 
 [sub_resource type="Resource" id="Resource_ptbla"]
-script = ExtResource("8_x1d45")
-level1 = SubResource("Resource_unl8j")
-level2 = SubResource("Resource_q7suk")
-level3 = SubResource("Resource_lymtr")
-level4 = SubResource("Resource_qamee")
-level5 = SubResource("Resource_sjx8d")
+script = ExtResource("6_20ak8")
 
-[sub_resource type="Resource" id="Resource_5jgkc"]
-script = ExtResource("9_20ebd")
-max_live = 4
-current_live = 1
-save_on = true
-current_horney = Array[Dictionary]([{
-"points": 16,
-"purified": true
-}, {
-"points": 16,
-"purified": true
-}, {
-"points": 16,
-"purified": false
-}])
-position = Vector2(2143, 1766)
-equipped_skills = Array[int]([2, 0, 0])
+[sub_resource type="Resource" id="Resource_i08hb"]
+script = ExtResource("7_x1d45")
 
 [sub_resource type="Resource" id="Resource_s2dlk"]
-script = ExtResource("11_ilp7p")
-unlocked_skills = Dictionary[int, bool]({
-1: true,
-2: true,
-3: false,
-4: false,
-5: false,
-6: false,
-7: false,
-8: false,
-9: false,
-10: false,
-11: false
-})
+script = ExtResource("8_20ebd")
+level1 = SubResource("Resource_lymtr")
+level2 = SubResource("Resource_qamee")
+level3 = SubResource("Resource_sjx8d")
+level4 = SubResource("Resource_ptbla")
+level5 = SubResource("Resource_i08hb")
+
+[sub_resource type="Resource" id="Resource_xogpi"]
+script = ExtResource("9_ffaag")
+is_purified = true
+value = 0
+
+[sub_resource type="Resource" id="Resource_3vvrr"]
+script = ExtResource("9_ffaag")
+is_purified = true
+value = 0
+
+[sub_resource type="Resource" id="Resource_gfo5i"]
+script = ExtResource("9_ffaag")
+is_purified = true
+value = 0
+
+[sub_resource type="Resource" id="Resource_4pvhe"]
+script = ExtResource("10_ilp7p")
+max_live = 6
+current_live = 5
+current_horney = Array[ExtResource("9_ffaag")]([SubResource("Resource_xogpi"), SubResource("Resource_3vvrr"), SubResource("Resource_gfo5i")])
+position = Vector2(2143, 1976)
+
+[sub_resource type="Resource" id="Resource_am1cy"]
+script = ExtResource("12_abtga")
 
 [resource]
-script = ExtResource("10_ffaag")
-is_initial = false
-items = SubResource("Resource_abtga")
-current_level = SubResource("Resource_3tdit")
-player = SubResource("Resource_5jgkc")
-skills = SubResource("Resource_s2dlk")
-levels = SubResource("Resource_ptbla")
+script = ExtResource("11_3tdit")
+items = SubResource("Resource_q7suk")
+current_level = SubResource("Resource_unl8j")
+player = SubResource("Resource_4pvhe")
+skills = SubResource("Resource_am1cy")
+levels = SubResource("Resource_s2dlk")

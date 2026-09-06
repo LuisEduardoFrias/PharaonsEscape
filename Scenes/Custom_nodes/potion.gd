@@ -1,6 +1,6 @@
 class_name Potions extends HBoxContainer
 
-@onready var horneys: Array[Horney] = [
+@onready var horneys: Array[HorneyNode] = [
 	$Control/horney,
 	$Control2/horney2,
 	$Control3/horney3]
@@ -12,12 +12,10 @@ func _ready() -> void:
 	Global.data.player.purified_horney.connect(purified_horney)
 	Global.data.player.restore_horney.connect(restore_horney)
 
-	init_horney()
+	init_horney(Global.data.player.current_horney)
 
 
-func init_horney() -> void:
-	var horney_data: Array = Global.data.player.current_horney
-
+func init_horney(horney_data: Array[Horney]) -> void:
 	for horney in horneys:
 		horney.scale = Vector2.ZERO
 
@@ -25,8 +23,8 @@ func init_horney() -> void:
 		return
 
 	for i in range(min(horney_data.size(), horneys.size())):
-		var horney: Horney = horneys[i]
-		var data: Dictionary = horney_data[i]
+		var horney: HorneyNode = horneys[i]
+		var data: Horney = horney_data[i]
 
 		var is_purified: bool = data.is_purified
 		var pts: int = data.value
@@ -45,7 +43,7 @@ func init_horney() -> void:
 
 	var tw: Tween = create_tween().set_parallel(true)
 	for i in range(min(horney_data.size(), horneys.size())):
-		var horney: Horney = horneys[i]
+		var horney: HorneyNode = horneys[i]
 		var delay: float = i * 0.2
 
 		tw.tween_property(horney, ^"scale", Vector2.ONE, 1.5)\
@@ -63,8 +61,8 @@ func add_horney() -> void:
 	if new_index >= horneys.size():
 		return
 
-	var horney: Horney = horneys[new_index]
-	var data: Dictionary = horney_data[new_index]
+	var horney: HorneyNode = horneys[new_index]
+	var data: Horney = horney_data[new_index]
 
 	var is_purified: bool = data.is_purified
 	var pts: int = data.value
@@ -103,11 +101,11 @@ func _input(event: InputEvent) -> void:
 
 
 ## Función auxiliar que organiza los datos de menor a mayor contenido (Izquierda -> Derecha)
-func _sort_horney_data_left_to_right(horney_data: Array) -> void:
+func _sort_horney_data_left_to_right(horney_data: Array[Horney]) -> void:
 	for i in range(horney_data.size()):
 		for j in range(i + 1, horney_data.size()):
-			if horney_data[i]["points"] > horney_data[j]["points"]:
-				var temp: Dictionary = horney_data[i]
+			if horney_data[i].value > horney_data[j].value:
+				var temp: Horney = horney_data[i]
 				horney_data[i] = horney_data[j]
 				horney_data[j] = temp
 
@@ -120,19 +118,19 @@ func update_horney_ui() -> void:
 		if i >= horney_data.size():
 			break
 
-		var data: Dictionary = horney_data[i]
-		var horney_node: Horney = horneys[i]
+		var data: Horney = horney_data[i]
+		var horney_node: HorneyNode = horneys[i]
 
-		if not data.get("purified", false):
+		if not data.is_purified:
 			horney_node._defaut_1()
 			continue
 
 		horney_node.modulate = Color("white")
 
-		match data["points"]:
+		match data.value:
 			15: horney_node._defaut_2()
 			7: horney_node._defaut_3()
 			0: horney_node._set_empty()
 			_:
 				horney_node._kill_tween()
-				horney_node._set_frame_by_index(15 - data["points"])
+				horney_node._set_frame_by_index(15 - data.value)
