@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://dblimhckiptpc"]
+
+[ext_resource type="Script" uid="uid://csdsagd7oqle6" path="res://addons/logo.gd" id="1_kiwo7"]
+[ext_resource type="Texture2D" uid="uid://bipx60xm5f11d" path="res://addons/control.png" id="1_pv1jh"]
+[ext_resource type="FontFile" uid="uid://cja5ghttkco6k" path="res://addons/alfabeto (1).png" id="3_gs734"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kiwo7"]
+atlas = ExtResource("1_pv1jh")
+region = Rect2(0, 0, 850, 550)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gs734"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0.3882353, 0.79607844, 0.3019608)
+skew = Vector2(1, 0)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.88235295, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_bottom_right = 10
+corner_detail = 20
+anti_aliasing_size = 6.0
+
+[node name="Control" type="Control" unique_id=239951071]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kiwo7")
+metadata/_edit_lock_ = true
+metadata/_edit_horizontal_guides_ = [-66.0]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=855814757]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="control" type="TextureRect" parent="." unique_id=320686749]
+custom_minimum_size = Vector2(425, 275)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1140.0
+offset_top = -260.0
+offset_right = -715.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_kiwo7")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="pt" type="Panel" parent="." unique_id=78027430]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1440.0
+offset_top = 77.79199
+offset_right = -740.0
+offset_bottom = 87.79199
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gs734")
+metadata/_edit_lock_ = true
+
+[node name="title" type="Label" parent="." unique_id=1407627365]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = 40.0
+offset_right = 320.0
+offset_bottom = 101.09094
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_gs734")
+theme_override_font_sizes/font_size = 64
+text = "Ghost Hive"
+visible_characters = 0
+visible_ratio = 0.0
+metadata/_edit_lock_ = true
+
+[node name="pst" type="Panel" parent="." unique_id=1383122444]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1140.0
+offset_top = 170.513
+offset_right = -790.0
+offset_bottom = 180.513
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gs734")
+metadata/_edit_lock_ = true
+
+[node name="sub" type="Label" parent="." unique_id=1302623533]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = 140.0
+offset_right = 106.0
+offset_bottom = 190.59088
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_gs734")
+theme_override_font_sizes/font_size = 53
+text = "Game"
+visible_characters = 0
+visible_ratio = 0.0
+metadata/_edit_lock_ = true

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://d4d0tdn0egmsv"]
+
+[ext_resource type="Texture2D" uid="uid://cl4usip1lvb8g" path="res://Textures/Ui/Menu_pause/select_menu_pouse.png" id="1_hexgk"]
+[ext_resource type="Texture2D" uid="uid://drksxe3i1xl45" path="res://Textures/Ui/Menu_pause/select_menu_pouse_0.png" id="2_tfuga"]
+[ext_resource type="Script" uid="uid://b1x7hotj12a21" path="res://Scenes/Custom_nodes/pause_btn.gd" id="3_estp4"]
+[ext_resource type="Theme" uid="uid://c2kmjbs5p0vke" path="res://Resources/theme.tres" id="3_tfuga"]
+
+[node name="pause_btn" type="TextureButton" unique_id=169815618]
+size_flags_horizontal = 4
+accessibility_name = "."
+texture_normal = ExtResource("2_tfuga")
+texture_pressed = ExtResource("1_hexgk")
+texture_hover = ExtResource("1_hexgk")
+texture_focused = ExtResource("1_hexgk")
+script = ExtResource("3_estp4")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1242201908]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 6
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1752071845]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.0
+accessibility_name = "."
+theme = ExtResource("3_tfuga")
+theme_override_font_sizes/font_size = 20
+text = "Button"
+horizontal_alignment = 1
+vertical_alignment = 2

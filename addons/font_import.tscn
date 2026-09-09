@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b0tr1ucxyryr4"]
+
+[ext_resource type="Script" uid="uid://0gm2wlyjmjog" path="res://addons/font_import.gd" id="1_7oow2"]
+
+[node name="font_import" type="Node" unique_id=810703460]
+script = ExtResource("1_7oow2")
+path = "uid://cv356omemdg32"

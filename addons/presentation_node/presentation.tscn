@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://baq5kidbvol2n"]
+
+[ext_resource type="Script" uid="uid://mcy805ug155k" path="res://presentation_node/presentation.gd" id="1_dledl"]
+[ext_resource type="Texture2D" uid="uid://dr7hk142kaw1i" path="res://presentation_node/icon-godot-sheet.png" id="1_uaoyh"]
+[ext_resource type="VideoStream" uid="uid://crwttfbq1upfb" path="res://presentation_node/logo_team.ogv" id="2_trqu6"]
+[ext_resource type="PackedScene" uid="uid://c724gs0ue1y42" path="res://escenas/main_menu.tscn" id="2_wac3q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trqu6"]
+atlas = ExtResource("1_uaoyh")
+region = Rect2(0, 0, 155, 174)
+
+[sub_resource type="Animation" id="Animation_dledl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 155, 174)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_11qs2"]
+resource_name = "show-godot"
+length = 2.0000143
+step = 0.14285715
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.71428573, 1, 1.2857143, 1.5714285, 1.8571428, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 155, 174), Rect2(155, 0, 155, 174), Rect2(310, 0, 155, 174), Rect2(0, 174, 155, 174), Rect2(155, 174, 155, 174), Rect2(310, 174, 155, 174), Rect2(0, 348, 155, 174)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 1, -0.023809526, -0.083333336, 0, 0, 1.5, -0.023809526, -0.083333336, 0, 0),
+"times": PackedFloat32Array(0, 0.14285715, 0.2857143)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 1, -0.023809526, -0.083333336, 0, 0, 1.5, -0.023809526, -0.083333336, 0, 0),
+"times": PackedFloat32Array(0, 0.14285715, 0.2857143)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pn341"]
+_data = {
+&"RESET": SubResource("Animation_dledl"),
+&"show-godot": SubResource("Animation_11qs2")
+}
+
+[node name="Presentarion" type="Control" unique_id=1179412303]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dledl")
+Scene = ExtResource("2_wac3q")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1594753652]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.039215688, 1)
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=198331537]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.5
+offset_top = -87.0
+offset_right = 77.5
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(77.5, 87)
+texture = SubResource("AtlasTexture_trqu6")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect" unique_id=1545386451]
+libraries/ = SubResource("AnimationLibrary_pn341")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1740851105]
+custom_minimum_size = Vector2(720, 405)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -202.5
+offset_right = 360.0
+offset_bottom = 202.5
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_trqu6")
+autoplay = true
+expand = true
+metadata/_edit_lock_ = true

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d4fdac4rukx35"]
+
+[ext_resource type="Texture2D" uid="uid://bfrjfgn6curla" path="res://Textures/Ui/Menu_pause/menu_pouse.png" id="1_48udc"]
+
+[node name="Inventory" type="Control" unique_id=926077834]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+accessibility_name = "Inventory"
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=336527706]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+texture = ExtResource("1_48udc")

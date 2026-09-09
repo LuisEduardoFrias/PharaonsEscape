@@ -27,6 +27,11 @@ signal changen(path: String)
 @onready var other_roll: Panel = %other_roll
 @onready var title: Label = %title
 
+@onready var controls: MarginContainer = $controls
+@onready var settings: MarginContainer = $setrings
+@onready var extras: MarginContainer = $extras
+
+
 enum Option { CONTROLS, AUDIOS , EXTRAS }
 
 var timer: float = 0.0
@@ -36,9 +41,9 @@ var options: Option = Option.CONTROLS:
 	set(val):
 		options = val
 		match val:
-			Option.CONTROLS: %controls.visible = true;  %settings.visible = false; %extras.visible = false
-			Option.AUDIOS: %settings.visible = true;  %extras.visible = false; %controls.visible = false
-			Option.EXTRAS: %extras.visible = true;  %controls.visible = false; %settings.visible = false
+			Option.CONTROLS: controls.visible = true;  settings.visible = false; extras.visible = false
+			Option.AUDIOS: settings.visible = true;  extras.visible = false; controls.visible = false
+			Option.EXTRAS: extras.visible = true;  controls.visible = false; settings.visible = false
 
 
 func _ready() -> void:

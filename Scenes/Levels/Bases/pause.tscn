@@ -1,0 +1,359 @@
+[gd_scene format=3 uid="uid://cetbrft4obajh"]
+
+[ext_resource type="Script" uid="uid://dgukajntbh8qq" path="res://Scenes/Levels/Bases/pause.gd" id="1_15v6j"]
+[ext_resource type="Texture2D" uid="uid://dj6bxy0v87n0m" path="res://Textures/Ui/Menu_pause/word2.png" id="1_y2wvn"]
+[ext_resource type="PackedScene" uid="uid://d4d0tdn0egmsv" path="res://Scenes/Custom_nodes/pause_btn.tscn" id="2_15v6j"]
+[ext_resource type="Texture2D" uid="uid://bfrjfgn6curla" path="res://Textures/Ui/Menu_pause/menu_pouse.png" id="4_d85ve"]
+[ext_resource type="Theme" uid="uid://c2kmjbs5p0vke" path="res://Resources/theme.tres" id="5_vv8wi"]
+[ext_resource type="Texture2D" uid="uid://pp41b1jhb26i" path="res://Textures/Ui/main_menu/cenefas.png" id="6_afh31"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy4sb"]
+atlas = ExtResource("6_afh31")
+region = Rect2(0, 455, 40, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmhgy"]
+atlas = ExtResource("6_afh31")
+region = Rect2(0, 420, 40, 35)
+
+[node name="Pause" type="Control" unique_id=664061741]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+accessibility_name = "Pause"
+script = ExtResource("1_15v6j")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=1566256189]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=1838833198]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -190.0
+offset_right = 150.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+texture = ExtResource("1_y2wvn")
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/TextureRect" unique_id=173343336]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/TextureRect/MarginContainer" unique_id=2037767501]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+accessibility_name = "."
+theme_override_constants/separation = 20
+metadata/_edit_lock_ = true
+
+[node name="continuous" parent="Panel/TextureRect/MarginContainer/VBoxContainer" unique_id=169815618 instance=ExtResource("2_15v6j")]
+layout_mode = 2
+text = "Continuous"
+metadata/_edit_lock_ = true
+
+[node name="options" parent="Panel/TextureRect/MarginContainer/VBoxContainer" unique_id=672077476 instance=ExtResource("2_15v6j")]
+layout_mode = 2
+text = "Options"
+metadata/_edit_lock_ = true
+
+[node name="save_game" parent="Panel/TextureRect/MarginContainer/VBoxContainer" unique_id=1860736433 instance=ExtResource("2_15v6j")]
+layout_mode = 2
+text = "Save Game"
+metadata/_edit_lock_ = true
+
+[node name="exit_game" parent="Panel/TextureRect/MarginContainer/VBoxContainer" unique_id=40177571 instance=ExtResource("2_15v6j")]
+layout_mode = 2
+text = "Exit game"
+metadata/_edit_lock_ = true
+
+[node name="settings" type="TextureRect" parent="Panel" unique_id=950256860]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+texture = ExtResource("4_d85ve")
+metadata/_edit_lock_ = true
+
+[node name="Margin" type="MarginContainer" parent="Panel/settings" unique_id=544761081]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/margin_left = 270
+theme_override_constants/margin_top = 140
+theme_override_constants/margin_right = 270
+theme_override_constants/margin_bottom = 140
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="Panel/settings/Margin" unique_id=289734179]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+mouse_filter = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Panel/settings/Margin/Panel" unique_id=1072705599]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -218.547
+offset_top = -7.0
+offset_right = 180.45325
+offset_bottom = 44.0
+grow_horizontal = 2
+accessibility_name = "."
+theme = ExtResource("5_vv8wi")
+theme_override_font_sizes/font_size = 50
+text = "configuraciones"
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/settings/Margin/Panel" unique_id=1088165862]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 70
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/settings/Margin/Panel/MarginContainer" unique_id=1187589711]
+layout_mode = 2
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/separation = 20
+metadata/_edit_lock_ = true
+
+[node name="audio" type="Panel" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer" unique_id=1144638397]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer/audio" unique_id=132308822]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_vertical = 6
+accessibility_name = "."
+theme = ExtResource("5_vv8wi")
+text = "Audio"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer/audio" unique_id=358433608]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/margin_top = 40
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer/audio/MarginContainer" unique_id=1538847419]
+layout_mode = 2
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/separation = 0
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer" unique_id=894983368]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/separation = 10
+metadata/_edit_lock_ = true
+
+[node name="checkbox_melody" type="CheckBox" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer/HBoxContainer" unique_id=969682752]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.5
+accessibility_name = "."
+theme = ExtResource("5_vv8wi")
+icon = SubResource("AtlasTexture_yy4sb")
+flat = true
+icon_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer/HBoxContainer" unique_id=981588913]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+accessibility_name = "."
+theme = ExtResource("5_vv8wi")
+text = "Melodia - on"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="hslider_melody" type="HSlider" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer" unique_id=1014138432]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+accessibility_name = "."
+theme = ExtResource("5_vv8wi")
+value = 50.0
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer" unique_id=1416470818]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/separation = 10
+metadata/_edit_lock_ = true
+
+[node name="checkbox_audio" type="CheckBox" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1835021724]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.5
+accessibility_name = "."
+theme = ExtResource("5_vv8wi")
+icon = SubResource("AtlasTexture_tmhgy")
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1103526228]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+accessibility_name = "."
+theme = ExtResource("5_vv8wi")
+text = "Audio - on"
+metadata/_edit_lock_ = true
+
+[node name="hslider_audio" type="HSlider" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer" unique_id=582752167]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 11.6
+accessibility_name = "."
+theme = ExtResource("5_vv8wi")
+metadata/_edit_lock_ = true
+
+[node name="language" type="Panel" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer" unique_id=212017176]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer/language" unique_id=1975807565]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_vertical = 6
+accessibility_name = "."
+theme = ExtResource("5_vv8wi")
+text = "Idioma"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer/language" unique_id=1832768877]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/margin_top = 40
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer/language/MarginContainer" unique_id=1002156029]
+layout_mode = 2
+mouse_filter = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="languaje" type="OptionButton" parent="Panel/settings/Margin/Panel/MarginContainer/HBoxContainer/language/MarginContainer/VBoxContainer" unique_id=1626716670]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+accessibility_name = "."
+theme = ExtResource("5_vv8wi")
+item_count = 2
+popup/item_0/text = "Español"
+popup/item_0/id = 0
+popup/item_1/text = "Ingles"
+popup/item_1/id = 1
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Panel/TextureRect/MarginContainer/VBoxContainer/continuous" to="." method="_on_continuous_pressed"]
+[connection signal="pressed" from="Panel/TextureRect/MarginContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Panel/TextureRect/MarginContainer/VBoxContainer/save_game" to="." method="_on_save_game_pressed"]
+[connection signal="pressed" from="Panel/TextureRect/MarginContainer/VBoxContainer/exit_game" to="." method="_on_exit_game_pressed"]

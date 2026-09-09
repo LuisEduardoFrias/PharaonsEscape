@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://tkcxscp8bdo8" path="res://Scenes/ui_dev.tscn" id="4_qghhs"]
 [ext_resource type="PackedScene" uid="uid://b308fsddrk8dk" path="res://Scenes/Custom_nodes/hub/skills_selector.tscn" id="5_s25tx"]
 [ext_resource type="PackedScene" uid="uid://b0l8iim3xv2j7" path="res://Scenes/Custom_nodes/container.tscn" id="6_5itfw"]
+[ext_resource type="PackedScene" uid="uid://cetbrft4obajh" path="res://Scenes/Levels/Bases/pause.tscn" id="6_cuacs"]
+[ext_resource type="PackedScene" uid="uid://d4fdac4rukx35" path="res://Scenes/Levels/Bases/inventory.tscn" id="7_pp6rl"]
 
 [node name="world" type="Node2D" unique_id=820486288 groups=["World"]]
 script = ExtResource("1_x0d8c")
@@ -45,6 +47,7 @@ metadata/_edit_lock_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=63627151]
 
 [node name="HUD" type="Control" parent="CanvasLayer" unique_id=1325297689]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,7 +69,6 @@ script = null
 metadata/_edit_lock_ = true
 
 [node name="show_get_items" type="Control" parent="CanvasLayer/HUD" unique_id=1809306783]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,16 +144,6 @@ grow_vertical = 2
 accessibility_name = "."
 metadata/_edit_lock_ = true
 
-[node name="box" type="TextureRect" parent="CanvasLayer/HUD/hub" unique_id=327436885]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_den31")
-metadata/_edit_lock_ = true
-
 [node name="skills_selector" parent="CanvasLayer/HUD/hub" unique_id=1089298137 instance=ExtResource("5_s25tx")]
 layout_mode = 1
 offset_left = -325.0
@@ -160,26 +152,18 @@ offset_bottom = 170.0
 [node name="container" parent="CanvasLayer/HUD/hub" unique_id=1958124661 instance=ExtResource("6_5itfw")]
 layout_mode = 0
 
-[node name="Pause" type="Control" parent="CanvasLayer" unique_id=89536340]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-accessibility_name = "Pause"
-metadata/_edit_lock_ = true
+[node name="Pause" parent="CanvasLayer" unique_id=664061741 instance=ExtResource("6_cuacs")]
 
-[node name="Inventory" type="Control" parent="CanvasLayer" unique_id=619499521]
-layout_mode = 3
+[node name="Inventory" parent="CanvasLayer" unique_id=926077834 instance=ExtResource("7_pp6rl")]
+
+[node name="box" type="TextureRect" parent="CanvasLayer" unique_id=327436885]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-accessibility_name = "Inventory"
+accessibility_name = "."
+texture = ExtResource("4_den31")
 metadata/_edit_lock_ = true
 
 [node name="ui_dev" parent="CanvasLayer" unique_id=232060259 instance=ExtResource("4_qghhs")]

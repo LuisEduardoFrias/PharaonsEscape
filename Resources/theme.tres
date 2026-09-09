@@ -52,6 +52,16 @@ corner_detail = 20
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7cyh1"]
+draw_center = false
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3yln"]
+draw_center = false
+corner_detail = 1
+anti_aliasing = false
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0abbe"]
 bg_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
 border_width_left = 3
@@ -87,9 +97,11 @@ HSlider/icons/grabber = SubResource("GradientTexture2D_luv3h")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ho8mu")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_luv3h")
 HSlider/styles/slider = SubResource("StyleBoxFlat_6hc6j")
-Label/constants/line_spacing = 25
+Label/constants/line_spacing = 0
 Label/constants/outline_size = 8
 Label/font_sizes/font_size = 22
 Label/fonts/font = ExtResource("1_ho8mu")
+Label/styles/focus = SubResource("StyleBoxFlat_7cyh1")
+Label/styles/normal = SubResource("StyleBoxFlat_n3yln")
 OptionButton/styles/normal = SubResource("StyleBoxFlat_0abbe")
 OptionButton/styles/pressed = SubResource("StyleBoxFlat_o2rm2")

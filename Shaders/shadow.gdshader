@@ -1,22 +1,19 @@
 shader_type canvas_item;
 
-uniform vec4 base_color : source_color = vec4(0.0, 0.0, 0.0, 0.6);
-uniform sampler2D noise_texture : repeat_enable;
-uniform vec2 speed = vec2(0.0, 0.05);
-
-// NUEVO: Aquí pasaremos un degradado para suavizar los bordes
-uniform sampler2D mask_texture; 
+uniform vec4 shadow_color : source_color = vec4(0.0, 0.0, 0.0, 0.6);
+uniform vec2 dash_offset = vec2(-0.1, 0.0); // Desplazamiento de la estela
 
 void fragment() {
-    // 1. Leemos el valor alpha de nuestra máscara hecha a mano
-    float mask = texture(mask_texture, UV).a;
+    // 1. Dibuja el píxel original de la textura recortada por el Atlas
+    vec4 main_tex = texture(TEXTURE, UV);
     
-    // 2. Leemos el ruido en movimiento
-    vec2 shifted_uv = UV + TIME * speed;
-    float noise = texture(noise_texture, shifted_uv).r;
+    // 2. Calcula el desplazamiento dentro del RECTANGULO DE LA REGION del Atlas
+    vec2 offset_uv = UV - (dash_offset * REGION_RECT.zw / vec2(textureSize(TEXTURE, 0)));
+    vec4 shadow_tex = texture(TEXTURE, offset_uv);
     
-    // 3. Multiplicamos todo: el borde suave (mask) * las nubes (noise) * la opacidad base
-    float final_alpha = mask * noise * base_color.a;
+    // 3. Aplica la sombra sobre el canal alfa de la silueta recortada
+    vec4 final_shadow = vec4(shadow_color.rgb, shadow_tex.a * shadow_color.a);
     
-    COLOR = vec4(base_color.rgb, final_alpha);
+    // 4. Mezcla la sombra detrás de la imagen principal
+    COLOR = mix(final_shadow, main_tex, main_tex.a);
 }

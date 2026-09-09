@@ -19,12 +19,84 @@
 [ext_resource type="Texture2D" uid="uid://km6ce7tn24a3" path="res://Textures/Ui/main_menu/IMG_20260821_191526.png" id="16_rm1hn"]
 [ext_resource type="Texture2D" uid="uid://pp41b1jhb26i" path="res://Textures/Ui/main_menu/cenefas.png" id="17_rm1hn"]
 [ext_resource type="Texture2D" uid="uid://ck34mjlwbptur" path="res://Textures/Ui/buttons_game.png" id="18_akeed"]
+[ext_resource type="Shader" uid="uid://d2ux1b57shq3m" path="res://Shaders/shaine.gdshader" id="20_yj3ff"]
+[ext_resource type="FontFile" uid="uid://b7boea1jnj8eq" path="res://Resources/Fonts/skandal/Skandal.ttf" id="21_xf5r6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5egv6"]
 shader = ExtResource("6_bf7am")
 shader_parameter/velocidad = 2.0
 shader_parameter/brillo_min = 0.2
 shader_parameter/brillo_max = 2.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xf5r6"]
+shader = ExtResource("20_yj3ff")
+shader_parameter/is_label = true
+shader_parameter/shine_color = Color(1, 1, 0, 0.22352941)
+shader_parameter/shine_speed = 0.20000000298024
+shader_parameter/shine_size = 0.00999999977648
+shader_parameter/shine_softness = 0.15999999642368
+shader_parameter/spacing = 0.5000000074506
+shader_parameter/angle = 0.0
+
+[sub_resource type="Shader" id="Shader_wt8da"]
+code = "shader_type canvas_item;
+
+// OBLIGATORIO: filter_linear_mipmap permite usar LOD reales de la pantalla
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_linear_mipmap;
+
+// Parámetros parametrizables desde el Inspector / GDScript
+uniform float blur_amount : hint_range(0.0, 10.0) = 4.0;
+uniform float lod_level : hint_range(0.0, 5.0) = 2.5;
+uniform vec4 mix_color : source_color = vec4(0.1, 0.1, 0.15, 0.4);
+uniform float color_opacity : hint_range(0.0, 1.0) = 0.6;
+
+void fragment() {
+	vec2 screen_uv = SCREEN_UV;
+	
+	// Si blur_amount es 0, hacemos un muestreo limpio e inmediato
+	if (blur_amount <= 0.01) {
+		COLOR = texture(screen_texture, screen_uv);
+	} else {
+		// Tamaño de texel basado en la resolución de pantalla
+		vec2 texel_size = SCREEN_PIXEL_SIZE * blur_amount;
+		vec4 color_acc = vec4(0.0);
+		float total_weight = 0.0;
+		
+		// Calculamos el nivel de mipmap dinámico según la intensidad requerida
+		float current_lod = mix(0.0, lod_level, clamp(blur_amount / 5.0, 0.0, 1.0));
+
+		// Kernel de dispersión en matriz de 5x5 con pesos aproximados
+		for (float x = -2.0; x <= 2.0; x += 1.0) {
+			for (float y = -2.0; y <= 2.0; y += 1.0) {
+				// Peso gaussiano simplificado por distancia al centro
+				float weight = 1.0 - (length(vec2(x, y)) / 3.0);
+				weight = max(weight, 0.05);
+				
+				vec2 offset = vec2(x, y) * texel_size;
+				
+				// Muestreo usando textureLod aprovechando los mipmaps forzados
+				color_acc += textureLod(screen_texture, screen_uv + offset, current_lod) * weight;
+				total_weight += weight;
+			}
+		}
+
+		// Normalización de color desenfocado
+		vec4 blurred_color = color_acc / total_weight;
+		
+		// Aplicamos tinte de opacidad y color base para lograr el aspecto \"cristal opaco\"
+		vec3 final_rgb = mix(blurred_color.rgb, mix_color.rgb, mix_color.a * color_opacity);
+		
+		COLOR = vec4(final_rgb, 1.0);
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ampt"]
+shader = SubResource("Shader_wt8da")
+shader_parameter/blur_amount = 0.0730000034675
+shader_parameter/lod_level = 0.0
+shader_parameter/mix_color = Color(0.101960786, 0, 0.2784314, 0)
+shader_parameter/color_opacity = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vtepg"]
 atlas = ExtResource("13_guimy")
@@ -366,6 +438,17 @@ texture = ExtResource("7_7ampt")
 stretch_mode = 1
 metadata/_edit_lock_ = true
 
+[node name="Panel2" type="Panel" parent="." unique_id=1980352236]
+self_modulate = Color(18.892157, 18.892157, 18.892157, 0.15686275)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
 [node name="clou0" type="Parallax2D" parent="." unique_id=523211358]
 scroll_scale = Vector2(2, 1)
 repeat_size = Vector2(1280, 0)
@@ -444,6 +527,42 @@ texture = ExtResource("11_w8y6h")
 expand_mode = 1
 metadata/_edit_lock_ = true
 
+[node name="Label" type="RichTextLabel" parent="." unique_id=630318341]
+material = SubResource("ShaderMaterial_xf5r6")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -374.5
+offset_top = 20.0
+offset_right = 374.5
+offset_bottom = 116.0
+grow_horizontal = 2
+accessibility_name = "."
+theme_override_colors/default_color = Color(1, 0.6392157, 0.30980393, 1)
+theme_override_colors/font_outline_color = Color(0.24344552, 0.10810361, 2.4065375e-08, 1)
+theme_override_constants/outline_size = 17
+theme_override_fonts/normal_font = ExtResource("21_xf5r6")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[wave]Pharahon's Escape"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=427186830]
+self_modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_7ampt")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
 [node name="clou2" type="Parallax2D" parent="." unique_id=524626634]
 scroll_scale = Vector2(2, 1)
 repeat_size = Vector2(1280, 0)
@@ -515,6 +634,7 @@ theme_override_constants/margin_left = 80
 theme_override_constants/margin_top = 65
 theme_override_constants/margin_right = 80
 theme_override_constants/margin_bottom = 65
+metadata/_edit_lock_ = true
 
 [node name="Panel" type="Panel" parent="main_roll/MarginContainer" unique_id=1295927009]
 unique_name_in_owner = true
