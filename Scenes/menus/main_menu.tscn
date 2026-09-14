@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://ck34mjlwbptur" path="res://Textures/Ui/buttons_game.png" id="18_akeed"]
 [ext_resource type="Shader" uid="uid://d2ux1b57shq3m" path="res://Shaders/shaine.gdshader" id="20_yj3ff"]
 [ext_resource type="FontFile" uid="uid://b7boea1jnj8eq" path="res://Resources/Fonts/skandal/Skandal.ttf" id="21_xf5r6"]
+[ext_resource type="PackedScene" uid="uid://dhvfg0ce83iml" path="res://Scenes/menus/settings.tscn" id="22_wt8da"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5egv6"]
 shader = ExtResource("6_bf7am")
@@ -330,14 +331,6 @@ region = Rect2(324, 275, 27, 25)
 atlas = ExtResource("18_akeed")
 region = Rect2(324, 200, 27, 25)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wt8da"]
-atlas = ExtResource("17_rm1hn")
-region = Rect2(0, 455, 40, 35)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bf7am"]
-atlas = ExtResource("17_rm1hn")
-region = Rect2(0, 420, 40, 35)
-
 [node name="main_menu" type="Control" unique_id=85314879]
 layout_mode = 3
 anchors_preset = 15
@@ -348,8 +341,6 @@ grow_vertical = 2
 accessibility_name = "."
 script = ExtResource("1_rm1hn")
 metadata/_edit_lock_ = true
-metadata/_edit_vertical_guides_ = [235.0, 1047.0, 625.0, 184.0, 1092.0]
-metadata/_edit_horizontal_guides_ = [526.0, 193.0]
 
 [node name="vortex_transition" parent="." unique_id=629127342 instance=ExtResource("2_34hq2")]
 
@@ -686,137 +677,6 @@ layout_mode = 2
 mouse_filter = 2
 accessibility_name = "."
 theme_override_constants/separation = 10
-metadata/_edit_lock_ = true
-
-[node name="start_btn" type="TextureButton" parent="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/main" unique_id=2027918856]
-visible = false
-use_parent_material = true
-custom_minimum_size = Vector2(160, 35)
-layout_mode = 2
-accessibility_name = "."
-texture_normal = SubResource("AtlasTexture_m3bi6")
-texture_pressed = SubResource("AtlasTexture_wyh8j")
-texture_hover = SubResource("AtlasTexture_ujyyl")
-texture_disabled = SubResource("AtlasTexture_mkpwh")
-texture_focused = SubResource("AtlasTexture_4nkqq")
-ignore_texture_size = true
-stretch_mode = 0
-metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/main/start_btn" unique_id=1046894564]
-use_parent_material = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 3.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-accessibility_name = "."
-theme = ExtResource("15_j4qrq")
-theme_override_font_sizes/font_size = 19
-text = "Inicio"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="options_btn" type="TextureButton" parent="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/main" unique_id=279039589]
-visible = false
-use_parent_material = true
-custom_minimum_size = Vector2(160, 35)
-layout_mode = 2
-accessibility_name = "."
-texture_normal = SubResource("AtlasTexture_m3bi6")
-texture_pressed = SubResource("AtlasTexture_wyh8j")
-texture_hover = SubResource("AtlasTexture_ujyyl")
-texture_disabled = SubResource("AtlasTexture_mkpwh")
-texture_focused = SubResource("AtlasTexture_4nkqq")
-ignore_texture_size = true
-stretch_mode = 0
-metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/main/options_btn" unique_id=870125233]
-use_parent_material = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 3.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-accessibility_name = "."
-theme = ExtResource("15_j4qrq")
-theme_override_font_sizes/font_size = 19
-text = "Opciones"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="extra_btn" type="TextureButton" parent="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/main" unique_id=1429186435]
-visible = false
-use_parent_material = true
-custom_minimum_size = Vector2(160, 35)
-layout_mode = 2
-accessibility_name = "."
-texture_normal = SubResource("AtlasTexture_m3bi6")
-texture_pressed = SubResource("AtlasTexture_wyh8j")
-texture_hover = SubResource("AtlasTexture_ujyyl")
-texture_disabled = SubResource("AtlasTexture_mkpwh")
-texture_focused = SubResource("AtlasTexture_4nkqq")
-ignore_texture_size = true
-stretch_mode = 0
-metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/main/extra_btn" unique_id=1181486485]
-use_parent_material = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 3.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-accessibility_name = "."
-theme = ExtResource("15_j4qrq")
-theme_override_font_sizes/font_size = 19
-text = "Extras"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="exit_btn" type="TextureButton" parent="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/main" unique_id=1625834070]
-visible = false
-use_parent_material = true
-custom_minimum_size = Vector2(160, 35)
-layout_mode = 2
-accessibility_name = "."
-texture_normal = SubResource("AtlasTexture_m3bi6")
-texture_pressed = SubResource("AtlasTexture_wyh8j")
-texture_hover = SubResource("AtlasTexture_ujyyl")
-texture_disabled = SubResource("AtlasTexture_mkpwh")
-texture_focused = SubResource("AtlasTexture_4nkqq")
-ignore_texture_size = true
-stretch_mode = 0
-metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/main/exit_btn" unique_id=236758960]
-use_parent_material = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 3.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-accessibility_name = "."
-theme = ExtResource("15_j4qrq")
-theme_override_font_sizes/font_size = 19
-text = "Salir"
-horizontal_alignment = 1
-vertical_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="start_btn_" parent="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/main" unique_id=1071333461 instance=ExtResource("16_34hq2")]
@@ -1228,62 +1088,9 @@ metadata/_edit_lock_ = true
 [node name="anim2" type="AnimationPlayer" parent="other_roll" unique_id=1091779643]
 libraries/ = SubResource("AnimationLibrary_m3bi6")
 
-[node name="back_control1" type="TextureButton" parent="other_roll" unique_id=1233781388]
-visible = false
-use_parent_material = true
-custom_minimum_size = Vector2(160, 35)
-layout_mode = 0
-offset_left = 277.00003
-offset_top = 545.0
-offset_right = 437.00003
-offset_bottom = 580.0
-scale = Vector2(1.3, 1.3)
-accessibility_name = "."
-texture_normal = SubResource("AtlasTexture_m3bi6")
-texture_pressed = SubResource("AtlasTexture_wyh8j")
-texture_hover = SubResource("AtlasTexture_ujyyl")
-texture_disabled = SubResource("AtlasTexture_mkpwh")
-texture_focused = SubResource("AtlasTexture_4nkqq")
-ignore_texture_size = true
-stretch_mode = 0
-metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="other_roll/back_control1" unique_id=1833204721]
-use_parent_material = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 3.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
-accessibility_name = "."
-theme = ExtResource("15_j4qrq")
-theme_override_font_sizes/font_size = 19
-text = "Volver"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="back_control" parent="other_roll" unique_id=1385722050 instance=ExtResource("16_34hq2")]
-custom_minimum_size = Vector2(160, 35)
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 304.0
-offset_top = -175.0
-offset_right = 464.0
-offset_bottom = -130.0
-grow_vertical = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-text = "volver"
-metadata/_edit_lock_ = true
-
 [node name="controls" type="MarginContainer" parent="other_roll" unique_id=1435025155]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1534,252 +1341,9 @@ theme = ExtResource("15_j4qrq")
 text = "Activar abilidades"
 metadata/_edit_lock_ = true
 
-[node name="settings" type="MarginContainer" parent="other_roll" unique_id=496666662]
+[node name="settings" parent="other_roll" unique_id=1064664509 instance=ExtResource("22_wt8da")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-accessibility_name = "."
-theme_override_constants/margin_left = 270
-theme_override_constants/margin_top = 140
-theme_override_constants/margin_right = 270
-theme_override_constants/margin_bottom = 140
-metadata/_edit_lock_ = true
-
-[node name="Panel" type="Panel" parent="other_roll/settings" unique_id=1877230570]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-mouse_filter = 2
-accessibility_name = "."
-metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="other_roll/settings/Panel" unique_id=330093489]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -218.547
-offset_top = -7.0
-offset_right = 180.45325
-offset_bottom = 44.0
-grow_horizontal = 2
-accessibility_name = "."
-theme = ExtResource("15_j4qrq")
-theme_override_font_sizes/font_size = 50
-text = "configuraciones"
-metadata/_edit_lock_ = true
-
-[node name="MarginContainer" type="MarginContainer" parent="other_roll/settings/Panel" unique_id=1644998562]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-accessibility_name = "."
-theme_override_constants/margin_left = 70
-theme_override_constants/margin_top = 80
-theme_override_constants/margin_right = 70
-metadata/_edit_lock_ = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="other_roll/settings/Panel/MarginContainer" unique_id=1576252915]
-layout_mode = 2
-mouse_filter = 2
-accessibility_name = "."
-theme_override_constants/separation = 20
-metadata/_edit_lock_ = true
-
-[node name="audio" type="Panel" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer" unique_id=981158562]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-accessibility_name = "."
-metadata/_edit_lock_ = true
-
-[node name="Label2" type="Label" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio" unique_id=660809519]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
-size_flags_vertical = 6
-accessibility_name = "."
-theme = ExtResource("15_j4qrq")
-text = "Audio"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="MarginContainer" type="MarginContainer" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio" unique_id=287861340]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-accessibility_name = "."
-theme_override_constants/margin_top = 40
-metadata/_edit_lock_ = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer" unique_id=1612008844]
-layout_mode = 2
-mouse_filter = 2
-accessibility_name = "."
-theme_override_constants/separation = 0
-metadata/_edit_lock_ = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer" unique_id=1043288726]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.3
-mouse_filter = 2
-accessibility_name = "."
-theme_override_constants/separation = 10
-metadata/_edit_lock_ = true
-
-[node name="checkbox_melody" type="CheckBox" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2065227045]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 30)
-layout_direction = 1
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_stretch_ratio = 0.5
-accessibility_name = "."
-theme = ExtResource("15_j4qrq")
-icon = SubResource("AtlasTexture_wt8da")
-flat = true
-icon_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer/HBoxContainer" unique_id=422000191]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-accessibility_name = "."
-theme = ExtResource("15_j4qrq")
-text = "Melodia - on"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="hslider_melody" type="HSlider" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer" unique_id=425194659]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 30)
-layout_direction = 1
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 2
-size_flags_stretch_ratio = 0.0
-accessibility_name = "."
-theme = ExtResource("15_j4qrq")
-value = 50.0
-metadata/_edit_lock_ = true
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer" unique_id=1718687556]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.3
-mouse_filter = 2
-accessibility_name = "."
-theme_override_constants/separation = 10
-metadata/_edit_lock_ = true
-
-[node name="checkbox_audio" type="CheckBox" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=484842302]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 30)
-layout_direction = 1
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.5
-accessibility_name = "."
-theme = ExtResource("15_j4qrq")
-icon = SubResource("AtlasTexture_bf7am")
-metadata/_edit_lock_ = true
-
-[node name="Label2" type="Label" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1530312074]
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 6
-accessibility_name = "."
-theme = ExtResource("15_j4qrq")
-text = "Audio - on"
-metadata/_edit_lock_ = true
-
-[node name="hslider_audio" type="HSlider" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer" unique_id=1612459341]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 30)
-layout_direction = 1
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 2
-size_flags_stretch_ratio = 11.6
-accessibility_name = "."
-theme = ExtResource("15_j4qrq")
-metadata/_edit_lock_ = true
-
-[node name="language" type="Panel" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer" unique_id=217297263]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-accessibility_name = "."
-metadata/_edit_lock_ = true
-
-[node name="Label2" type="Label" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/language" unique_id=634408309]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
-size_flags_vertical = 6
-accessibility_name = "."
-theme = ExtResource("15_j4qrq")
-text = "Idioma"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_lock_ = true
-
-[node name="MarginContainer" type="MarginContainer" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/language" unique_id=337061746]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-accessibility_name = "."
-theme_override_constants/margin_top = 40
-metadata/_edit_lock_ = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/language/MarginContainer" unique_id=497798388]
-layout_mode = 2
-mouse_filter = 2
-accessibility_name = "."
-metadata/_edit_lock_ = true
-
-[node name="languaje" type="OptionButton" parent="other_roll/settings/Panel/MarginContainer/HBoxContainer/language/MarginContainer/VBoxContainer" unique_id=521616501]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-accessibility_name = "."
-theme = ExtResource("15_j4qrq")
-item_count = 2
-popup/item_0/text = "Español"
-popup/item_0/id = 0
-popup/item_1/text = "Ingles"
-popup/item_1/id = 1
-metadata/_edit_lock_ = true
 
 [node name="extras" type="MarginContainer" parent="other_roll" unique_id=538110395]
 unique_name_in_owner = true
@@ -1821,7 +1385,24 @@ theme_override_font_sizes/font_size = 50
 text = "Extras"
 metadata/_edit_lock_ = true
 
+[node name="back_control" parent="other_roll" unique_id=1385722050 instance=ExtResource("16_34hq2")]
+custom_minimum_size = Vector2(160, 35)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 304.0
+offset_top = -176.0
+offset_right = 464.0
+offset_bottom = -131.0
+grow_vertical = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "volver"
+metadata/_edit_lock_ = true
+
 [node name="clou3" type="Parallax2D" parent="." unique_id=1013137548]
+visible = false
 scroll_scale = Vector2(2, 1)
 repeat_size = Vector2(1280, 0)
 autoscroll = Vector2(40, 0)
@@ -1854,10 +1435,6 @@ accessibility_name = "."
 texture = ExtResource("12_lq4yt")
 metadata/_edit_lock_ = true
 
-[connection signal="pressed" from="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/main/start_btn" to="." method="_on_start_btn_pressed"]
-[connection signal="pressed" from="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/main/options_btn" to="." method="_on_options_btn_pressed"]
-[connection signal="pressed" from="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/main/extra_btn" to="." method="_on_extra_btn_pressed"]
-[connection signal="pressed" from="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/main/exit_btn" to="." method="_on_exit_btn_pressed"]
 [connection signal="pressed" from="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/main/start_btn_" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/main/options_btn_" to="." method="_on_options_btn_pressed"]
 [connection signal="pressed" from="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/main/extras_btn_" to="." method="_on_extra_btn_pressed"]
@@ -1868,5 +1445,4 @@ metadata/_edit_lock_ = true
 [connection signal="pressed" from="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/options/controls" to="." method="_on_contros_pressed"]
 [connection signal="pressed" from="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/options/audios" to="." method="_on_audios_pressed"]
 [connection signal="pressed" from="main_roll/MarginContainer/Panel/VBoxContainer/MarginContainer/options/back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="other_roll/back_control1" to="." method="_on_back_control_pressed"]
 [connection signal="pressed" from="other_roll/back_control" to="." method="_on_back_control_pressed"]

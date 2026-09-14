@@ -93,7 +93,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 
-func hurt_post(_damage: float) -> void:
+func hurt_post(_damage: int) -> void:
 	Global.data.player._hurt_heart(_damage)
 
 

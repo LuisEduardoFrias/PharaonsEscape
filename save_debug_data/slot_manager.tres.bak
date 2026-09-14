@@ -7,7 +7,6 @@
 [sub_resource type="Resource" id="Resource_6yvvm"]
 script = ExtResource("3_vgbfs")
 slot_id = 1
-is_slot_empty = false
 data_game_path = "res://save_debug_data/slot_1/game_data.tres"
 level_name = "The Grand Gallery"
 

@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://baq5kidbvol2n"]
 
-[ext_resource type="Script" uid="uid://mcy805ug155k" path="res://presentation_node/presentation.gd" id="1_dledl"]
-[ext_resource type="Texture2D" uid="uid://dr7hk142kaw1i" path="res://presentation_node/icon-godot-sheet.png" id="1_uaoyh"]
-[ext_resource type="VideoStream" uid="uid://crwttfbq1upfb" path="res://presentation_node/logo_team.ogv" id="2_trqu6"]
-[ext_resource type="PackedScene" uid="uid://c724gs0ue1y42" path="res://escenas/main_menu.tscn" id="2_wac3q"]
+[ext_resource type="Script" uid="uid://mcy805ug155k" path="res://addons/presentation_node/presentation.gd" id="1_dledl"]
+[ext_resource type="Texture2D" uid="uid://dr7hk142kaw1i" path="res://addons/presentation_node/icon-godot-sheet.png" id="1_uaoyh"]
+[ext_resource type="VideoStream" uid="uid://crwttfbq1upfb" path="res://addons/presentation_node/logo_team.ogv" id="2_trqu6"]
+
+[sub_resource type="Resource" id="Resource_2x7vy"]
+metadata/__load_path__ = "res://escenas/main_menu.tscn"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_trqu6"]
 atlas = ExtResource("1_uaoyh")
@@ -99,7 +101,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dledl")
-Scene = ExtResource("2_wac3q")
+Scene = SubResource("Resource_2x7vy")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1594753652]
 layout_mode = 1

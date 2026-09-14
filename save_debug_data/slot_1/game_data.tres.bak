@@ -43,27 +43,8 @@ level3 = SubResource("Resource_sjx8d")
 level4 = SubResource("Resource_ptbla")
 level5 = SubResource("Resource_i08hb")
 
-[sub_resource type="Resource" id="Resource_xogpi"]
-script = ExtResource("9_ffaag")
-is_purified = true
-value = 0
-
-[sub_resource type="Resource" id="Resource_3vvrr"]
-script = ExtResource("9_ffaag")
-is_purified = true
-value = 0
-
-[sub_resource type="Resource" id="Resource_gfo5i"]
-script = ExtResource("9_ffaag")
-is_purified = true
-value = 0
-
 [sub_resource type="Resource" id="Resource_4pvhe"]
 script = ExtResource("10_ilp7p")
-max_live = 6
-current_live = 5
-current_horney = Array[ExtResource("9_ffaag")]([SubResource("Resource_xogpi"), SubResource("Resource_3vvrr"), SubResource("Resource_gfo5i")])
-position = Vector2(2143, 1976)
 
 [sub_resource type="Resource" id="Resource_am1cy"]
 script = ExtResource("12_abtga")

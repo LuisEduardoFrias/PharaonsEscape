@@ -6,6 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://c1sbuy7eqtois" path="res://addons/joy_stick/buttons.png" id="4_w7f30"]
 [ext_resource type="Texture2D" uid="uid://c7lcluh6gi3da" path="res://Textures/Sprites/map_decorations.png" id="5_br7i0"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f7ln"]
+atlas = ExtResource("4_w7f30")
+region = Rect2(160, 320, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhc3o"]
+atlas = ExtResource("4_w7f30")
+region = Rect2(200, 320, 40, 40)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_br7i0"]
+load_path = "res://.godot/imported/buttons.png-ab677f8edf6a834a3d1e13a44851fcfa.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_q6vtx"]
 atlas = ExtResource("4_w7f30")
 region = Rect2(160, 0, 40, 40)
@@ -40,11 +51,11 @@ region = Rect2(200, 120, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s12b1"]
 atlas = ExtResource("4_w7f30")
-region = Rect2(352, 224, 48, 48)
+region = Rect2(160, 320, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3wos"]
 atlas = ExtResource("4_w7f30")
-region = Rect2(416, 224, 48, 48)
+region = Rect2(200, 320, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_br7i0"]
 atlas = ExtResource("5_br7i0")
@@ -97,6 +108,24 @@ use_threshold = true
 dpad_vibration = true
 idle_opacity = 0.5
 is_dpad_mode = true
+
+[node name="ToushButton7" parent="hbox_container/left" unique_id=506489471 instance=ExtResource("3_tg4w6")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -138.0
+offset_right = 145.0
+offset_bottom = -18.0
+grow_vertical = 2
+texture_normal = SubResource("AtlasTexture_5f7ln")
+texture_pressed = SubResource("AtlasTexture_xhc3o")
+spritesheet = SubResource("CompressedTexture2D_br7i0")
+normal_rect = Rect2i(160, 320, 40, 40)
+pressed_rect = Rect2i(200, 320, 40, 40)
+action = &"ui_inventory"
+metadata/_edit_lock_ = true
 
 [node name="right" type="Panel" parent="hbox_container" unique_id=1327423901]
 self_modulate = Color(1, 1, 1, 0)

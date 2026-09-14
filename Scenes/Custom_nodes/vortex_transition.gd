@@ -1,4 +1,4 @@
-extends CanvasLayer
+class_name Vortex extends CanvasLayer
 
 var player: Player
 

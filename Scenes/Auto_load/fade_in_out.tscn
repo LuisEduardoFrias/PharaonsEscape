@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://clqr7rkvkt7f2"]
+
+[ext_resource type="Script" uid="uid://d0hmlye06nlvo" path="res://Scenes/Auto_load/fade_in_out.gd" id="1_8dogg"]
+[ext_resource type="Shader" uid="uid://ijkmu58wig6b" path="res://Shaders/fade_in_out(1).gdshader" id="2_6u8av"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ehnm"]
+shader = ExtResource("2_6u8av")
+shader_parameter/progress = 1.0
+shader_parameter/blur_strength = 0.4
+shader_parameter/blur_center = Vector2(0.5, 0.5)
+
+[node name="fade_in_out" type="CanvasLayer" unique_id=265518154]
+process_mode = 3
+layer = 100
+script = ExtResource("1_8dogg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1316545666]
+material = SubResource("ShaderMaterial_2ehnm")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+accessibility_name = "."
+color = Color(0, 0, 0, 1)

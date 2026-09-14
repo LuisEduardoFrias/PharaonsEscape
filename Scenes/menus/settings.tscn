@@ -1,0 +1,258 @@
+[gd_scene format=3 uid="uid://dhvfg0ce83iml"]
+
+[ext_resource type="Theme" uid="uid://c2kmjbs5p0vke" path="res://Resources/theme.tres" id="1_mcomv"]
+[ext_resource type="Script" uid="uid://barswx8n6d70j" path="res://Scenes/menus/settings.gd" id="1_rl7e8"]
+[ext_resource type="Texture2D" uid="uid://pp41b1jhb26i" path="res://Textures/Ui/main_menu/cenefas.png" id="2_rl7e8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt8da"]
+atlas = ExtResource("2_rl7e8")
+region = Rect2(0, 455, 40, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf7am"]
+atlas = ExtResource("2_rl7e8")
+region = Rect2(0, 420, 40, 35)
+
+[node name="settings" type="MarginContainer" unique_id=1064664509]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/margin_left = 270
+theme_override_constants/margin_top = 140
+theme_override_constants/margin_right = 270
+theme_override_constants/margin_bottom = 140
+script = ExtResource("1_rl7e8")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=1220839170]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+mouse_filter = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Panel" unique_id=328889558]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -218.547
+offset_top = -7.0
+offset_right = 180.45325
+offset_bottom = 44.0
+grow_horizontal = 2
+accessibility_name = "."
+theme = ExtResource("1_mcomv")
+theme_override_font_sizes/font_size = 50
+text = "configuraciones"
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=957954971]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 70
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer" unique_id=156585826]
+layout_mode = 2
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/separation = 20
+metadata/_edit_lock_ = true
+
+[node name="audio" type="Panel" parent="Panel/MarginContainer/HBoxContainer" unique_id=1555581530]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="Panel/MarginContainer/HBoxContainer/audio" unique_id=504325883]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_vertical = 6
+accessibility_name = "."
+theme = ExtResource("1_mcomv")
+text = "Audio"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/audio" unique_id=1753193950]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/margin_top = 40
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/audio/MarginContainer" unique_id=476119655]
+layout_mode = 2
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/separation = 0
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer" unique_id=1890181032]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/separation = 10
+metadata/_edit_lock_ = true
+
+[node name="checkbox_melody" type="CheckBox" parent="Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer/HBoxContainer" unique_id=920581160]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.5
+accessibility_name = "."
+theme = ExtResource("1_mcomv")
+icon = SubResource("AtlasTexture_wt8da")
+flat = true
+icon_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer/HBoxContainer" unique_id=609590401]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+accessibility_name = "."
+theme = ExtResource("1_mcomv")
+text = "Melodia - on"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="hslider_melody" type="HSlider" parent="Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer" unique_id=1286003662]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+accessibility_name = "."
+theme = ExtResource("1_mcomv")
+value = 50.0
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer" unique_id=200130552]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/separation = 10
+metadata/_edit_lock_ = true
+
+[node name="checkbox_audio" type="CheckBox" parent="Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1016087814]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.5
+accessibility_name = "."
+theme = ExtResource("1_mcomv")
+icon = SubResource("AtlasTexture_bf7am")
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=746442102]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 6
+accessibility_name = "."
+theme = ExtResource("1_mcomv")
+text = "Audio - on"
+metadata/_edit_lock_ = true
+
+[node name="hslider_audio" type="HSlider" parent="Panel/MarginContainer/HBoxContainer/audio/MarginContainer/VBoxContainer" unique_id=760867432]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 11.6
+accessibility_name = "."
+theme = ExtResource("1_mcomv")
+metadata/_edit_lock_ = true
+
+[node name="language" type="Panel" parent="Panel/MarginContainer/HBoxContainer" unique_id=549959229]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="Panel/MarginContainer/HBoxContainer/language" unique_id=1950850039]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_vertical = 6
+accessibility_name = "."
+theme = ExtResource("1_mcomv")
+text = "Idioma"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/HBoxContainer/language" unique_id=1004495260]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+accessibility_name = "."
+theme_override_constants/margin_top = 40
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/HBoxContainer/language/MarginContainer" unique_id=282277628]
+layout_mode = 2
+mouse_filter = 2
+accessibility_name = "."
+metadata/_edit_lock_ = true
+
+[node name="languaje" type="OptionButton" parent="Panel/MarginContainer/HBoxContainer/language/MarginContainer/VBoxContainer" unique_id=488566216]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+accessibility_name = "."
+theme = ExtResource("1_mcomv")
+item_count = 2
+popup/item_0/text = "Español"
+popup/item_0/id = 0
+popup/item_1/text = "Ingles"
+popup/item_1/id = 1
+metadata/_edit_lock_ = true

@@ -47,7 +47,6 @@ metadata/_edit_lock_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=63627151]
 
 [node name="HUD" type="Control" parent="CanvasLayer" unique_id=1325297689]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -69,6 +68,7 @@ script = null
 metadata/_edit_lock_ = true
 
 [node name="show_get_items" type="Control" parent="CanvasLayer/HUD" unique_id=1809306783]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -153,8 +153,11 @@ offset_bottom = 170.0
 layout_mode = 0
 
 [node name="Pause" parent="CanvasLayer" unique_id=664061741 instance=ExtResource("6_cuacs")]
+visible = false
+modulate = Color(1, 1, 1, 0)
 
 [node name="Inventory" parent="CanvasLayer" unique_id=926077834 instance=ExtResource("7_pp6rl")]
+visible = false
 
 [node name="box" type="TextureRect" parent="CanvasLayer" unique_id=327436885]
 anchors_preset = 15
@@ -162,6 +165,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 accessibility_name = "."
 texture = ExtResource("4_den31")
 metadata/_edit_lock_ = true
@@ -169,3 +173,4 @@ metadata/_edit_lock_ = true
 [node name="ui_dev" parent="CanvasLayer" unique_id=232060259 instance=ExtResource("4_qghhs")]
 
 [node name="vortex_transition" parent="." unique_id=1960505436 instance=ExtResource("4_bytla")]
+visible = false

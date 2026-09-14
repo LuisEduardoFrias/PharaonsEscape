@@ -2,6 +2,7 @@ extends Node2D
 #class_name Util
 
 var section: SectionBase
+var tw: Tween
 
 
 func _ready() -> void:
@@ -55,6 +56,21 @@ func temporarily_switch_camera(camera1: Camera2D, camera2: Camera2D, callback: C
 	camera2.enabled = false
 	camera1.enabled = true
 	await Global.current_scene.change_scene_screen.transition_in()
+
+
+func show_node(node:Node, on: bool = true, time: float = 0.25, set_ease: Tween.EaseType = Tween.EASE_IN_OUT, set_trans: Tween.TransitionType = Tween.TRANS_QUAD) -> Signal:
+	if tw and tw.is_running():
+		tw.kill()
+	tw = create_tween().set_ease(set_ease).set_trans(set_trans)
+	tw.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+
+	if on:
+		node.visible = true
+		tw.tween_property(node, "modulate:a", 1.0, time)
+	else:
+		tw.tween_property(node, "modulate:a", 0.0, time)
+		tw.tween_callback(func(): node.visible = false)
+	return tw.finished
 
 
 ## Anima la región recortada de la textura de un nodo recorriendo una cuadrícula de frames.

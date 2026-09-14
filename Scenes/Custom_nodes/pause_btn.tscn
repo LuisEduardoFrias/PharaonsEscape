@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://drksxe3i1xl45" path="res://Textures/Ui/Menu_pause/select_menu_pouse_0.png" id="2_tfuga"]
 [ext_resource type="Script" uid="uid://b1x7hotj12a21" path="res://Scenes/Custom_nodes/pause_btn.gd" id="3_estp4"]
 [ext_resource type="Theme" uid="uid://c2kmjbs5p0vke" path="res://Resources/theme.tres" id="3_tfuga"]
+[ext_resource type="AudioStream" uid="uid://bbpqoa3k8t4xj" path="res://Audios/menus/audio_btn.wav" id="5_2fmvw"]
 
 [node name="pause_btn" type="TextureButton" unique_id=169815618]
 size_flags_horizontal = 4
@@ -37,3 +38,10 @@ theme_override_font_sizes/font_size = 20
 text = "Button"
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="audio_sfx" type="AudioStreamPlayer2D" parent="." unique_id=1125138465]
+stream = ExtResource("5_2fmvw")
+bus = &"sfx"
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

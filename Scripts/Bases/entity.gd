@@ -11,7 +11,7 @@ signal is_dead()
 # --- Estadísticas de Combate ---
 @export_group("Combat Stats")
 @export var damage: float = 20.0
-@export var max_live: float = 100.0:
+@export var max_live: int = 100:
 	set(val):
 		max_live = val
 		current_live = max_live
@@ -25,9 +25,9 @@ signal is_dead()
 @export var hit_sfx: AudioStream
 
 # --- Variables de Estado Interno ---
-var current_live: float = 0.0:
+var current_live: int = 0:
 	set(val):
-		current_live = clampf(val, 0.0, max_live)
+		current_live = clampi(val, 0, max_live)
 
 var current_direction: Vector2 = Vector2.DOWN
 var old_direction: Vector2 = Vector2.DOWN
@@ -60,7 +60,7 @@ func apply_knockback(attacker_pos: Vector2) -> void:
 
 
 ## Reduce la vida de la entidad, activa el efecto visual de daño y calcula el empuje si aplica.
-func hurt(damage_: float, attacker_pos: Vector2 = Vector2.ZERO) -> void:
+func hurt(damage_: int, attacker_pos: Vector2 = Vector2.ZERO) -> void:
 	current_live -= damage_
 	hurt_post(damage_)
 
@@ -74,7 +74,7 @@ func hurt(damage_: float, attacker_pos: Vector2 = Vector2.ZERO) -> void:
 		dead()
 
 
-func hurt_post(_damage: float) -> void:
+func hurt_post(_damage: int) -> void:
 	pass
 
 
