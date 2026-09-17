@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cau5jmtu4na54"]
 
-[ext_resource type="Script" uid="uid://b41yneja1rk2u" path="res://scenes/custom_nodes/hit_spawner.gd" id="1_ehivi"]
+[ext_resource type="Script" uid="uid://cu4a64o4q6tfk" path="res://scenes/custom_nodes/hit_spawner.gd" id="1_ehivi"]
 
 [node name="hit_spawner" type="Area2D" unique_id=1196485071]
 collision_layer = 0

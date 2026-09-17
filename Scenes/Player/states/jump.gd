@@ -31,7 +31,8 @@ func _move_sprite() -> void:
 	tw.parallel().tween_property(actor.shadow, ^"scale", default_shadow_scale , 0.3)
 
 	tw.tween_callback(func () -> void:
-		change_state.emit(AnimationStateMachine.States.IDLE, {})
+		parent._on_child_transition(AnimationStateMachine.States.IDLE, {})
+		#change_state.emit(AnimationStateMachine.States.IDLE, {})
 		actor.set_collision_mask_value(10, true)
 		actor._input_physics_off(false)
 		actor.is_jumping = false

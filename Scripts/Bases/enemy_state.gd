@@ -1,12 +1,11 @@
-# State.gd
-class_name StateBase extends Node
+class_name EnemyState extends Node
 
 # Esta señal silve para poder cambiar estados desde los mismo estados
-#@warning_ignore("unused_signal")
-#signal change_state(state: AnimationStateMachine.States, data: Dictionary)
+@warning_ignore("unused_signal")
+signal change_state(state: AnimationStateMachine.States, data: Dictionary)
 
-var parent: AnimationStateMachine
-var actor: Entity
+var parent: AnimationEnemyStateMachine
+var actor: EnemyBase
 
 
 func enter(_data: Dictionary = {}) -> void:

@@ -9,7 +9,8 @@ func enter(_data: Dictionary = {}) -> void:
 
 func physics_update(_delta: float) -> void:
 	if actor.current_direction != Vector2.ZERO and not actor.ray.is_colliding():
-		change_state.emit(AnimationStateMachine.States.WALK, {})
+		parent._on_child_transition(AnimationStateMachine.States.WALK, {})
+		#change_state.emit(AnimationStateMachine.States.WALK, {})
 
 
 func input(event: InputEvent) -> void:

@@ -1,14 +1,12 @@
-extends BaseEnemic
+extends Node
 
-@onready var ray : RayCast2D = $raycast
 
-var plugin: PlugingEnemic = null
+var plugin: Node = null
 var walking_time: SceneTreeTimer = null
 var must_rotate: bool = false
 var idle_timer: SceneTreeTimer
 
 func _ready() -> void:
-	super()
 	$sprite.material = $sprite.material.duplicate()
 	set_physics_process(false)
 	speed = 4000

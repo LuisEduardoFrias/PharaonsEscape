@@ -189,8 +189,8 @@ func intermittency(duration: float = 1.0, callback: Callable = Callable()) -> vo
 
 ## Método para interacción con el piso
 func _floor_detected_body_entered(body: Node2D) -> void:
-	print(floor_detected.overlaps_body(tilemap_layer))
-	print(tilemap_layer)
+	#print(floor_detected.overlaps_body(tilemap_layer))
+#	print(tilemap_layer)
 	if body is TileMapLayer and floor_detected.overlaps_body(body):
 		tilemap_layer = body
 

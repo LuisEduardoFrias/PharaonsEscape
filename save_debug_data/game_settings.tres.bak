@@ -4,4 +4,6 @@
 
 [resource]
 script = ExtResource("1_4b6v4")
+melody_vol = 100.0
+sfx_vol = 100.0
 sfx_on = true
